@@ -8,11 +8,11 @@ An open-source collection of spatial UI components, circular carousels, and gest
 
 Building spatial interfaces for AR glasses is an exciting challenge for the entire developer community. When designing futuristic experiences on Spectacles, a few major pain points quickly emerge:
 
-* **Limited Button Customization**: Default SIK and UI Kit buttons are mostly constrained to standard rectangles. `PolygonalButton` was built to upgrade this—extending UIKit's `BaseButton` and SIK `Interactable` so you can create custom procedural polygon shapes, tune corner rounding and border ribbons, assign custom textures/icons, and add smooth hover/press animations.
+* **Limited Button Customization**: Default SIK and UI Kit buttons are mostly constrained to standard rectangles. `PolygonalButton` upgrades this—extending UIKit's `BaseButton` and SIK `Interactable` so you can create custom procedural polygon shapes, tune corner rounding and border ribbons, assign custom textures/icons, and add smooth hover/press animations.
 * **Flexible 3D Carousels**: Supports both **Manual** carousels (for handcrafted sets of any size: 3, 4, 8, 12, etc.) and **Runtime Virtualized** carousels (for dynamic script-fed datasets).
 * **Hand Menu Testing in Desktop Preview**: Positioning hand-attached menus usually involves endless guesswork and constant redeployments to hardware. `HandMenuHelper` provides stable palm coordinate anchors paired with a **Hand Preview Simulator** so you can tune your offsets and thresholds directly inside the Lens Studio desktop preview before pushing to device.
 * **Natural 2-Handed Gestures**: AR glasses free up both hands. This project includes experimental 2-handed interactions—spawning carousels from a closed fist, scrolling with a 2-finger "sword swipe" while pinching to select, and a 4-finger multi-pinch palm bookmarking system.
-* **Ready-to-Use Gesture Hint HUDs**: Short video tutorial HUDs and hint controller scripts to guide users through custom gestures.
+* **Gesture Hint HUDs with Vision Tethering**: Short video tutorial HUDs with a 3-part controller system (video playback, timing animation, and head-vision tethering) to guide users through custom gestures.
 
 ---
 
@@ -31,8 +31,6 @@ Building spatial interfaces for AR glasses is an exciting challenge for the enti
 ---
 
 ## 🏗️ Scene Structure (`Scene.scene`)
-
-When you open `Scene.scene` in Lens Studio, the hierarchy is organized into modular sample roots. You can explore each feature by enabling its parent object while keeping Camera, Lighting, and `SpectaclesInteractionKit` active:
 
 ```
 Scene Hierarchy
@@ -55,60 +53,82 @@ Scene Hierarchy
 
 ## 🧪 Testing & Walkthrough Guide
 
-To get the cleanest experience when testing this project in Lens Studio or on your Spectacles, test each sample section one at a time:
+> [!TIP]
+> **Best Testing Practice**: Test **one sample section at a time** in Lens Studio to keep your view clear and focused. Keep Camera, Lighting, and `SpectaclesInteractionKit` active throughout.
 
-### 1. Explore Button Shapes (`Buttons Frame`)
-* Open the project (`Buttons Frame` is enabled by default).
-* Inspect the child objects under `Buttons Frame Root`—their names describe how each button is set up (e.g. `buttons can have text child`, `different shape presets`, `use textures`, `fit to size`, `animation type defaults`).
-* Notice how text and images are positioned as children of the `PolygonalButton` mesh to fit the button size.
-* When finished exploring, **disable** `Buttons Frame`.
+<br/>
 
-### 2. Test the Carousels (`Carousel Samples`)
-Enable `Carousel Samples`, and test **only one carousel at a time**:
+### 1️⃣ Explore Button Shapes (`Buttons Frame`)
 
-* **Manual Carousel (`Manual Carousel`)**:
-  - Enable `Manual Carousel` (ensure Runtime and Simple Circle are disabled).
-  - Works with **any number of buttons** ($N = 3, 4, 8, 12...$) configured in the scene. `ManualPolygonalCarousel.ts` automatically distributes them evenly along the circle.
-  - Deploy to Spectacles: show your left hand fist to anchor, and use your right hand to poke or drag the cards with momentum and magnetic snapping.
-  - Disable `Manual Carousel`.
+* **What to do**: Open the project (`Buttons Frame` is enabled by default).
+* **Setup to Inspect**: Look at the child objects under `Buttons Frame Root`—their names act as configuration recipes:
+  - `buttons can have text child`
+  - `different shape presets`
+  - `use textures`
+  - `fit to size`
+  - `animation type defaults`
+* **Key Takeaway**: Notice how text and images are nested under `PolygonalButton` to fit the shape. When done, **disable** `Buttons Frame`.
 
-* **Runtime Virtualized Carousel (`Runtime Carousel`)**:
-  - Enable `Runtime Carousel`.
-  - Driven by `VirtualizedPolygonalCarousel.ts` and `RuntimeCarouselExamplePopulator.ts` to dynamically recycle cards for large datasets.
-  - Deploy to Spectacles: form a fist with your left hand (`Carousel Fist GestureApp.ts`), and make a 2-finger "sword gesture" with your right hand (`SwordSwipeScroller.ts`) to roll-scroll around the wheel, then pinch to select.
-  - Disable `Runtime Carousel`.
+---
 
-* **Simple Circle Carousel (`Simple Circle Polygonal Carousel`)**:
-  - Lightweight static circular dial with direct touch physics.
-  - Disable `Carousel Samples` when done.
+### 2️⃣ Test the Carousels (`Carousel Samples`)
 
-### 3. Test the Palm Menu (`Palm Menu`)
-* Ensure `Buttons Frame` and `Carousel Samples` are disabled, then enable `Palm Menu` (works on Left Hand, Right Hand, or Both Hands).
-* Face your palm toward your eyes: buttons appear perched near your fingertips. Bring your thumb to individual fingertips (Index, Middle, Ring, Pinky) to trigger actions.
-* Disable `Palm Menu` when done.
+Enable `Carousel Samples`, and toggle **only one carousel at a time**:
 
-### 4. Test the Hand Menu Helper (`Hand Menu Sample`)
-* Enable `Hand Menu Sample`.
-* **Desktop Preview Testing**:
-  - In `HandMenuHelper` (`HandMenuHelper.ts`), check **`Debug Preview Simulator`** and ensure the reference to `HandPreviewSimulator` is set.
-  - Enable the `HandPreviewSimulator` SceneObject in the hierarchy to display 3D reference hands right inside the Lens Studio desktop preview.
-  - Adjust your position offsets, rotation offsets, and palm facing thresholds visually until the menu aligns where you want.
-* **Testing on Spectacles**:
-  - **Important**: Uncheck `Debug Preview Simulator` and **disable** the `HandPreviewSimulator` SceneObject before deploying to your device so the debug hands don't appear in your view.
-  - Deploy and test with your physical hands.
+#### 🎠 Manual Carousel (`Manual Carousel`)
+* **Features**: Works with **any number of buttons** ($N = 3, 4, 8, 12...$) configured in the scene. `ManualPolygonalCarousel.ts` evenly distributes them on the circle automatically.
+* **Testing**: Form a fist with your left hand to anchor the carousel, and poke or drag cards with your right hand. Supports momentum and magnetic snapping.
 
-### 5. Hint Cards & HUDs (`HINT VISUALS`)
-* Inspect how hint cards are constructed: `Parent Script (Hint Controller)` $\rightarrow$ `Container Plate (PolygonalButton)` $\rightarrow$ `Image (Video Texture)`.
-* `PolygonalButtonHintController.ts` and `Video Player Controller Script.ts` can be duplicated and customized in your own projects to guide users with animated gesture tutorials.
+#### ⚡ Runtime Virtualized Carousel (`Runtime Carousel`)
+* **Features**: Dynamically recycles a small pool of visual cards for large datasets via `VirtualizedPolygonalCarousel.ts`.
+* **Testing**: Form a left-hand fist (`Carousel Fist GestureApp.ts`), and make a 2-finger "sword gesture" with your right hand (`SwordSwipeScroller.ts`) to roll-scroll around the wheel, then pinch to select.
+
+#### ⭕ Simple Circle Carousel (`Simple Circle Polygonal Carousel`)
+* **Features**: Lightweight static circular dial with direct touch physics.
+* Disable `Carousel Samples` when finished.
+
+---
+
+### 3️⃣ Test the Palm Menu (`Palm Menu`)
+
+* **Setup**: Disable other sample roots and enable `Palm Menu` (supports Left, Right, or Both hands).
+* **Testing**: Face your palm toward your eyes: buttons appear perched near your fingertips. Bring your thumb to individual fingertips (Index, Middle, Ring, Pinky) to trigger actions.
+* Disable `Palm Menu` when finished.
+
+---
+
+### 4️⃣ Test the Hand Menu Helper (`Hand Menu Sample`)
+
+* **Setup**: Enable `Hand Menu Sample`.
+
+> [!NOTE]
+> **Desktop Preview Workflow**:
+> 1. In `HandMenuHelper.ts`, check **`Debug Preview Simulator`** (ensure reference to `HandPreviewSimulator` is set).
+> 2. Enable the `HandPreviewSimulator` SceneObject in the hierarchy to view 3D reference hands right inside the desktop preview.
+> 3. Adjust your position offsets, rotation angles, and palm facing thresholds visually.
+
+> [!IMPORTANT]
+> **Deploying to Spectacles**: Uncheck `Debug Preview Simulator` and **disable** the `HandPreviewSimulator` SceneObject before sending to device!
+
+---
+
+### 5️⃣ Hint Cards & Vision-Tethered HUDs (`HINT VISUALS`)
+
+Each tutorial card is built from 3 complementary scripts:
+1. **`UniversalCameraFollowerTS.ts`**: Tethers and billboards the hint card in the user's field of view with angular/distance deadzones.
+2. **`PolygonalButtonHintController.ts`**: Manages timed fade-in delays, hold durations, and fade-outs.
+3. **`Video Player Controller Script.ts`**: Controls video playback rates (`1.5x`, `2.0x`) with speed-compensated looping.
+
+Duplicate and customize these prefabs to teach custom gestures in your own projects!
 
 ---
 
 ## 🛠️ Practical Tuning Tips
 
-* **Carousel Radius**: Set around **`6.0` – `8.0` cm** for hand/fist-anchored carousels. For floating world-space menus, use **`20.0` – `35.0` cm**.
-* **Corner Radius**: Values around **`0.2` – `0.5`** give subtle rounded corners, while higher values produce pill/capsule shapes.
-* **Slot Offset**: Use integer offsets (`-2`, `-1`, `0`, `1`, `2`) to control which card starts at the primary angle in both manual and virtualized carousels.
-* **Palm Facing Threshold**: Adjust `palmFacingThreshold` (**`55°` – `70°`**) depending on whether you want a stricter facing requirement or easier activation.
+* **Carousel Radius**: Use **`6.0` – `8.0` cm** for hand/fist-anchored carousels, or **`20.0` – `35.0` cm** for floating world-space menus.
+* **Corner Radius**: Values around **`0.2` – `0.5`** provide subtle rounded corners.
+* **Slot Offset**: Use integer offsets (`-2`, `-1`, `0`, `1`, `2`) to control which card starts at the primary angle.
+* **Palm Facing Threshold**: Adjust `palmFacingThreshold` (**`55°` – `70°`**) depending on your preferred activation angle.
 
 ---
 
@@ -123,10 +143,10 @@ You can easily extract any button, carousel, or gesture interaction system from 
 3. **Import into Your Project**:
    - Open your target Lens Studio project and drag the exported prefab or `.lspkg` into your Asset panel.
 4. **Ensure Dependencies Are Installed**:
-   - Make sure the following required packages are installed from the Lens Studio **Asset Library**:
-     - **`SpectaclesInteractionKit`** (SIK) — Core hand tracking, ray interactors, and poke/pinch events.
-     - **`SpectaclesUIKit`** — UI base components and themes extended by `PolygonalButton`.
-     - **`SpectaclesShaderLibrary`** — Material shaders used across visual themes.
+   - Install the required packages from the Lens Studio **Asset Library**:
+     - **`SpectaclesInteractionKit`** (SIK) — *Required*: Core hand tracking, ray interactors, and poke/pinch events.
+     - **`SpectaclesUIKit`** — *Required*: UI base components and themes extended by `PolygonalButton`.
+     - **`SpectaclesShaderLibrary`** — *Optional*: Only needed if your customized materials reference specific library shaders.
 5. **Add to Scene & Configure**:
    - Drag the prefab into your scene hierarchy and adjust Inspector properties to fit your experience!
 

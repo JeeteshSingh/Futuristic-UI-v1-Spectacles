@@ -102,6 +102,7 @@ A script-driven carousel designed for large or dynamic datasets where instantiat
 
 ### Core Capabilities:
 * **Modular HUD Construction**: Pre-built hierarchy pattern:
-  `Parent Controller (Script)` $\rightarrow$ `Container Plate (PolygonalButton)` $\rightarrow$ `Image (Video Texture Provider)`.
+  `Parent Tether / Root` $\rightarrow$ `Container Plate (PolygonalButton)` $\rightarrow$ `Image (Video Texture Provider)`.
+* **Head-Vision Tethering (`UniversalCameraFollowerTS.ts`)**: Combines distance thresholds and angular deadzone cones to keep the tutorial HUD floating comfortably within the user's field of view without rigidly sticking to head turns.
 * **Speed-Compensated Looping (`Video Player Controller Script.ts`)**: Plays video textures with custom playback speeds (`1.5x`, `2.0x`) and includes an `UpdateEvent` loop watcher to prevent trailing freeze frames.
-* **Polygonal Button as a HUD Container**: `PolygonalButtonHintController.ts` animates button opacity to create timed tutorial popups (`startDelay`, `afterInDelay`, `outDuration`).
+* **Timed Opacity Animation (`PolygonalButtonHintController.ts`)**: Controls automatic fade-in on start (`startDelay`), hold duration (`afterInDelay`), and fade-out (`outDuration`).
