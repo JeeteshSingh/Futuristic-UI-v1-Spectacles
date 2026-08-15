@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/0395f5e8-4d18-4681-b80a-d4ee4b955106>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 5e5bf612-28c7-4fd7-b120-1daaa88614e1
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 5e5bf612-28c7-4fd7-b120-1daaa88614e1
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 88cc81bc-89d3-49d1-ad93-bff2be6682dc
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/88cc81bc-89d3-49d1-ad93-bff2be6682dc>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e56d4e08-0868-4425-9fbc-3ab844970144
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    controllerDebugText: false
+    enableIndex: false
+    enableMiddle: false
+    enablePinky: false
+    enableRing: false
+    palmMenuApp: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 20eaa327-e518-4db0-9215-c2bd6a22b8dc
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - palmMenuApp: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      enableIndex: true
+      enableMiddle: true
+      enableRing: true
+      enablePinky: true
+      controllerDebugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 13px;\">PalmMenuController</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Controls per-finger button availability and executes custom developer actions on selection.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input Component.ScriptComponent palmMenuApp {"hint":"Drag the SceneObject containing PalmMenuGestureApp here"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Finger Button Configuration</span>"}'
+    - '// @input boolean enableIndex = "true" {"hint":"Enable or disable the Index finger button"}'
+    - '// @input boolean enableMiddle = "true" {"hint":"Enable or disable the Middle finger button"}'
+    - '// @input boolean enableRing = "true" {"hint":"Enable or disable the Ring finger button"}'
+    - '// @input boolean enablePinky = "true" {"hint":"Enable or disable the Pinky finger button"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #34D399; font-weight: bold;\">Developer Action Feedback</span>"}'
+    - '// @input Component.Text controllerDebugText {"hint":"Optional Text component to display which custom finger action was triggered"}'

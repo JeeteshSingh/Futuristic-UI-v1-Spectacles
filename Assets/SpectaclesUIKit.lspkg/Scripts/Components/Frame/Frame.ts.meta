@@ -1,0 +1,154 @@
+- !<AssetImportMetadata/2f2f103d-5cac-1e4f-8bd6-b9a5e0f041ae>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3b46d829-f6db-432a-914c-3551904d3994
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3b46d829-f6db-432a-914c-3551904d3994
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 995e8942-e0f9-4cf1-9bc2-338527b27fcd
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/995e8942-e0f9-4cf1-9bc2-338527b27fcd>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 0b16c156-e110-4918-9240-5a3392c11e0a
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _allowScaling: false
+    _appearance: false
+    _cutOutCenter: false
+    _enableInteractionPlane: false
+    _following: false
+    _innerSize: false
+    _interactionPlaneOffset: false
+    _interactionPlanePadding: false
+    _maximumSize: false
+    _minimumSize: false
+    _onlyInteractOnBorder: false
+    _padding: false
+    _showCloseButton: false
+    _showFollowButton: false
+    _targetingVisual: false
+    allowNonUniformScaling: false
+    allowTranslation: false
+    autoScaleContent: false
+    autoShowHide: false
+    itemSnapping: false
+    relativeZ: false
+    useBillboarding: false
+    useFollowBehavior: false
+    useSnapping: false
+    worldSnapping: false
+    xAlways: false
+    xBufferDegrees: false
+    xOnTranslate: false
+    yAlways: false
+    yBufferDegrees: false
+    yOnTranslate: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - autoShowHide: true
+      _appearance: Large
+      _innerSize: !<Vec2> {x: 32.000000, y: 32.000000}
+      _padding: !<Vec2> {x: 0.000000, y: 0.000000}
+      _allowScaling: true
+      allowNonUniformScaling: false
+      autoScaleContent: true
+      relativeZ: true
+      _onlyInteractOnBorder: false
+      allowTranslation: true
+      _cutOutCenter: false
+      _minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      _maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
+      useBillboarding: true
+      xOnTranslate: true
+      xAlways: false
+      xBufferDegrees: !<float> 0.000000
+      yOnTranslate: true
+      yAlways: false
+      yBufferDegrees: !<float> 0.000000
+      useSnapping: false
+      itemSnapping: false
+      worldSnapping: false
+      _showFollowButton: false
+      useFollowBehavior: false
+      _following: false
+      _showCloseButton: false
+      _enableInteractionPlane: true
+      _interactionPlaneOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      _interactionPlanePadding: !<Vec2> {x: 0.000000, y: 0.000000}
+      _targetingVisual: !<float> 1.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"hint":"Controls the appearance, size, and interaction behavior of the frame.", "widget":"group_start", "label":"Frame Settings"}'
+    - '// @input bool autoShowHide = true {"hint":"When enabled, the frame automatically appears when hovered and hides when not being interacted with. Disable to manually control frame visibility."}'
+    - '// @input string _appearance {"hint":"Preset appearance configurations for the frame. <br><br> <code>Large</code> is useful for <i>far-field</i> interactons. <br><br> While, <code>Small</code> is useful for <i>near-field</i> interactions", "widget":"combobox", "values":[{"label":"Large", "value":"Large"}, {"label":"Small", "value":"Small"}]}'
+    - "// @input vec2 _innerSize = \"{32,32}\" {\"hint\":\"Size of the frames's inner content area. In local space centimeters.\"}"
+    - '// @input vec2 _padding = "{0,0}" {"hint":"Extra padding that maintains a fixed size in centimeters regardless of frame scaling, useful for toolbars and fixed-size UI elements. In local space centimeters."}'
+    - '// @input bool _allowScaling = true {"hint":"Enables interactive scaling of the frame via corner handles."}'
+    - '// @input bool allowNonUniformScaling {"hint":"Allows independent width/height scaling, clamped to min/max sizes.", "showIf":"allowScaling"}'
+    - '// @input bool autoScaleContent = true {"hint":"Automatically scales child content when the frame is resized to maintain proportions."}'
+    - '// @input bool relativeZ = true {"hint":"When enabled, Z-axis scaling of content will match X-axis scaling during frame resizing."}'
+    - '// @input bool _onlyInteractOnBorder {"hint":"When enabled, only the borders are interactive for controlling the frame."}'
+    - '// @input bool allowTranslation = true {"hint":"Enables moving the frame."}'
+    - '// @input bool _cutOutCenter {"hint":"When enabled, creates a transparent center in the frame, allowing content behind the frame to be visible."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"hint":"Sets the minimum and maximum dimensions that the frame can be resized to.", "widget":"group_start", "label":"Min/Max Size"}'
+    - '// @input vec2 _minimumSize = "{10,10}" {"hint":"Minimum dimensions that the frame can be resized to. In local space centimeters."}'
+    - '// @input vec2 _maximumSize = "{150,150}" {"hint":"Maximum dimensions that the frame can be resized to. In local space centimeters."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"hint":"Controls how the frame automatically rotates to face the camera/user.", "widget":"group_start", "label":"Billboarding"}'
+    - '// @input bool useBillboarding = true {"hint":"Enables the frame to automatically rotate to face the camera/user."}'
+    - '// @input bool xOnTranslate = true {"hint":"When enabled, the frame rotates around the X-axis to face the user, but only during movement/translation unless xAlways is also enabled.", "showIf":"useBillboarding"}'
+    - '// @input bool xAlways {"hint":"When enabled, the frame continuously rotates around the X-axis to face the user, regardless of movement.", "showIf":"xOnTranslate"}'
+    - '// @input float xBufferDegrees {"hint":"A buffered degrees on the x-axis before the frame billboards to face the user.", "showIf":"xAlways"}'
+    - '// @input bool yOnTranslate = true {"hint":"When enabled, the frame rotates around the Y-axis to face the user, but only during movement/translation unless yAlways is also enabled.", "showIf":"useBillboarding"}'
+    - '// @input bool yAlways {"hint":"When enabled, the frame continuously rotates around the Y-axis to face the user, regardless of movement.", "showIf":"yOnTranslate"}'
+    - '// @input float yBufferDegrees {"hint":"A buffered degrees on the y-axis before the frame billboards to face the user.", "showIf":"yAlways"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"hint":"Controls how the frame snaps to other frames or world features when moved.", "widget":"group_start", "label":"Snapping"}'
+    - '// @input bool useSnapping {"hint":"Enables frame snapping functionality for automatic alignment to other frames or world features when moved."}'
+    - '// @input bool itemSnapping {"hint":"Enables snapping to other frames when moving.", "showIf":"useSnapping"}'
+    - '// @input bool worldSnapping {"hint":"Enables snapping to physical surfaces in the real-world environment when moving.", "showIf":"useSnapping"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - "// @ui {\"hint\":\"Controls whether the frame automatically follows the user's view when moving around.\", \"widget\":\"group_start\", \"label\":\"Follow Behavior\"}"
+    - '// @input bool _showFollowButton {"hint":"Shows a button that allows users to toggle whether the frame follows their view as they move."}'
+    - "// @input bool useFollowBehavior {\"label\":\"Use Built-In Follow Behavior\", \"hint\":\"When enabled, creates a follow behavior that keeps the frame in front of the user's view.\", \"showIf\":\"_showFollowButton\"}"
+    - '// @input bool _following {"hint":"Turns on the following. If this is set to true, it will begin following the user immediately.", "showIf":"useFollowBehavior"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":""}'
+    - '// @ui {"hint":"Controls whether a close button is displayed in the corner of the frame.", "widget":"group_start", "label":"Close Button"}'
+    - '// @input bool _showCloseButton {"hint":"Shows a button that allows users to close or dismiss the frame."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"hint":"Settings for an interaction plane that extends around the frame.", "widget":"group_start", "label":"Interaction Plane"}'
+    - '// @input bool _enableInteractionPlane = true {"hint":"Enables an Interaction Plane that creates a near-field targeting zone around the frame that improves precision when interacting with buttons and UI elements using hand tracking."}'
+    - '// @input vec3 _interactionPlaneOffset = {0,0,0} {"hint":"Offset position for the interaction plane relative to the frame center.", "showIf":"_enableInteractionPlane"}'
+    - '// @input vec2 _interactionPlanePadding = {0,0} {"hint":"Padding that extends the InteractionPlane size.", "showIf":"_enableInteractionPlane"}'
+    - '// @input float _targetingVisual {"hint":"Sets the preferred targeting visual. (Requires the V2 Cursor to be enabled on InteractorCursors).\n\n- 0: None\n- 1: Cursor (default)\n- 2: Ray", "widget":"combobox", "values":[{"label":"None", "value":0}, {"label":"Cursor", "value":1}, {"label":"Ray", "value":2}], "showIf":"_enableInteractionPlane"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'

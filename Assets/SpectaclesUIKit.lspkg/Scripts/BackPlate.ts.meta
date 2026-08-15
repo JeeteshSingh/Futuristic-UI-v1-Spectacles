@@ -1,0 +1,65 @@
+- !<AssetImportMetadata/1b089ba6-c2ce-4d35-08f4-62d827633836>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> d4f38bdf-89e1-4d28-b8f9-8bbb2b13085f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> d4f38bdf-89e1-4d28-b8f9-8bbb2b13085f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 0f84d843-c791-4670-85e2-229dc5c8f6a7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/0f84d843-c791-4670-85e2-229dc5c8f6a7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: ded977ef-6de0-4827-aa75-2d07e24d59b6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _enableInteractionPlane: false
+    _interactionPlaneOffset: false
+    _interactionPlanePadding: false
+    _renderOrder: false
+    _size: false
+    _style: false
+    _targetingVisual: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - _renderOrder: 0
+      _size: !<Vec2> {x: 10.000000, y: 10.000000}
+      _style: default
+      _enableInteractionPlane: true
+      _interactionPlaneOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      _interactionPlanePadding: !<Vec2> {x: 0.000000, y: 0.000000}
+      _targetingVisual: !<float> 1.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input int _renderOrder
+    - "// @input vec2 _size = {10,10}"
+    - '// @input string _style = "default" {"widget":"combobox", "values":[{"label":"Default", "value":"default"}, {"label":"Dark", "value":"dark"}, {"label":"Simple", "value":"simple"}]}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"hint":"Settings for an interaction plane that extends around the frame.", "widget":"group_start", "label":"Interaction Plane"}'
+    - '// @input bool _enableInteractionPlane = true {"hint":"Enables an Interaction Plane that creates a near-field targeting zone around the frame that improves precision when interacting with buttons and UI elements using hand tracking."}'
+    - '// @input vec3 _interactionPlaneOffset = {0,0,0} {"hint":"Offset position for the interaction plane relative to the frame center.", "showIf":"_enableInteractionPlane"}'
+    - '// @input vec2 _interactionPlanePadding = {0,0} {"hint":"Padding that extends the InteractionPlane size.", "showIf":"_enableInteractionPlane"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @input float _targetingVisual {"hint":"Sets the preferred targeting visual. (Requires the V2 Cursor to be enabled on InteractorCursors).\n\n- 0: None\n- 1: Cursor (default)\n- 2: Ray", "widget":"combobox", "values":[{"label":"None", "value":0}, {"label":"Cursor", "value":1}, {"label":"Ray", "value":2}], "showIf":"_enableInteractionPlane"}'

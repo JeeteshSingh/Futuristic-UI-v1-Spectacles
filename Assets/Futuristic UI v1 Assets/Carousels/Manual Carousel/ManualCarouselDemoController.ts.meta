@@ -1,0 +1,81 @@
+- !<AssetImportMetadata/808612d0-dfb3-407a-8e1b-fc551babef43>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 8e8e4a0e-fdc5-4739-bb6d-ba014e197ac1
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 8e8e4a0e-fdc5-4739-bb6d-ba014e197ac1
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 60eebdf6-f8a3-41e9-bdf7-53c748e4df3e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/60eebdf6-f8a3-41e9-bdf7-53c748e4df3e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 4c1d2862-e233-4bc2-b3a1-a95d2362149b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    animationSpeed: false
+    buttonLabels: false
+    defaultText: false
+    dimmedAlpha: false
+    displayText: false
+    images: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 562c0800-80f8-4ff2-814f-46a3bbbaf9a2
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - displayText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      defaultText: None Selected
+      images: !<reference.Image[]>
+        []
+      dimmedAlpha: 0.200000
+      animationSpeed: !<float> 12.000000
+      buttonLabels: !<string[]>
+        - Feature 1
+        - Feature 2
+        - Feature 3
+        - Feature 4
+        - Feature 5
+        - Feature 6
+        - Feature 7
+        - Feature 8
+        - Feature 9
+        - Feature 10
+        - Feature 11
+        - Feature 12
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">Manual Carousel Demo Controller</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Animates 12 target Image alphas and updates display Text on button press.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Display Target Text</span>"}'
+    - '// @input Component.Text displayText {"hint":"Target Text object to display the name of the selected button"}'
+    - '// @input string defaultText = "None Selected" {"hint":"Default text to show when no button is selected"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">12 Target Image Objects</span>"}'
+    - '// @input Component.Image[] images = {} {"hint":"Array of 12 target Image objects to control alpha"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #10B981; font-weight: bold;\">Alpha Animation Settings</span>"}'
+    - '// @input float dimmedAlpha = "0.2" {"hint":"Alpha value for unselected/dimmed images when one button is selected (0.0 to 1.0)"}'
+    - '// @input float animationSpeed = "12.0" {"hint":"Speed of smooth alpha transition animation"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #EC4899; font-weight: bold;\">Button Labels (12 Items)</span>"}'
+    - '// @input string[] buttonLabels = {"Feature 1","Feature 2","Feature 3","Feature 4","Feature 5","Feature 6","Feature 7","Feature 8","Feature 9","Feature 10","Feature 11","Feature 12"} {"hint":"Custom names/labels for the 12 buttons (e.g. Feature 1, Feature 2...)"}'

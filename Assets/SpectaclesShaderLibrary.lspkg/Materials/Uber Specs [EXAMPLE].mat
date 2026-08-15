@@ -1,0 +1,755 @@
+- !<Material/b64ef1c8-62d9-4cab-8ecb-8d849cd66b18>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> 19eb819f-e1b3-4f18-bd90-6866d822d454
+- !<PassInfo/19eb819f-e1b3-4f18-bd90-6866d822d454>
+  CachedProperties:
+    - Port_BaseColorValue_N007:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_BaseColorValue_N035:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_BaseColorValue_N044:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_BaseColorValue_N045:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_BaseTextureUVSwitch_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_BaseTextureUVSwitch_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_BaseTextureUVSwitch_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_BaseTextureUVSwitch_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Depth_N004:
+        typeIdx: 1
+        value: 1.000000
+    - Port_EmissiveColor_N007:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_EmissiveColor_N035:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_EmissiveColor_N044:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_EmissiveColor_N045:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_EmissiveIntensity_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EmissiveIntensity_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EmissiveIntensity_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EmissiveIntensity_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EmissiveUVSwitch_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EmissiveUVSwitch_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EmissiveUVSwitch_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EmissiveUVSwitch_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableBaseTexture_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableBaseTexture_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableBaseTexture_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableBaseTexture_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableEmissiveTexture_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableEmissiveTexture_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableEmissiveTexture_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableEmissiveTexture_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableMatcapNormalTexture_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableMatcapTexture_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableMatcapTexture_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableMatcapTexture_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableNormal;_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableOpacityTexture_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableOpacityTexture_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableOpacityTexture_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableOpacityTexture_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRecolor_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRecolor_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRecolor_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRecolor_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRimColorTexture_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRimColorTexture_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRimHighlight_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRimHighlight_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRimInvert_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableRimInvert_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableUV2_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableUV2_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableUV2_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableUV2_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableUV3_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableUV3_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableUV3_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_EnableUV3_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Exponent_N043:
+        typeIdx: 1
+        value: 5.000000
+    - Port_FinalColor1_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor2_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor3_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_GSplatPointSize_N004:
+        typeIdx: 1
+        value: 0.000000
+    - Port_GSplatRotation_N004:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    - Port_GSplatScale_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Import_N070:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Import_N072:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Input0_N008:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Input0_N036:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Input1_N008:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Input1_N036:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Input2_N019:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Port_Input2_N031:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Input2_N036:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Intensity_N043:
+        typeIdx: 1
+        value: 1.000000
+    - Port_LODValue_N018:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N025:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LockRollRotationToWorld_N035:
+        typeIdx: 1
+        value: 1.000000
+    - Port_LockRollRotationToWorld_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LockRollRotationToWorld_N045:
+        typeIdx: 1
+        value: 1.000000
+    - Port_MatcapIntensity_N035:
+        typeIdx: 1
+        value: 1.000000
+    - Port_MatcapIntensity_N044:
+        typeIdx: 1
+        value: 1.000000
+    - Port_MatcapIntensity_N045:
+        typeIdx: 1
+        value: 1.000000
+    - Port_MatcapNormalUVSwitch_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_NormalSpace_N035:
+        typeIdx: 1
+        value: 1.000000
+    - Port_NormalSpace_N044:
+        typeIdx: 1
+        value: 1.000000
+    - Port_NormalSpace_N045:
+        typeIdx: 1
+        value: 1.000000
+    - Port_Normal_N035:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Port_Normal_N043:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Port_Normal_N044:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Port_Normal_N045:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Port_OpacityUVSwitch_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_OpacityUVSwitch_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_OpacityUVSwitch_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_OpacityUVSwitch_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Output_N007:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Output_N008:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Output_N009:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Output_N041:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Output_N054:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Output_N064:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_Output_N080:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_PrevWorldPosition_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_RayDirection_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_RayOrigin_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_RecolorB_N007:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorB_N035:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorB_N044:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorB_N045:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorG_N007:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorG_N035:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorG_N044:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorG_N045:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorR_N007:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorR_N035:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorR_N044:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RecolorR_N045:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RimColor_N035:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RimColor_N045:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_RimExponent_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_RimExponent_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_RimHighlightColor_N035:
+        typeIdx: 4
+        value: {x: 1.000000, y: 0.585901, z: 0.214176}
+    - Port_RimIntensity_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_RimIntensity_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_RimUVSwitch_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_RimUVSwitch_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV2Animation_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV2Animation_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV2Animation_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV2Animation_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV2Offset_N007:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV2Offset_N035:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV2Offset_N044:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV2Offset_N045:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV2Scale_N007:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV2Scale_N035:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV2Scale_N044:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV2Scale_N045:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV2Switch_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV2Switch_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV2Switch_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV2Switch_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV3Animation_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV3Animation_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV3Animation_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV3Animation_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV3Offset_N007:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV3Offset_N035:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV3Offset_N044:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV3Offset_N045:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV3Scale_N007:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV3Scale_N035:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV3Scale_N044:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV3Scale_N045:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_UV3Switch_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV3Switch_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV3Switch_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UV3Switch_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_UVCoord_N018:
+        typeIdx: 3
+        value: {x: 0.000000, y: 0.000000}
+    - Port_Value1_N010:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_Value3_N010:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Value4_N010:
+        typeIdx: 1
+        value: 0.000000
+    - Port_VertexColorSwitch_N007:
+        typeIdx: 1
+        value: 0.000000
+    - Port_VertexColorSwitch_N035:
+        typeIdx: 1
+        value: 0.000000
+    - Port_VertexColorSwitch_N044:
+        typeIdx: 1
+        value: 0.000000
+    - Port_VertexColorSwitch_N045:
+        typeIdx: 1
+        value: 0.000000
+    - Port_WorldNormal_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_WorldPosition_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_WorldTangent_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - Tweak_N216:
+        typeIdx: 2
+        value: false
+    - Tweak_N47:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Tweak_N48:
+        typeIdx: 1
+        value: 1.000000
+    - Tweak_N53:
+        typeIdx: 1
+        value: 1.000000
+    - Tweak_N55:
+        typeIdx: 9
+        value:
+          id: 00000000-0000-0000-0000-000000000000
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+            mipmaps: false
+          type: Texture2D
+    - Tweak_N55Transform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - mainColor:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - matcapTexUvMinMax:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - normalTex:
+        typeIdx: 9
+        value:
+          id: 00000000-0000-0000-0000-000000000000
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - normalTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - normalTexUvMinMax:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - opacityTex:
+        typeIdx: 9
+        value:
+          id: 00000000-0000-0000-0000-000000000000
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - opacityTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - recolorBlue:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - recolorGreen:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - recolorRed:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - rimColor:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - rimColorTex:
+        typeIdx: 9
+        value:
+          id: 00000000-0000-0000-0000-000000000000
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - rimColorTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - rimExponent:
+        typeIdx: 1
+        value: 1.000000
+    - rimIntensity:
+        typeIdx: 1
+        value: 1.000000
+  DepthWrite: true
+  DepthTest: true
+  DepthFunction: LessEqual
+  TwoSided: false
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 1
+  Defines:
+    - NODE_27_DROPLIST_ITEM 0
+    - NODE_315_DROPLIST_ITEM 0
+    - NODE_38_DROPLIST_ITEM 0
+    - NODE_49_DROPLIST_ITEM 0
+    - NODE_69_DROPLIST_ITEM 0
+    - Tweak_N24 0
+    - uv2EnableAnimation
+    - NODE_13_DROPLIST_ITEM 0
+    - Tweak_N56 0
+    - rimTex
+    - ENABLE_MATCAP_NORMAL
+    - ENABLE_BASE_TEX
+    - ENABLE_EMISSIVE
+    - ENABLE_MATCAP
+    - NODE_76_DROPLIST_ITEM 0
+  BlendMode: PremultipliedAlphaAuto
+  Properties:
+    Port_Value_N064:
+      typeIdx: 0
+      value: 0
+    Port_Value_N079:
+      typeIdx: 2
+      value: true
+    Port_Value_N080:
+      typeIdx: 4
+      value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    baseColor:
+      typeIdx: 5
+      value: {x: 0.747814, y: 0.748425, z: 0.746944, w: 1.000000}
+    baseTex:
+      typeIdx: 9
+      value:
+        id: d0efa908-6605-4002-bd11-4b90d019d251
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+          mipmaps: false
+        type: Texture2D
+    baseTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    emissiveColor:
+      typeIdx: 4
+      value: {x: 1.000000, y: 0.490196, z: 0.196078}
+    emissiveIntensity:
+      typeIdx: 1
+      value: 1.000000
+    emissiveTex:
+      typeIdx: 9
+      value:
+        id: c9481c38-6e5e-4877-92b8-942fd3fb4393
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    emissiveTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    matcapIntensity:
+      typeIdx: 1
+      value: 1.000000
+    matcapNormal:
+      typeIdx: 9
+      value:
+        id: 2a013152-e7e0-4e1d-9680-060f3b98e62f
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    matcapNormalTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    matcapTex:
+      typeIdx: 9
+      value:
+        id: 54f02ea8-06de-4380-b686-60f7dd12dbb9
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+    matcapTexTransform:
+      typeIdx: 7
+      value:
+        0: {x: 1.000000, y: 0.000000, z: 0.000000}
+        1: {x: 0.000000, y: 1.000000, z: 0.000000}
+        2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    uv2Offset:
+      typeIdx: 3
+      value: {x: 0.000000, y: 0.000000}
+    uv2Scale:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    uv3Offset:
+      typeIdx: 3
+      value: {x: 0.000000, y: 0.000000}
+    uv3Scale:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+  Pass: !<reference> e6097e26-6b14-4b17-91d5-48d48d42ce40

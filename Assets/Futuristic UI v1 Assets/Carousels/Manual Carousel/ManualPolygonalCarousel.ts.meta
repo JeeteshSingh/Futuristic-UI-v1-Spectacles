@@ -1,0 +1,143 @@
+- !<AssetImportMetadata/f3c6f13c-4aa0-43e0-bfbc-0ea42b0a47d3>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a5879941-d351-42fe-8488-d8de1b000f93
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a5879941-d351-42fe-8488-d8de1b000f93
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> a59bc7f3-f0c0-4f03-a9c0-fb08d8483702
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/a59bc7f3-f0c0-4f03-a9c0-fb08d8483702>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 7ea14631-1fb6-4cdb-82f2-43f45607d524
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    alignRotationToCircle: false
+    allowAllTogglesOff: false
+    animateOnStart: false
+    arcAngleDegrees: false
+    arcOffsetDegrees: false
+    bufferSlots: false
+    camera: false
+    carouselRoot: false
+    dragSensitivity: false
+    enableDirectDrag: false
+    enableEntryAnimation: false
+    enableExternalDrag: false
+    enableToggleBehavior: false
+    entryDuration: false
+    entryStaggerTime: false
+    faceCamera: false
+    faceInward: false
+    fadeAtEdges: false
+    fadeRange: false
+    inertiaDamping: false
+    invertDrag: false
+    layoutAxis: false
+    maxDragVelocity: false
+    minVelocityToSnap: false
+    radius: false
+    rotationOffset: false
+    slotCount: false
+    slotOffset: false
+    snapSharpness: false
+    staggerDirection: false
+    tapDragThreshold: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 562c0800-80f8-4ff2-814f-46a3bbbaf9a2
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - carouselRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      slotCount: !<float> 5.000000
+      bufferSlots: !<float> 2.000000
+      arcAngleDegrees: !<float> 360.000000
+      arcOffsetDegrees: !<float> 0.000000
+      slotOffset: !<float> 0.000000
+      radius: !<float> 30.000000
+      alignRotationToCircle: true
+      layoutAxis: XY
+      faceInward: false
+      faceCamera: false
+      camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      rotationOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 90.000000}
+      fadeAtEdges: false
+      fadeRange: !<float> 1.000000
+      enableDirectDrag: true
+      tapDragThreshold: 0.800000
+      enableExternalDrag: false
+      invertDrag: true
+      dragSensitivity: 0.050000
+      inertiaDamping: 4.500000
+      snapSharpness: !<float> 10.000000
+      minVelocityToSnap: 0.015000
+      maxDragVelocity: 1.500000
+      enableToggleBehavior: false
+      allowAllTogglesOff: false
+      enableEntryAnimation: true
+      animateOnStart: true
+      entryDuration: 0.500000
+      entryStaggerTime: 0.050000
+      staggerDirection: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 13px;\">ManualPolygonalCarousel</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Arranges pre-placed child buttons in a circular arc layout.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold;\">Core Setup</span>"}'
+    - '// @input SceneObject carouselRoot {"hint":"Root SceneObject whose children are the carousel cards. If unset, uses this SceneObject."}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Layout &amp; Customization</span>"}'
+    - '// @input float slotCount = 5 {"hint":"Number of visible buttons in the carousel arc."}'
+    - '// @input float bufferSlots = 2 {"hint":"Extra hidden slots used as a buffer for smooth off-screen scrolling."}'
+    - '// @input float arcAngleDegrees = 360 {"hint":"The angle span of the visible arc in degrees (e.g. 180, 270, 360)."}'
+    - '// @input float arcOffsetDegrees {"hint":"Offset the starting angle of the arc in degrees."}'
+    - '// @input float slotOffset {"hint":"Offset the starting slot index (e.g. shift where Button 1 starts around the circle)."}'
+    - '// @input float radius = "30.0" {"hint":"Radius of the circle in cm."}'
+    - '// @input boolean alignRotationToCircle = "false" {"hint":"Rotate buttons to align tangentially to the circle."}'
+    - '// @input string layoutAxis = "XY" {"hint":"Which plane to align the circle to.", "widget":"combobox", "values":[{"label":"XY Plane (Flat Circle)", "value":"XY"}, {"label":"XZ Plane (Horizontal Cylinder)", "value":"XZ"}, {"label":"YZ Plane (Vertical Cylinder)", "value":"YZ"}]}'
+    - '// @input bool faceInward {"hint":"If true, buttons face the center. If false, they face outward."}'
+    - '// @input bool faceCamera {"hint":"If true, buttons always rotate to face the camera. Overrides other rotation settings."}'
+    - '// @input Component.Camera camera {"hint":"Required if Face Camera is checked. Drag your main camera here."}'
+    - '// @input vec3 rotationOffset = "{0, 0, 90}" {"hint":"Additional rotation offset applied to all cards."}'
+    - '// @input boolean fadeAtEdges = "true" {"hint":"Smoothly fade out cards at the edges of the arc."}'
+    - '// @input float fadeRange = "1.0" {"hint":"How many slot widths the fade transition takes.", "widget":"slider", "min":0.1, "max":5, "step":0.1, "showIf":"fadeAtEdges"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #34D399; font-weight: bold;\">Features &amp; Interaction</span>"}'
+    - '// @input boolean enableDirectDrag = "true" {"hint":"Enable direct SIK hand touch/ray dragging on card buttons to scroll the carousel."}'
+    - '// @input float tapDragThreshold = "0.8" {"hint":"Minimum total drag distance (cm) before a drag is recognized as a scroll. Below this it is treated as a tap/click.", "widget":"slider", "min":0.1, "max":5, "step":0.1, "showIf":"enableDirectDrag"}'
+    - '// @input boolean enableExternalDrag = "false" {"hint":"Enable external programmatic drag (e.g. SwordSwipeScroller)."}'
+    - '// @input boolean invertDrag = "true" {"hint":"Invert the drag direction (feels like pulling a ribbon)."}'
+    - '// @input float dragSensitivity = "0.05" {"hint":"Drag sensitivity for scrolling the carousel.", "widget":"slider", "min":0.01, "max":0.5, "step":0.01}'
+    - '// @input float inertiaDamping = "4.5" {"hint":"Inertia damping � higher value stops the carousel faster.", "widget":"slider", "min":0.5, "max":20, "step":0.5}'
+    - '// @input float snapSharpness = "10.0" {"hint":"Snap sharpness when snapping to the nearest slot.", "widget":"slider", "min":1, "max":30, "step":0.5}'
+    - '// @input float minVelocityToSnap = "0.015" {"hint":"Minimum speed (slots/frame) required to trigger inertia instead of snap."}'
+    - '// @input float maxDragVelocity = "1.5" {"hint":"Maximum speed (slots/frame) the carousel can be flung to."}'
+    - '// @input bool enableToggleBehavior {"hint":"If true, the carousel acts as a radio-button group."}'
+    - '// @input bool allowAllTogglesOff {"hint":"If true, all toggles can be off simultaneously.", "showIf":"enableToggleBehavior"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F472B6; font-weight: bold;\">Entry Animations</span>"}'
+    - // @input bool enableEntryAnimation = true
+    - '// @input bool animateOnStart = true {"showIf":"enableEntryAnimation"}'
+    - '// @input float entryDuration = 0.5 {"showIf":"enableEntryAnimation"}'
+    - '// @input float entryStaggerTime = 0.05 {"showIf":"enableEntryAnimation"}'
+    - '// @input float staggerDirection {"widget":"combobox", "values":[{"label":"Left to Right", "value":0}, {"label":"Right to Left", "value":1}, {"label":"Center Outward", "value":2}], "showIf":"enableEntryAnimation"}'

@@ -1,0 +1,98 @@
+- !<AssetImportMetadata/39b5972f-a02e-bdde-eac2-271739ebb8d1>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3e8958fb-77fc-44a2-85f9-01e749347c41
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3e8958fb-77fc-44a2-85f9-01e749347c41
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> f078d17d-191b-45e8-972f-9de908bcd28f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/f078d17d-191b-45e8-972f-9de908bcd28f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 6177526b-a76a-4af0-9ce6-8266b3e3ffe0
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _confirmationThreshold: false
+    _defaultValue: true
+    _hasShadow: true
+    _inactive: false
+    _playAudio: false
+    _renderOrder: false
+    _shadowPositionOffset: true
+    _size: false
+    addCallbacks: false
+    numberOfSegments: true
+    onConfirmationCallbacks: false
+    onFinishedCallbacks: false
+    onResetCallbacks: false
+    onValueChangeCallbacks: false
+    segmented: true
+    snapToTriggerPosition: true
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - _renderOrder: 0
+      _size: !<Vec3> {x: 12.000000, y: 3.000000, z: 3.000000}
+      _inactive: false
+      _playAudio: false
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      _defaultValue: !<float> 0.000000
+      snapToTriggerPosition: false
+      segmented: false
+      numberOfSegments: !<float> 0.000000
+      addCallbacks: false
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      onConfirmationCallbacks:
+        []
+      onResetCallbacks:
+        []
+      _confirmationThreshold: 0.900000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input int _renderOrder
+    - '// @input vec3 _size = {6,3,3} {"hint":"Size of the element in centimeters"}'
+    - '// @input bool _inactive {"hint":"Inactive Mode: set the element to ignore inputs"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - // @input bool _hasShadow
+    - '// @input vec3 _shadowPositionOffset = "{0.05,-0.05,-0.01}" {"showIf":"_hasShadow"}'
+    - '// @input float _defaultValue {"hint":"The default value of the slider, should be between 0 and 1", "widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @input bool snapToTriggerPosition {"hint":"Enable triggering anywhere on the slider track to snap the knob to that position"}'
+    - '// @input bool segmented {"hint":"Enable this to make the slider segmented, with a fixed number of segments"}'
+    - '// @input float numberOfSegments = 5 {"hint":"The number of segments for the segmented slider, must be at least 2", "showIf":"segmented"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent"
+    - "@property {string} functionName"
+    - "*/"
+    - '// @input Callback[] onValueChangeCallbacks = {} {"label":"On Value Changed Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] onFinishedCallbacks = {} {"label":"On Interaction Finished Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] onConfirmationCallbacks = {} {"label":"On Confirmation Callbacks", "showIf":"addCallbacks"}'
+    - '// @input Callback[] onResetCallbacks = {} {"label":"On Reset Callbacks", "showIf":"addCallbacks"}'
+    - '// @input number _confirmationThreshold = "0.9"'

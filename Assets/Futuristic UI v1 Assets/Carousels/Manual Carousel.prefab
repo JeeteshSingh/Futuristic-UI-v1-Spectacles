@@ -1,0 +1,4606 @@
+- !<ObjectPrefab/55dc7335-d3dc-449a-81ce-f1b80a04ecf4>
+  PackagePath: ""
+  objects:
+    - !<own> 644ad100-5040-4bc7-bf03-7f0e8895f238
+  LazyLoading: false
+  RetainAssets: true
+- !<ScriptComponent/00dbb47c-950e-425d-a018-f7a3e5e34a10>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton7
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 4
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.500000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/044ca74b-1c63-4fbf-9f87-4dd8a9cc946f>
+  PrefabRemaps:
+    []
+  Name: ManualCarouselDemoController
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+- !<SceneObject/056714dc-3274-4f7b-b860-a1c54150ecea>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 12
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 0b7ae037-5b04-432c-92cd-6cd8e0dcdccd
+    - !<own> 689c00b3-e712-4414-822a-5f423a3c64c9
+  Components:
+    - !<own> 2c4d7dce-b754-4674-9840-a081f312574d
+- !<ScriptComponent/06aeb260-47de-4663-8534-59d22606c1f0>
+  PrefabRemaps:
+    []
+  Name: Carousel Fist GestureApp
+  Enabled: true
+  ScriptAsset: !<reference> 898a1642-d89b-4a45-ada3-6e3c7ec859a7
+  ScriptInputsDefault:
+    gestureHoldTime: true
+    fistDistanceThreshold: true
+    positionSmoothing: true
+    useNativeGrab: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      carousel: !<reference.ScriptComponent> 8d1a9ae5-70a3-4f19-9c59-20f8055214ff
+      camera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
+      handType: !<float> 1.000000
+      fistSidewardOffset: !<Vec3> {x: 0.000000, y: -5.000000, z: 0.000000}
+      gestureHoldTime: 0.500000
+      fistDistanceThreshold: !<float> 10.000000
+      positionSmoothing: !<float> 10.000000
+      handInteractor: !<reference.ScriptComponent> 55be292f-0363-41f1-b55c-70fcb8e4dd25
+      useNativeGrab: true
+      debugText: !<reference.Text> 382bfbb3-6db8-48df-ba05-3fa363c4e3ff
+  ScriptTypes:
+    "":
+      {}
+- !<Image/07314e33-090c-4074-8365-f7d25a75449e>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> c8899554-24d5-4612-abbd-0da75e6e7163
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Image/0808d0a9-b610-400f-bf08-148a3dedacb3>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 97ae3292-d3a5-4588-ba08-97a127c8b8f1
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<ScriptComponent/0997052a-a061-495a-8aa9-d54e86bcb0f7>
+  PrefabRemaps:
+    []
+  Name: PolygonalButtonHintController
+  Enabled: true
+  ScriptAsset: !<reference> a2a2ba54-9b35-45e6-90d7-509acffb6d88
+  ScriptInputsDefault:
+    inDuration: true
+    outDuration: true
+    disableOnFadeOut: true
+    autoTriggerOnStart: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      polygonalButton: !<reference.ScriptComponent> 37e1da25-cfcb-45e6-b63c-a04e07669aee
+      videoPlayer: !<reference.ScriptComponent> 31014e20-0c69-421d-a034-1f0fee01fc78
+      inDuration: 0.500000
+      outDuration: 0.500000
+      disableOnFadeOut: true
+      targetObjectToDisable: !<reference.SceneObject> 1f773ef3-1fc4-4212-9723-f6ed5a21687f
+      autoTriggerOnStart: true
+      startDelay: !<float> 6.000000
+      afterInDelay: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/0a6d457e-eb36-4aa1-b18b-ca1fd762324b>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5acd2475-c2e4-46ec-906a-36a6c65882b1
+- !<Image/0b7175f8-f09f-455e-b5ed-09f6cd2a3d27>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 241ef9d1-8a5a-4c69-8717-2283cee2cfe6
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/0b7ae037-5b04-432c-92cd-6cd8e0dcdccd>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 596c96a1-003a-4ca2-8e82-3cdb4939990b
+- !<SceneObject/0f8c39d6-5c8d-4443-a7f5-53af1c7f113f>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -0.250000, z: 0.100000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 61acdf18-5a67-4a5d-95b3-f6f45ebbfbef
+- !<SceneObject/17e8e23f-a933-42de-b78f-59d0df71d580>
+  PrefabRemaps:
+    []
+  Name: zod 1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 5.000000, y: 8.660000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 07314e33-090c-4074-8365-f7d25a75449e
+- !<ScriptComponent/18313b1a-65c3-4ef9-9527-fbdbeb89aced>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton3
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 2
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.200000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<Image/1d7f8c01-e204-4d8b-acd1-2c18f1fa54ee>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 435374c3-2482-46f0-96d0-8a2b09198814
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/1f773ef3-1fc4-4212-9723-f6ed5a21687f>
+  PrefabRemaps:
+    []
+  Name: Polygonal Button as BG
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> d219a391-e9fa-40b9-bbe0-df668df2ca2e
+    - !<own> 54a28e9f-e08c-425d-ac5e-67f68d13d517
+  Components:
+    - !<own> 37e1da25-cfcb-45e6-b63c-a04e07669aee
+- !<Image/20f8b6b1-163d-4043-bf28-fe6aec1767f6>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> e6678dd7-81ca-4f1f-adf3-676f22f75f7f
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/2403abbd-9a1e-412e-a98d-b6833f9189c3>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 585915bc-dfae-4dcc-8514-99d98298c10e
+- !<Image/27faec25-17c3-4741-9d95-bb265476eb9c>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Image/281b2a40-3f6d-4444-886b-f321e3ef474d>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Image/2a842a62-6700-4227-aa41-18d6dea4e15a>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<ScriptComponent/2c4d7dce-b754-4674-9840-a081f312574d>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    cornerSegments: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton11
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 5
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: !<float> 20.000000
+      cornerSegments: 6
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/2c547a0b-6f4d-4b00-a157-a00b6de02ab2>
+  PrefabRemaps:
+    []
+  Name: ManualPolygonalCarousel Set Size
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -20.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 6b89e448-ebf5-4e37-9d93-f2ea333017d3
+  Components:
+    - !<own> 8d1a9ae5-70a3-4f19-9c59-20f8055214ff
+- !<ScriptComponent/2d939a3b-a541-45b1-ac3e-2e13316c9273>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton9
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 3
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: !<float> 2.000000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/301f4a85-a7f4-43f2-9531-0f32ac234cc8>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 8f23afbd-5050-4e75-9bd1-3f0161bbf8b5
+- !<ScriptComponent/31014e20-0c69-421d-a034-1f0fee01fc78>
+  PrefabRemaps:
+    []
+  Name: Video Player Controller Script
+  Enabled: true
+  ScriptAsset: !<reference> 3818626c-3f01-4fd3-b447-1f4265e7e718
+  ScriptInputsDefault:
+    loopCount: true
+    playOnStart: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      videoTexture: !<reference.Texture> de6c64d2-2646-412b-9d8f-e6e4b130baa5
+      playbackRate: 2.500000
+      loopCount: -1
+      playOnStart: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/32d50f71-3815-41f3-9ea8-6644534b81d5>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a410b6d3-1ae7-4078-af26-d8816eb53e3b
+- !<ScriptComponent/37e1da25-cfcb-45e6-b63c-a04e07669aee>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _playAudio: true
+    _hasShadow: true
+    _shadowPositionOffset: true
+    _toggleable: true
+    _defaultToOn: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    animationType: true
+    popDistance: true
+    fitToSize: true
+    polygonScale: true
+    defaultColor: true
+    highlightColor: true
+    borderHighlightColor: true
+    selectColor: true
+    borderSelectColor: true
+    toggledColor: true
+    borderToggledColor: true
+    toggledHighlightColor: true
+    borderToggledHighlightColor: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    buttonTexture: true
+    borderTexture: true
+    targetingMode: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    enableInstantDrag: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 1000
+      _size: !<Vec3> {x: 3.000000, y: 3.000000, z: 3.000000}
+      _inactive: true
+      _playAudio: false
+      _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 5
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 1.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 0.000000, y: 0.000000}
+      animationType: 0
+      popDistance: !<float> 1.000000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.500000
+      cornerSegments: 5
+      borderWidth: 0.080000
+      defaultColor: !<Vec4> {x: 0.120000, y: 0.140000, z: 0.200000, w: 0.900000}
+      borderColor: !<Vec4> {x: 0.972549, y: 1.000000, z: 0.972549, w: 1.000000}
+      highlightColor: !<Vec4> {x: 0.200000, y: 0.550000, z: 0.950000, w: 0.950000}
+      borderHighlightColor: !<Vec4> {x: 0.450000, y: 0.650000, z: 0.950000, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.950000, y: 0.350000, z: 0.150000, w: 1.000000}
+      borderSelectColor: !<Vec4> {x: 1.000000, y: 0.500000, z: 0.200000, w: 1.000000}
+      toggledColor: !<Vec4> {x: 0.950000, y: 0.350000, z: 0.150000, w: 1.000000}
+      borderToggledColor: !<Vec4> {x: 1.000000, y: 0.500000, z: 0.200000, w: 1.000000}
+      toggledHighlightColor: !<Vec4> {x: 0.180000, y: 0.500000, z: 0.900000, w: 0.980000}
+      borderToggledHighlightColor: !<Vec4> {x: 0.450000, y: 0.650000, z: 0.950000, w: 1.000000}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      borderTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 0.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: false
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<Text/3a21ba53-7cd5-4910-ad36-98c655184378>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Butt. 1
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<ScriptComponent/3a42d1f5-e6ed-418a-af19-2d8c6fd79ef0>
+  PrefabRemaps:
+    []
+  Name: UniversalCameraFollowerTS
+  Enabled: true
+  ScriptAsset: !<reference> 1895b8ea-4db2-4abc-9fec-6f55ead70bef
+  ScriptInputsDefault:
+    positionOffset: true
+    angleThresholdDegrees: true
+    horizontalDistanceThresholdCm: true
+    verticalDistanceThresholdCm: true
+    lockY: true
+    lockedY: true
+    enableLogging: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetCamera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
+      followMode: Continuous Lerp
+      offsetDistance: !<float> -120.000000
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      rotationOffset: !<Vec3> {x: 0.000000, y: 180.000000, z: 0.000000}
+      angleThresholdDegrees: !<float> 35.000000
+      horizontalDistanceThresholdCm: !<float> 40.000000
+      verticalDistanceThresholdCm: !<float> 30.000000
+      alignToWorldUp: false
+      flattenRotation: false
+      lockY: false
+      lockedY: !<float> 0.000000
+      positionLerpSpeed: 0.400000
+      rotationLerpSpeed: 0.400000
+      enableLogging: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/3aa71797-9571-4bef-b51c-3860afdb64f8>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 6
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 5.626000, y: 5.160000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> d95f2550-e832-48ae-9cad-0cb1566ef8e9
+    - !<own> c60167d4-a922-4a1a-a935-96e35c6d4f51
+  Components:
+    - !<own> 95bbcbc8-1e18-409c-9fc8-42cf827d5a3c
+- !<SceneObject/3b0a1e51-3b50-4685-bf72-542f39a06625>
+  PrefabRemaps:
+    []
+  Name: Zod Root
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -200.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 5.000000, y: 5.000000, z: 5.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 17e8e23f-a933-42de-b78f-59d0df71d580
+    - !<own> 5cc53680-a8d8-47ab-a212-c9593b693d70
+    - !<own> aa26a442-8430-477a-b0ed-38a89838838f
+    - !<own> de5a9517-8cf4-4009-85b6-9a58119284c3
+    - !<own> a6f7efb0-aec1-4cfb-871a-b46d62930c66
+    - !<own> bbeb5341-013c-474d-9310-9bbb4a90285e
+    - !<own> 5fb19c85-b8ad-4dde-8807-e6b67fe2beb3
+    - !<own> cae64631-6aed-474f-b388-200f03952886
+    - !<own> 7d90cf43-c959-49fa-a0f1-c76a725065cc
+    - !<own> 60552444-4a68-49a8-a2b2-56da0b1a0b52
+    - !<own> 882b8c48-be96-41fd-9599-9550fe278b28
+    - !<own> b575e03b-cbdd-4c39-8401-de9b0fb6307e
+    - !<own> b9636803-cc56-4b6e-9934-5db1c445e5a8
+  Components:
+    []
+- !<SceneObject/3e6d74fe-8986-436c-8c01-c89d30b2ef4f>
+  PrefabRemaps:
+    []
+  Name: "[HINT] Carousel Poke Scrolling and Selection"
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -100.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 8.000000, y: 8.000000, z: 8.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1f773ef3-1fc4-4212-9723-f6ed5a21687f
+  Components:
+    - !<own> 0997052a-a061-495a-8aa9-d54e86bcb0f7
+    - !<own> 31014e20-0c69-421d-a034-1f0fee01fc78
+    - !<own> 533ea95e-59ce-4a69-bfb5-6a42d9fbdb7a
+- !<Image/416b7991-55e2-491c-97b8-e51502637841>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/43109da7-00d0-403e-b8c2-4d9a5ea2cd62>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5ac284e4-3ac4-4fa2-aba0-2a425a10369e
+- !<Text/46ed3c27-7ce4-4f4f-9cf3-f2999c8ca757>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Button 2
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<SceneObject/50c2e266-de09-4b2b-8f44-f5c1c730a141>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 86077597-f452-4de6-90f0-3aeb2e77cbda
+- !<ScriptComponent/533ea95e-59ce-4a69-bfb5-6a42d9fbdb7a>
+  PrefabRemaps:
+    []
+  Name: UniversalCameraFollowerTS
+  Enabled: true
+  ScriptAsset: !<reference> 1895b8ea-4db2-4abc-9fec-6f55ead70bef
+  ScriptInputsDefault:
+    positionOffset: true
+    angleThresholdDegrees: true
+    horizontalDistanceThresholdCm: true
+    verticalDistanceThresholdCm: true
+    lockY: true
+    lockedY: true
+    enableLogging: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetCamera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
+      followMode: Continuous Lerp
+      offsetDistance: !<float> -120.000000
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      rotationOffset: !<Vec3> {x: 0.000000, y: 180.000000, z: 0.000000}
+      angleThresholdDegrees: !<float> 35.000000
+      horizontalDistanceThresholdCm: !<float> 40.000000
+      verticalDistanceThresholdCm: !<float> 30.000000
+      alignToWorldUp: false
+      flattenRotation: false
+      lockY: false
+      lockedY: !<float> 0.000000
+      positionLerpSpeed: 0.400000
+      rotationLerpSpeed: 0.400000
+      enableLogging: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/53e6b4ab-a858-4b6d-8132-cbe7d8515c14>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3a21ba53-7cd5-4910-ad36-98c655184378
+- !<SceneObject/54a28e9f-e08c-425d-ac5e-67f68d13d517>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -0.250000, z: 0.100000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e24b4a13-38b7-4310-91cb-5f962d4b5820
+- !<Image/54f343f4-3572-4918-b13e-8b1954f01506>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1001
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b86418f8-3379-4edf-91ea-b0d1e15faf25
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/55250793-826f-46b0-b15f-3dd7d9579fe8>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 27faec25-17c3-4741-9d95-bb265476eb9c
+- !<Text/585915bc-dfae-4dcc-8514-99d98298c10e>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Option 3
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<Text/596c96a1-003a-4ca2-8e82-3cdb4939990b>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Button 12
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<Text/5ac284e4-3ac4-4fa2-aba0-2a425a10369e>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: button 5
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<Image/5acd2475-c2e4-46ec-906a-36a6c65882b1>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/5cc53680-a8d8-47ab-a212-c9593b693d70>
+  PrefabRemaps:
+    []
+  Name: zod 2
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 8.660000, y: 5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 832681d1-dbed-474b-a400-3a5b8a800451
+- !<Text/5f18f005-1e3b-4817-8697-d46313b7ed65>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Button 10
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<SceneObject/5fb19c85-b8ad-4dde-8807-e6b67fe2beb3>
+  PrefabRemaps:
+    []
+  Name: zod 7
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -5.000000, y: -8.660000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 999759e7-3ba9-4c12-a490-695c5560e867
+- !<SceneObject/60552444-4a68-49a8-a2b2-56da0b1a0b52>
+  PrefabRemaps:
+    []
+  Name: zod 10
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -8.660000, y: 5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 20f8b6b1-163d-4043-bf28-fe6aec1767f6
+- !<Text/61acdf18-5a67-4a5d-95b3-f6f45ebbfbef>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1001
+  StretchMode: Stretch
+  VerticalAlignment: Bottom
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Make a fist for carousel
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 12
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.000000
+    bottom: -1.000000
+    right: 1.000000
+    top: 1.000000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<Image/629f102c-50c8-4d75-9e2b-8551598f909e>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 91d3caf3-e193-4d57-a505-c14db607d7a2
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/644ad100-5040-4bc7-bf03-7f0e8895f238>
+  PrefabRemaps:
+    - 00dbb47c-950e-425d-a018-f7a3e5e34a10: 00dbb47c-950e-425d-5fe7-085c1a1cb5ef
+    - 044ca74b-1c63-4fbf-9f87-4dd8a9cc946f: 044ca74b-1c63-4fbf-6078-b22756336b90
+    - 056714dc-3274-4f7b-b860-a1c54150ecea: 056714dc-3274-4f7b-479f-5e3abeaf1315
+    - 06aeb260-47de-4663-8534-59d22606c1f0: 06aeb260-47de-4663-7acb-a62dd9f93e0f
+    - 07314e33-090c-4074-8365-f7d25a75449e: 07314e33-090c-4074-7c9a-082da58abb61
+    - 0808d0a9-b610-400f-bf08-148a3dedacb3: 0808d0a9-b610-400f-40f7-eb75c212534c
+    - 0997052a-a061-495a-8aa9-d54e86bcb0f7: 0997052a-a061-495a-7556-2ab179434f08
+    - 0a6d457e-eb36-4aa1-b18b-ca1fd762324b: 0a6d457e-eb36-4aa1-4e74-35e0289dcdb4
+    - 0b7175f8-f09f-455e-b5ed-09f6cd2a3d27: 0b7175f8-f09f-455e-4a12-f60932d5c2d8
+    - 0b7ae037-5b04-432c-92cd-6cd8e0dcdccd: 0b7ae037-5b04-432c-6d32-93271f232332
+    - 0f8c39d6-5c8d-4443-a7f5-53af1c7f113f: 0f8c39d6-5c8d-4443-580a-ac50e380eec0
+    - 17e8e23f-a933-42de-b78f-59d0df71d580: 17e8e23f-a933-42de-4870-a62f208e2a7f
+    - 18313b1a-65c3-4ef9-9527-fbdbeb89aced: 18313b1a-65c3-4ef9-6ad8-042414765312
+    - 1d7f8c01-e204-4d8b-acd1-2c18f1fa54ee: 1d7f8c01-e204-4d8b-532e-d3e70e05ab11
+    - 1f773ef3-1fc4-4212-9723-f6ed5a21687f: 1f773ef3-1fc4-4212-68dc-0912a5de9780
+    - 20f8b6b1-163d-4043-bf28-fe6aec1767f6: 20f8b6b1-163d-4043-40d7-019513e89809
+    - 2403abbd-9a1e-412e-a98d-b6833f9189c3: 2403abbd-9a1e-412e-5672-497cc06e763c
+    - 27faec25-17c3-4741-9d95-bb265476eb9c: 27faec25-17c3-4741-626a-44d9ab891463
+    - 281b2a40-3f6d-4444-886b-f321e3ef474d: 281b2a40-3f6d-4444-7794-0cde1c10b8b2
+    - 2a842a62-6700-4227-aa41-18d6dea4e15a: 2a842a62-6700-4227-55be-e729215b1ea5
+    - 2c4d7dce-b754-4674-9840-a081f312574d: 2c4d7dce-b754-4674-67bf-5f7e0ceda8b2
+    - 2c547a0b-6f4d-4b00-a157-a00b6de02ab2: 2c547a0b-6f4d-4b00-5ea8-5ff4921fd54d
+    - 2d939a3b-a541-45b1-ac3e-2e13316c9273: 2d939a3b-a541-45b1-53c1-d1ecce936d8c
+    - 301f4a85-a7f4-43f2-9531-0f32ac234cc8: 301f4a85-a7f4-43f2-6ace-f0cd53dcb337
+    - 31014e20-0c69-421d-a034-1f0fee01fc78: 31014e20-0c69-421d-5fcb-e0f011fe0387
+    - 32d50f71-3815-41f3-9ea8-6644534b81d5: 32d50f71-3815-41f3-6157-99bbacb47e2a
+    - 37e1da25-cfcb-45e6-b63c-a04e07669aee: 37e1da25-cfcb-45e6-49c3-5fb1f8996511
+    - 3a21ba53-7cd5-4910-ad36-98c655184378: 3a21ba53-7cd5-4910-52c9-6739aae7bc87
+    - 3a42d1f5-e6ed-418a-af19-2d8c6fd79ef0: 3a42d1f5-e6ed-418a-50e6-d2739028610f
+    - 3aa71797-9571-4bef-b51c-3860afdb64f8: 3aa71797-9571-4bef-4ae3-c79f50249b07
+    - 3b0a1e51-3b50-4685-bf72-542f39a06625: 3b0a1e51-3b50-4685-408d-abd0c65f99da
+    - 3e6d74fe-8986-436c-8c01-c89d30b2ef4f: 3e6d74fe-8986-436c-73fe-3762cf4d10b0
+    - 416b7991-55e2-491c-97b8-e51502637841: 416b7991-55e2-491c-6847-1aeafd9c87be
+    - 43109da7-00d0-403e-b8c2-4d9a5ea2cd62: 43109da7-00d0-403e-473d-b265a15d329d
+    - 46ed3c27-7ce4-4f4f-9cf3-f2999c8ca757: 46ed3c27-7ce4-4f4f-630c-0d66637358a8
+    - 50c2e266-de09-4b2b-8f44-f5c1c730a141: 50c2e266-de09-4b2b-70bb-0a3e38cf5ebe
+    - 533ea95e-59ce-4a69-bfb5-6a42d9fbdb7a: 533ea95e-59ce-4a69-404a-95bd26042485
+    - 53e6b4ab-a858-4b6d-8132-cbe7d8515c14: 53e6b4ab-a858-4b6d-7ecd-341827aea3eb
+    - 54a28e9f-e08c-425d-ac5e-67f68d13d517: 54a28e9f-e08c-425d-53a1-980972ec2ae8
+    - 54f343f4-3572-4918-b13e-8b1954f01506: 54f343f4-3572-4918-4ec1-74e6ab0feaf9
+    - 55250793-826f-46b0-b15f-3dd7d9579fe8: 55250793-826f-46b0-4ea0-c22826a86017
+    - 585915bc-dfae-4dcc-8514-99d98298c10e: 585915bc-dfae-4dcc-7aeb-66267d673ef1
+    - 596c96a1-003a-4ca2-8e82-3cdb4939990b: 596c96a1-003a-4ca2-717d-c324b6c666f4
+    - 5ac284e4-3ac4-4fa2-aba0-2a425a10369e: 5ac284e4-3ac4-4fa2-545f-d5bda5efc961
+    - 5acd2475-c2e4-46ec-906a-36a6c65882b1: 5acd2475-c2e4-46ec-6f95-c95939a77d4e
+    - 5cc53680-a8d8-47ab-a212-c9593b693d70: 5cc53680-a8d8-47ab-5ded-36a6c496c28f
+    - 5f18f005-1e3b-4817-8697-d46313b7ed65: 5f18f005-1e3b-4817-7968-2b9cec48129a
+    - 5fb19c85-b8ad-4dde-8807-e6b67fe2beb3: 5fb19c85-b8ad-4dde-77f8-1949801d414c
+    - 60552444-4a68-49a8-a2b2-56da0b1a0b52: 60552444-4a68-49a8-5d4d-a925f4e5f4ad
+    - 61acdf18-5a67-4a5d-95b3-f6f45ebbfbef: 61acdf18-5a67-4a5d-6a4c-090ba1440410
+    - 629f102c-50c8-4d75-9e2b-8551598f909e: 629f102c-50c8-4d75-61d4-7aaea6706f61
+    - 644ad100-5040-4bc7-bf03-7f0e8895f238: 644ad100-5040-4bc7-40fc-80f1776a0dc7
+    - 6838133d-f96b-4c6a-aa37-af8855b305fb: 6838133d-f96b-4c6a-55c8-5077aa4cfa04
+    - 689c00b3-e712-4414-822a-5f423a3c64c9: 689c00b3-e712-4414-7dd5-a0bdc5c39b36
+    - 698b8a52-508e-44e1-9376-a39f567a7cf0: 698b8a52-508e-44e1-6c89-5c60a985830f
+    - 6b89e448-ebf5-4e37-9d93-f2ea333017d3: 6b89e448-ebf5-4e37-626c-0d15cccfe82c
+    - 74048dac-b3df-476e-a319-99aaf420c8b2: 74048dac-b3df-476e-5ce6-66550bdf374d
+    - 75b8c63e-7ec0-44b4-8858-1888d9331927: 75b8c63e-7ec0-44b4-77a7-e77726cce6d8
+    - 76ab55aa-be10-4ca9-abe6-7c04b15cce64: 76ab55aa-be10-4ca9-5419-83fb4ea3319b
+    - 7cb264a3-5261-4c4c-ba9e-8da3a18a311c: 7cb264a3-5261-4c4c-4561-725c5e75cee3
+    - 7d90cf43-c959-49fa-a0f1-c76a725065cc: 7d90cf43-c959-49fa-5f0e-38958daf9a33
+    - 7dc4229f-b11d-42f1-a72c-cb0463fe0ac7: 7dc4229f-b11d-42f1-58d3-34fb9c01f538
+    - 80bba200-2857-48e3-993f-cc8121379e15: 80bba200-2857-48e3-66c0-337edec861ea
+    - 832681d1-dbed-474b-a400-3a5b8a800451: 832681d1-dbed-474b-5bff-c5a4757ffbae
+    - 86077597-f452-4de6-90f0-3aeb2e77cbda: 86077597-f452-4de6-6f0f-c514d1883425
+    - 86775be8-c325-4467-9da7-14c7a549e88d: 86775be8-c325-4467-6258-eb385ab61772
+    - 87dfaa92-4315-471f-82fd-f32584df4402: 87dfaa92-4315-471f-7d02-0cda7b20bbfd
+    - 882b8c48-be96-41fd-9599-9550fe278b28: 882b8c48-be96-41fd-6a66-6aaf01d874d7
+    - 893eb979-3350-4de0-87ed-e125e375f5a7: 893eb979-3350-4de0-7812-1eda1c8a0a58
+    - 8d1a9ae5-70a3-4f19-9c59-20f8055214ff: 8d1a9ae5-70a3-4f19-63a6-df07faadeb00
+    - 8e4b3793-6162-478d-9e8d-49c03ad1ea2f: 8e4b3793-6162-478d-6172-b63fc52e15d0
+    - 8f23afbd-5050-4e75-9bd1-3f0161bbf8b5: 8f23afbd-5050-4e75-642e-c0fe9e44074a
+    - 92892418-3a09-4285-bc09-626cb70bae97: 92892418-3a09-4285-43f6-9d9348f45168
+    - 95bbcbc8-1e18-409c-9fc8-42cf827d5a3c: 95bbcbc8-1e18-409c-6037-bd307d82a5c3
+    - 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46: 9789b7d5-d1ad-46a0-51a7-ea3c4af432b9
+    - 999759e7-3ba9-4c12-a490-695c5560e867: 999759e7-3ba9-4c12-5b6f-96a3aa9f1798
+    - 99e421f9-e889-4759-a723-2b9f6a38bd1a: 99e421f9-e889-4759-58dc-d46095c742e5
+    - 9acbcb4a-73da-4d45-8dbf-625facbdd423: 9acbcb4a-73da-4d45-7240-9da053422bdc
+    - 9c2f42dc-ae67-463a-88c3-adcbe60edaec: 9c2f42dc-ae67-463a-773c-523419f12513
+    - a3384843-1e4a-409c-9ec5-9831914c1dae: a3384843-1e4a-409c-613a-67ce6eb3e251
+    - a410b6d3-1ae7-4078-af26-d8816eb53e3b: a410b6d3-1ae7-4078-50d9-277e914ac1c4
+    - a6f7efb0-aec1-4cfb-871a-b46d62930c66: a6f7efb0-aec1-4cfb-78e5-4b929d6cf399
+    - a9f87127-5831-4ce9-b27e-92f132d5c3ef: a9f87127-5831-4ce9-4d81-6d0ecd2a3c10
+    - aa26a442-8430-477a-b0ed-38a89838838f: aa26a442-8430-477a-4f12-c75767c77c70
+    - adc1d3b4-0193-45b6-86f2-8abb2068c6ad: adc1d3b4-0193-45b6-790d-7544df973952
+    - b2997271-9688-4e09-be5e-dcc3422c8e8a: b2997271-9688-4e09-41a1-233cbdd37175
+    - b3d5dd6d-afc8-4ceb-9130-8f86f8ab8a18: b3d5dd6d-afc8-4ceb-6ecf-7079075475e7
+    - b575e03b-cbdd-4c39-8401-de9b0fb6307e: b575e03b-cbdd-4c39-7bfe-2164f049cf81
+    - b603ef89-648f-490a-91c9-7d784aeb8241: b603ef89-648f-490a-6e36-8287b5147dbe
+    - b6618b8d-9042-492e-a5a9-0a70cd8adf3d: b6618b8d-9042-492e-5a56-f58f327520c2
+    - b69901d0-6819-4af4-98bf-3858602f5323: b69901d0-6819-4af4-6740-c7a79fd0acdc
+    - b7009da1-e099-4ada-9d50-bd9654480f5e: b7009da1-e099-4ada-62af-4269abb7f0a1
+    - b79d582c-1981-4d80-9399-94fb4aecc091: b79d582c-1981-4d80-6c66-6b04b5133f6e
+    - b9636803-cc56-4b6e-9934-5db1c445e5a8: b9636803-cc56-4b6e-66cb-a24e3bba1a57
+    - baca74c5-17a6-4df6-919f-f8b1da950698: baca74c5-17a6-4df6-6e60-074e256af967
+    - bbeb5341-013c-474d-9310-9bbb4a90285e: bbeb5341-013c-474d-6cef-6444b56fd7a1
+    - bdb05249-d91e-4a00-aa37-ad15218f047e: bdb05249-d91e-4a00-55c8-52eade70fb81
+    - be16250c-2094-4465-8baf-4d8e9a548d5c: be16250c-2094-4465-7450-b27165ab72a3
+    - c1085f4c-f99e-413b-82ae-cb83be5d7919: c1085f4c-f99e-413b-7d51-347c41a286e6
+    - c60167d4-a922-4a1a-a935-96e35c6d4f51: c60167d4-a922-4a1a-56ca-691ca392b0ae
+    - c9593401-d4b8-4c95-a768-f7bcd9c0b035: c9593401-d4b8-4c95-5897-0843263f4fca
+    - cae64631-6aed-474f-b388-200f03952886: cae64631-6aed-474f-4c77-dff0fc6ad779
+    - cf37be25-3fce-4616-95c4-5eccc2034f2f: cf37be25-3fce-4616-6a3b-a1333dfcb0d0
+    - d120e732-2028-4db4-aa64-5d10d345e509: d120e732-2028-4db4-559b-a2ef2cba1af6
+    - d20dfb45-3a0f-42a5-a49e-59e75ada5d71: d20dfb45-3a0f-42a5-5b61-a618a525a28e
+    - d219a391-e9fa-40b9-bbe0-df668df2ca2e: d219a391-e9fa-40b9-441f-2099720d35d1
+    - d55fa5be-17c1-45ef-8072-eab0f61baac9: d55fa5be-17c1-45ef-7f8d-154f09e45536
+    - d5c7ea97-462d-4ee3-bd99-9972cd7b9917: d5c7ea97-462d-4ee3-4266-668d328466e8
+    - d65a8623-47c1-4d97-a502-3cbef66ee7e7: d65a8623-47c1-4d97-5afd-c34109911818
+    - d68e3d4e-5a9d-4aeb-affa-a9d260be8b1b: d68e3d4e-5a9d-4aeb-5005-562d9f4174e4
+    - d8ab8590-ea54-4158-8b93-ed150e94b333: d8ab8590-ea54-4158-746c-12eaf16b4ccc
+    - d95f2550-e832-48ae-9cad-0cb1566ef8e9: d95f2550-e832-48ae-6352-f34ea9910716
+    - d9991d56-8a12-43a3-9b1f-f85cdfc65a8d: d9991d56-8a12-43a3-64e0-07a32039a572
+    - de5a9517-8cf4-4009-85b6-9a58119284c3: de5a9517-8cf4-4009-7a49-65a7ee6d7b3c
+    - e24b4a13-38b7-4310-91cb-5f962d4b5820: e24b4a13-38b7-4310-6e34-a069d2b4a7df
+    - e3662922-186b-4576-a95a-a3a85d7593ec: e3662922-186b-4576-56a5-5c57a28a6c13
+    - e3c845f3-0725-4719-809f-65a788a280d2: e3c845f3-0725-4719-7f60-9a58775d7f2d
+    - e42a64bc-ef14-4175-bd56-9933876f069e: e42a64bc-ef14-4175-42a9-66cc7890f961
+    - e724f6c4-63d5-4225-9c9f-49fa2f610641: e724f6c4-63d5-4225-6360-b605d09ef9be
+    - e72799d0-869f-4ba5-adb2-d69befd08e64: e72799d0-869f-4ba5-524d-2964102f719b
+    - e8c81a8e-ab93-4d15-8f82-6e6abf03a584: e8c81a8e-ab93-4d15-707d-919540fc5a7b
+    - e8f32b3a-240a-4b29-912d-7d0a5ee6e9b7: e8f32b3a-240a-4b29-6ed2-82f5a1191648
+    - ead10935-a30c-4611-bf92-a73ed64c2cfd: ead10935-a30c-4611-406d-58c129b3d302
+    - efe09e34-e729-4a8d-9be2-5a39c10d1319: efe09e34-e729-4a8d-641d-a5c63ef2ece6
+    - f6787f32-5d2c-4a3c-ad38-19d74bc23c01: f6787f32-5d2c-4a3c-52c7-e628b43dc3fe
+    - f697e1ac-fe7a-41d5-b166-38cb34c910e2: f697e1ac-fe7a-41d5-4e99-c734cb36ef1d
+    - f6b82b7b-97eb-4357-ae68-a14a0dc6fa34: f6b82b7b-97eb-4357-5197-5eb5f23905cb
+    - fdaa935a-75ca-4d16-aca7-ca016beb8b71: fdaa935a-75ca-4d16-5358-35fe9414748e
+    - fdf17d36-95f6-4f27-b8b7-e2ff482ddfcb: fdf17d36-95f6-4f27-4748-1d00b7d22034
+    - fe6d0287-3cac-4174-b275-d05312d38ce6: fe6d0287-3cac-4174-4d8a-2faced2c7319
+  Name: Manual Carousel
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2c547a0b-6f4d-4b00-a157-a00b6de02ab2
+    - !<own> be16250c-2094-4465-8baf-4d8e9a548d5c
+    - !<own> 3b0a1e51-3b50-4685-bf72-542f39a06625
+    - !<own> 044ca74b-1c63-4fbf-9f87-4dd8a9cc946f
+    - !<own> b3d5dd6d-afc8-4ceb-9130-8f86f8ab8a18
+    - !<own> 3e6d74fe-8986-436c-8c01-c89d30b2ef4f
+  Components:
+    []
+- !<Image/6838133d-f96b-4c6a-aa37-af8855b305fb>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 309223ef-c7d1-4744-9c8f-f7f18cc31aea
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/689c00b3-e712-4414-822a-5f423a3c64c9>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> baca74c5-17a6-4df6-919f-f8b1da950698
+- !<ScriptComponent/698b8a52-508e-44e1-9376-a39f567a7cf0>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton10
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 1
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: false
+      polygonScale: !<Vec2> {x: 1.000000, y: 0.500000}
+      cornerRadius: 0.200000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/6b89e448-ebf5-4e37-9d93-f2ea333017d3>
+  PrefabRemaps:
+    []
+  Name: Manual Carousel  Root
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> e724f6c4-63d5-4225-9c9f-49fa2f610641
+    - !<own> 9c2f42dc-ae67-463a-88c3-adcbe60edaec
+    - !<own> b79d582c-1981-4d80-9399-94fb4aecc091
+    - !<own> b69901d0-6819-4af4-98bf-3858602f5323
+    - !<own> 75b8c63e-7ec0-44b4-8858-1888d9331927
+    - !<own> 3aa71797-9571-4bef-b51c-3860afdb64f8
+    - !<own> 92892418-3a09-4285-bc09-626cb70bae97
+    - !<own> b6618b8d-9042-492e-a5a9-0a70cd8adf3d
+    - !<own> f6787f32-5d2c-4a3c-ad38-19d74bc23c01
+    - !<own> 99e421f9-e889-4759-a723-2b9f6a38bd1a
+    - !<own> 7dc4229f-b11d-42f1-a72c-cb0463fe0ac7
+    - !<own> 056714dc-3274-4f7b-b860-a1c54150ecea
+  Components:
+    []
+- !<SceneObject/74048dac-b3df-476e-a319-99aaf420c8b2>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 416b7991-55e2-491c-97b8-e51502637841
+- !<SceneObject/75b8c63e-7ec0-44b4-8858-1888d9331927>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 5
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -5.658900, y: -5.640000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 43109da7-00d0-403e-b8c2-4d9a5ea2cd62
+    - !<own> 0a6d457e-eb36-4aa1-b18b-ca1fd762324b
+  Components:
+    - !<own> a3384843-1e4a-409c-9ec5-9831914c1dae
+- !<Text/76ab55aa-be10-4ca9-abe6-7c04b15cce64>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: OPT 6
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<Image/7cb264a3-5261-4c4c-ba9e-8da3a18a311c>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> adc5c230-a640-4515-9198-b9af4284ce11
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/7d90cf43-c959-49fa-a0f1-c76a725065cc>
+  PrefabRemaps:
+    []
+  Name: zod 9
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -10.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7cb264a3-5261-4c4c-ba9e-8da3a18a311c
+- !<SceneObject/7dc4229f-b11d-42f1-a72c-cb0463fe0ac7>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 11
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 301f4a85-a7f4-43f2-9531-0f32ac234cc8
+    - !<own> e3c845f3-0725-4719-809f-65a788a280d2
+  Components:
+    - !<own> 698b8a52-508e-44e1-9376-a39f567a7cf0
+- !<SceneObject/80bba200-2857-48e3-993f-cc8121379e15>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ead10935-a30c-4611-bf92-a73ed64c2cfd
+- !<Image/832681d1-dbed-474b-a400-3a5b8a800451>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 36019fed-a60e-40c7-a103-1de4d1514af7
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Image/86077597-f452-4de6-90f0-3aeb2e77cbda>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/86775be8-c325-4467-9da7-14c7a549e88d>
+  PrefabRemaps:
+    []
+  Name: Polygonal Button as BG
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> d8ab8590-ea54-4158-8b93-ed150e94b333
+    - !<own> 0f8c39d6-5c8d-4443-a7f5-53af1c7f113f
+  Components:
+    - !<own> 87dfaa92-4315-471f-82fd-f32584df4402
+- !<ScriptComponent/87dfaa92-4315-471f-82fd-f32584df4402>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _playAudio: true
+    _hasShadow: true
+    _shadowPositionOffset: true
+    _toggleable: true
+    _defaultToOn: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    animationType: true
+    popDistance: true
+    fitToSize: true
+    polygonScale: true
+    defaultColor: true
+    highlightColor: true
+    borderHighlightColor: true
+    selectColor: true
+    borderSelectColor: true
+    toggledColor: true
+    borderToggledColor: true
+    toggledHighlightColor: true
+    borderToggledHighlightColor: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    buttonTexture: true
+    borderTexture: true
+    targetingMode: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    enableInstantDrag: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 1000
+      _size: !<Vec3> {x: 3.000000, y: 3.000000, z: 3.000000}
+      _inactive: true
+      _playAudio: false
+      _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 5
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 1.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 0.000000, y: 0.000000}
+      animationType: 0
+      popDistance: !<float> 1.000000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.500000
+      cornerSegments: 5
+      borderWidth: 0.080000
+      defaultColor: !<Vec4> {x: 0.120000, y: 0.140000, z: 0.200000, w: 0.900000}
+      borderColor: !<Vec4> {x: 0.972549, y: 1.000000, z: 0.972549, w: 1.000000}
+      highlightColor: !<Vec4> {x: 0.200000, y: 0.550000, z: 0.950000, w: 0.950000}
+      borderHighlightColor: !<Vec4> {x: 0.450000, y: 0.650000, z: 0.950000, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.950000, y: 0.350000, z: 0.150000, w: 1.000000}
+      borderSelectColor: !<Vec4> {x: 1.000000, y: 0.500000, z: 0.200000, w: 1.000000}
+      toggledColor: !<Vec4> {x: 0.950000, y: 0.350000, z: 0.150000, w: 1.000000}
+      borderToggledColor: !<Vec4> {x: 1.000000, y: 0.500000, z: 0.200000, w: 1.000000}
+      toggledHighlightColor: !<Vec4> {x: 0.180000, y: 0.500000, z: 0.900000, w: 0.980000}
+      borderToggledHighlightColor: !<Vec4> {x: 0.450000, y: 0.650000, z: 0.950000, w: 1.000000}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      borderTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 0.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: false
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/882b8c48-be96-41fd-9599-9550fe278b28>
+  PrefabRemaps:
+    []
+  Name: zod 11
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -5.000000, y: 8.660000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 629f102c-50c8-4d75-9e2b-8551598f909e
+- !<Text/893eb979-3350-4de0-87ed-e125e375f5a7>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Button 9
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<ScriptComponent/8d1a9ae5-70a3-4f19-9c59-20f8055214ff>
+  PrefabRemaps:
+    []
+  Name: ManualPolygonalCarousel
+  Enabled: true
+  ScriptAsset: !<reference> a5879941-d351-42fe-8488-d8de1b000f93
+  ScriptInputsDefault:
+    alignRotationToCircle: true
+    layoutAxis: true
+    faceCamera: true
+    rotationOffset: true
+    enableDirectDrag: true
+    enableExternalDrag: true
+    invertDrag: true
+    dragSensitivity: true
+    inertiaDamping: true
+    snapSharpness: true
+    minVelocityToSnap: true
+    maxDragVelocity: true
+    enableEntryAnimation: true
+    entryDuration: true
+    staggerDirection: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      carouselRoot: !<reference.SceneObject> 6b89e448-ebf5-4e37-9d93-f2ea333017d3
+      slotCount: !<float> 6.000000
+      bufferSlots: !<float> 4.000000
+      arcAngleDegrees: !<float> 180.000000
+      arcOffsetDegrees: !<float> 90.000000
+      slotOffset: !<float> -2.000000
+      radius: 5.500000
+      alignRotationToCircle: true
+      layoutAxis: XY
+      faceInward: true
+      faceCamera: false
+      camera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
+      rotationOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 90.000000}
+      fadeAtEdges: true
+      fadeRange: !<float> 2.000000
+      enableDirectDrag: true
+      tapDragThreshold: 1.500000
+      enableExternalDrag: false
+      invertDrag: true
+      dragSensitivity: 0.050000
+      inertiaDamping: 4.500000
+      snapSharpness: !<float> 10.000000
+      minVelocityToSnap: 0.015000
+      maxDragVelocity: 1.500000
+      enableToggleBehavior: true
+      allowAllTogglesOff: true
+      enableEntryAnimation: true
+      animateOnStart: false
+      entryDuration: 0.500000
+      entryStaggerTime: 0.100000
+      staggerDirection: !<float> 0.000000
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/8e4b3793-6162-478d-9e8d-49c03ad1ea2f>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton2
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 5
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.200000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<Text/8f23afbd-5050-4e75-9bd1-3f0161bbf8b5>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Button 11
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<SceneObject/92892418-3a09-4285-bc09-626cb70bae97>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 7
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> d120e732-2028-4db4-aa64-5d10d345e509
+    - !<own> c9593401-d4b8-4c95-a768-f7bcd9c0b035
+  Components:
+    - !<own> d9991d56-8a12-43a3-9b1f-f85cdfc65a8d
+- !<ScriptComponent/95bbcbc8-1e18-409c-9fc8-42cf827d5a3c>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton5
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 5
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.200000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/9789b7d5-d1ad-46a0-ae58-15c3b50bcd46>
+  PrefabRemaps:
+    []
+  Name: ManualCarouselDemoController
+  Enabled: true
+  ScriptAsset: !<reference> 8e8e4a0e-fdc5-4739-bb6d-ba014e197ac1
+  ScriptInputsDefault:
+    defaultText: true
+    dimmedAlpha: true
+    animationSpeed: true
+    buttonLabels: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      displayText: !<reference.Text> adc1d3b4-0193-45b6-86f2-8abb2068c6ad
+      defaultText: None Selected
+      images: !<reference.Image[]>
+        - !<reference> 07314e33-090c-4074-8365-f7d25a75449e
+        - !<reference> 832681d1-dbed-474b-a400-3a5b8a800451
+        - !<reference> 0b7175f8-f09f-455e-b5ed-09f6cd2a3d27
+        - !<reference> e72799d0-869f-4ba5-adb2-d69befd08e64
+        - !<reference> 0808d0a9-b610-400f-bf08-148a3dedacb3
+        - !<reference> 1d7f8c01-e204-4d8b-acd1-2c18f1fa54ee
+        - !<reference> 999759e7-3ba9-4c12-a490-695c5560e867
+        - !<reference> e3662922-186b-4576-a95a-a3a85d7593ec
+        - !<reference> 7cb264a3-5261-4c4c-ba9e-8da3a18a311c
+        - !<reference> 20f8b6b1-163d-4043-bf28-fe6aec1767f6
+        - !<reference> 629f102c-50c8-4d75-9e2b-8551598f909e
+        - !<reference> 6838133d-f96b-4c6a-aa37-af8855b305fb
+      dimmedAlpha: 0.200000
+      animationSpeed: !<float> 12.000000
+      buttonLabels: !<string[]>
+        - Feature 1
+        - Feature 2
+        - Feature 3
+        - Feature 4
+        - Feature 5
+        - Feature 6
+        - Feature 7
+        - Feature 8
+        - Feature 9
+        - Feature 10
+        - Feature 11
+        - Feature 12
+  ScriptTypes:
+    "":
+      {}
+- !<Image/999759e7-3ba9-4c12-a490-695c5560e867>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> c15e805a-25b6-4101-a493-1485c2d8edb3
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/99e421f9-e889-4759-a723-2b9f6a38bd1a>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 10
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> f697e1ac-fe7a-41d5-b166-38cb34c910e2
+    - !<own> 74048dac-b3df-476e-a319-99aaf420c8b2
+  Components:
+    - !<own> 2d939a3b-a541-45b1-ac3e-2e13316c9273
+- !<Image/9acbcb4a-73da-4d45-8dbf-625facbdd423>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/9c2f42dc-ae67-463a-88c3-adcbe60edaec>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 2
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> fdf17d36-95f6-4f27-b8b7-e2ff482ddfcb
+    - !<own> c1085f4c-f99e-413b-82ae-cb83be5d7919
+  Components:
+    - !<own> d20dfb45-3a0f-42a5-a49e-59e75ada5d71
+- !<ScriptComponent/a3384843-1e4a-409c-9ec5-9831914c1dae>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    shapePreset: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton4
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 0
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.200000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<Text/a410b6d3-1ae7-4078-af26-d8816eb53e3b>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Opt 4
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<SceneObject/a6f7efb0-aec1-4cfb-871a-b46d62930c66>
+  PrefabRemaps:
+    []
+  Name: zod 5
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 5.000000, y: -8.660000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0808d0a9-b610-400f-bf08-148a3dedacb3
+- !<SceneObject/a9f87127-5831-4ce9-b27e-92f132d5c3ef>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> cf37be25-3fce-4616-95c4-5eccc2034f2f
+- !<SceneObject/aa26a442-8430-477a-b0ed-38a89838838f>
+  PrefabRemaps:
+    []
+  Name: zod 3
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 10.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0b7175f8-f09f-455e-b5ed-09f6cd2a3d27
+- !<Text/adc1d3b4-0193-45b6-86f2-8abb2068c6ad>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: EMPTY SELECTION
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 48
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -7.500000
+    bottom: -2.250000
+    right: 7.500000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Overflow
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: AllUpper
+  DepthTest: false
+  TwoSided: false
+- !<ScriptComponent/b2997271-9688-4e09-be5e-dcc3422c8e8a>
+  PrefabRemaps:
+    []
+  Name: PolygonalButtonHintController
+  Enabled: true
+  ScriptAsset: !<reference> a2a2ba54-9b35-45e6-90d7-509acffb6d88
+  ScriptInputsDefault:
+    inDuration: true
+    outDuration: true
+    disableOnFadeOut: true
+    autoTriggerOnStart: true
+    startDelay: true
+    afterInDelay: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      polygonalButton: !<reference.ScriptComponent> 87dfaa92-4315-471f-82fd-f32584df4402
+      videoPlayer: !<reference.ScriptComponent> e8f32b3a-240a-4b29-912d-7d0a5ee6e9b7
+      inDuration: 0.500000
+      outDuration: 0.500000
+      disableOnFadeOut: true
+      targetObjectToDisable: !<reference.SceneObject> 86775be8-c325-4467-9da7-14c7a549e88d
+      autoTriggerOnStart: true
+      startDelay: !<float> 1.000000
+      afterInDelay: !<float> 3.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/b3d5dd6d-afc8-4ceb-9130-8f86f8ab8a18>
+  PrefabRemaps:
+    []
+  Name: "[HINT] Fist Gesture Carousel In Visual"
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -100.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 8.000000, y: 8.000000, z: 8.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 86775be8-c325-4467-9da7-14c7a549e88d
+  Components:
+    - !<own> b2997271-9688-4e09-be5e-dcc3422c8e8a
+    - !<own> e8f32b3a-240a-4b29-912d-7d0a5ee6e9b7
+    - !<own> 3a42d1f5-e6ed-418a-af19-2d8c6fd79ef0
+- !<SceneObject/b575e03b-cbdd-4c39-8401-de9b0fb6307e>
+  PrefabRemaps:
+    []
+  Name: zod 12
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 10.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 6838133d-f96b-4c6a-aa37-af8855b305fb
+- !<SceneObject/b603ef89-648f-490a-91c9-7d784aeb8241>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e42a64bc-ef14-4175-bd56-9933876f069e
+- !<SceneObject/b6618b8d-9042-492e-a5a9-0a70cd8adf3d>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 8
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> a9f87127-5831-4ce9-b27e-92f132d5c3ef
+    - !<own> fdaa935a-75ca-4d16-aca7-ca016beb8b71
+  Components:
+    - !<own> 00dbb47c-950e-425d-a018-f7a3e5e34a10
+- !<SceneObject/b69901d0-6819-4af4-98bf-3858602f5323>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 4
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -5.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 32d50f71-3815-41f3-9ea8-6644534b81d5
+    - !<own> 80bba200-2857-48e3-993f-cc8121379e15
+  Components:
+    - !<own> 18313b1a-65c3-4ef9-9527-fbdbeb89aced
+- !<Image/b7009da1-e099-4ada-9d50-bd9654480f5e>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/b79d582c-1981-4d80-9399-94fb4aecc091>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 3
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2403abbd-9a1e-412e-a98d-b6833f9189c3
+    - !<own> 50c2e266-de09-4b2b-8f44-f5c1c730a141
+  Components:
+    - !<own> 8e4b3793-6162-478d-9e8d-49c03ad1ea2f
+- !<SceneObject/b9636803-cc56-4b6e-9934-5db1c445e5a8>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> adc1d3b4-0193-45b6-86f2-8abb2068c6ad
+- !<Image/baca74c5-17a6-4df6-919f-f8b1da950698>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/bbeb5341-013c-474d-9310-9bbb4a90285e>
+  PrefabRemaps:
+    []
+  Name: zod 6
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -10.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1d7f8c01-e204-4d8b-acd1-2c18f1fa54ee
+- !<ScriptComponent/bdb05249-d91e-4a00-aa37-ad15218f047e>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton8
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 2
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: !<float> 0.000000
+      cornerSegments: 4
+      borderWidth: 0.500000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/be16250c-2094-4465-8baf-4d8e9a548d5c>
+  PrefabRemaps:
+    []
+  Name: "Manual Carousel Controller [Study Me]"
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> d65a8623-47c1-4d97-a502-3cbef66ee7e7
+  Components:
+    []
+- !<SceneObject/c1085f4c-f99e-413b-82ae-cb83be5d7919>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d5c7ea97-462d-4ee3-bd99-9972cd7b9917
+- !<SceneObject/c60167d4-a922-4a1a-a935-96e35c6d4f51>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2a842a62-6700-4227-aa41-18d6dea4e15a
+- !<SceneObject/c9593401-d4b8-4c95-a768-f7bcd9c0b035>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 9acbcb4a-73da-4d45-8dbf-625facbdd423
+- !<SceneObject/cae64631-6aed-474f-b388-200f03952886>
+  PrefabRemaps:
+    []
+  Name: zod 8
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -8.660000, y: -5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e3662922-186b-4576-a95a-a3a85d7593ec
+- !<Text/cf37be25-3fce-4616-95c4-5eccc2034f2f>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: OPTION 8
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<SceneObject/d120e732-2028-4db4-aa64-5d10d345e509>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e8c81a8e-ab93-4d15-8f82-6e6abf03a584
+- !<ScriptComponent/d20dfb45-3a0f-42a5-a49e-59e75ada5d71>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton1
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 3
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.200000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/d219a391-e9fa-40b9-bbe0-df668df2ca2e>
+  PrefabRemaps:
+    []
+  Name: carousel poke scrolling and selecting
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.500000, z: 0.100000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.500000, y: 2.500000, z: 2.500000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 54f343f4-3572-4918-b13e-8b1954f01506
+- !<Image/d55fa5be-17c1-45ef-8072-eab0f61baac9>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1001
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 8475da1f-e005-40cf-8521-c7c143d5de55
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Image/d5c7ea97-462d-4ee3-bd99-9972cd7b9917>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/d65a8623-47c1-4d97-a502-3cbef66ee7e7>
+  PrefabRemaps:
+    []
+  Name: "CarouselGestureApp [Fist Gesture]"
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> efe09e34-e729-4a8d-9be2-5a39c10d1319
+  Components:
+    - !<own> 06aeb260-47de-4663-8534-59d22606c1f0
+- !<ScriptComponent/d68e3d4e-5a9d-4aeb-affa-a9d260be8b1b>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton0
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 4
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: !<float> 1.000000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/d8ab8590-ea54-4158-8b93-ed150e94b333>
+  PrefabRemaps:
+    []
+  Name: fist gesture carousel in
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.500000, z: 0.100000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 3.000000, y: 3.000000, z: 3.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d55fa5be-17c1-45ef-8072-eab0f61baac9
+- !<SceneObject/d95f2550-e832-48ae-9cad-0cb1566ef8e9>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 76ab55aa-be10-4ca9-abe6-7c04b15cce64
+- !<ScriptComponent/d9991d56-8a12-43a3-9b1f-f85cdfc65a8d>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _toggleable: true
+    _defaultToOn: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    fitToSize: true
+    polygonScale: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingMode: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: true
+      triggerUpCallbacks:
+        - scriptComponent: !<reference.ScriptComponent> 9789b7d5-d1ad-46a0-ae58-15c3b50bcd46
+          functionName: selectButton6
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 5
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 1
+      popDistance: 0.500000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.200000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.635294, y: 0.529412, z: 0.000000, w: 0.588235}
+      borderColor: !<Vec4> {x: 0.694118, y: 0.431373, z: 0.039216, w: 0.607843}
+      highlightColor: !<Vec4> {x: 0.380392, y: 0.470588, z: 0.137255, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.901961, y: 0.949020, z: 0.384314, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.015686, y: 0.603922, z: 0.427451, w: 0.705882}
+      borderSelectColor: !<Vec4> {x: 0.035294, y: 0.890196, z: 0.576471, w: 0.784314}
+      toggledColor: !<Vec4> {x: 0.015686, y: 0.721569, z: 0.486275, w: 0.784314}
+      borderToggledColor: !<Vec4> {x: 0.000000, y: 0.890196, z: 0.133333, w: 0.784314}
+      toggledHighlightColor: !<Vec4> {x: 0.023529, y: 0.537255, z: 0.811765, w: 0.705882}
+      borderToggledHighlightColor: !<Vec4> {x: 0.086275, y: 0.458824, z: 0.949020, w: 0.705882}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/de5a9517-8cf4-4009-85b6-9a58119284c3>
+  PrefabRemaps:
+    []
+  Name: zod 4
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 8.660000, y: -5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 7.000000, y: 7.000000, z: 7.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e72799d0-869f-4ba5-adb2-d69befd08e64
+- !<Text/e24b4a13-38b7-4310-91cb-5f962d4b5820>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1001
+  StretchMode: Stretch
+  VerticalAlignment: Bottom
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: poke to select and drag to scroll
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 10
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.200000
+    bottom: -1.000000
+    right: 1.200000
+    top: 1.000000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<Image/e3662922-186b-4576-a95a-a3a85d7593ec>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 73b4eefd-2bef-4f2d-8239-e563ed7bcd88
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/e3c845f3-0725-4719-809f-65a788a280d2>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 281b2a40-3f6d-4444-886b-f321e3ef474d
+- !<Image/e42a64bc-ef14-4175-bd56-9933876f069e>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/e724f6c4-63d5-4225-9c9f-49fa2f610641>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 5.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 53e6b4ab-a858-4b6d-8132-cbe7d8515c14
+    - !<own> 55250793-826f-46b0-b15f-3dd7d9579fe8
+  Components:
+    - !<own> d68e3d4e-5a9d-4aeb-affa-a9d260be8b1b
+- !<Image/e72799d0-869f-4ba5-adb2-d69befd08e64>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 8b27ed7d-88a2-4a84-8da2-89a9dd5a0a2c
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<Text/e8c81a8e-ab93-4d15-8f82-6e6abf03a584>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: BUTTON 7
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -1.900000
+    bottom: -2.250000
+    right: 1.900000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<ScriptComponent/e8f32b3a-240a-4b29-912d-7d0a5ee6e9b7>
+  PrefabRemaps:
+    []
+  Name: Video Player Controller Script
+  Enabled: true
+  ScriptAsset: !<reference> 3818626c-3f01-4fd3-b447-1f4265e7e718
+  ScriptInputsDefault:
+    loopCount: true
+    playOnStart: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      videoTexture: !<reference.Texture> 93260147-ce4c-41bb-877e-95ccaf710ea6
+      playbackRate: 1.500000
+      loopCount: -1
+      playOnStart: false
+  ScriptTypes:
+    "":
+      {}
+- !<Image/ead10935-a30c-4611-bf92-a73ed64c2cfd>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 61bc0106-38b5-44e8-b6be-5a32aeb5eb00
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/efe09e34-e729-4a8d-9be2-5a39c10d1319>
+  PrefabRemaps:
+    []
+  Name: "SwordSwipeScroller [preferably opp. hand]"
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f6b82b7b-97eb-4357-ae68-a14a0dc6fa34
+- !<SceneObject/f6787f32-5d2c-4a3c-ad38-19d74bc23c01>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton 9
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 0.750000, y: 0.750000, z: 0.750000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> fe6d0287-3cac-4174-b275-d05312d38ce6
+    - !<own> b603ef89-648f-490a-91c9-7d784aeb8241
+  Components:
+    - !<own> bdb05249-d91e-4a00-aa37-ad15218f047e
+- !<SceneObject/f697e1ac-fe7a-41d5-b166-38cb34c910e2>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5f18f005-1e3b-4817-8697-d46313b7ed65
+- !<ScriptComponent/f6b82b7b-97eb-4357-ae68-a14a0dc6fa34>
+  PrefabRemaps:
+    []
+  Name: SwordSwipeScroller
+  Enabled: true
+  ScriptAsset: !<reference> e385ae26-25ff-4160-b624-825081cc5f56
+  ScriptInputsDefault:
+    handType: true
+    angularSensitivity: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      carousel: !<reference.ScriptComponent> 8d1a9ae5-70a3-4f19-9c59-20f8055214ff
+      handType: right
+      engageMargin: !<float> 20.000000
+      depthMargin: !<float> 7.000000
+      angularSensitivity: !<float> 1.000000
+      invertScroll: true
+      debugText: !<reference.Text> 84c0f3ef-2c7e-4130-a221-b1a8ba0d620e
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/fdaa935a-75ca-4d16-aca7-ca016beb8b71>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b7009da1-e099-4ada-9d50-bd9654480f5e
+- !<SceneObject/fdf17d36-95f6-4f27-b8b7-e2ff482ddfcb>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 46ed3c27-7ce4-4f4f-9cf3-f2999c8ca757
+- !<SceneObject/fe6d0287-3cac-4174-b275-d05312d38ce6>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 893eb979-3350-4de0-87ed-e125e375f5a7

@@ -1,0 +1,43 @@
+studioVersion:
+  major: 5
+  minor: 15
+  patch: 4
+  build: 26022322
+  type: Public
+coreVersion: 330
+clientVersion: 13.60
+updateCheckpoint: 76
+sceneId: 0a1ccb1a-fe88-4fbb-9883-e3af3c75fd99
+metaInfo:
+  hints:
+    []
+  tags:
+    []
+  lensName: Futuristic UI v1
+  lensDescriptors:
+    []
+  lensApplicability:
+    - Front
+    - Back
+  lensClientCompatibilities:
+    - Spectacles
+  platformBundlesEnabled: false
+  iconHash: 140639f16acce2ee1b43bf619bb30aae
+  videoPreviewHash: ""
+  fromTemplateName: Spectacles
+  fromTemplateUrl: Lens Studio 5.15.4.26022322
+  activationCamera: Front
+  sourceMapEnabled: false
+  usingMinClientVersions: false
+  androidMinClientVersion:
+    major: 0
+    minor: 0
+    patch: 0
+    build: 0
+  iOSMinClientVersion:
+    major: 0
+    minor: 0
+    patch: 0
+    build: 0
+  documentId: ca28e9fb-f47c-4464-9e24-a26765a9af2f
+  originalDocumentId: 4492aa5f-47e4-4abe-9643-7d6f708b0869

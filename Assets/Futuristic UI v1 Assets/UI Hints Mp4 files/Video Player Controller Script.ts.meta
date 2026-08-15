@@ -1,0 +1,57 @@
+- !<AssetImportMetadata/944b2752-a5cc-4c76-ad3c-c86b02915d20>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 3818626c-3f01-4fd3-b447-1f4265e7e718
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 3818626c-3f01-4fd3-b447-1f4265e7e718
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3b00eebd-231d-47c9-8408-8c98fcf77e25
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3b00eebd-231d-47c9-8408-8c98fcf77e25>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 7fe31c48-ed13-48ae-bc05-d90f32e10a97
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    loopCount: false
+    playOnStart: false
+    playbackRate: false
+    videoTexture: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - videoTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      playbackRate: !<float> 1.000000
+      loopCount: -1
+      playOnStart: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">VideoPlayerController</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Controls a video texture via VideoTextureProvider.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input Asset.Texture videoTexture {"hint":"Drag your Video Texture asset (must be a VideoTextureProvider) here"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Playback Settings</span>"}'
+    - '// @input float playbackRate = "1.0" {"hint":"Playback speed multiplier. 1.0 = normal, 2.0 = double speed, 0.5 = half speed."}'
+    - '// @input int loopCount = "-1" {"hint":"Number of times to loop the video. -1 = loop forever, 1 = play once."}'
+    - '// @input boolean playOnStart = "false" {"hint":"If true, video automatically plays on Lens start."}'

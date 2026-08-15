@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/7593fc26-2eaf-6e46-f8ce-c5e457d0bf9b>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> ad762f27-84e0-4f5b-8944-81cf59ca64fc
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> ad762f27-84e0-4f5b-8944-81cf59ca64fc
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 8e798d20-21b2-4409-a5ac-68fa0782d53a
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/8e798d20-21b2-4409-a5ac-68fa0782d53a>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 766ee85b-3d06-4f90-ae46-840e4df54579
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _color: false
+    _cornerRadius: false
+    _renderOrder: false
+    _size: false
+    _spread: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - _renderOrder: 0
+      _size: !<Vec2> {x: 3.000000, y: 3.000000}
+      _cornerRadius: 1.500000
+      _color: !<Vec4> {x: 0.043000, y: 0.043000, z: 0.043000, w: 0.500008}
+      _spread: 0.500000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input int _renderOrder
+    - "// @input vec2 _size = {3,3}"
+    - // @input float _cornerRadius = 1.5
+    - '// @input vec4 _color = "{.43,.43,.43,.15}" {"widget":"color"}'
+    - '// @input float _spread = 0.5 {"widget":"slider", "min":0, "max":1}'

@@ -1,0 +1,75 @@
+- !<AssetImportMetadata/820bfe41-7bbc-4b44-b0ee-4b5ef24662a1>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 99dd8dcc-5554-48d1-a20a-e2acd8b17687
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 99dd8dcc-5554-48d1-a20a-e2acd8b17687
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c02d796e-4e43-49d6-a120-c9b970cda7bc
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c02d796e-4e43-49d6-a120-c9b970cda7bc>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 7ddde5c4-e2eb-4e31-a446-f471762bf377
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    carousel: false
+    defaultText: false
+    defaultTexture: false
+    displayImage: false
+    displayText: false
+    textures: false
+    titlePrefix: false
+    totalItems: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 12f8dfd1-e372-4b98-9114-4de02dfaa886
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - carousel: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      displayImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      displayText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      defaultTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      defaultText: None Selected
+      textures: !<reference.Texture[]>
+        []
+      totalItems: 39
+      titlePrefix: "App "
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">Carousel Demo Populator</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Populates 39 carousel buttons with custom textures and titles, updating an external Image & Text display on selection.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Carousel Reference</span>"}'
+    - '// @input AssignableType carousel {"hint":"Drag your VirtualizedPolygonalCarousel object here"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Display Target Objects</span>"}'
+    - "// @input Component.Image displayImage {\"hint\":\"Target Image object in scene to display the selected button's texture\"}"
+    - "// @input Component.Text displayText {\"hint\":\"Target Text object in scene to display the selected button's title\"}"
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #EC4899; font-weight: bold;\">Default Reset (When All Toggles Off)</span>"}'
+    - '// @input Asset.Texture defaultTexture {"hint":"Default texture to reset to when all toggles are turned OFF (Auto-captured from displayImage if unassigned)"}'
+    - '// @input string defaultText = "None Selected" {"hint":"Default text to show when all toggles are turned OFF"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #10B981; font-weight: bold;\">Textures & Populator Settings</span>"}'
+    - '// @input Asset.Texture[] textures = {} {"hint":"Array of textures to assign to the populated buttons"}'
+    - '// @input int totalItems = "39" {"hint":"Number of buttons to populate (Default: 39)"}'
+    - "// @input string titlePrefix = \"App \" {\"hint\":\"Title prefix for each button (e.g. 'App 1', 'App 2')\"}"

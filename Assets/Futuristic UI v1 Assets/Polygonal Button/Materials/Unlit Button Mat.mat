@@ -1,0 +1,61 @@
+- !<Material/d16fe79c-6d13-40a6-adae-e8a5012a4f0c>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> 187c9d12-7e2e-4087-a9eb-663e2b09010a
+- !<PassInfo/187c9d12-7e2e-4087-a9eb-663e2b09010a>
+  CachedProperties:
+    - Port_Default_N369:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - opacityTex:
+        typeIdx: 9
+        value:
+          id: 2daf1bdd-2e2b-496b-af92-747d0dd8b161
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+  DepthWrite: true
+  DepthTest: true
+  DepthFunction: LessEqual
+  TwoSided: false
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 1
+  Defines:
+    - ENABLE_BASE_TEX
+    - NODE_13_DROPLIST_ITEM 0
+    - NODE_27_DROPLIST_ITEM 0
+    - NODE_49_DROPLIST_ITEM 0
+    - NODE_69_DROPLIST_ITEM 0
+  BlendMode: PremultipliedAlphaAuto
+  Properties:
+    Port_Default_N204:
+      typeIdx: 1
+      value: 0.000000
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    baseColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    baseTex:
+      typeIdx: 9
+      value:
+        id: 10333009-9837-42c8-8f40-2b3df61cc2ef
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+          mipmaps: false
+        type: Texture2D
+  Pass: !<reference> 6d95c078-4456-4d89-8b1c-a03138b59411

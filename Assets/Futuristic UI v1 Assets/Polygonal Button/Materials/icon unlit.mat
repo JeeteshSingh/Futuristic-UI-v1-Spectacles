@@ -1,0 +1,49 @@
+- !<Material/ddbf2691-cae5-434c-b65e-152ba0a3fd98>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> ee3e2f13-cd2d-4882-a80e-a78eaebe1b2b
+- !<PassInfo/ee3e2f13-cd2d-4882-a80e-a78eaebe1b2b>
+  CachedProperties:
+    - Port_Default_N369:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  DepthWrite: false
+  DepthTest: false
+  DepthFunction: LessEqual
+  TwoSided: false
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 1
+  Defines:
+    - NODE_13_DROPLIST_ITEM 0
+    - NODE_27_DROPLIST_ITEM 0
+    - NODE_49_DROPLIST_ITEM 0
+    - NODE_69_DROPLIST_ITEM 0
+    - ENABLE_BASE_TEX
+  BlendMode: PremultipliedAlphaAuto
+  Properties:
+    Port_Default_N204:
+      typeIdx: 1
+      value: 0.000000
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    baseColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    baseTex:
+      typeIdx: 9
+      value:
+        id: 266a3d50-c4ee-40c7-877b-e40534d607e2
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: ClampToEdge
+          wrapModeV: ClampToEdge
+          wrapModeW: ClampToEdge
+          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+          mipmaps: false
+        type: Texture2D
+  Pass: !<reference> 8cd6b7b4-8848-4b6b-a2b1-ea178322303f

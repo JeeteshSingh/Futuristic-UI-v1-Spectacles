@@ -1,0 +1,75 @@
+- !<AssetImportMetadata/f9493dc2-09ee-4fda-b266-84f2cf033fd8>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a2a2ba54-9b35-45e6-90d7-509acffb6d88
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a2a2ba54-9b35-45e6-90d7-509acffb6d88
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 46cff650-2b70-4f9a-81f3-887962fc3481
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/46cff650-2b70-4f9a-81f3-887962fc3481>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 7649f455-3dfc-4fce-a7c4-ede07d932469
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    afterInDelay: false
+    autoTriggerOnStart: false
+    disableOnFadeOut: false
+    inDuration: false
+    outDuration: false
+    polygonalButton: false
+    startDelay: false
+    targetObjectToDisable: false
+    videoPlayer: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> dc7d5f2f-7dc5-434f-96a7-412718801681
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - polygonalButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      videoPlayer: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      inDuration: 0.500000
+      outDuration: 0.500000
+      disableOnFadeOut: true
+      targetObjectToDisable: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      autoTriggerOnStart: true
+      startDelay: !<float> 1.000000
+      afterInDelay: !<float> 3.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">PolygonalButtonHintController</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Animates PolygonalButton opacity to display tutorial hints & gesture prompts.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Target Button</span>"}'
+    - '// @input Component.ScriptComponent polygonalButton {"hint":"Drag the SceneObject containing your PolygonalButton script component here"}'
+    - '// @input Component.ScriptComponent videoPlayer {"hint":"Optional: Drag your VideoPlayerController script component here to sync video playback on hint fade in"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Animation Duration Settings</span>"}'
+    - '// @input float inDuration = "0.5" {"hint":"Duration in seconds to fade in from opacity 0 to 1"}'
+    - '// @input float outDuration = "0.5" {"hint":"Duration in seconds to fade out from opacity 1 to 0"}'
+    - '// @input boolean disableOnFadeOut = "true" {"hint":"If true, automatically disables the hint SceneObject when fade out completes to save rendering and CPU resources."}'
+    - '// @input Component.SceneObject targetObjectToDisable {"hint":"Optional: Additional parent/root SceneObject to enable/disable alongside the PolygonalButton SceneObject.", "showIf":"disableOnFadeOut"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #34D399; font-weight: bold;\">Automatic On-Start Sequence</span>"}'
+    - '// @input boolean autoTriggerOnStart = "true" {"hint":"If true, automatically plays the startDelay -> triggerIn -> afterInDelay -> triggerOut sequence on Lens start."}'
+    - '// @input float startDelay = "1.0" {"hint":"Delay in seconds on Lens start before triggering fade in", "showIf":"autoTriggerOnStart"}'
+    - '// @input float afterInDelay = "3.0" {"hint":"Duration in seconds to keep hint visible (opacity = 1) before triggering fade out", "showIf":"autoTriggerOnStart"}'

@@ -1,0 +1,241 @@
+- !<AssetImportMetadata/8880141d-35ee-4825-a308-69e682b7e25e>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> aecf4a3a-f468-4437-923d-0b41bab70b15
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/aecf4a3a-f468-4437-923d-0b41bab70b15>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: |-
+    POLYGONAL BUTTON - SCRIPTING API EXAMPLES
+    You can cast this component from another script to access its properties. Example setup in another script: @input myButton: ScriptComponent;
+    
+    onAwake() \{ this.buttonAPI = this.myButton as any; \}
+    
+    --- 1. OPACITY --- Property: opacity (number between 0.0 and 1.0) Use Case: You want a button to slowly fade in when a user looks at a specific object, or fade out when a menu is closed. Example: // Inside an update event for a fade-out animation this.buttonAPI.opacity = MathUtils.lerp(this.buttonAPI.opacity, 0.0, getDeltaTime() * 5.0);
+    
+    --- 2. ANIMATION TYPE --- Property: getAnimationType / setAnimationType (number: 0=Scale, 1=Position Z, 2=Both, 3=None) Use Case: Your button usually just changes color when clicked (3), but during a specific "tutorial" phase of your app, you want it to physically pop out on the Z-axis (1) so the user knows they need to press it. Example: this.buttonAPI.setAnimationType = 1;
+    
+    --- 3. POP DISTANCE --- Property: getPopDistance / setPopDistance (number in cm) Use Case: You have a button that sits flush against a wall. When the user selects a "magnify" tool in your app, you want the button's hover-pop distance to increase significantly so it sticks out further from the wall. Example: this.buttonAPI.setPopDistance = 5.0;
+    
+    --- 4. DEFAULT BASE COLOR --- Property: getDefaultColor / setDefaultColor (vec4 RGBA) Use Case: You have a "Save" button. When the user has unsaved changes, you want the button to turn bright red. Once they save, you want it to revert back to grey. This changes the idle color without breaking the hover/click highlight colors. Example: // Turn button red this.buttonAPI.setDefaultColor = new vec4(1.0, 0.0, 0.0, 1.0);
+    
+    --- 5. DEFAULT BORDER COLOR --- Property: getBorderColor / setBorderColor (vec4 RGBA) Use Case: Similar to the base color, but applied to the border. You might want the border to pulse green when a process is complete. Example: this.buttonAPI.setBorderColor = new vec4(0.0, 1.0, 0.0, 1.0);
+    
+    --- 6. POLYGON SCALE --- Method: setPolygonScale(vec2) Use Case: You are building a health bar UI. Instead of stretching the 3D SceneObject transform (which might distort the border width), you use polygonScale to dynamically shrink the internal geometry along the X-axis based on the player's health. Example: // Shrink button width to 50% this.buttonAPI.setPolygonScale(new vec2(0.5, 1.0));
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 68798afb-de15-48f0-913f-1c222fc4561b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _defaultToOn: false
+    _hasShadow: false
+    _inactive: false
+    _playAudio: false
+    _renderOrder: false
+    _shadowPositionOffset: false
+    _size: false
+    _style: false
+    _toggleable: false
+    acceptableXDirections: false
+    acceptableYDirections: false
+    acceptableZDirections: false
+    addCallbacks: false
+    allowMultipleInteractors: false
+    animationType: false
+    borderColor: false
+    borderDisabledColor: false
+    borderHighlightColor: false
+    borderSelectColor: false
+    borderTexture: false
+    borderToggledColor: false
+    borderToggledHighlightColor: false
+    borderWidth: false
+    buttonOpacity: false
+    buttonTexture: false
+    cornerRadius: false
+    cornerSegments: false
+    customCorners: false
+    customMaterial: false
+    defaultColor: false
+    disabledColor: false
+    enableInstantDrag: false
+    enablePokeDirectionality: false
+    fitToSize: false
+    highlightColor: false
+    ignoreInteractionPlane: false
+    isScrollable: false
+    keepHoverOnTrigger: false
+    onFinishedCallbacks: false
+    onValueChangeCallbacks: false
+    polygonScale: false
+    popDistance: false
+    selectColor: false
+    shapePreset: false
+    targetingMode: false
+    targetingVisual: false
+    toggledColor: false
+    toggledHighlightColor: false
+    triggerDownCallbacks: false
+    triggerUpCallbacks: false
+    useFilteredPinch: false
+    useTextures: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> dc7d5f2f-7dc5-434f-96a7-412718801681
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - _renderOrder: 0
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 3.000000}
+      _inactive: false
+      _playAudio: false
+      _style: ""
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 0
+      customCorners: !<Vec2[]>
+        []
+      animationType: 0
+      popDistance: !<float> 1.000000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.250000
+      cornerSegments: 6
+      borderWidth: 0.150000
+      defaultColor: !<Vec4> {x: 0.120000, y: 0.140000, z: 0.200000, w: 0.900000}
+      borderColor: !<Vec4> {x: 0.550000, y: 0.850000, z: 1.000000, w: 1.000000}
+      highlightColor: !<Vec4> {x: 0.200000, y: 0.550000, z: 0.950000, w: 0.950000}
+      borderHighlightColor: !<Vec4> {x: 0.450000, y: 0.650000, z: 0.950000, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.950000, y: 0.350000, z: 0.150000, w: 1.000000}
+      borderSelectColor: !<Vec4> {x: 1.000000, y: 0.500000, z: 0.200000, w: 1.000000}
+      toggledColor: !<Vec4> {x: 0.950000, y: 0.350000, z: 0.150000, w: 1.000000}
+      borderToggledColor: !<Vec4> {x: 1.000000, y: 0.500000, z: 0.200000, w: 1.000000}
+      toggledHighlightColor: !<Vec4> {x: 0.180000, y: 0.500000, z: 0.900000, w: 0.980000}
+      borderToggledHighlightColor: !<Vec4> {x: 0.450000, y: 0.650000, z: 0.950000, w: 1.000000}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      borderTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: false
+      isScrollable: false
+      allowMultipleInteractors: true
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input int _renderOrder
+    - '// @input vec3 _size = {6,3,3} {"hint":"Size of the element in centimeters"}'
+    - '// @input bool _inactive {"hint":"Inactive Mode: set the element to ignore inputs"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - '// @input string _style {"widget":"combobox", "values":[{"label":"PrimaryNeutral", "value":"PrimaryNeutral"}, {"label":"Primary", "value":"Primary"}, {"label":"Secondary", "value":"Secondary"}, {"label":"Special", "value":"Special"}, {"label":"Ghost", "value":"Ghost"}]}'
+    - // @input bool _hasShadow
+    - '// @input vec3 _shadowPositionOffset = "{0.05,-0.05,-0.01}" {"showIf":"_hasShadow"}'
+    - // @input bool _toggleable
+    - '// @input bool _defaultToOn {"hint":"The default state of the Toggle", "showIf":"_toggleable"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - '// @ui {"widget":"group_start", "label":"Callbacks", "showIf":"addCallbacks"}'
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent"
+    - "@property {string} functionName"
+    - "*/"
+    - '// @input Callback[] triggerUpCallbacks = {} {"label":"On Trigger Up Callbacks"}'
+    - '// @input Callback[] triggerDownCallbacks = {} {"label":"On Trigger Down Callbacks"}'
+    - '// @input Callback[] onValueChangeCallbacks = {} {"label":"On Value Changed Callbacks", "showIf":"_toggleable"}'
+    - '// @input Callback[] onFinishedCallbacks = {} {"label":"On Finished Callbacks", "showIf":"_toggleable"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 13px;\">PolygonalButton (SIK / UIKit)</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Custom edge geometry, angles, corner roundness, and state colors.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input int shapePreset = "0" {"hint":"Choose a pre-built geometry or use custom coordinates", "widget":"combobox", "values":[{"label":"Default Irregular Pentagon", "value":0}, {"label":"Sci-Fi Chevron / Arrow", "value":1}, {"label":"Futuristic Trapezoid", "value":2}, {"label":"Asymmetric Quad", "value":3}, {"label":"Hexagon", "value":4}, {"label":"Custom Corner Points Array", "value":5}]}'
+    - "// @input vec2[] customCorners = {{-2,-1.2},{2.2,-0.9},{1.8,0.8},{0.8,1.8},{-1.4,1.4}} {\"hint\":\"Defines polygon shape (X, Y). Auto-scales to Button Size if 'Fit To Size' is checked.\", \"showIf\":\"shapePreset\", \"showIfValue\":5}"
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Geometry & Scaling Controls</span>"}'
+    - '// @input int animationType = "0" {"hint":"Determines how the button visually responds to hover and triggers", "widget":"combobox", "values":[{"label":"Scale Pop (Size)", "value":0}, {"label":"Position Pop (Z-Axis)", "value":1}, {"label":"Both (Scale & Position)", "value":2}, {"label":"None", "value":3}]}'
+    - '// @input float popDistance = "1.0" {"hint":"How far the button translates on the local Z-axis on hover/trigger (cm)"}'
+    - "// @input boolean fitToSize = \"true\" {\"hint\":\"When true, normalizes polygon outline to match the Button's Size and Polygon Scale\"}"
+    - '// @input vec2 polygonScale = "{1.0, 1.0}" {"hint":"Scale multiplier (X, Y) for the polygon outline"}'
+    - '// @input float cornerRadius = "0.25" {"hint":"Radius in cm for rounded corners (0 = sharp corners)"}'
+    - '// @input int cornerSegments = "6" {"hint":"Subdivision smoothness per rounded corner arc"}'
+    - '// @input float borderWidth = "0.15" {"hint":"Border stroke ribbon width in cm"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #34D399; font-weight: bold;\">Interactive State Colors</span>"}'
+    - '// @input vec4 defaultColor = "{0.12, 0.14, 0.20, 0.95}" {"widget":"color"}'
+    - '// @input vec4 borderColor = "{0.35, 0.55, 0.85, 1.0}" {"widget":"color"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input vec4 highlightColor = "{0.18, 0.50, 0.90, 0.98}" {"widget":"color"}'
+    - '// @input vec4 borderHighlightColor = "{0.45, 0.65, 0.95, 1.0}" {"widget":"color"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input vec4 selectColor = "{0.95, 0.35, 0.15, 1.0}" {"widget":"color"}'
+    - '// @input vec4 borderSelectColor = "{1.0, 0.5, 0.2, 1.0}" {"widget":"color"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input vec4 toggledColor = "{0.95, 0.35, 0.15, 1.0}" {"hint":"Color when the button is in a toggled (active) state", "widget":"color"}'
+    - '// @input vec4 borderToggledColor = "{1.0, 0.5, 0.2, 1.0}" {"hint":"Border color when the button is in a toggled (active) state", "widget":"color"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input vec4 toggledHighlightColor = "{0.18, 0.50, 0.90, 0.98}" {"hint":"Color when the button is toggled AND hovered", "widget":"color"}'
+    - '// @input vec4 borderToggledHighlightColor = "{0.45, 0.65, 0.95, 1.0}" {"hint":"Border color when the button is toggled AND hovered", "widget":"color"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input vec4 disabledColor = "{0.3, 0.3, 0.3, 0.5}" {"widget":"color"}'
+    - '// @input vec4 borderDisabledColor = "{0.3, 0.3, 0.3, 0.5}" {"widget":"color"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F472B6; font-weight: bold;\">Textures & Materials</span>"}'
+    - '// @input Asset.Material customMaterial {"hint":"Optional custom material asset for polygon rendering"}'
+    - '// @input float buttonOpacity = "1.0" {"hint":"Global Opacity (Alpha) multiplier for the button and all child text/images", "widget":"slider", "min":0, "max":1, "step":0.01}'
+    - '// @input boolean useTextures = "false"'
+    - '// @input Asset.Texture buttonTexture {"hint":"Optional texture for the main button body", "showIf":"useTextures"}'
+    - '// @input Asset.Texture borderTexture {"hint":"Optional texture for the border ribbon", "showIf":"useTextures"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold;\">Configure Interactable</span>"}'
+    - '// @input float targetingMode = 7 {"hint":"Defines how Interactors can target and interact with this Interactable. Options include:\n- Direct: Only allows close pinch interactions where a hand directly touches the Interactable.\n- Indirect: Allows interactions from a distance with raycasting.\n- Direct/Indirect: Supports both direct and indirect interaction methods.\n- Poke: Enables finger poking interactions.\n- All: Supports all targeting modes (Direct, Indirect, and Poke).", "widget":"combobox", "values":[{"label":"Direct", "value":1}, {"label":"Indirect", "value":2}, {"label":"Direct/Indirect", "value":3}, {"label":"Poke", "value":4}, {"label":"All", "value":7}]}'
+    - '// @input float targetingVisual = 1 {"hint":"Sets the preferred targeting visual. (Requires the V2 Cursor to be enabled on InteractorCursors).\n\n- 0: None\n- 1: Cursor (default)\n- 2: Ray", "widget":"combobox", "values":[{"label":"None", "value":0}, {"label":"Cursor", "value":1}, {"label":"Ray", "value":2}]}'
+    - "// @input bool ignoreInteractionPlane {\"hint\":\"When enabled, this Interactable ignores any parent InteractionPlane and factors into the cursor's position and targetingVisual. Use when the Interactable is parented for organization but not spatially within that plane.\"}"
+    - '// @input bool keepHoverOnTrigger {"hint":"Defines the singular source of truth for feedback + UI + cursor components to poll to check if the Interactable should exhibit sticky behavior during trigger (cursor locks on Interactable, remains in active visual state even after de-hovering)."}'
+    - "// @input bool enableInstantDrag {\"hint\":\"Enable this to allow the Interactable to instantly be dragged on trigger rather than obeying the Interactor's drag threshold.\"}"
+    - '// @input bool isScrollable {"hint":"A flag that enables scroll interactions when this element is interacted with. When true, interactions with this element can scroll a parent ScrollView that has content extending beyond its visible bounds."}'
+    - '// @input bool allowMultipleInteractors = true {"hint":"Determines whether this Interactable can be simultaneously controlled by multiple Interactors. When false, only one Interactor type (e.g., left hand or right hand) can interact with this Interactable at a time, and subsequent interaction attempts from different Interactors will be blocked. Set to true to enable interactions from multiple sources simultaneously, such as allowing both hands to manipulate the Interactable at once."}'
+    - '// @input bool enablePokeDirectionality {"hint":"Enable Poke Directionality to help prevent accidental interactions when users approach from unwanted angles."}'
+    - '// @input float acceptableXDirections {"label":"X", "hint":"Controls from which directions a poke interaction can trigger this Interactable along the X-axis:\n- Left: Finger must approach from -X direction.\n- Right: Finger must approach from +X direction.\n- All: Accepts both directions.\n- None: Disables X-axis poke detection.", "widget":"combobox", "values":[{"label":"None", "value":0}, {"label":"Right", "value":1}, {"label":"Left", "value":2}, {"label":"All", "value":3}], "showIf":"enablePokeDirectionality"}'
+    - '// @input float acceptableYDirections {"label":"Y", "hint":"Controls from which directions a poke interaction can trigger this Interactable along the Y-axis:\n- Top: Finger must approach from +Y direction.\n- Bottom: Finger must approach from -Y direction.\n- All: Accepts both directions.\n- None: Disables Y-axis poke detection.", "widget":"combobox", "values":[{"label":"None", "value":0}, {"label":"Top", "value":1}, {"label":"Bottom", "value":2}, {"label":"All", "value":3}], "showIf":"enablePokeDirectionality"}'
+    - '// @input float acceptableZDirections = 1 {"label":"Z", "hint":"Controls from which directions a poke interaction can trigger this Interactable along the Z-axis:\n- Front: Finger must approach from +Z direction.\n- Back: Finger must approach from -Z direction.\n- All: Accepts both directions.\n- None: Disables Z-axis poke detection.", "widget":"combobox", "values":[{"label":"None", "value":0}, {"label":"Front", "value":1}, {"label":"Back", "value":2}, {"label":"All", "value":3}], "showIf":"enablePokeDirectionality"}'
+    - '// @input bool useFilteredPinch {"hint":"Determines if the Interactable should listen to filtered pinch events when targeted by a HandInteractor. Filtered pinch events are more stable when the hand is quickly moving but may add latency in non-moving cases. Most interactions should use raw pinch events by default. Spatial interactions with large hand movement (such as dragging, scrolling) should use filtered pinch events. If an Interactable has a parent Interactable that uses filtered pinch events, the Interactable will also use filtered pinch events."}'

@@ -1,0 +1,94 @@
+- !<AssetImportMetadata/af199269-3aa1-7168-3cf6-15ed9ba2b5f4>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 173d7099-914c-4f24-ac1c-1b67a66ae138
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 173d7099-914c-4f24-ac1c-1b67a66ae138
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 25ed1c37-9a13-42c1-8817-6ab89bcf5d55
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/25ed1c37-9a13-42c1-8817-6ab89bcf5d55>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 2a678bbc-3ef2-4cd0-a101-b5d2a45615c7
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _defaultToOn: false
+    _hasShadow: false
+    _inactive: false
+    _playAudio: false
+    _renderOrder: false
+    _shadowPositionOffset: false
+    _size: false
+    _style: false
+    _toggleable: false
+    addCallbacks: false
+    onFinishedCallbacks: false
+    onValueChangeCallbacks: false
+    triggerDownCallbacks: false
+    triggerUpCallbacks: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 4bb557f4-2a3a-42c6-8068-8a1aefce7ba6
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - _renderOrder: 0
+      _size: !<Vec3> {x: 6.000000, y: 3.000000, z: 3.000000}
+      _inactive: false
+      _playAudio: false
+      _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input int _renderOrder
+    - '// @input vec3 _size = {6,3,3} {"hint":"Size of the element in centimeters"}'
+    - '// @input bool _inactive {"hint":"Inactive Mode: set the element to ignore inputs"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - '// @input string _style {"widget":"combobox", "values":[{"label":"PrimaryNeutral", "value":"PrimaryNeutral"}, {"label":"Primary", "value":"Primary"}, {"label":"Secondary", "value":"Secondary"}, {"label":"Special", "value":"Special"}, {"label":"Ghost", "value":"Ghost"}]}'
+    - // @input bool _hasShadow
+    - '// @input vec3 _shadowPositionOffset = "{0.05,-0.05,-0.01}" {"showIf":"_hasShadow"}'
+    - // @input bool _toggleable
+    - '// @input bool _defaultToOn {"hint":"The default state of the Toggle", "showIf":"_toggleable"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - '// @ui {"widget":"group_start", "label":"Callbacks", "showIf":"addCallbacks"}'
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent"
+    - "@property {string} functionName"
+    - "*/"
+    - '// @input Callback[] triggerUpCallbacks = {} {"label":"On Trigger Up Callbacks"}'
+    - '// @input Callback[] triggerDownCallbacks = {} {"label":"On Trigger Down Callbacks"}'
+    - '// @input Callback[] onValueChangeCallbacks = {} {"label":"On Value Changed Callbacks", "showIf":"_toggleable"}'
+    - '// @input Callback[] onFinishedCallbacks = {} {"label":"On Finished Callbacks", "showIf":"_toggleable"}'
+    - '// @ui {"widget":"group_end"}'

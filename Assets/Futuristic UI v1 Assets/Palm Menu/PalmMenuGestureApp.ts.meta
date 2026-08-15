@@ -1,0 +1,144 @@
+- !<AssetImportMetadata/1cb38f2a-d611-4033-ac89-75681c72dde4>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> d8f66e6f-e545-45bf-8923-5d55227c05eb
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> d8f66e6f-e545-45bf-8923-5d55227c05eb
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> d3ffe5a2-c5b1-4fdc-a030-136c56be94d7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/d3ffe5a2-c5b1-4fdc-a030-136c56be94d7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: c859b2a3-cacd-4db9-96b7-46470c013b52
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    allowAllTogglesOff: false
+    buttonScale: false
+    buttonUpAxis: false
+    cameraFacingAxis: false
+    debugText: false
+    enableEntryAnimation: false
+    enableIndexFinger: false
+    enableMiddleFinger: false
+    enablePinkyFinger: false
+    enableRingFinger: false
+    enableToggleBehavior: false
+    entryDuration: false
+    entryStaggerTime: false
+    hoverDistance: false
+    indexButton: false
+    leftHandVisual: false
+    middleButton: false
+    palmFacingThreshold: false
+    pinkyButton: false
+    positionOffset: false
+    pressZOffset: false
+    rightHandVisual: false
+    ringButton: false
+    rotationOffset: false
+    selectCooldown: false
+    selectDistance: false
+    targetHand: false
+    worldCamera: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 20eaa327-e518-4db0-9215-c2bd6a22b8dc
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - indexButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      middleButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      ringButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      pinkyButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      rightHandVisual: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      leftHandVisual: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      worldCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      targetHand: 2
+      palmFacingThreshold: !<float> 65.000000
+      enableIndexFinger: true
+      enableMiddleFinger: true
+      enableRingFinger: true
+      enablePinkyFinger: true
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      rotationOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      cameraFacingAxis: !<Vec3> {x: 0.000000, y: 1.000000, z: 0.000000}
+      buttonUpAxis: !<Vec3> {x: 0.000000, y: 1.000000, z: 0.000000}
+      buttonScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      hoverDistance: !<float> 5.000000
+      selectDistance: !<float> 2.000000
+      pressZOffset: 0.800000
+      selectCooldown: 0.400000
+      enableToggleBehavior: false
+      allowAllTogglesOff: false
+      enableEntryAnimation: true
+      entryDuration: 0.350000
+      entryStaggerTime: 0.050000
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">PalmMenuGestureApp</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Thumb-to-fingertip proximity gesture menu controller.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Finger Button Objects (4 Items)</span>"}'
+    - '// @input Component.ScriptComponent indexButton {"hint":"Drag PolygonalButton script for Index Finger button here"}'
+    - '// @input Component.ScriptComponent middleButton {"hint":"Drag PolygonalButton script for Middle Finger button here"}'
+    - '// @input Component.ScriptComponent ringButton {"hint":"Drag PolygonalButton script for Ring Finger button here"}'
+    - '// @input Component.ScriptComponent pinkyButton {"hint":"Drag PolygonalButton script for Pinky Finger button here"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">SIK Hand Visuals & Camera</span>"}'
+    - '// @input Component.ScriptComponent rightHandVisual {"hint":"Drag Right HandVisual component from SIK HandVisuals in scene hierarchy here"}'
+    - '// @input Component.ScriptComponent leftHandVisual {"hint":"Drag Left HandVisual component from SIK HandVisuals in scene hierarchy here"}'
+    - '// @input Component.Camera worldCamera {"hint":"Drag Main Camera for billboarding calculation (defaults to scene camera)"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #10B981; font-weight: bold;\">Hand Selection & Facing Trigger</span>"}'
+    - '// @input int targetHand = "2" {"widget":"combobox", "values":[{"label":"Right Hand Only", "value":0}, {"label":"Left Hand Only", "value":1}, {"label":"Both Hands (Follow Active)", "value":2}]}'
+    - '// @input float palmFacingThreshold = "65.0" {"hint":"Camera facing angle threshold in degrees to show palm menu"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #8B5CF6; font-weight: bold;\">Active Finger Enables</span>"}'
+    - '// @input boolean enableIndexFinger = "true"'
+    - '// @input boolean enableMiddleFinger = "true"'
+    - '// @input boolean enableRingFinger = "true"'
+    - '// @input boolean enablePinkyFinger = "true"'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #EC4899; font-weight: bold;\">Button Offsets & Billboarding</span>"}'
+    - '// @input vec3 positionOffset = {0,0,0} {"hint":"Position offset relative to each finger joint"}'
+    - '// @input vec3 rotationOffset = {0,0,0} {"hint":"Rotation offset in degrees"}'
+    - '// @input vec3 cameraFacingAxis = "{0, 0, 1}" {"hint":"Local front-facing vector on your button that should look directly at the camera (e.g. {0,0,1} for flat 2D buttons or {0,1,0})"}'
+    - '// @input vec3 buttonUpAxis = "{0, 1, 0}" {"hint":"Local top/up vector on your button that should point along the fingers toward fingertips (e.g. {0,1,0} or {1,0,0})"}'
+    - '// @input vec3 buttonScale = "{1, 1, 1}" {"hint":"Scale multiplier applied to finger buttons"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Thumb Proximity & Press Thresholds</span>"}'
+    - '// @input float hoverDistance = "5.0" {"hint":"Distance in cm from thumb tip to fingertip to enter Hover state"}'
+    - '// @input float selectDistance = "2.0" {"hint":"Distance in cm from thumb tip to fingertip to trigger Select press"}'
+    - '// @input float pressZOffset = "0.8" {"hint":"Upward displacement on hand normal axis when hovered/pressed"}'
+    - '// @input float selectCooldown = "0.4" {"hint":"Cooldown delay in seconds between successive selections"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #3B82F6; font-weight: bold;\">Toggle Group Behavior</span>"}'
+    - '// @input boolean enableToggleBehavior = "false" {"hint":"If true, buttons act as an exclusive radio-button group (only 1 button active at a time)"}'
+    - '// @input boolean allowAllTogglesOff = "false" {"hint":"Allows deselecting active button on second tap, leaving no buttons toggled", "showIf":"enableToggleBehavior"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #EF4444; font-weight: bold;\">Entry Animations</span>"}'
+    - '// @input boolean enableEntryAnimation = "true"'
+    - '// @input float entryDuration = "0.35" {"hint":"Scale pop-in animation duration per button in seconds", "showIf":"enableEntryAnimation"}'
+    - '// @input float entryStaggerTime = "0.05" {"hint":"Delay offset between successive finger buttons", "showIf":"enableEntryAnimation"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #6B7280; font-weight: bold;\">Debug Panel</span>"}'
+    - '// @input Component.Text debugText {"hint":"Optional Text component to view live tracking & finger selection status"}'

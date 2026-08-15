@@ -1,0 +1,137 @@
+- !<Material/22e5dc0f-3cf3-418d-b611-37ce19637433>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> 7e5ef0a9-44e8-4e04-b48b-1240dac63dc6
+- !<PassInfo/7e5ef0a9-44e8-4e04-b48b-1240dac63dc6>
+  CachedProperties:
+    - Port_Center_N008:
+        typeIdx: 3
+        value: {x: 0.500000, y: 0.500000}
+    - Port_Center_N026:
+        typeIdx: 3
+        value: {x: 0.500000, y: 0.500000}
+    - Port_Depth_N004:
+        typeIdx: 1
+        value: 1.000000
+    - Port_FinalColor1_N004:
+        typeIdx: 5
+        value: {x: 0.040696, y: 0.124315, z: 0.177203, w: 1.000000}
+    - Port_FinalColor2_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_FinalColor3_N004:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_GSplatPointSize_N004:
+        typeIdx: 1
+        value: 0.000000
+    - Port_GSplatRotation_N004:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    - Port_GSplatScale_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_LODValue_N039:
+        typeIdx: 1
+        value: 0.000000
+    - Port_LODValue_N157:
+        typeIdx: 1
+        value: 0.000000
+    - Port_Output_N018:
+        typeIdx: 5
+        value: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+    - Port_PrevWorldPosition_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_RayDirection_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_RayOrigin_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 0.000000}
+    - Port_SurfacePosition_N059:
+        typeIdx: 4
+        value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    - Port_WorldNormal_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 1.000000, z: 0.000000}
+    - Port_WorldTangent_N004:
+        typeIdx: 4
+        value: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - baseScale:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - baseTex:
+        typeIdx: 9
+        value:
+          id: 00000000-0000-0000-0000-000000000000
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - baseTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - opacityScale:
+        typeIdx: 3
+        value: {x: 1.000000, y: 1.000000}
+    - opacityTex:
+        typeIdx: 9
+        value:
+          id: 00000000-0000-0000-0000-000000000000
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
+            mipmaps: false
+          type: Texture2D
+    - opacityTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+  DepthWrite: false
+  DepthTest: false
+  DepthFunction: LessEqual
+  TwoSided: true
+  ColorMask: {x: true, y: true, z: true, w: false}
+  CullMode: Front
+  PolygonOffset: {x: 1000.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 3
+  Defines:
+    - NODE_2_DROPLIST_ITEM 0
+    - NODE_44_DROPLIST_ITEM 0
+    - Tweak_N48 0
+  BlendMode: Screen
+  Properties:
+    Port_Default_N040:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    Port_Default_N204:
+      typeIdx: 1
+      value: 1.000000
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    baseColor:
+      typeIdx: 5
+      value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    glowDistance:
+      typeIdx: 1
+      value: 1.000000
+    glowFalloff:
+      typeIdx: 1
+      value: 4.000000
+  Pass: !<reference> a6cedcb7-2f42-4d8e-b774-09ee6444493e

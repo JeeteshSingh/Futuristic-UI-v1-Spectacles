@@ -1,0 +1,94 @@
+- !<AssetImportMetadata/9b215334-9255-13b8-0b57-572f7dc94ad5>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b050aedd-1d5f-4a83-886d-78be539ff667
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b050aedd-1d5f-4a83-886d-78be539ff667
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> a1245826-dd0c-4c4d-b173-65a384cd3860
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/a1245826-dd0c-4c4d-b173-65a384cd3860>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 03ed0861-d535-4de1-951a-c605b3cb690d
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _defaultToOn: false
+    _hasShadow: false
+    _inactive: false
+    _playAudio: false
+    _radius: false
+    _renderOrder: false
+    _shadowPositionOffset: false
+    _toggleable: false
+    _zBackScale: false
+    addCallbacks: false
+    onFinishedCallbacks: false
+    onValueChangeCallbacks: false
+    triggerDownCallbacks: false
+    triggerUpCallbacks: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - _renderOrder: 0
+      _inactive: false
+      _playAudio: false
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      _radius: !<float> 1.000000
+      _zBackScale: !<float> 1.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input int _renderOrder
+    - '// @input bool _inactive {"hint":"Inactive Mode: set the element to ignore inputs"}'
+    - '// @input bool _playAudio {"label":"Play Audio", "hint":"Play audio on interaction"}'
+    - // @input bool _hasShadow
+    - '// @input vec3 _shadowPositionOffset = "{0.05,-0.05,-0.01}" {"showIf":"_hasShadow"}'
+    - // @input bool _toggleable
+    - '// @input bool _defaultToOn {"hint":"The default state of the Toggle", "showIf":"_toggleable"}'
+    - "// @input bool addCallbacks {\"hint\":\"Enable this to add functions from another script to this component's callbacks\"}"
+    - '// @ui {"widget":"group_start", "label":"Callbacks", "showIf":"addCallbacks"}'
+    - /*
+    - "@typedef Callback"
+    - "@property {Component.ScriptComponent} scriptComponent"
+    - "@property {string} functionName"
+    - "*/"
+    - '// @input Callback[] triggerUpCallbacks = {} {"label":"On Trigger Up Callbacks"}'
+    - '// @input Callback[] triggerDownCallbacks = {} {"label":"On Trigger Down Callbacks"}'
+    - '// @input Callback[] onValueChangeCallbacks = {} {"label":"On Value Changed Callbacks", "showIf":"_toggleable"}'
+    - '// @input Callback[] onFinishedCallbacks = {} {"label":"On Finished Callbacks", "showIf":"_toggleable"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @input float _radius = 1 {"hint":"Radius of Sphere In Local Space Units"}'
+    - '// @input float _zBackScale = 1 {"hint":"Scale of the back of the Sphere in Local Space Units. A value closer to 0.0 makes the back of the sphere flatter, while a value closer to 1.0 retains its original shape.", "widget":"slider", "min":0, "max":1}'

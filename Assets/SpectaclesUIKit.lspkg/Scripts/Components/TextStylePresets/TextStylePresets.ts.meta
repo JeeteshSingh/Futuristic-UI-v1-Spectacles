@@ -1,0 +1,47 @@
+- !<AssetImportMetadata/4ddd31d8-881c-a064-2ac1-01369fe2aaba>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 511f9369-79d2-4914-b05e-1fa827c4f841
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 511f9369-79d2-4914-b05e-1fa827c4f841
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 1c87ee21-1324-46b6-a5e9-196cd3b0969f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/1c87ee21-1324-46b6-a5e9-196cd3b0969f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 984130ea-61cc-479e-b46e-56e6366a8c1c
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    _distance: false
+    _ranking: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - _distance: far
+      _ranking: Title1
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - "// @input string _distance = \"far\" {\"hint\":\"Viewing distance preset (affects text size). 'Near' for objects at 55cm, 'Far' at 110cm.\", \"widget\":\"combobox\", \"values\":[{\"label\":\"Near\", \"value\":\"near\"}, {\"label\":\"Far\", \"value\":\"far\"}]}"
+    - '// @input string _ranking {"hint":"Preset text style ranking (e.g. Title, Headline, Caption). Applies a consistent font size and weight by design.", "widget":"combobox", "values":[{"label":"Title 1", "value":"Title1"}, {"label":"Title 2", "value":"Title2"}, {"label":"Headline XL", "value":"HeadlineXL"}, {"label":"Headline 1", "value":"Headline1"}, {"label":"Headline 2", "value":"Headline2"}, {"label":"Subheadline", "value":"Subheadline"}, {"label":"Button", "value":"Button"}, {"label":"Callout", "value":"Callout"}, {"label":"Body", "value":"Body"}, {"label":"Caption", "value":"Caption"}]}'

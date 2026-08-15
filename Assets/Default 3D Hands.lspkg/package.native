@@ -1,0 +1,37 @@
+- !<NativePackageDescriptor/8ba0d84f-045d-4b29-99db-89974e370e93>
+  PackagePath: ""
+  StudioVersion:
+    major: 5
+    minor: 15
+    patch: 4
+    build: 26022322
+    type: Unset
+    buildFlavor: ""
+    timestamp: 0
+    commit: ""
+  Description: "A Simple rigged 3D Default Hand Mesh tracks user's hands in 3D space. Learn more in the 3D Hand Tracking guide"
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  VersionMajor: 2
+  VersionMinor: 0
+  VersionPatch: 0
+  UpdateCheckpoint: 76
+  ExportUid: 6dc4c27e-8000-4254-95c5-9abc70d51413
+  ComponentUid: fd0891dd-f5c8-4d1a-98a3-4c49d1da2bec
+  PackagePolicy: CanBeUnpacked
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  Instantiable: !<reference> 286b0b95-b8e4-4519-94c3-37fe59cf3599
+  AssetLibraryDependencyStructure: !<AssetLibraryDependencyStructure>
+    Name: ""
+    AssetId: ""
+    Hash: ""
+    Version:
+      major: 0
+      minor: 0
+      patch: 0
+      build: 0

@@ -1,0 +1,114 @@
+- !<Material/1677fd27-e35f-41eb-bcba-ddab9dc2b93a>
+  PackagePath: ""
+  PassesInfo:
+    - !<own> 8af93f21-ba08-4258-8237-75dcbaaefa5e
+- !<PassInfo/8af93f21-ba08-4258-8237-75dcbaaefa5e>
+  CachedProperties:
+    - baseTex:
+        typeIdx: 9
+        value:
+          id: 1e0b67d2-b5de-4c20-af5f-54b0c09f8ab6
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+            mipmaps: false
+          type: Texture2D
+    - baseTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - materialParamsTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+    - normalTex:
+        typeIdx: 9
+        value:
+          id: 0737db0a-8b92-47bc-8de7-128a695972f2
+          sampler:
+            filteringMode: Trilinear
+            wrapModeU: Repeat
+            wrapModeV: Repeat
+            wrapModeW: Repeat
+            borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+            mipmaps: false
+          type: Texture2D
+    - normalTexTransform:
+        typeIdx: 7
+        value:
+          0: {x: 1.000000, y: 0.000000, z: 0.000000}
+          1: {x: 0.000000, y: 1.000000, z: 0.000000}
+          2: {x: 0.000000, y: 0.000000, z: 1.000000}
+  DepthWrite: true
+  DepthTest: true
+  DepthFunction: LessEqual
+  TwoSided: false
+  ColorMask: {x: true, y: true, z: true, w: true}
+  CullMode: Back
+  PolygonOffset: {x: 0.000000, y: 0.000000}
+  FrustumCulling: Auto
+  FrustumCullPad: 0.000000
+  InstanceCount: 1
+  Defines:
+    - NODE_13_DROPLIST_ITEM 0
+    - NODE_181_DROPLIST_ITEM 0
+    - NODE_184_DROPLIST_ITEM 0
+    - NODE_221_DROPLIST_ITEM 0
+    - NODE_228_DROPLIST_ITEM 0
+    - NODE_27_DROPLIST_ITEM 0
+    - NODE_315_DROPLIST_ITEM 0
+    - NODE_38_DROPLIST_ITEM 0
+    - NODE_49_DROPLIST_ITEM 0
+    - NODE_69_DROPLIST_ITEM 0
+    - NODE_76_DROPLIST_ITEM 0
+    - ENABLE_LIGHTING
+    - ENABLE_RIM_HIGHLIGHT
+  BlendMode: Disabled
+  Properties:
+    PreviewEnabled:
+      typeIdx: 0
+      value: 0
+    baseColor:
+      typeIdx: 5
+      value: {x: 0.196078, y: 0.196078, z: 0.196078, w: 1.000000}
+    materialParamsTex:
+      typeIdx: 9
+      value:
+        id: b03e2619-a4a7-4abb-9579-ccbab396d8a0
+        sampler:
+          filteringMode: Trilinear
+          wrapModeU: Repeat
+          wrapModeV: Repeat
+          wrapModeW: Repeat
+          borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+          mipmaps: false
+        type: Texture2D
+    rimColor:
+      typeIdx: 4
+      value: {x: 1.000000, y: 1.000000, z: 1.000000}
+    rimExponent:
+      typeIdx: 1
+      value: 2.800000
+    rimIntensity:
+      typeIdx: 1
+      value: 1.000000
+    uv2Offset:
+      typeIdx: 3
+      value: {x: 0.000000, y: 0.000000}
+    uv2Scale:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+    uv3Offset:
+      typeIdx: 3
+      value: {x: 0.000000, y: 0.000000}
+    uv3Scale:
+      typeIdx: 3
+      value: {x: 1.000000, y: 1.000000}
+  Pass: !<reference> 85d27116-41c3-4ceb-b0eb-d4a3d25cbdc6

@@ -1,0 +1,87 @@
+- !<AssetImportMetadata/8d66d119-7a5c-48c3-a7c1-25b6d9640770>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a3e57efb-ab8b-485c-a525-a442a7bc5a88
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a3e57efb-ab8b-485c-a525-a442a7bc5a88
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3a2829af-ddd9-4b37-826f-0276a65ae4ce
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3a2829af-ddd9-4b37-826f-0276a65ae4ce>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 93a6b8ef-b47d-4cb2-a3c4-1bd91049b885
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    alignRotationToCircle: false
+    buttonPrefab: false
+    buttonScale: false
+    carouselRoot: false
+    dragSensitivity: false
+    faceInward: false
+    inertiaDamping: false
+    invertDrag: false
+    layoutAxis: false
+    minVelocityToSnap: false
+    radius: false
+    rotationOffset: false
+    slotCount: false
+    snapSharpness: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - buttonPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      buttonScale: !<float> 1.000000
+      carouselRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      slotCount: !<float> 5.000000
+      radius: !<float> 30.000000
+      dragSensitivity: 0.050000
+      inertiaDamping: 4.500000
+      snapSharpness: !<float> 10.000000
+      minVelocityToSnap: 0.015000
+      alignRotationToCircle: false
+      layoutAxis: XY
+      faceInward: false
+      rotationOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      invertDrag: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"Carousel Hierarchy"}'
+    - '// @input Asset.ObjectPrefab buttonPrefab {"hint":"Prefab containing PolygonalButton component and Text child object"}'
+    - '// @input float buttonScale = 1 {"hint":"Uniform scale multiplier applied to the instantiated buttons"}'
+    - '// @input SceneObject carouselRoot {"hint":"Root SceneObject for the carousel. If null, uses this SceneObject."}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"group_start", "label":"Layout & Motion Settings"}'
+    - '// @input float slotCount = 5 {"hint":"Number of buttons in the carousel circle"}'
+    - '// @input float radius = 30 {"hint":"Radius of the circle in cm"}'
+    - '// @input float dragSensitivity = 0.05 {"hint":"Drag sensitivity for rotating the carousel"}'
+    - '// @input float inertiaDamping = 4.5 {"hint":"Inertia damping (higher = stops faster)"}'
+    - '// @input float snapSharpness = 10 {"hint":"Snap sharpness to nearest slot"}'
+    - '// @input float minVelocityToSnap = 0.015 {"hint":"Minimum velocity threshold before snapping"}'
+    - '// @input bool alignRotationToCircle {"hint":"Orient buttons tangentially along the circle outline"}'
+    - '// @input string layoutAxis = "XY" {"hint":"Which plane to align the circle to", "widget":"combobox", "values":[{"label":"XY Plane (Flat Circle)", "value":"XY"}, {"label":"XZ Plane (Horizontal Cylinder)", "value":"XZ"}, {"label":"YZ Plane (Vertical Cylinder)", "value":"YZ"}]}'
+    - '// @input bool faceInward {"hint":"If true, buttons face the center. If false, they face outward (for XZ/YZ) or flip (XY)."}'
+    - '// @input vec3 rotationOffset = {0,0,0} {"hint":"Additional rotation offset (in degrees) to apply to each button (e.g., set Z to 90 to align Y-axis to curve)"}'
+    - '// @input bool invertDrag {"hint":"Invert the drag direction"}'
+    - '// @ui {"widget":"group_end"}'

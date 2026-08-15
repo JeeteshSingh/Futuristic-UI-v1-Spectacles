@@ -1,0 +1,107 @@
+- !<AssetImportMetadata/b438b526-c2b3-42c4-a22a-2a185b14f5ab>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 1895b8ea-4db2-4abc-9fec-6f55ead70bef
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 1895b8ea-4db2-4abc-9fec-6f55ead70bef
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 82db0ad1-5f84-4e21-a769-c9702df85030
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/82db0ad1-5f84-4e21-a769-c9702df85030>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: d6008b67-8670-4c2c-bf8f-bf6efb16ad17
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    alignToWorldUp: false
+    angleThresholdDegrees: false
+    enableLogging: false
+    flattenRotation: false
+    followMode: false
+    horizontalDistanceThresholdCm: false
+    lockY: false
+    lockedY: false
+    offsetDistance: false
+    positionLerpSpeed: false
+    positionOffset: false
+    rotationLerpSpeed: false
+    rotationOffset: false
+    targetCamera: false
+    verticalDistanceThresholdCm: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - targetCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      followMode: Angle & Distance Deadzone
+      offsetDistance: !<float> 80.000000
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      rotationOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      angleThresholdDegrees: !<float> 35.000000
+      horizontalDistanceThresholdCm: !<float> 40.000000
+      verticalDistanceThresholdCm: !<float> 30.000000
+      alignToWorldUp: true
+      flattenRotation: true
+      lockY: false
+      lockedY: !<float> 0.000000
+      positionLerpSpeed: 0.120000
+      rotationLerpSpeed: 0.150000
+      enableLogging: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold; font-size: 13px;\">Universal Camera Follower</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Multipurpose spatial follower combining CameraFollower + Tether + Angle Range.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8;\">Target & Mode</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Target & Mode"}'
+    - '// @input Component.Camera targetCamera {"hint":"Target camera or SceneObject to follow (defaults to World Camera)"}'
+    - '// @input string followMode = "Angle & Distance Deadzone" {"hint":"Follow mode trigger behavior", "widget":"combobox", "values":[{"label":"Angle & Distance Deadzone", "value":"Angle & Distance Deadzone"}, {"label":"Continuous Lerp", "value":"Continuous Lerp"}, {"label":"Angle Threshold Only", "value":"Angle Threshold Only"}, {"label":"Distance Threshold Only", "value":"Distance Threshold Only"}]}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8;\">Position & Rotation Offsets</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Offsets"}'
+    - '// @input float offsetDistance = 80 {"hint":"Distance in cm directly in front of target view (default: 80 cm)"}'
+    - '// @input vec3 positionOffset = {0,0,0} {"hint":"Local XYZ position shift relative to camera view (in cm)"}'
+    - '// @input vec3 rotationOffset = {0,0,0} {"hint":"Rotation offset in Euler degrees (Pitch, Yaw, Roll)"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8;\">Reposition Deadzone Thresholds</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Deadzone Thresholds"}'
+    - '// @input float angleThresholdDegrees = 35 {"hint":"Angular threshold cone in degrees to trigger catch-up (e.g. 35°)"}'
+    - '// @input float horizontalDistanceThresholdCm = 40 {"hint":"Horizontal distance threshold in cm to trigger catch-up"}'
+    - '// @input float verticalDistanceThresholdCm = 30 {"hint":"Vertical distance threshold in cm to trigger catch-up"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8;\">Constraints & Orientation</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Constraints"}'
+    - '// @input bool alignToWorldUp = true {"hint":"Keeps object upright aligned to world gravity (prevents tilting on head roll)"}'
+    - '// @input bool flattenRotation = true {"hint":"Flatten Y-axis pitch angle (keeps UI level on horizontal plane)"}'
+    - '// @input bool lockY {"hint":"Lock world Y height to a fixed elevation"}'
+    - '// @input float lockedY {"hint":"Fixed Y elevation position in world space when lockY is enabled"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8;\">Motion Smoothing</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Motion Smoothing"}'
+    - '// @input float positionLerpSpeed = 0.12 {"hint":"Position interpolation speed (higher = faster catch-up)", "widget":"slider", "min":0.01, "max":1, "step":0.01}'
+    - '// @input float rotationLerpSpeed = 0.15 {"hint":"Rotation interpolation speed", "widget":"slider", "min":0.01, "max":1, "step":0.01}'
+    - // @input bool enableLogging
+    - '// @ui {"widget":"group_end"}'

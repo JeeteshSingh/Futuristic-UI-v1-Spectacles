@@ -1,0 +1,94 @@
+- !<AssetImportMetadata/7db54215-631a-401b-803f-5dccfce29cc2>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> b33bda41-9a33-4816-b44b-4ed72c6eedfc
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> b33bda41-9a33-4816-b44b-4ed72c6eedfc
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c2cfc80f-fbc2-42a8-b240-b2dded88605e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c2cfc80f-fbc2-42a8-b240-b2dded88605e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 21e18b82-fba6-4b1e-b7b5-2a49fb5c9ca5
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    enablePopAnimation: false
+    enablePreviewDebug: false
+    facingAngleThreshold: false
+    facingTrigger: false
+    gestureTrigger: false
+    menuObject: false
+    palmAnchorPoint: false
+    popDuration: false
+    positionOffset: false
+    previewSimulator: false
+    rotationOffset: false
+    smoothSpeed: false
+    targetHand: false
+    targetScale: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 6ae56386-2af8-44a6-aba3-c5eda7b5ec0a
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - menuObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      targetHand: 2
+      palmAnchorPoint: 0
+      gestureTrigger: 0
+      facingTrigger: 0
+      facingAngleThreshold: !<float> 65.000000
+      positionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 5.000000}
+      rotationOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      targetScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      smoothSpeed: !<float> 12.000000
+      enablePopAnimation: true
+      popDuration: 0.300000
+      enablePreviewDebug: false
+      previewSimulator: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">HandMenuHelper</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Multifunctional helper script to anchor custom UI panels & 3D content to the hand.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">UI Panel / Target Object</span>"}'
+    - '// @input SceneObject menuObject {"hint":"Drag your custom UI Panel or 3D menu SceneObject here"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Hand Selection & Triggers</span>"}'
+    - '// @input int targetHand = "2" {"widget":"combobox", "values":[{"label":"Right Hand Only", "value":0}, {"label":"Left Hand Only", "value":1}, {"label":"Both Hands (Follow Active)", "value":2}]}'
+    - '// @input int palmAnchorPoint = "0" {"widget":"combobox", "values":[{"label":"Palm Center / Middle Knuckle (mid-0)", "value":0}, {"label":"Index Knuckle (index-0)", "value":1}, {"label":"Pinky Knuckle (pinky-0)", "value":2}, {"label":"Wrist (wrist)", "value":3}]}'
+    - '// @input int gestureTrigger = "0" {"widget":"combobox", "values":[{"label":"Palm Open", "value":0}, {"label":"Fist Closed", "value":1}, {"label":"Any Tracked Pose", "value":2}]}'
+    - '// @input int facingTrigger = "0" {"widget":"combobox", "values":[{"label":"Facing Camera", "value":0}, {"label":"Facing Away From Camera", "value":1}, {"label":"Any Direction", "value":2}]}'
+    - '// @input float facingAngleThreshold = "65.0" {"hint":"Camera facing angle threshold in degrees"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #10B981; font-weight: bold;\">Palm Coordinate Guide & Offsets</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">• X: Across Palm (Index <-> Pinky)<br/>• Y: Finger Axis (Wrist -> Fingertips)<br/>• Z: Normal Vector (Out of Palm towards camera)</span>"}'
+    - '// @input vec3 positionOffset = {0,0,5} {"hint":"XYZ position offset relative to selected anchor joint. X=Across palm, Y=Finger axis, Z=Normal towards camera."}'
+    - '// @input vec3 rotationOffset = {0,0,0} {"hint":"Rotation offset in degrees relative to palm orientation"}'
+    - '// @input vec3 targetScale = {1,1,1} {"hint":"Target scale of the menu object when fully visible"}'
+    - '// @input float smoothSpeed = "14.0" {"hint":"Position and rotation smoothing dampening speed"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #EC4899; font-weight: bold;\">Entry / Exit Pop Animation</span>"}'
+    - '// @input boolean enablePopAnimation = "true"'
+    - '// @input float popDuration = "0.2" {"hint":"Entry & exit scaling pop animation duration in seconds"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #EF4444; font-weight: bold;\">⚠️ Debug Preview Mode (Editor Testing Only)</span><br/><span style=\"color: #F87171; font-size: 11px;\">Allows testing UI panel placement on static scene hand models directly inside the Lens Studio Preview window without needing a physical device.<br/><b>REMINDER: DISABLE THIS CHECKBOX BEFORE TESTING ON DEVICE!</b></span>"}'
+    - '// @input boolean enablePreviewDebug = "false" {"hint":"Enable Preview Mode testing using scene hand objects. MUST BE DISABLED BEFORE DEVICE DEPLOYMENT!"}'
+    - '// @input Component.ScriptComponent previewSimulator {"hint":"Drag SceneObject containing your HandPreviewSimulator component here", "showIf":"enablePreviewDebug"}'

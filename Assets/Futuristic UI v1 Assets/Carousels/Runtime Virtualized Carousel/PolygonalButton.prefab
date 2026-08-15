@@ -1,0 +1,221 @@
+- !<ObjectPrefab/b85661d5-042d-4fc4-9273-9c6b9707e6e7>
+  PackagePath: ""
+  objects:
+    - !<own> 61c0ebfb-9947-4b8e-bad3-cbeadd8857d1
+  LazyLoading: false
+  RetainAssets: true
+- !<SceneObject/61c0ebfb-9947-4b8e-bad3-cbeadd8857d1>
+  PrefabRemaps:
+    - 61c0ebfb-9947-4b8e-bad3-cbeadd8857d1: 61c0ebfb-9947-4b8e-452c-34152277a82e
+    - 7b7f91da-0c99-47a9-b46a-cba9e9c3655a: 7b7f91da-0c99-47a9-4b95-3456163c9aa5
+    - d72410c9-587d-470f-8964-f80aec5200c5: d72410c9-587d-470f-769b-07f513adff3a
+    - ed7f8e3b-29bb-4a7a-a417-d2e5c4571eda: ed7f8e3b-29bb-4a7a-5be8-2d1a3ba8e125
+  Name: PolygonalButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> ed7f8e3b-29bb-4a7a-a417-d2e5c4571eda
+  Components:
+    - !<own> d72410c9-587d-470f-8964-f80aec5200c5
+- !<Text/7b7f91da-0c99-47a9-b46a-cba9e9c3655a>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 1
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: "Button "
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 24
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -2.000000
+    bottom: -3.000000
+    right: 2.000000
+    top: 3.000000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.588235}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
+- !<ScriptComponent/d72410c9-587d-470f-8964-f80aec5200c5>
+  PrefabRemaps:
+    []
+  Name: PolygonalButton
+  Enabled: true
+  ScriptAsset: !<reference> a689dad7-e11a-41af-8a34-94a3093b2646
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _hasShadow: true
+    _defaultToOn: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+    animationType: true
+    popDistance: true
+    fitToSize: true
+    polygonScale: true
+    borderToggledHighlightColor: true
+    disabledColor: true
+    borderDisabledColor: true
+    buttonOpacity: true
+    useTextures: true
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    isScrollable: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 4.000000, y: 3.000000, z: 1.000000}
+      _inactive: false
+      _playAudio: true
+      _style: Primary
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.500000, y: -0.500000, z: -0.010000}
+      _toggleable: true
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+      shapePreset: 5
+      customCorners: !<Vec2[]>
+        - {x: 0.000000, y: 0.300000}
+        - {x: 1.000000, y: 0.000000}
+        - {x: 1.000000, y: 1.000000}
+        - {x: 0.000000, y: 0.700000}
+      animationType: 0
+      popDistance: !<float> 1.000000
+      fitToSize: true
+      polygonScale: !<Vec2> {x: 1.000000, y: 1.000000}
+      cornerRadius: 0.200000
+      cornerSegments: 4
+      borderWidth: 0.100000
+      defaultColor: !<Vec4> {x: 0.435294, y: 0.000000, z: 0.619608, w: 0.705882}
+      borderColor: !<Vec4> {x: 0.494118, y: 0.356863, z: 0.701961, w: 1.000000}
+      highlightColor: !<Vec4> {x: 0.509804, y: 0.227451, z: 0.686275, w: 1.000000}
+      borderHighlightColor: !<Vec4> {x: 0.560784, y: 0.247059, z: 0.949020, w: 1.000000}
+      selectColor: !<Vec4> {x: 0.282353, y: 0.627451, z: 0.949020, w: 1.000000}
+      borderSelectColor: !<Vec4> {x: 0.090196, y: 1.000000, z: 0.847059, w: 1.000000}
+      toggledColor: !<Vec4> {x: 0.192157, y: 0.498039, z: 0.450980, w: 1.000000}
+      borderToggledColor: !<Vec4> {x: 0.325490, y: 0.850980, z: 0.772549, w: 1.000000}
+      toggledHighlightColor: !<Vec4> {x: 0.184314, y: 0.254902, z: 0.509804, w: 1.000000}
+      borderToggledHighlightColor: !<Vec4> {x: 0.450000, y: 0.650000, z: 0.950000, w: 1.000000}
+      disabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      borderDisabledColor: !<Vec4> {x: 0.300000, y: 0.300000, z: 0.300000, w: 0.500000}
+      customMaterial: !<reference.Material> d16fe79c-6d13-40a6-adae-e8a5012a4f0c
+      buttonOpacity: !<float> 1.000000
+      useTextures: false
+      buttonTexture: !<reference.Texture> 3f206bed-1635-4abb-8689-6148aa04ea10
+      borderTexture: !<reference.Texture> 10333009-9837-42c8-8f40-2b3df61cc2ef
+      targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: true
+      isScrollable: false
+      allowMultipleInteractors: false
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/ed7f8e3b-29bb-4a7a-a417-d2e5c4571eda>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7b7f91da-0c99-47a9-b46a-cba9e9c3655a

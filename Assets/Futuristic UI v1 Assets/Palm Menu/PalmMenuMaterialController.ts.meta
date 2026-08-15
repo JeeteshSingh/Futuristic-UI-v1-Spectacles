@@ -1,0 +1,105 @@
+- !<AssetImportMetadata/313bffad-529c-4012-911d-acde0166e967>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 91a586f8-c327-4d7b-8fa1-8e8abc8866ba
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 91a586f8-c327-4d7b-8fa1-8e8abc8866ba
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ca87b5f7-95bc-4805-b5cd-a6f5f42dece6
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ca87b5f7-95bc-4805-b5cd-a6f5f42dece6>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: cd8303de-defd-4b4b-9789-7bb68b00b861
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    controllerDebugText: false
+    defaultMaterial: false
+    enableIndex: false
+    enableMiddle: false
+    enablePinky: false
+    enableRing: false
+    indexMaterial: false
+    meshPositionOffset: false
+    meshRotationOffset: false
+    meshScale: false
+    meshTargetHand: false
+    middleMaterial: false
+    palmFacingThreshold: false
+    palmMenuApp: false
+    pinkyMaterial: false
+    ringMaterial: false
+    smoothSpeed: false
+    targetMeshVisual: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 20eaa327-e518-4db0-9215-c2bd6a22b8dc
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - palmMenuApp: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      enableIndex: true
+      enableMiddle: true
+      enableRing: true
+      enablePinky: true
+      targetMeshVisual: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      defaultMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      indexMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      middleMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      ringMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      pinkyMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshTargetHand: 0
+      meshPositionOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      meshRotationOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      meshScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      smoothSpeed: !<float> 12.000000
+      palmFacingThreshold: !<float> 65.000000
+      controllerDebugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 13px;\">PalmMenuMaterialController</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Swaps materials on a mesh and anchors it smoothly to the palm center.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input Component.ScriptComponent palmMenuApp {"hint":"Drag the SceneObject containing PalmMenuGestureApp here"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Finger Button Configuration</span>"}'
+    - '// @input boolean enableIndex = "true"'
+    - '// @input boolean enableMiddle = "true"'
+    - '// @input boolean enableRing = "true"'
+    - '// @input boolean enablePinky = "true"'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Target Mesh & Material Switcher</span>"}'
+    - '// @input Component.RenderMeshVisual targetMeshVisual {"hint":"Drag the RenderMeshVisual component of the object to place on the palm"}'
+    - '// @input Asset.Material defaultMaterial {"hint":"Default material restored when all toggles are turned OFF (auto-captured if unassigned)"}'
+    - '// @input Asset.Material indexMaterial {"hint":"Material applied when Index button is pressed"}'
+    - '// @input Asset.Material middleMaterial {"hint":"Material applied when Middle button is pressed"}'
+    - '// @input Asset.Material ringMaterial {"hint":"Material applied when Ring button is pressed"}'
+    - '// @input Asset.Material pinkyMaterial {"hint":"Material applied when Pinky button is pressed"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #10B981; font-weight: bold;\">Palm Object Tracking Settings</span>"}'
+    - '// @input int meshTargetHand = "0" {"widget":"combobox", "values":[{"label":"Right Hand", "value":0}, {"label":"Left Hand", "value":1}, {"label":"Both Hands (Follow Active)", "value":2}]}'
+    - "// @input vec3 meshPositionOffset = {0,0,0}"
+    - "// @input vec3 meshRotationOffset = {0,0,0}"
+    - "// @input vec3 meshScale = {1,1,1}"
+    - '// @input float smoothSpeed = "12"'
+    - '// @input float palmFacingThreshold = "65"'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #34D399; font-weight: bold;\">Developer Feedback</span>"}'
+    - // @input Component.Text controllerDebugText

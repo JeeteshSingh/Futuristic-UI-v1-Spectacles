@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/f0641a9f-7d94-4ace-8ec6-67e30367a3c2>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 898a1642-d89b-4a45-ada3-6e3c7ec859a7
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 898a1642-d89b-4a45-ada3-6e3c7ec859a7
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> f901ae3b-6198-4f49-836c-972e031fdb09
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/f901ae3b-6198-4f49-836c-972e031fdb09>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: fbc9b6c1-0410-4f62-a526-d06829af8509
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    camera: false
+    carousel: false
+    debugText: false
+    fistDistanceThreshold: false
+    fistSidewardOffset: false
+    gestureHoldTime: false
+    handInteractor: false
+    handType: false
+    positionSmoothing: false
+    useNativeGrab: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 507417b5-45ae-473a-b38a-fd002247a1d6
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - carousel: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      handType: !<float> 0.000000
+      fistSidewardOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      gestureHoldTime: 0.500000
+      fistDistanceThreshold: !<float> 10.000000
+      positionSmoothing: !<float> 10.000000
+      handInteractor: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      useNativeGrab: true
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input Component.ScriptComponent carousel {"hint":"Drag either a VirtualizedPolygonalCarousel or ManualPolygonalCarousel here"}'
+    - // @input Component.Camera camera
+    - '// @input float handType = 2 {"widget":"combobox", "values":[{"label":"Right", "value":0}, {"label":"Left", "value":1}, {"label":"Both", "value":2}]}'
+    - "// @input vec3 fistSidewardOffset = {0,0,0}"
+    - // @input float gestureHoldTime = 0.5
+    - // @input float fistDistanceThreshold = 10
+    - // @input float positionSmoothing = 10
+    - '// @input Component.ScriptComponent handInteractor {"hint":"Drag your Right or Left Hand Interactor script here to disable it when menu is open"}'
+    - '// @input bool useNativeGrab = true {"hint":"Enable Snap OS GestureModule Grab detection alongside bone distance for fused tracking."}'
+    - '// @input Component.Text debugText {"hint":"Optional: Add a Text component to see real-time tracking data for tuning thresholds."}'

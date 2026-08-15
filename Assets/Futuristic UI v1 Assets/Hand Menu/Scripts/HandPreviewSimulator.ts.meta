@@ -1,0 +1,69 @@
+- !<AssetImportMetadata/a8677355-2654-4a92-bf6e-709108025c9a>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 45cdedad-f7c6-48c2-be31-9b1811bcb96f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 45cdedad-f7c6-48c2-be31-9b1811bcb96f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ede50a83-9c69-457e-922a-399ffe56cb2e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ede50a83-9c69-457e-922a-399ffe56cb2e>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: cc008398-fc3c-4c2d-81fc-b537f9d77a76
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    autoJointMapping: false
+    debugStatusText: false
+    leftHandRig: false
+    rightHandRig: false
+    simulatedFacing: false
+    simulatedGesture: false
+    worldCamera: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 6ae56386-2af8-44a6-aba3-c5eda7b5ec0a
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - rightHandRig: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      leftHandRig: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      autoJointMapping: true
+      worldCamera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      simulatedFacing: 0
+      simulatedGesture: 0
+      debugStatusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #EC4899; font-weight: bold; font-size: 14px;\">HandPreviewSimulator</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Simulates hand joint tracking & camera facing using official SIK HandVisual joint mapping.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Static Hand Rig Objects</span>"}'
+    - '// @input SceneObject rightHandRig {"hint":"Drag SceneObject representing the static Right Hand rig (e.g. RightHandVisual)"}'
+    - '// @input SceneObject leftHandRig {"hint":"Drag SceneObject representing the static Left Hand rig (e.g. LeftHandVisual)"}'
+    - '// @input boolean autoJointMapping = "true" {"hint":"Enable automatic SIK joint mapping traversal (same as SIK HandVisual)"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Camera & Simulation Overrides</span>"}'
+    - '// @input Component.Camera worldCamera {"hint":"World Camera for calculating distance & facing direction"}'
+    - '// @input int simulatedFacing = "0" {"widget":"combobox", "values":[{"label":"Force Facing Camera", "value":0}, {"label":"Force Facing Away From Camera", "value":1}]}'
+    - '// @input int simulatedGesture = "0" {"widget":"combobox", "values":[{"label":"Force Palm Open", "value":0}, {"label":"Force Fist Closed", "value":1}]}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #34D399; font-weight: bold;\">Developer Preview Feedback</span>"}'
+    - // @input Component.Text debugStatusText
