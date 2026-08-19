@@ -532,6 +532,18 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
               this.syncAllCardToggleStates()
             } else if (this.enableToggleGroupBehavior) {
               this.selectCard(this.selectedDataIndex)
+            } else if (this.makeButtonsToggleable) {
+              const revertOn = !Boolean(baseButton.isOn)
+              if (typeof baseButton.setOn === 'function') {
+                try {
+                  (baseButton as any).setOn(revertOn, false)
+                } catch (e) {}
+              }
+              baseButton.isOn = revertOn
+              ;(baseButton as any)._isOn = revertOn
+              if (typeof baseButton.setState === 'function') {
+                baseButton.setState(revertOn ? "toggledDefault" : "default")
+              }
             }
             return
           }
@@ -609,16 +621,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
                 this.selectCard(slotIndex)
               }
             } else if (this.makeButtonsToggleable) {
-              const nextOn = !Boolean(baseButton.isOn)
-              if (typeof baseButton.setOn === 'function') {
-                try {
-                  (baseButton as any).setOn(nextOn, false)
-                } catch (e) {}
-              }
-              baseButton.isOn = nextOn
-              ;(baseButton as any)._isOn = nextOn
+              const currentOn = Boolean(baseButton.isOn)
               if (typeof baseButton.setState === 'function') {
-                baseButton.setState(nextOn ? "toggledDefault" : "default")
+                baseButton.setState(currentOn ? "toggledDefault" : "default")
               }
               if (this.onItemSelected) {
                 this.onItemSelected(slotIndex, this.cards[slotIndex])
