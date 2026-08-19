@@ -18,6 +18,7 @@ export type CarouselItemData = {
   subtitle?: string
   texture?: Texture
   icon?: Texture
+  isOn?: boolean
   onTap?: (isSelected?: boolean) => void
 }
 
