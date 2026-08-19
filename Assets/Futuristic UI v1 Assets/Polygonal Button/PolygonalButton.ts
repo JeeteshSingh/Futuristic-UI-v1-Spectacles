@@ -116,12 +116,12 @@ export class PolygonalButtonVisual extends Visual {
   protected override _hoveredColor: vec4 = new vec4(0.18, 0.50, 0.90, 0.98)
   protected override _triggeredColor: vec4 = new vec4(0.95, 0.35, 0.15, 1.0)
   protected _disabledColor: vec4 = new vec4(0.3, 0.3, 0.3, 0.5)
-  protected override _toggledDefaultColor: vec4 = new vec4(0.95, 0.35, 0.15, 1.0)
-  protected override _toggledHoveredColor: vec4 = new vec4(0.18, 0.50, 0.90, 0.98)
+  protected override _toggledDefaultColor: vec4 = new vec4(0.10, 0.85, 0.45, 1.0)
+  protected override _toggledHoveredColor: vec4 = new vec4(0.25, 0.95, 0.65, 1.0)
 
   private _borderDisabledColor: vec4 = new vec4(0.3, 0.3, 0.3, 0.5)
-  private _borderToggledColor: vec4 = new vec4(1.0, 0.5, 0.2, 1.0)
-  private _borderToggledHoveredColor: vec4 = new vec4(0.45, 0.65, 0.95, 1.0)
+  private _borderToggledColor: vec4 = new vec4(0.20, 1.0, 0.60, 1.0)
+  private _borderToggledHoveredColor: vec4 = new vec4(0.35, 1.0, 0.75, 1.0)
 
   constructor(args: PolygonalVisualArgs) {
     super(args)
@@ -947,26 +947,26 @@ export class PolygonalButton extends BaseButton {
   borderSelectColor: vec4 = new vec4(1.0, 0.5, 0.2, 1.0)
 
   @ui.separator
-  @input("vec4", "{0.95, 0.35, 0.15, 1.0}")
+  @input("vec4", "{0.10, 0.85, 0.45, 1.0}")
   @widget(new ColorWidget())
   @hint("Color when the button is in a toggled (active) state")
-  toggledColor: vec4 = new vec4(0.95, 0.35, 0.15, 1.0)
+  toggledColor: vec4 = new vec4(0.10, 0.85, 0.45, 1.0)
 
-  @input("vec4", "{1.0, 0.5, 0.2, 1.0}")
+  @input("vec4", "{0.20, 1.0, 0.60, 1.0}")
   @widget(new ColorWidget())
   @hint("Border color when the button is in a toggled (active) state")
-  borderToggledColor: vec4 = new vec4(1.0, 0.5, 0.2, 1.0)
+  borderToggledColor: vec4 = new vec4(0.20, 1.0, 0.60, 1.0)
 
   @ui.separator
-  @input("vec4", "{0.18, 0.50, 0.90, 0.98}")
+  @input("vec4", "{0.25, 0.95, 0.65, 1.0}")
   @widget(new ColorWidget())
   @hint("Color when the button is toggled AND hovered")
-  toggledHighlightColor: vec4 = new vec4(0.18, 0.50, 0.90, 0.98)
+  toggledHighlightColor: vec4 = new vec4(0.25, 0.95, 0.65, 1.0)
 
-  @input("vec4", "{0.45, 0.65, 0.95, 1.0}")
+  @input("vec4", "{0.35, 1.0, 0.75, 1.0}")
   @widget(new ColorWidget())
   @hint("Border color when the button is toggled AND hovered")
-  borderToggledHighlightColor: vec4 = new vec4(0.45, 0.65, 0.95, 1.0)
+  borderToggledHighlightColor: vec4 = new vec4(0.35, 1.0, 0.75, 1.0)
 
   @ui.separator
   @input("vec4", "{0.3, 0.3, 0.3, 0.5}")
