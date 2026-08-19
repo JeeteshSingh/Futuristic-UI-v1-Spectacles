@@ -79,8 +79,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   slotCount: number = 5
 
   @input("int", "2")
-  @showIf("mode", "Virtualized")
-  @hint("Extra hidden slots used as an off-screen buffer for smooth infinite recycling.")
+  @hint("Extra hidden slots used as a buffer for smooth off-screen scaling/recycling.")
   bufferSlots: number = 2
 
   @input("float", "360.0")
@@ -509,7 +508,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       (this.arcAngleDegrees >= 359.9 ? visibleSlots : Math.max(1, visibleSlots - 1))
 
     const edge = (visibleSlots - 1) / 2.0
-    const scaleDist = Math.max(0.01, (this.mode === "Virtualized" ? this.bufferSlots : 2) / 2.0)
+    const scaleDist = Math.max(0.01, this.bufferSlots / 2.0)
 
     const isExiting = this.animationExitTime !== -1
     const isEntering = this.animationStartTime !== -1
