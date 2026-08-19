@@ -240,6 +240,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   private cards: SceneObject[] = []
   private buttonAPIs: any[] = []
   private items: CarouselItemData[] = []
+  private toggledDataIndices: Set<number> = new Set<number>()
 
   private displayedScroll: number = 0
   private targetScroll: number = 0
@@ -486,17 +487,39 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
               let isSelected = true
               if (this.enableToggleBehavior) {
+                if (baseButton.setIsToggleable) {
+                  baseButton.setIsToggleable(true)
+                } else {
+                  baseButton._toggleable = true
+                }
+
                 if (this.selectedDataIndex === dataIndex) {
                   if (this.allowAllTogglesOff) {
                     this.selectedDataIndex = -1
+                    this.toggledDataIndices.clear()
                   }
                 } else {
                   this.selectedDataIndex = dataIndex
+                  this.toggledDataIndices.clear()
+                  this.toggledDataIndices.add(dataIndex)
                 }
-
                 isSelected = (this.selectedDataIndex === dataIndex)
-                this.syncAllCardToggleStates()
+              } else {
+                // Independent Multi-Toggle Mode (tracks toggle state per virtualized item data)
+                const isCurrentlyToggled = this.toggledDataIndices.has(dataIndex) || (item && Boolean(item.isOn))
+                const willBeToggled = !isCurrentlyToggled
+                if (willBeToggled) {
+                  this.toggledDataIndices.add(dataIndex)
+                } else {
+                  this.toggledDataIndices.delete(dataIndex)
+                }
+                if (item) {
+                  item.isOn = willBeToggled
+                }
+                isSelected = willBeToggled
               }
+
+              this.syncAllCardToggleStates()
 
               if (item && item.onTap) {
                 (item.onTap as any)(isSelected)
@@ -758,17 +781,25 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   // ==========================================================================
   private initDefaultItems(): void {
     this.items = []
+    this.toggledDataIndices.clear()
     const count = Math.max(1, this.dataItemCount)
     for (let i = 0; i < count; i++) {
       this.items.push({
         title: "Item " + (i + 1),
-        subtitle: "Description " + (i + 1)
+        subtitle: "Description " + (i + 1),
+        isOn: false
       })
     }
   }
 
   public setItems(items: CarouselItemData[]): void {
     this.items = items
+    this.toggledDataIndices.clear()
+    for (let idx = 0; idx < items.length; idx++) {
+      if (items[idx] && items[idx].isOn) {
+        this.toggledDataIndices.add(idx)
+      }
+    }
     for (let i = 0; i < this.cards.length; i++) {
       if (this.cards[i]) {
         delete (this.cards[i] as any)._lastDataIndex
@@ -792,8 +823,8 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       }
     }
 
-    // Sync toggle state once when dataIndex changes for this recycled card
-    if (this.enableToggleBehavior && dataIndex !== undefined) {
+    // Always synchronize toggle state on recycling whether in radio group or independent multi-toggle mode
+    if (dataIndex !== undefined) {
       let baseButton = (typeof slotIndex === 'number' && this.buttonAPIs[slotIndex]) ? this.buttonAPIs[slotIndex] : null
       if (!baseButton) {
         baseButton = this.findButtonScript(card)
@@ -802,17 +833,21 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         }
       }
 
-      if (baseButton && typeof baseButton.isOn !== 'undefined') {
-        if (baseButton.setIsToggleable) {
-          baseButton.setIsToggleable(true)
-        } else if (!baseButton._toggleable) {
-          baseButton._toggleable = true
+      if (baseButton && (typeof baseButton.isOn !== 'undefined' || typeof baseButton.setOn === 'function')) {
+        let shouldBeOn = false
+        if (this.enableToggleBehavior) {
+          shouldBeOn = (this.selectedDataIndex !== -1 && dataIndex === this.selectedDataIndex)
+        } else {
+          shouldBeOn = this.toggledDataIndices.has(dataIndex) || Boolean(item.isOn)
         }
-        const shouldBeOn = (this.selectedDataIndex !== -1 && dataIndex === this.selectedDataIndex)
+
         if (typeof baseButton.setOn === 'function') {
           baseButton.setOn(shouldBeOn)
         } else {
           baseButton.isOn = shouldBeOn
+          if (typeof baseButton.setState === 'function') {
+            baseButton.setState(shouldBeOn ? "toggledDefault" : "default")
+          }
         }
       }
     }
@@ -869,10 +904,43 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
    */
   public selectItem(dataIndex: number): void {
     this.selectedDataIndex = dataIndex
+    this.toggledDataIndices.clear()
+    if (dataIndex !== -1) {
+      this.toggledDataIndices.add(dataIndex)
+    }
     this.syncAllCardToggleStates()
     if (this.onItemSelected) {
       this.onItemSelected(dataIndex, this.items[dataIndex])
     }
+  }
+
+  /**
+   * Sets the toggle state for a specific item in the virtualized dataset.
+   */
+  public setItemToggled(dataIndex: number, toggled: boolean): void {
+    if (toggled) {
+      this.toggledDataIndices.add(dataIndex)
+    } else {
+      this.toggledDataIndices.delete(dataIndex)
+    }
+    if (this.items[dataIndex]) {
+      this.items[dataIndex].isOn = toggled
+    }
+    this.syncAllCardToggleStates()
+  }
+
+  /**
+   * Returns whether a specific item in the virtualized dataset is currently toggled.
+   */
+  public isItemToggled(dataIndex: number): boolean {
+    return this.toggledDataIndices.has(dataIndex) || (this.items[dataIndex] ? Boolean(this.items[dataIndex].isOn) : false)
+  }
+
+  /**
+   * Returns an array of all currently toggled data indices.
+   */
+  public getToggledItemIndices(): number[] {
+    return Array.from(this.toggledDataIndices)
   }
 
   public syncAllCardToggleStates(): void {
@@ -881,12 +949,21 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       if (!card) continue
       const btn = this.buttonAPIs[i]
       const dataIdx = (card as any)._lastDataIndex
-      if (btn && typeof btn.isOn !== 'undefined' && dataIdx !== undefined) {
-        const shouldBeOn = (this.selectedDataIndex !== -1 && dataIdx === this.selectedDataIndex)
+      if (btn && dataIdx !== undefined) {
+        let shouldBeOn = false
+        if (this.enableToggleBehavior) {
+          shouldBeOn = (this.selectedDataIndex !== -1 && dataIdx === this.selectedDataIndex)
+        } else {
+          shouldBeOn = this.toggledDataIndices.has(dataIdx) || (this.items[dataIdx] && Boolean(this.items[dataIdx].isOn))
+        }
+
         if (typeof btn.setOn === 'function') {
           btn.setOn(shouldBeOn)
-        } else if (btn.isOn !== shouldBeOn) {
+        } else if (typeof btn.isOn !== 'undefined') {
           btn.isOn = shouldBeOn
+          if (typeof btn.setState === 'function') {
+            btn.setState(shouldBeOn ? "toggledDefault" : "default")
+          }
         }
       }
     }
