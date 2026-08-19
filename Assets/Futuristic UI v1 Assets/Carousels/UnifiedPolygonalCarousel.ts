@@ -606,14 +606,23 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         defaultScale.uniformScale(finalScale > 0.01 ? smoothScale : 0.0)
       )
 
-      // Sync opacity to child scripts
-      const cScripts = card.getComponents("Component.ScriptComponent")
-      for (let j = 0; j < cScripts.length; j++) {
-        const api = cScripts[j] as any
-        if (api && api.buttonOpacity !== undefined && Math.abs(api.buttonOpacity - finalAlpha) > 0.005) {
+      // Sync opacity to button script (works for both Manual cards and Virtualized wrapper prefabs)
+      const api = this.buttonAPIs[i]
+      if (api) {
+        if (api.buttonOpacity !== undefined && Math.abs(api.buttonOpacity - finalAlpha) > 0.005) {
           api.buttonOpacity = finalAlpha
-        } else if (api && api.opacity !== undefined && Math.abs(api.opacity - finalAlpha) > 0.005) {
+        } else if (api.opacity !== undefined && Math.abs(api.opacity - finalAlpha) > 0.005) {
           api.opacity = finalAlpha
+        }
+      } else {
+        const cScripts = card.getComponents("Component.ScriptComponent")
+        for (let j = 0; j < cScripts.length; j++) {
+          const sApi = cScripts[j] as any
+          if (sApi && sApi.buttonOpacity !== undefined && Math.abs(sApi.buttonOpacity - finalAlpha) > 0.005) {
+            sApi.buttonOpacity = finalAlpha
+          } else if (sApi && sApi.opacity !== undefined && Math.abs(sApi.opacity - finalAlpha) > 0.005) {
+            sApi.opacity = finalAlpha
+          }
         }
       }
 
