@@ -94,7 +94,7 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 ---
 
 #### 🎠 Manual Carousel Setup (`Manual Carousel`)
-* **Features**: Operates directly on pre-placed child buttons in the scene ($N = 3, 4, 8, 12...$), automatically distributing them evenly along the circular arc.
+* **Configuration**: Powered by `UnifiedPolygonalCarousel` configured in **Manual Mode** (`mode: "Manual"`). It operates directly on pre-placed child buttons in the scene ($N = 3, 4, 8, 12...$), automatically distributing them evenly along the circular arc.
 * **How to Test in Preview / Device**:
   1. Make a **closed fist with your left hand** to anchor and spawn the carousel in world space (`Carousel Fist GestureApp.ts`).
   2. Use your **right hand** to poke and drag buttons along the arc, or poke directly to trigger button callbacks.
@@ -106,7 +106,7 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 ---
 
 #### ⚡ Runtime Carousel Setup (`Runtime Carousel`)
-* **Features**: Dynamically recycles a lightweight pool of visual buttons at runtime for arbitrary dataset sizes (e.g. 20, 50, 100+ items) populated via scripts like `RuntimeCarouselExamplePopulator.ts`.
+* **Configuration**: Powered by `UnifiedPolygonalCarousel` configured in **Virtualized Mode** (`mode: "Virtualized"`). It dynamically recycles a lightweight pool of visual buttons at runtime for arbitrary dataset sizes (e.g. 20, 50, 100+ items) populated via scripts like `RuntimeCarouselExamplePopulator.ts`.
 * **How to Test in Preview / Device**:
   1. Make a **closed fist with your left hand** to anchor and spawn the carousel.
   2. With your **right hand**, make a **2-finger "sword gesture"** and move your hand across the wheel to smoothly scroll (`SwordSwipeScroller.ts`).
