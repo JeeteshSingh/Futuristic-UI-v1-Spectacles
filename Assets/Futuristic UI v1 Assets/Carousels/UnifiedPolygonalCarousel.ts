@@ -293,6 +293,31 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   }
 
   /**
+   * Helper to robustly find the PolygonalButton / BaseButton script on an object or its children.
+   */
+  private findButtonScript(obj: SceneObject): any {
+    if (!obj) return null
+    const s = obj.getComponents("Component.ScriptComponent")
+    for (let j = 0; j < s.length; j++) {
+      const script = s[j] as any
+      if (script && (
+        typeof script.isOn !== 'undefined' ||
+        typeof script.buttonOpacity !== 'undefined' ||
+        typeof script.setIsToggleable === 'function' ||
+        typeof script.interactable !== 'undefined' ||
+        script.isPolygonalButton === true
+      )) {
+        return script
+      }
+    }
+    for (let k = 0; k < obj.getChildrenCount(); k++) {
+      const found = this.findButtonScript(obj.getChild(k))
+      if (found) return found
+    }
+    return null
+  }
+
+  /**
    * Manual Mode Rebuild:
    * Scans carouselRoot children and registers existing buttons as cards.
    * Filters by ScriptComponent to skip runtime SIK helper objects ("Collider", "InteractableStateMachine").
@@ -308,21 +333,18 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       const child = root.getChild(i)
       if (!child) continue
 
-      // SIK Element.ts creates helper SceneObjects ("Collider", "InteractableStateMachine") with NO ScriptComponent.
-      // We only register children that actually contain a ScriptComponent (the PolygonalButton).
-      const hasScript = child.getComponent("Component.ScriptComponent") !== null
-      if (!hasScript) continue
+      let baseButton = child.getComponent("Component.ScriptComponent") as any || (child as any).button
+      if (!baseButton) {
+        baseButton = this.findButtonScript(child)
+      }
+      if (!baseButton) continue
 
       const slotIndex = this.cards.length
       this.cards.push(child)
       ;(child as any)._defaultScale = child.getTransform().getLocalScale()
-
-      const baseButton = child.getComponent("Component.ScriptComponent") as any || (child as any).button
       this.buttonAPIs.push(baseButton)
 
-      if (baseButton) {
-        this.bindCardInteractions(child, baseButton, slotIndex)
-      }
+      this.bindCardInteractions(child, baseButton, slotIndex)
     }
   }
 
@@ -346,7 +368,10 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       card.name = "Button"
       this.cards.push(wrapper)
 
-      const buttonScript = card.getComponent("Component.ScriptComponent") as any || (card as any).button
+      let buttonScript = card.getComponent("Component.ScriptComponent") as any || (card as any).button
+      if (!buttonScript) {
+        buttonScript = this.findButtonScript(card)
+      }
       this.buttonAPIs.push(buttonScript)
 
       if (buttonScript) {
@@ -427,32 +452,83 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         })
       }
 
-      // Toggle group radio button behavior
-      if (this.enableToggleBehavior) {
-        if (baseButton.setIsToggleable) {
-          baseButton.setIsToggleable(true)
-        } else {
-          baseButton._toggleable = true
-        }
+      if (interactable.onTriggerEnd) {
+        interactable.onTriggerEnd.add(() => {
+          if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
 
-        if (baseButton.onFinished && baseButton.onFinished.add) {
-          baseButton.onFinished.add((explicit: boolean) => {
-            if (explicit) {
-              const currentDataIndex = (card as any)._lastDataIndex !== undefined ? (card as any)._lastDataIndex : slotIndex
-              if (baseButton.isOn) {
-                if (this.mode === "Virtualized") {
-                  this.selectItem(currentDataIndex)
-                } else {
-                  this.selectCard(slotIndex)
-                }
-              } else if (!this.allowAllTogglesOff) {
-                baseButton.isOn = true
+          // If the interaction traveled beyond the tap threshold, it was a scroll — not a click.
+          if (didScroll) {
+            didScroll = false
+            return
+          }
+
+          if (this.mode === "Virtualized") {
+            const totalSlots = this.cards.length
+            const p_i = (slotIndex + this.slotOffset) - this.displayedScroll
+            const shift = totalSlots / 2.0
+            const p_i_shifted = p_i + shift
+
+            const cycle = Math.floor(p_i_shifted / totalSlots)
+            const centerOffset = Math.floor((Math.max(1, this.slotCount) - 1) / 2.0)
+            const itemIndex = (slotIndex - cycle * totalSlots) + centerOffset
+
+            if (this.enableToggleBehavior) {
+              if (baseButton.setIsToggleable) {
+                baseButton.setIsToggleable(true)
               } else {
-                this.selectedDataIndex = -1
+                baseButton._toggleable = true
               }
             }
-          })
-        }
+
+            if (this.items.length > 0) {
+              const dataIndex = (itemIndex % this.items.length + this.items.length) % this.items.length
+              const item = this.items[dataIndex]
+
+              let isSelected = true
+              if (this.enableToggleBehavior) {
+                if (this.selectedDataIndex === dataIndex) {
+                  if (this.allowAllTogglesOff) {
+                    this.selectedDataIndex = -1
+                  }
+                } else {
+                  this.selectedDataIndex = dataIndex
+                }
+
+                isSelected = (this.selectedDataIndex === dataIndex)
+                this.syncAllCardToggleStates()
+              }
+
+              if (item && item.onTap) {
+                (item.onTap as any)(isSelected)
+              }
+              if (this.onItemSelected) {
+                this.onItemSelected(dataIndex, item)
+              }
+            }
+          } else {
+            // Manual Mode: select clicked card slot
+            if (this.enableToggleBehavior) {
+              if (baseButton.setIsToggleable) {
+                baseButton.setIsToggleable(true)
+              } else {
+                baseButton._toggleable = true
+              }
+
+              if (this.selectedDataIndex === slotIndex) {
+                if (this.allowAllTogglesOff) {
+                  this.selectedDataIndex = -1
+                }
+              } else {
+                this.selectedDataIndex = slotIndex
+              }
+              this.selectCard(this.selectedDataIndex)
+            } else {
+              if (this.onItemSelected) {
+                this.onItemSelected(slotIndex)
+              }
+            }
+          }
+        })
       }
     }
 
@@ -716,21 +792,14 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       }
     }
 
+    // Sync toggle state once when dataIndex changes for this recycled card
     if (this.enableToggleBehavior && dataIndex !== undefined) {
       let baseButton = (typeof slotIndex === 'number' && this.buttonAPIs[slotIndex]) ? this.buttonAPIs[slotIndex] : null
       if (!baseButton) {
-        const findButton = (obj: SceneObject): any => {
-          const s = obj.getComponents("Component.ScriptComponent")
-          for (let j = 0; j < s.length; j++) {
-            if (typeof (s[j] as any).isOn !== 'undefined') return s[j]
-          }
-          for (let k = 0; k < obj.getChildrenCount(); k++) {
-            const found = findButton(obj.getChild(k))
-            if (found) return found
-          }
-          return null
+        baseButton = this.findButtonScript(card)
+        if (typeof slotIndex === 'number' && baseButton) {
+          this.buttonAPIs[slotIndex] = baseButton
         }
-        baseButton = findButton(card)
       }
 
       if (baseButton && typeof baseButton.isOn !== 'undefined') {
@@ -783,7 +852,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       const btn = this.buttonAPIs[i]
       if (btn && typeof btn.isOn !== "undefined") {
         const shouldBeOn = (i === slotIndex)
-        if (btn.isOn !== shouldBeOn) {
+        if (typeof btn.setOn === 'function') {
+          btn.setOn(shouldBeOn)
+        } else if (btn.isOn !== shouldBeOn) {
           btn.isOn = shouldBeOn
         }
       }
@@ -817,6 +888,26 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         } else if (btn.isOn !== shouldBeOn) {
           btn.isOn = shouldBeOn
         }
+      }
+    }
+  }
+
+  /**
+   * Dynamically updates the visible slot count and rebuilds.
+   */
+  public setSlotCount(newCount: number): void {
+    this.slotCount = Math.max(1, Math.floor(newCount))
+    this.rebuild()
+  }
+
+  /**
+   * Dynamically updates custom corner points for all polygonal buttons in the carousel.
+   */
+  public setCustomCornerPoints(points: vec2[]): void {
+    for (let i = 0; i < this.buttonAPIs.length; i++) {
+      const api = this.buttonAPIs[i]
+      if (api && api.setCustomPoints) {
+        api.setCustomPoints(points)
       }
     }
   }
