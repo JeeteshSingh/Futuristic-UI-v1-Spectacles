@@ -1293,9 +1293,7 @@ the Interactable will also use filtered pinch events."
     if (this._initialized && !this._isSettingToggleState) {
       this._isSettingToggleState = true
       try {
-        if (this._polyVisual) {
-          this._polyVisual.setState(on ? StateName.toggledDefault : StateName.default)
-        }
+        this.setState(on ? StateName.toggledDefault : StateName.default)
       } finally {
         this._isSettingToggleState = false
       }
