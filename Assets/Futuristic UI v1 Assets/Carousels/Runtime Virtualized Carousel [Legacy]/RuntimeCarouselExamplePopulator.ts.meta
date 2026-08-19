@@ -43,7 +43,7 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - carousel: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+    - carousel: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       displayImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
       displayText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       defaultTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
@@ -56,10 +56,10 @@
     -
       {}
   InputLines:
-    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">Carousel Demo Populator</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Populates 39 carousel buttons with custom textures and titles, updating an external Image & Text display on selection.</span>"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">Carousel Demo Populator</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Populates carousel buttons with custom textures and titles, updating an external Image & Text display on selection.</span>"}'
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Carousel Reference</span>"}'
-    - '// @input AssignableType carousel {"hint":"Drag your VirtualizedPolygonalCarousel object here"}'
+    - '// @input Component.ScriptComponent carousel {"hint":"Drag your UnifiedPolygonalCarousel or VirtualizedPolygonalCarousel here"}'
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"label", "label":"<span style=\"color: #38BDF8; font-weight: bold;\">Display Target Objects</span>"}'
     - "// @input Component.Image displayImage {\"hint\":\"Target Image object in scene to display the selected button's texture\"}"

@@ -48,6 +48,7 @@
     inertiaDamping: false
     invertDrag: false
     layoutAxis: false
+    makeButtonsToggleable: false
     maxDragVelocity: false
     minVelocityToSnap: false
     radius: false
@@ -92,6 +93,7 @@
       maxDragVelocity: 1.500000
       enableToggleBehavior: false
       allowAllTogglesOff: false
+      makeButtonsToggleable: false
       enableEntryAnimation: true
       animateOnStart: true
       entryDuration: 0.500000
@@ -134,6 +136,7 @@
     - '// @input float maxDragVelocity = "1.5" {"hint":"Maximum speed (slots/frame) the carousel can be flung to."}'
     - '// @input bool enableToggleBehavior {"hint":"If true, the carousel acts as a radio-button group."}'
     - '// @input bool allowAllTogglesOff {"hint":"If true, all toggles can be off simultaneously.", "showIf":"enableToggleBehavior"}'
+    - '// @input bool makeButtonsToggleable {"hint":"If true, all children buttons will be independent toggles (inexclusive multi-select)."}'
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"label", "label":"<span style=\"color: #F472B6; font-weight: bold;\">Entry Animations</span>"}'
     - // @input bool enableEntryAnimation = true

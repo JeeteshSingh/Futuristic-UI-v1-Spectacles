@@ -9,7 +9,7 @@ An open-source collection of spatial UI components, circular carousels, and gest
 Building spatial interfaces for AR glasses is an exciting challenge for the entire developer community. When designing futuristic experiences on Spectacles, a few major pain points quickly emerge:
 
 * **Limited Button Customization**: Default SIK and UI Kit buttons are mostly constrained to standard rectangles. `PolygonalButton` upgrades this—extending UIKit's `BaseButton` and SIK `Interactable` so you can create custom procedural polygon shapes, tune corner rounding and border ribbons, assign custom textures/icons, and add smooth hover/press animations.
-* **Flexible 3D Carousels**: Supports both **Manual** carousels (for handcrafted sets of any size: 3, 4, 8, 12, etc.) and **Runtime Virtualized** carousels (for dynamic script-fed datasets).
+* **Unified 3D Carousel Framework**: `UnifiedPolygonalCarousel` unites both **Manual** (handcrafted sets with unique shapes and sizes) and **Runtime Virtualized** (dynamic data-fed recycling) carousels into a single, high-performance, multi-mode component.
 * **Hand Menu Testing in Desktop Preview**: Positioning hand-attached menus usually involves endless guesswork and constant redeployments to hardware. `HandMenuHelper` provides stable palm coordinate anchors paired with a **Hand Preview Simulator** so you can tune your offsets and thresholds directly inside the Lens Studio desktop preview before pushing to device.
 * **Natural 2-Handed Gestures**: AR glasses free up both hands. This project includes experimental 2-handed interactions—spawning carousels from a closed fist, scrolling with a 2-finger "sword swipe" while pinching to select, and a 4-finger multi-pinch palm bookmarking system.
 * **Gesture Hint HUDs with Vision Tethering**: Short video tutorial HUDs with a 3-part controller system (video playback, timing animation, and head-vision tethering) to guide users through custom gestures.
@@ -21,10 +21,11 @@ Building spatial interfaces for AR glasses is an exciting challenge for the enti
 | Guide | Link | What It Covers |
 | :--- | :--- | :--- |
 | **📖 Deep-Dive Feature Overview** | [`FEATURE_OVERVIEW.md`](FEATURE_OVERVIEW.md) | In-depth technical breakdown of all 6 components and systems. |
+| **🌟 Unified Polygonal Carousel** | [`UNIFIED_CAROUSEL_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Unified%20Polygonal%20Carousel/UNIFIED_CAROUSEL_SYSTEM.md) | **Primary**: Multi-mode carousel architecture (Manual & Virtualized presets, drag physics, toggle states). |
 | **🔷 Polygonal Buttons** | [`POLYGONAL_BUTTON_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Polygonal%20Button/POLYGONAL_BUTTON_SYSTEM.md) | Procedural polygon generation, corner filleting, borders, and state colors. |
-| **🎡 Manual Carousel** | [`MANUAL_CAROUSEL_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Manual%20Carousel/MANUAL_CAROUSEL_SYSTEM.md) | Circular layout for any number of buttons, drag physics, and slot snapping. |
-| **⚡ Virtualized Carousel** | [`VIRTUALIZED_CAROUSEL_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Runtime%20Virtualized%20Carousel/VIRTUALIZED_CAROUSEL_SYSTEM.md) | Memory-efficient card recycling, infinite wrapping, and dynamic script data. |
-| **⚔️ Gesture Controllers** | [`GESTURE_SCROLLER_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/GESTURE_SCROLLER_SYSTEM.md) | Fist anchor spawning (`Carousel Fist GestureApp.ts`) and sword swiping (`SwordSwipeScroller.ts`). |
+| **🎡 Manual Carousel [Legacy]** | [`MANUAL_CAROUSEL_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Manual%20Carousel%20[Legacy]/MANUAL_CAROUSEL_SYSTEM.md) | Legacy manual button arrangement and inspector callback guide. |
+| **⚡ Virtualized Carousel [Legacy]** | [`VIRTUALIZED_CAROUSEL_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Runtime%20Virtualized%20Carousel%20[Legacy]/VIRTUALIZED_CAROUSEL_SYSTEM.md) | Legacy virtualized template recycling and script populator guide. |
+| **⚔️ Gesture Controllers** | [`GESTURE_SCROLLER_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Gesture%20Controllers/GESTURE_SCROLLER_SYSTEM.md) | Fist anchor spawning (`Carousel Fist GestureApp.ts`) and sword swiping (`SwordSwipeScroller.ts`). |
 | **🖐️ Hand Menu Helper** | [`HAND_MENU_HELPER_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Hand%20Menu/HAND_MENU_HELPER_SYSTEM.md) | Stabilized palm coordinate frame and desktop preview simulator workflow. |
 | **✨ Palm Menu** | [`PALM_MENU_GESTURE_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Palm%20Menu/PALM_MENU_GESTURE_SYSTEM.md) | 4-finger multi-pinch tool bookmarking (Index, Middle, Ring, Pinky). |
 
@@ -75,13 +76,15 @@ Scene Hierarchy
 
 Enable `Carousel Samples`, and toggle **only one carousel at a time**:
 
-#### 🎠 Manual Carousel (`Manual Carousel`)
-* **Features**: Works with **any number of buttons** ($N = 3, 4, 8, 12...$) configured in the scene. `ManualPolygonalCarousel.ts` evenly distributes them on the circle automatically.
-* **Testing**: Form a fist with your left hand to anchor the carousel, and poke or drag cards with your right hand. Supports momentum and magnetic snapping.
+#### 🌟 Unified Polygonal Carousel (`Unified Polygonal Carousel`)
+* **Features**: The primary multipurpose carousel supporting both **Manual Mode** (custom scene buttons) and **Virtualized Mode** (dynamic data arrays).
+* **Testing**: Poke buttons directly, pinch-drag along the arc with momentum, or drive rotation with external gesture controllers (`SwordSwipeScroller.ts`).
 
-#### ⚡ Runtime Virtualized Carousel (`Runtime Carousel`)
-* **Features**: Dynamically recycles a small pool of visual cards for large datasets via `VirtualizedPolygonalCarousel.ts`.
-* **Testing**: Form a left-hand fist (`Carousel Fist GestureApp.ts`), and make a 2-finger "sword gesture" with your right hand (`SwordSwipeScroller.ts`) to roll-scroll around the wheel, then pinch to select.
+#### 🎠 Manual Carousel (`Manual Carousel [Legacy]`)
+* **Features**: Legacy manual button layout distributing $N = 3, 4, 8, 12...$ pre-placed buttons.
+
+#### ⚡ Runtime Virtualized Carousel (`Runtime Carousel [Legacy]`)
+* **Features**: Legacy template recycling system for dynamic array datasets.
 
 #### ⭕ Simple Circle Carousel (`Simple Circle Polygonal Carousel`)
 * **Features**: Lightweight static circular dial with direct touch physics.

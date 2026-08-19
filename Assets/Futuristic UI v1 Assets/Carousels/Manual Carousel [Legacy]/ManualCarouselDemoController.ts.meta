@@ -26,8 +26,10 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    allowAllTogglesOff: false
     animationSpeed: false
     buttonLabels: false
+    carousel: false
     defaultText: false
     dimmedAlpha: false
     displayText: false
@@ -41,7 +43,9 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - displayText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+    - carousel: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      allowAllTogglesOff: false
+      displayText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       defaultText: None Selected
       images: !<reference.Image[]>
         []
@@ -65,6 +69,10 @@
       {}
   InputLines:
     - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold; font-size: 14px;\">Manual Carousel Demo Controller</span><br/><span style=\"color: #94A3B8; font-size: 11px;\">Animates 12 target Image alphas and updates display Text on button press.</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA; font-weight: bold;\">Carousel Reference</span>"}'
+    - '// @input Component.ScriptComponent carousel {"hint":"Drag your UnifiedPolygonalCarousel or ManualPolygonalCarousel here (Auto-detected if unassigned)"}'
+    - '// @input bool allowAllTogglesOff {"hint":"Allow deselecting active button to return to None Selected. When false, clicking active button keeps it on."}'
     - '// @ui {"widget":"separator"}'
     - '// @ui {"widget":"label", "label":"<span style=\"color: #F59E0B; font-weight: bold;\">Display Target Text</span>"}'
     - '// @input Component.Text displayText {"hint":"Target Text object to display the name of the selected button"}'

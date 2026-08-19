@@ -186,7 +186,7 @@
     {}
   ScriptInputs:
     "":
-      carousel: !<MappingBased.AssignableType> aa1168fd-7489-48ab-5422-bb5ec8ada1b0
+      carousel: !<reference.ScriptComponent> aa1168fd-7489-48ab-5422-bb5ec8ada1b0
       displayImage: !<reference.Image> f5259212-c455-4f70-4efd-d8820bbcb816
       displayText: !<reference.Text> af0d3f12-e4c1-4825-7ee6-d773cf09ccc3
       defaultTexture: !<reference.Texture> ba09714d-1592-4ce6-8c26-c8bb7396d880
@@ -637,17 +637,21 @@
   ScriptAsset: !<reference> e385ae26-25ff-4160-b624-825081cc5f56
   ScriptInputsDefault:
     handType: true
+    scrollMode: true
     angularSensitivity: true
+    linearSensitivity: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       carousel: !<reference.ScriptComponent> aa1168fd-7489-48ab-5422-bb5ec8ada1b0
       handType: right
+      scrollMode: circular
+      angularSensitivity: !<float> 1.000000
+      linearSensitivity: 0.100000
+      invertScroll: true
       engageMargin: !<float> 20.000000
       depthMargin: !<float> 7.000000
-      angularSensitivity: !<float> 1.000000
-      invertScroll: true
       debugText: !<reference.Text> 84c0f3ef-2c7e-4130-a221-b1a8ba0d620e
   ScriptTypes:
     "":

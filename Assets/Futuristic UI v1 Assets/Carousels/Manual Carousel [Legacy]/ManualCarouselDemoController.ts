@@ -125,7 +125,7 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
         const found = findInObject(rootObj);
         if (found) {
           this.carousel = found;
-          print(`[ManualCarouselDemo] Scene search auto-attached carousel: ${(found.getSceneObject() as any).name}`);
+          // print(`[ManualCarouselDemo] Scene search auto-attached carousel: ${(found.getSceneObject() as any).name}`);
           break;
         }
       }
@@ -302,10 +302,10 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
     if (isMultiToggle) {
       if (this.toggledIndices.has(index)) {
         this.toggledIndices.delete(index);
-        print("[ManualCarouselDemo] Multi-Toggle: Button " + (index + 1) + " toggled OFF (total active: " + this.toggledIndices.size + ")");
+        // print("[ManualCarouselDemo] Multi-Toggle: Button " + (index + 1) + " toggled OFF (total active: " + this.toggledIndices.size + ")");
       } else {
         this.toggledIndices.add(index);
-        print("[ManualCarouselDemo] Multi-Toggle: Button " + (index + 1) + " toggled ON (total active: " + this.toggledIndices.size + ")");
+        // print("[ManualCarouselDemo] Multi-Toggle: Button " + (index + 1) + " toggled ON (total active: " + this.toggledIndices.size + ")");
       }
       this.selectedIndex = index;
       this.updateTargets();
@@ -316,14 +316,14 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
     if (this.selectedIndex === index) {
       if (allowOff) {
         this.selectedIndex = -1;
-        print("[ManualCarouselDemo] Button " + (index + 1) + " toggled OFF (allowAllTogglesOff=true).");
+        // print("[ManualCarouselDemo] Button " + (index + 1) + " toggled OFF (allowAllTogglesOff=true).");
       } else {
         this.selectedIndex = index;
-        print("[ManualCarouselDemo] Button " + (index + 1) + " re-selected (allowAllTogglesOff=false).");
+        // print("[ManualCarouselDemo] Button " + (index + 1) + " re-selected (allowAllTogglesOff=false).");
       }
     } else {
       this.selectedIndex = index;
-      print("[ManualCarouselDemo] Button " + (index + 1) + " selected!");
+      // print("[ManualCarouselDemo] Button " + (index + 1) + " selected!");
     }
     this.updateTargets();
   }

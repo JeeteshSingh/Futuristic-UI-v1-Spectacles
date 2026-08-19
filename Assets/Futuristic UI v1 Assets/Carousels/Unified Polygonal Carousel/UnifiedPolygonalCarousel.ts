@@ -510,7 +510,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           triggerStartSelectedIndex = this.selectedDataIndex
           const hit = (e && e.interactor && e.interactor.targetHitPosition) ? e.interactor.targetHitPosition : null
           triggerStartPos = hit ? new vec3(hit.x, hit.y, hit.z) : vec3.zero()
-          print(`[Carousel] onTriggerStart on slot ${slotIndex} (card: ${card.name}) | targetScroll: ${this.targetScroll.toFixed(2)} | startSelected: ${triggerStartSelectedIndex}`)
+          // print(`[Carousel] onTriggerStart on slot ${slotIndex} (card: ${card.name}) | targetScroll: ${this.targetScroll.toFixed(2)} | startSelected: ${triggerStartSelectedIndex}`)
         })
       }
 
@@ -539,7 +539,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
             (planarMoved >= this.tapDragThreshold) ||
             (scrollDiff >= 0.15)
 
-          print(`[Carousel] onTriggerEnd on slot ${slotIndex} (${card.name}) | wasScroll: ${wasScroll} [planarMoved: ${planarMoved.toFixed(3)}, scrollDiff: ${scrollDiff.toFixed(3)}, timeSinceScroll: ${timeSinceScroll.toFixed(3)}, isScrollInProgress: ${this.isScrollInProgress}, didScroll: ${didScroll}]`)
+          // print(`[Carousel] onTriggerEnd on slot ${slotIndex} (${card.name}) | wasScroll: ${wasScroll} [planarMoved: ${planarMoved.toFixed(3)}, scrollDiff: ${scrollDiff.toFixed(3)}, timeSinceScroll: ${timeSinceScroll.toFixed(3)}, isScrollInProgress: ${this.isScrollInProgress}, didScroll: ${didScroll}]`)
 
           if (wasScroll) {
             didScroll = false
@@ -579,7 +579,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
               dataIndex = this.items.length > 0 ? (itemIndex % this.items.length + this.items.length) % this.items.length : 0
             }
 
-            print(`[Carousel] Virtualized TAP validated on slot ${slotIndex} -> dataIndex ${dataIndex} (Title: ${this.items[dataIndex]?.title})`)
+            // print(`[Carousel] Virtualized TAP validated on slot ${slotIndex} -> dataIndex ${dataIndex} (Title: ${this.items[dataIndex]?.title})`)
 
             if (this.items.length > 0 && dataIndex >= 0 && dataIndex < this.items.length) {
               const item = this.items[dataIndex]
@@ -591,17 +591,17 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
                     this.selectedDataIndex = -1
                     this.toggledDataIndices.clear()
                     isSelected = false
-                    print(`[Carousel] Radio Toggle: Deselected item ${dataIndex} (allowAllTogglesOff=true)`)
+                    // print(`[Carousel] Radio Toggle: Deselected item ${dataIndex} (allowAllTogglesOff=true)`)
                   } else {
                     isSelected = true
-                    print(`[Carousel] Radio Toggle: Re-selected active item ${dataIndex} (allowAllTogglesOff=false)`)
+                    // print(`[Carousel] Radio Toggle: Re-selected active item ${dataIndex} (allowAllTogglesOff=false)`)
                   }
                 } else {
                   this.selectedDataIndex = dataIndex
                   this.toggledDataIndices.clear()
                   this.toggledDataIndices.add(dataIndex)
                   isSelected = true
-                  print(`[Carousel] Radio Toggle: Selected new item ${dataIndex}`)
+                  // print(`[Carousel] Radio Toggle: Selected new item ${dataIndex}`)
                 }
                 this.syncAllCardToggleStates()
               } else if (this.makeButtonsToggleable) {
@@ -617,7 +617,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
                   item.isOn = willBeToggled
                 }
                 isSelected = willBeToggled
-                print(`[Carousel] Multi-Toggle: Toggled item ${dataIndex} -> ${willBeToggled ? 'ON' : 'OFF'}`)
+                // print(`[Carousel] Multi-Toggle: Toggled item ${dataIndex} -> ${willBeToggled ? 'ON' : 'OFF'}`)
                 this.syncAllCardToggleStates()
               } else {
                 // Momentary button mode — not toggleable
@@ -633,7 +633,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
             }
           } else {
             // Manual Mode
-            print(`[Carousel] Manual Mode TAP on slot ${slotIndex} (wasSelectedBefore: ${triggerStartSelectedIndex === slotIndex})`)
+            // print(`[Carousel] Manual Mode TAP on slot ${slotIndex} (wasSelectedBefore: ${triggerStartSelectedIndex === slotIndex})`)
             if (this.enableToggleGroupBehavior) {
               if (triggerStartSelectedIndex === slotIndex) {
                 if (this.allowAllTogglesOff) {

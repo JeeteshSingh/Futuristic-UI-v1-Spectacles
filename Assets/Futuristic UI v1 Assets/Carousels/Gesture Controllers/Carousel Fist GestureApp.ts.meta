@@ -59,7 +59,7 @@
     -
       {}
   InputLines:
-    - '// @input Component.ScriptComponent carousel {"hint":"Drag either a VirtualizedPolygonalCarousel or ManualPolygonalCarousel here"}'
+    - '// @input Component.ScriptComponent carousel {"hint":"Drag a UnifiedPolygonalCarousel, VirtualizedPolygonalCarousel, or ManualPolygonalCarousel here"}'
     - // @input Component.Camera camera
     - '// @input float handType = 2 {"widget":"combobox", "values":[{"label":"Right", "value":0}, {"label":"Left", "value":1}, {"label":"Both", "value":2}]}'
     - "// @input vec3 fistSidewardOffset = {0,0,0}"

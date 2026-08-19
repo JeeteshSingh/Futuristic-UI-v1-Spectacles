@@ -2568,6 +2568,7 @@
     snapSharpness: true
     minVelocityToSnap: true
     maxDragVelocity: true
+    makeButtonsToggleable: true
     enableEntryAnimation: true
     entryDuration: true
     staggerDirection: true
@@ -2601,6 +2602,7 @@
       maxDragVelocity: 1.500000
       enableToggleBehavior: true
       allowAllTogglesOff: true
+      makeButtonsToggleable: false
       enableEntryAnimation: true
       animateOnStart: false
       entryDuration: 0.500000
@@ -2911,6 +2913,8 @@
   Enabled: true
   ScriptAsset: !<reference> 8e8e4a0e-fdc5-4739-bb6d-ba014e197ac1
   ScriptInputsDefault:
+    carousel: true
+    allowAllTogglesOff: true
     defaultText: true
     dimmedAlpha: true
     animationSpeed: true
@@ -2919,6 +2923,8 @@
     {}
   ScriptInputs:
     "":
+      carousel: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      allowAllTogglesOff: false
       displayText: !<reference.Text> adc1d3b4-0193-45b6-86f2-8abb2068c6ad
       defaultText: None Selected
       images: !<reference.Image[]>
@@ -4544,17 +4550,21 @@
   ScriptAsset: !<reference> e385ae26-25ff-4160-b624-825081cc5f56
   ScriptInputsDefault:
     handType: true
+    scrollMode: true
     angularSensitivity: true
+    linearSensitivity: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       carousel: !<reference.ScriptComponent> 8d1a9ae5-70a3-4f19-9c59-20f8055214ff
       handType: right
+      scrollMode: circular
+      angularSensitivity: !<float> 1.000000
+      linearSensitivity: 0.100000
+      invertScroll: true
       engageMargin: !<float> 20.000000
       depthMargin: !<float> 7.000000
-      angularSensitivity: !<float> 1.000000
-      invertScroll: true
       debugText: !<reference.Text> 84c0f3ef-2c7e-4130-a221-b1a8ba0d620e
   ScriptTypes:
     "":
