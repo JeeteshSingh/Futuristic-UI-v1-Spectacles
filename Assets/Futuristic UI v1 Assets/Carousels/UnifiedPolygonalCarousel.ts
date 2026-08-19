@@ -556,17 +556,20 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           }
 
           if (this.mode === "Virtualized") {
-            const totalSlots = this.cards.length
-            const p_i = (slotIndex + this.slotOffset) - this.displayedScroll
-            const shift = totalSlots / 2.0
-            const p_i_shifted = p_i + shift
+            const cardObj = this.cards[slotIndex]
+            let dataIndex = (cardObj as any)?._lastDataIndex
+            if (dataIndex === undefined || dataIndex === null) {
+              const totalSlots = this.cards.length
+              const p_i = (slotIndex + this.slotOffset) - this.displayedScroll
+              const shift = totalSlots / 2.0
+              const p_i_shifted = p_i + shift
+              const cycle = Math.floor(p_i_shifted / totalSlots)
+              const centerOffset = Math.floor((Math.max(1, this.slotCount) - 1) / 2.0)
+              const itemIndex = (slotIndex - cycle * totalSlots) + centerOffset
+              dataIndex = this.items.length > 0 ? (itemIndex % this.items.length + this.items.length) % this.items.length : 0
+            }
 
-            const cycle = Math.floor(p_i_shifted / totalSlots)
-            const centerOffset = Math.floor((Math.max(1, this.slotCount) - 1) / 2.0)
-            const itemIndex = (slotIndex - cycle * totalSlots) + centerOffset
-
-            if (this.items.length > 0) {
-              const dataIndex = (itemIndex % this.items.length + this.items.length) % this.items.length
+            if (this.items.length > 0 && dataIndex >= 0 && dataIndex < this.items.length) {
               const item = this.items[dataIndex]
 
               let isSelected = false
