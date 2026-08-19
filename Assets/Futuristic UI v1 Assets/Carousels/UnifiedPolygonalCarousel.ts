@@ -258,6 +258,8 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   private isDragging: boolean = false
   private isScrollInProgress: boolean = false
   private gestureStartScroll: number = 0
+  private isSelectingCard: boolean = false
+  private isSyncingToggles: boolean = false
 
   private animationStartTime: number = -1
   private animationExitTime: number = -1
@@ -990,26 +992,31 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
    * Manual Mode: Selects a specific child button slot.
    */
   public selectCard(slotIndex: number): void {
-    this.selectedDataIndex = slotIndex
-    for (let i = 0; i < this.buttonAPIs.length; i++) {
-      const btn = this.buttonAPIs[i]
-      if (btn) {
-        const shouldBeOn = (i === slotIndex)
-        const stateChanged = (btn.isOn !== shouldBeOn)
-        if (typeof btn.setState === 'function') {
-          btn.setState(shouldBeOn ? "toggledDefault" : "default")
+    if (this.isSelectingCard) return
+    this.isSelectingCard = true
+    try {
+      this.selectedDataIndex = slotIndex
+      for (let i = 0; i < this.buttonAPIs.length; i++) {
+        const btn = this.buttonAPIs[i]
+        if (btn) {
+          const shouldBeOn = (i === slotIndex)
+          if (typeof btn.setState === 'function') {
+            btn.setState(shouldBeOn ? "toggledDefault" : "default")
+          }
+          if (typeof btn.setOn === 'function') {
+            try {
+              (btn as any).setOn(shouldBeOn, false)
+            } catch (e) {}
+          }
+          btn.isOn = shouldBeOn
+          ;(btn as any)._isOn = shouldBeOn
         }
-        if (typeof btn.setOn === 'function') {
-          try {
-            (btn as any).setOn(shouldBeOn, stateChanged)
-          } catch (e) {}
-        }
-        btn.isOn = shouldBeOn
-        ;(btn as any)._isOn = shouldBeOn
       }
-    }
-    if (this.onItemSelected) {
-      this.onItemSelected(slotIndex, slotIndex >= 0 ? this.cards[slotIndex] : null)
+      if (this.onItemSelected) {
+        this.onItemSelected(slotIndex, slotIndex >= 0 ? this.cards[slotIndex] : null)
+      }
+    } finally {
+      this.isSelectingCard = false
     }
   }
 
@@ -1058,39 +1065,45 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   }
 
   public syncAllCardToggleStates(): void {
-    const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
-    for (let i = 0; i < this.cards.length; i++) {
-      const card = this.cards[i]
-      if (!card) continue
-      const btn = this.buttonAPIs[i]
-      const dataIdx = (card as any)._lastDataIndex
-      if (btn && dataIdx !== undefined) {
-        if (btn.setIsToggleable) {
-          btn.setIsToggleable(shouldBeToggleable)
-        } else {
-          btn._toggleable = shouldBeToggleable
-        }
+    if (this.isSyncingToggles) return
+    this.isSyncingToggles = true
+    try {
+      const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
+      for (let i = 0; i < this.cards.length; i++) {
+        const card = this.cards[i]
+        if (!card) continue
+        const btn = this.buttonAPIs[i]
+        const dataIdx = (card as any)._lastDataIndex
+        if (btn && dataIdx !== undefined) {
+          if (btn.setIsToggleable) {
+            btn.setIsToggleable(shouldBeToggleable)
+          } else {
+            btn._toggleable = shouldBeToggleable
+          }
 
-        let shouldBeOn = false
-        if (this.enableToggleGroupBehavior) {
-          shouldBeOn = (this.selectedDataIndex !== -1 && dataIdx === this.selectedDataIndex)
-        } else if (this.makeButtonsToggleable) {
-          shouldBeOn = this.toggledDataIndices.has(dataIdx) || (this.items[dataIdx] && Boolean(this.items[dataIdx].isOn))
-        } else {
-          shouldBeOn = false
-        }
+          let shouldBeOn = false
+          if (this.enableToggleGroupBehavior) {
+            shouldBeOn = (this.selectedDataIndex !== -1 && dataIdx === this.selectedDataIndex)
+          } else if (this.makeButtonsToggleable) {
+            shouldBeOn = this.toggledDataIndices.has(dataIdx) || (this.items[dataIdx] && Boolean(this.items[dataIdx].isOn))
+          } else {
+            shouldBeOn = false
+          }
 
-        if (typeof btn.setState === 'function') {
-          btn.setState(shouldBeOn ? "toggledDefault" : "default")
+          if (typeof btn.setState === 'function') {
+            btn.setState(shouldBeOn ? "toggledDefault" : "default")
+          }
+          if (typeof btn.setOn === 'function') {
+            try {
+              (btn as any).setOn(shouldBeOn, false)
+            } catch (e) {}
+          }
+          btn.isOn = shouldBeOn
+          ;(btn as any)._isOn = shouldBeOn
         }
-        if (typeof btn.setOn === 'function') {
-          try {
-            (btn as any).setOn(shouldBeOn, false)
-          } catch (e) {}
-        }
-        btn.isOn = shouldBeOn
-        ;(btn as any)._isOn = shouldBeOn
       }
+    } finally {
+      this.isSyncingToggles = false
     }
   }
 
