@@ -28,8 +28,12 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
   @ui.label('<span style="color: #60A5FA; font-weight: bold;">Carousel Reference</span>')
   @input("Component.ScriptComponent")
   @allowUndefined
-  @hint("Drag your UnifiedPolygonalCarousel or ManualPolygonalCarousel here")
+  @hint("Drag your UnifiedPolygonalCarousel or ManualPolygonalCarousel here (Auto-detected if unassigned)")
   carousel?: ScriptComponent
+
+  @input("bool", false)
+  @hint("Allow deselecting active button to return to None Selected. When false, clicking active button keeps it on.")
+  allowAllTogglesOff: boolean = false
 
   @ui.separator
   @ui.label('<span style="color: #F59E0B; font-weight: bold;">Display Target Text</span>')
@@ -95,6 +99,25 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
 
     if (this.displayText) {
       this.displayText.text = this.defaultText;
+    }
+
+    if (!this.carousel) {
+      // Auto-search parent or sibling for carousel component
+      const current = this.getSceneObject();
+      const parent = current.getParent();
+      const candidates = [current, parent, parent ? parent.getParent() : null];
+      for (const cand of candidates) {
+        if (!cand) continue;
+        for (let c = 0; c < cand.getComponents("Component.ScriptComponent").length; c++) {
+          const comp = cand.getComponents("Component.ScriptComponent")[c] as any;
+          if (comp && (typeof comp.selectCard === 'function' || typeof comp.setItems === 'function')) {
+            this.carousel = comp;
+            print(`[ManualCarouselDemo] Auto-attached carousel: ${cand.name}`);
+            break;
+          }
+        }
+        if (this.carousel) break;
+      }
     }
 
     if (this.carousel) {
@@ -247,7 +270,7 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
 
   /**
    * Main selection method by index (0 - 11).
-   * Toggles off if selecting the already-selected index!
+   * Respects allowAllTogglesOff setting.
    */
   public selectButton(index: number) {
     if (this.carousel) {
@@ -257,10 +280,15 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
         return;
       }
     }
+    const allowOff = this.carousel ? (this.carousel as any).allowAllTogglesOff ?? this.allowAllTogglesOff : this.allowAllTogglesOff;
     if (this.selectedIndex === index) {
-      // Toggle off if already selected
-      this.selectedIndex = -1;
-      print("[ManualCarouselDemo] Button " + (index + 1) + " toggled OFF (Resetting all alphas).");
+      if (allowOff) {
+        this.selectedIndex = -1;
+        print("[ManualCarouselDemo] Button " + (index + 1) + " toggled OFF (allowAllTogglesOff=true).");
+      } else {
+        this.selectedIndex = index;
+        print("[ManualCarouselDemo] Button " + (index + 1) + " re-selected (allowAllTogglesOff=false).");
+      }
     } else {
       this.selectedIndex = index;
       print("[ManualCarouselDemo] Button " + (index + 1) + " selected!");
