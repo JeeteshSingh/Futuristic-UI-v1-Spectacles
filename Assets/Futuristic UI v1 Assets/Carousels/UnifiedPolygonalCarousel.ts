@@ -501,13 +501,16 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         baseButton.setState("default")
       }
 
+      let triggerStartSelectedIndex: number = -1
+
       if (interactable.onTriggerStart) {
         interactable.onTriggerStart.add((e: any) => {
           didScroll = false
           triggerStartScroll = this.targetScroll
+          triggerStartSelectedIndex = this.selectedDataIndex
           const hit = (e && e.interactor && e.interactor.targetHitPosition) ? e.interactor.targetHitPosition : null
           triggerStartPos = hit ? new vec3(hit.x, hit.y, hit.z) : vec3.zero()
-          print(`[Carousel] onTriggerStart on slot ${slotIndex} (card: ${card.name}) | targetScroll: ${this.targetScroll.toFixed(2)}`)
+          print(`[Carousel] onTriggerStart on slot ${slotIndex} (card: ${card.name}) | targetScroll: ${this.targetScroll.toFixed(2)} | startSelected: ${triggerStartSelectedIndex}`)
         })
       }
 
@@ -583,7 +586,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
               let isSelected = false
               if (this.enableToggleGroupBehavior) {
-                if (this.selectedDataIndex === dataIndex) {
+                if (triggerStartSelectedIndex === dataIndex) {
                   if (this.allowAllTogglesOff) {
                     this.selectedDataIndex = -1
                     this.toggledDataIndices.clear()
@@ -630,9 +633,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
             }
           } else {
             // Manual Mode
-            print(`[Carousel] Manual Mode TAP on slot ${slotIndex}`)
+            print(`[Carousel] Manual Mode TAP on slot ${slotIndex} (wasSelectedBefore: ${triggerStartSelectedIndex === slotIndex})`)
             if (this.enableToggleGroupBehavior) {
-              if (this.selectedDataIndex === slotIndex) {
+              if (triggerStartSelectedIndex === slotIndex) {
                 if (this.allowAllTogglesOff) {
                   this.selectCard(-1)
                 } else {

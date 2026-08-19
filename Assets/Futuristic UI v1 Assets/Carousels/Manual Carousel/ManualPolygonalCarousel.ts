@@ -371,9 +371,12 @@ export class ManualPolygonalCarousel extends BaseScriptComponent {
         baseButton.setState("default")
       }
 
+      let triggerStartSelectedIndex: number = -1
+
       if (interactable.onTriggerStart) {
         interactable.onTriggerStart.add((e: any) => {
           didScroll = false
+          triggerStartSelectedIndex = this.selectedDataIndex
         })
       }
 
@@ -390,7 +393,7 @@ export class ManualPolygonalCarousel extends BaseScriptComponent {
           }
 
           if (this.enableToggleBehavior) {
-            if (this.selectedDataIndex === slotIndex) {
+            if (triggerStartSelectedIndex === slotIndex) {
               if (this.allowAllTogglesOff) {
                 this.selectCard(-1)
               } else {
