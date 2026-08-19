@@ -100,8 +100,9 @@ export class CarouselExamplePopulator extends BaseScriptComponent {
                 subtitle: "Tap to select",
                 texture: itemTexture,
                 onTap: (isSelected?: boolean) => {
+                    print(`[CarouselPopulator] onTap fired for '${itemTitle}' with isSelected=${isSelected}`)
                     if (isSelected === false) {
-                        print("[CarouselPopulator] All Toggles OFF -> Resetting to default!");
+                        print(`[CarouselPopulator] Resetting display to default: '${this.defaultText}'`);
                         
                         if (this.displayText) {
                             this.displayText.text = this.defaultText;
@@ -110,7 +111,7 @@ export class CarouselExamplePopulator extends BaseScriptComponent {
                             this.displayImage.mainPass.baseTex = this.defaultTexture || null;
                         }
                     } else {
-                        print("[CarouselPopulator] Selected " + itemTitle + "!");
+                        print(`[CarouselPopulator] Setting display to: '${itemTitle}' (texture assigned: ${Boolean(itemTexture)})`);
                         
                         if (this.displayText) {
                             this.displayText.text = itemTitle;
@@ -129,8 +130,11 @@ export class CarouselExamplePopulator extends BaseScriptComponent {
         const isToggleGroup = carouselAPI.enableToggleGroupBehavior ?? carouselAPI.enableToggleBehavior ?? false;
         const allowAllOff = carouselAPI.allowAllTogglesOff ?? false;
 
+        print(`[CarouselPopulator] populateCarousel done. isToggleGroup: ${isToggleGroup}, allowAllOff: ${allowAllOff}`)
+
         // Auto-select initial item if toggles off isn't the starting state
         if (isToggleGroup && !allowAllOff) {
+            print(`[CarouselPopulator] Auto-selecting initial item 0 ('${customItems[0]?.title}')`)
             if (typeof carouselAPI.selectItem === "function") {
                 carouselAPI.selectItem(0);
             }
@@ -138,7 +142,7 @@ export class CarouselExamplePopulator extends BaseScriptComponent {
                 customItems[0].onTap(true);
             }
         } else if (allowAllOff) {
-            // Reset to default initially if starting with all toggles off
+            print(`[CarouselPopulator] allowAllOff is true -> starting in default None Selected state`)
             if (this.displayText) this.displayText.text = this.defaultText;
             if (this.displayImage) this.displayImage.mainPass.baseTex = this.defaultTexture;
         }
