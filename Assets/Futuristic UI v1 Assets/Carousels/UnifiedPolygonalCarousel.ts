@@ -456,7 +456,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           if (this.invertDrag) dragDelta *= -1
           const nextTarget = this.dragStartScroll - dragDelta
 
-          if (accumulatedDragDist >= this.tapDragThreshold || Math.abs(nextTarget - this.dragStartScroll) >= 0.04) {
+          if (accumulatedDragDist >= this.tapDragThreshold || Math.abs(nextTarget - this.dragStartScroll) >= 0.15) {
             didScroll = true
             if (typeof (interactable as any).triggerCanceled === 'function') {
               try {
@@ -521,12 +521,10 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           }
 
           const scrollDiff = Math.abs(this.targetScroll - triggerStartScroll)
-          const displayedDiff = Math.abs(this.displayedScroll - triggerStartScroll)
           const wasScroll = didScroll ||
             (accumulatedDragDist >= this.tapDragThreshold) ||
             (contactMoved >= this.tapDragThreshold) ||
-            (scrollDiff >= 0.04) ||
-            (displayedDiff >= 0.04)
+            (scrollDiff >= 0.15)
 
           if (wasScroll) {
             didScroll = false
