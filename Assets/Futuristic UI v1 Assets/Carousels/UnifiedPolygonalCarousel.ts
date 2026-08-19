@@ -410,6 +410,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
     let accumulatedDragDist = 0
     let didScroll = false
 
+    let triggerStartScroll = 0
+    let triggerStartPos: vec3 = vec3.zero()
+
     const setupInteractable = () => {
       const interactable = baseButton.interactable
       if (!interactable || (card as any).__carouselDragAttached) return
@@ -418,11 +421,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       if (this.enableDirectDrag) {
         interactable.onDragStart.add(() => {
           this.isDragging = true
-          this.isGlobalDragging = true
-          this.isScrollInProgress = false
-          this.lastGlobalDragTime = getTime()
           this.dragStartScroll = this.targetScroll
-          this.gestureStartScroll = this.targetScroll
           this.dragLastTarget = this.targetScroll
           this.velocity = 0
           accumulatedDragDist = 0
@@ -430,9 +429,6 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         })
 
         interactable.onDragUpdate.add((args: any) => {
-          this.lastGlobalDragTime = getTime()
-          this.isGlobalDragging = true
-
           const dragVector = args && (
             args.planecastDragVector ||
             args.dragVector ||
@@ -462,7 +458,6 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
           if (accumulatedDragDist >= this.tapDragThreshold || Math.abs(nextTarget - this.dragStartScroll) >= 0.04) {
             didScroll = true
-            this.isScrollInProgress = true
           }
 
           this.velocity = nextTarget - this.dragLastTarget
@@ -472,10 +467,8 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
         interactable.onDragEnd.add(() => {
           this.isDragging = false
-          this.isGlobalDragging = false
-          this.lastGlobalDragTime = getTime()
           accumulatedDragDist = 0
-          if (didScroll || this.isScrollInProgress) {
+          if (didScroll) {
             if (this.mode === "Virtualized") {
               this.syncAllCardToggleStates()
             } else if (this.enableToggleGroupBehavior) {
@@ -515,17 +508,12 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         if (baseButton.onFinished && baseButton.onFinished.add) {
           baseButton.onFinished.add((explicit: boolean) => {
             if (explicit) {
-              const timeSinceDrag = getTime() - this.lastGlobalDragTime
-              const isDragOrScroll = didScroll ||
-                this.isScrollInProgress ||
-                this.isGlobalDragging ||
-                (timeSinceDrag < 0.35) ||
+              const scrollDiff = Math.abs(this.targetScroll - triggerStartScroll)
+              const wasScroll = didScroll ||
                 (accumulatedDragDist >= this.tapDragThreshold) ||
-                (Math.abs(this.targetScroll - this.dragStartScroll) >= 0.05) ||
-                (Math.abs(this.targetScroll - this.gestureStartScroll) >= 0.05) ||
-                (Math.abs(this.velocity) > 0.005)
+                (scrollDiff >= 0.08)
 
-              if (isDragOrScroll) {
+              if (wasScroll) {
                 this.selectCard(this.selectedDataIndex)
                 return
               }
@@ -543,31 +531,38 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       }
 
       if (interactable.onTriggerStart) {
-        interactable.onTriggerStart.add(() => {
+        interactable.onTriggerStart.add((e: any) => {
           didScroll = false
-          this.isScrollInProgress = false
-          this.gestureStartScroll = this.targetScroll
+          triggerStartScroll = this.targetScroll
+          const hit = (e && e.interactor && e.interactor.targetHitPosition) ? e.interactor.targetHitPosition : null
+          triggerStartPos = hit ? new vec3(hit.x, hit.y, hit.z) : vec3.zero()
         })
       }
 
       if (interactable.onTriggerEnd) {
-        interactable.onTriggerEnd.add(() => {
+        interactable.onTriggerEnd.add((e: any) => {
           if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
 
-          const timeSinceDrag = getTime() - this.lastGlobalDragTime
-          const isDragOrScroll = didScroll ||
-            this.isScrollInProgress ||
-            this.isGlobalDragging ||
-            (timeSinceDrag < 0.35) ||
-            (accumulatedDragDist >= this.tapDragThreshold) ||
-            (Math.abs(this.targetScroll - this.dragStartScroll) >= 0.05) ||
-            (Math.abs(this.targetScroll - this.gestureStartScroll) >= 0.05) ||
-            (Math.abs(this.velocity) > 0.005)
+          let contactMoved = 0
+          if (e && e.interactor && e.interactor.targetHitPosition && (triggerStartPos.x !== 0 || triggerStartPos.y !== 0 || triggerStartPos.z !== 0)) {
+            const cur = e.interactor.targetHitPosition
+            contactMoved = Math.sqrt(
+              Math.pow(cur.x - triggerStartPos.x, 2) +
+              Math.pow(cur.y - triggerStartPos.y, 2) +
+              Math.pow(cur.z - triggerStartPos.z, 2)
+            )
+          }
 
-          if (isDragOrScroll) {
+          const scrollDiff = Math.abs(this.targetScroll - triggerStartScroll)
+          const displayedDiff = Math.abs(this.displayedScroll - triggerStartScroll)
+          const wasScroll = didScroll ||
+            (accumulatedDragDist >= this.tapDragThreshold) ||
+            (contactMoved >= this.tapDragThreshold) ||
+            (scrollDiff >= 0.08) ||
+            (displayedDiff >= 0.08)
+
+          if (wasScroll) {
             didScroll = false
-            this.isScrollInProgress = false
-            this.isGlobalDragging = false
             // Restore visual states so the dragged button returns to default and the real toggle stays active
             if (this.mode === "Virtualized") {
               this.syncAllCardToggleStates()
@@ -689,7 +684,6 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
     if (!this.isDragging) {
       if (Math.abs(this.velocity) > this.minVelocityToSnap) {
-        this.lastGlobalDragTime = getTime()
         this.velocity = Math.max(Math.min(this.velocity, this.maxDragVelocity), -this.maxDragVelocity)
         this.targetScroll += this.velocity
         this.velocity *= Math.exp(-this.inertiaDamping * dt)
