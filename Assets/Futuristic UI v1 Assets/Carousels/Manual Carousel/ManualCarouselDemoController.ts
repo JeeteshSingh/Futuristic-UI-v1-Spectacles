@@ -25,6 +25,13 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
   @ui.label('<span style="color: #60A5FA; font-weight: bold; font-size: 14px;">Manual Carousel Demo Controller</span><br/><span style="color: #94A3B8; font-size: 11px;">Animates 12 target Image alphas and updates display Text on button press.</span>')
   @ui.separator
 
+  @ui.label('<span style="color: #60A5FA; font-weight: bold;">Carousel Reference</span>')
+  @input("Component.ScriptComponent")
+  @allowUndefined
+  @hint("Drag your UnifiedPolygonalCarousel or ManualPolygonalCarousel here")
+  carousel?: ScriptComponent
+
+  @ui.separator
   @ui.label('<span style="color: #F59E0B; font-weight: bold;">Display Target Text</span>')
   @input("Component.Text")
   @allowUndefined
@@ -64,6 +71,7 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
 
   // Internal Tracking
   private selectedIndex: number = -1; // -1 = none selected
+  private toggledIndices: Set<number> = new Set<number>();
   private initialAlphas: number[] = [];
   private currentAlphas: number[] = [];
   private targetAlphas: number[] = [];
@@ -88,6 +96,42 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
     if (this.displayText) {
       this.displayText.text = this.defaultText;
     }
+
+    if (this.carousel) {
+      const carouselAPI = this.carousel as any;
+      if (carouselAPI) {
+        carouselAPI.onItemSelected = (index: number, card?: SceneObject) => {
+          this.handleCarouselSelection(index, card);
+        };
+      }
+    }
+  }
+
+  public handleCarouselSelection(index: number, card?: SceneObject) {
+    const carouselAPI = this.carousel as any;
+    const isToggleGroup = carouselAPI ? (carouselAPI.enableToggleGroupBehavior ?? carouselAPI.enableToggleBehavior ?? false) : false;
+    const isMultiToggle = carouselAPI ? Boolean(carouselAPI.makeButtonsToggleable) : false;
+
+    if (isToggleGroup) {
+      this.selectedIndex = index;
+      this.toggledIndices.clear();
+      if (index !== -1) {
+        this.toggledIndices.add(index);
+      }
+    } else if (isMultiToggle) {
+      if (index >= 0) {
+        if (this.toggledIndices.has(index)) {
+          this.toggledIndices.delete(index);
+        } else {
+          this.toggledIndices.add(index);
+        }
+      }
+      this.selectedIndex = index;
+    } else {
+      this.selectedIndex = index;
+    }
+
+    this.updateTargets();
   }
 
   /**
@@ -155,26 +199,48 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
   }
 
   private updateTargets() {
+    const carouselAPI = this.carousel as any;
+    const isMultiToggle = carouselAPI ? Boolean(carouselAPI.makeButtonsToggleable) : false;
+
     for (let i = 0; i < this.images.length; i++) {
-      if (this.selectedIndex === -1) {
-        // Reset all images to their initial starting alpha
-        this.targetAlphas[i] = (this.initialAlphas[i] !== undefined) ? this.initialAlphas[i] : 1.0;
-      } else if (i === this.selectedIndex) {
-        // Selected image -> Full 1.0 alpha
-        this.targetAlphas[i] = 1.0;
+      if (isMultiToggle) {
+        if (this.toggledIndices.size === 0) {
+          this.targetAlphas[i] = (this.initialAlphas[i] !== undefined) ? this.initialAlphas[i] : 1.0;
+        } else if (this.toggledIndices.has(i)) {
+          this.targetAlphas[i] = 1.0;
+        } else {
+          this.targetAlphas[i] = this.dimmedAlpha;
+        }
       } else {
-        // Other images -> Dimmed alpha
-        this.targetAlphas[i] = this.dimmedAlpha;
+        if (this.selectedIndex === -1) {
+          this.targetAlphas[i] = (this.initialAlphas[i] !== undefined) ? this.initialAlphas[i] : 1.0;
+        } else if (i === this.selectedIndex) {
+          this.targetAlphas[i] = 1.0;
+        } else {
+          this.targetAlphas[i] = this.dimmedAlpha;
+        }
       }
     }
 
     if (this.displayText) {
-      if (this.selectedIndex >= 0 && this.selectedIndex < this.buttonLabels.length) {
-        this.displayText.text = this.buttonLabels[this.selectedIndex];
-      } else if (this.selectedIndex >= 0) {
-        this.displayText.text = "Button " + (this.selectedIndex + 1);
+      if (isMultiToggle) {
+        if (this.toggledIndices.size === 0) {
+          this.displayText.text = this.defaultText;
+        } else if (this.selectedIndex >= 0 && this.selectedIndex < this.buttonLabels.length) {
+          this.displayText.text = this.buttonLabels[this.selectedIndex];
+        } else if (this.selectedIndex >= 0) {
+          this.displayText.text = "Button " + (this.selectedIndex + 1);
+        } else {
+          this.displayText.text = this.defaultText;
+        }
       } else {
-        this.displayText.text = this.defaultText;
+        if (this.selectedIndex >= 0 && this.selectedIndex < this.buttonLabels.length) {
+          this.displayText.text = this.buttonLabels[this.selectedIndex];
+        } else if (this.selectedIndex >= 0) {
+          this.displayText.text = "Button " + (this.selectedIndex + 1);
+        } else {
+          this.displayText.text = this.defaultText;
+        }
       }
     }
   }
@@ -184,6 +250,13 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
    * Toggles off if selecting the already-selected index!
    */
   public selectButton(index: number) {
+    if (this.carousel) {
+      const carouselAPI = this.carousel as any;
+      if (typeof carouselAPI.selectCard === 'function') {
+        carouselAPI.selectCard(index);
+        return;
+      }
+    }
     if (this.selectedIndex === index) {
       // Toggle off if already selected
       this.selectedIndex = -1;
@@ -200,6 +273,7 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
    */
   public deselectAll() {
     this.selectedIndex = -1;
+    this.toggledIndices.clear();
     this.updateTargets();
   }
 
