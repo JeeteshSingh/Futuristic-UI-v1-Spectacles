@@ -281,22 +281,37 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
 
   /**
    * Main selection method by index (0 - 11).
-   * Respects allowAllTogglesOff setting.
+   * Respects toggle group vs independent multi-toggle mode and allowAllTogglesOff setting.
    */
   public selectButton(index: number) {
-    if (this.carousel) {
-      const carouselAPI = this.carousel as any;
-      if (typeof carouselAPI.selectCard === 'function') {
-        const isCurrentlySelected = (carouselAPI.selectedDataIndex === index);
-        const allowOff = Boolean(carouselAPI.allowAllTogglesOff ?? this.allowAllTogglesOff);
-        if (isCurrentlySelected && allowOff) {
-          carouselAPI.selectCard(-1);
-        } else {
-          carouselAPI.selectCard(index);
-        }
-        return;
+    const carouselAPI = this.carousel as any;
+    const isToggleGroup = carouselAPI ? (carouselAPI.enableToggleGroupBehavior ?? carouselAPI.enableToggleBehavior ?? false) : false;
+    const isMultiToggle = carouselAPI ? Boolean(carouselAPI.makeButtonsToggleable) : false;
+
+    if (isToggleGroup && carouselAPI && typeof carouselAPI.selectCard === 'function') {
+      const isCurrentlySelected = (carouselAPI.selectedDataIndex === index);
+      const allowOff = Boolean(carouselAPI.allowAllTogglesOff ?? this.allowAllTogglesOff);
+      if (isCurrentlySelected && allowOff) {
+        carouselAPI.selectCard(-1);
+      } else {
+        carouselAPI.selectCard(index);
       }
+      return;
     }
+
+    if (isMultiToggle) {
+      if (this.toggledIndices.has(index)) {
+        this.toggledIndices.delete(index);
+        print("[ManualCarouselDemo] Multi-Toggle: Button " + (index + 1) + " toggled OFF (total active: " + this.toggledIndices.size + ")");
+      } else {
+        this.toggledIndices.add(index);
+        print("[ManualCarouselDemo] Multi-Toggle: Button " + (index + 1) + " toggled ON (total active: " + this.toggledIndices.size + ")");
+      }
+      this.selectedIndex = index;
+      this.updateTargets();
+      return;
+    }
+
     const allowOff = Boolean(this.allowAllTogglesOff);
     if (this.selectedIndex === index) {
       if (allowOff) {
