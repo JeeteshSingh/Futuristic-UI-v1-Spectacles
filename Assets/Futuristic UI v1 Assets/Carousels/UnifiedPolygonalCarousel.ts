@@ -456,25 +456,32 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         interactable.onDragEnd.add(() => {
           this.isDragging = false
           accumulatedDragDist = 0
+          if (didScroll) {
+            if (this.mode === "Virtualized") {
+              this.syncAllCardToggleStates()
+            } else if (this.enableToggleGroupBehavior) {
+              this.selectCard(this.selectedDataIndex)
+            }
+          }
         })
       }
 
-      // Only independent multi-toggle mode needs BaseButton to toggle itself autonomously.
-      // In Toggle Group mode, the carousel script is the single authority over selection on intentional tap.
-      const isAutonomousToggle = this.makeButtonsToggleable
+      const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
       if (baseButton.setIsToggleable) {
-        baseButton.setIsToggleable(isAutonomousToggle)
+        baseButton.setIsToggleable(shouldBeToggleable)
       } else {
-        baseButton._toggleable = isAutonomousToggle
+        baseButton._toggleable = shouldBeToggleable
       }
-      if (!isAutonomousToggle) {
+      if (!shouldBeToggleable) {
         if (typeof baseButton.setOn === 'function') {
-          baseButton.setOn(false)
-        } else if (typeof baseButton.isOn !== 'undefined') {
-          baseButton.isOn = false
-          if (typeof baseButton.setState === 'function') {
-            baseButton.setState("default")
-          }
+          try {
+            (baseButton as any).setOn(false, false)
+          } catch (e) {}
+        }
+        baseButton.isOn = false
+        ;(baseButton as any)._isOn = false
+        if (typeof baseButton.setState === 'function') {
+          baseButton.setState("default")
         }
       }
 
@@ -858,11 +865,11 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       }
 
       if (baseButton && (typeof baseButton.isOn !== 'undefined' || typeof baseButton.setOn === 'function')) {
-        const isAutonomousToggle = this.makeButtonsToggleable
+        const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
         if (baseButton.setIsToggleable) {
-          baseButton.setIsToggleable(isAutonomousToggle)
+          baseButton.setIsToggleable(shouldBeToggleable)
         } else {
-          baseButton._toggleable = isAutonomousToggle
+          baseButton._toggleable = shouldBeToggleable
         }
 
         let shouldBeOn = false
@@ -984,7 +991,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   }
 
   public syncAllCardToggleStates(): void {
-    const isAutonomousToggle = this.makeButtonsToggleable
+    const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
     for (let i = 0; i < this.cards.length; i++) {
       const card = this.cards[i]
       if (!card) continue
@@ -992,9 +999,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       const dataIdx = (card as any)._lastDataIndex
       if (btn && dataIdx !== undefined) {
         if (btn.setIsToggleable) {
-          btn.setIsToggleable(isAutonomousToggle)
+          btn.setIsToggleable(shouldBeToggleable)
         } else {
-          btn._toggleable = isAutonomousToggle
+          btn._toggleable = shouldBeToggleable
         }
 
         let shouldBeOn = false
