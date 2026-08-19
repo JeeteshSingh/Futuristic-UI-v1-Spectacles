@@ -432,13 +432,16 @@ export class ManualPolygonalCarousel extends BaseScriptComponent {
       const btn = this.buttonAPIs[i]
       if (btn) {
         const shouldBeOn = (i === slotIndex)
+        btn.isOn = shouldBeOn
+        ;(btn as any)._isOn = shouldBeOn
+        if ((btn as any)._interactableStateMachine) {
+          (btn as any)._interactableStateMachine.toggle = shouldBeOn
+        }
         if (typeof btn.setOn === 'function') {
           try {
             (btn as any).setOn(shouldBeOn, false)
           } catch (e) {}
         }
-        btn.isOn = shouldBeOn
-        ;(btn as any)._isOn = shouldBeOn
         if (typeof btn.setState === 'function') {
           btn.setState(shouldBeOn ? "toggledDefault" : "default")
         }
