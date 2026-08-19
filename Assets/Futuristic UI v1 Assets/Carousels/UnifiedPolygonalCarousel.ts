@@ -874,14 +874,16 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           shouldBeOn = false
         }
 
-        if (typeof baseButton.setOn === 'function') {
-          baseButton.setOn(shouldBeOn)
-        } else {
-          baseButton.isOn = shouldBeOn
-          if (typeof baseButton.setState === 'function') {
-            baseButton.setState(shouldBeOn ? "toggledDefault" : "default")
-          }
+        if (typeof baseButton.setState === 'function') {
+          baseButton.setState(shouldBeOn ? "toggledDefault" : "default")
         }
+        if (typeof baseButton.setOn === 'function') {
+          try {
+            (baseButton as any).setOn(shouldBeOn, false)
+          } catch (e) {}
+        }
+        baseButton.isOn = shouldBeOn
+        ;(baseButton as any)._isOn = shouldBeOn
       }
     }
   }
@@ -918,13 +920,18 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
     this.selectedDataIndex = slotIndex
     for (let i = 0; i < this.buttonAPIs.length; i++) {
       const btn = this.buttonAPIs[i]
-      if (btn && typeof btn.isOn !== "undefined") {
+      if (btn) {
         const shouldBeOn = (i === slotIndex)
-        if (typeof btn.setOn === 'function') {
-          btn.setOn(shouldBeOn)
-        } else if (btn.isOn !== shouldBeOn) {
-          btn.isOn = shouldBeOn
+        if (typeof btn.setState === 'function') {
+          btn.setState(shouldBeOn ? "toggledDefault" : "default")
         }
+        if (typeof btn.setOn === 'function') {
+          try {
+            (btn as any).setOn(shouldBeOn, false)
+          } catch (e) {}
+        }
+        btn.isOn = shouldBeOn
+        ;(btn as any)._isOn = shouldBeOn
       }
     }
     if (this.onItemSelected) {
@@ -999,14 +1006,16 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           shouldBeOn = false
         }
 
-        if (typeof btn.setOn === 'function') {
-          btn.setOn(shouldBeOn)
-        } else if (typeof btn.isOn !== 'undefined') {
-          btn.isOn = shouldBeOn
-          if (typeof btn.setState === 'function') {
-            btn.setState(shouldBeOn ? "toggledDefault" : "default")
-          }
+        if (typeof btn.setState === 'function') {
+          btn.setState(shouldBeOn ? "toggledDefault" : "default")
         }
+        if (typeof btn.setOn === 'function') {
+          try {
+            (btn as any).setOn(shouldBeOn, false)
+          } catch (e) {}
+        }
+        btn.isOn = shouldBeOn
+        ;(btn as any)._isOn = shouldBeOn
       }
     }
   }
