@@ -1290,7 +1290,7 @@ the Interactable will also use filtered pinch events."
 
   protected override setOn(on: boolean, explicit: boolean): void {
     super.setOn(on, explicit)
-    if (this._initialized && !this._isSettingToggleState) {
+    if (this.initialized && !this._isSettingToggleState) {
       this._isSettingToggleState = true
       try {
         this.setState(on ? StateName.toggledDefault : StateName.default)

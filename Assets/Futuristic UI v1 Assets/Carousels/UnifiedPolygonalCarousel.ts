@@ -909,13 +909,6 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       }
 
       if (baseButton && (typeof baseButton.isOn !== 'undefined' || typeof baseButton.setOn === 'function')) {
-        const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
-        if (baseButton.setIsToggleable) {
-          baseButton.setIsToggleable(shouldBeToggleable)
-        } else {
-          baseButton._toggleable = shouldBeToggleable
-        }
-
         let shouldBeOn = false
         if (this.enableToggleGroupBehavior) {
           shouldBeOn = (this.selectedDataIndex !== -1 && dataIndex === this.selectedDataIndex)
@@ -925,9 +918,6 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           shouldBeOn = false
         }
 
-        if (typeof baseButton.setState === 'function') {
-          baseButton.setState(shouldBeOn ? "toggledDefault" : "default")
-        }
         if (typeof baseButton.setOn === 'function') {
           try {
             (baseButton as any).setOn(shouldBeOn, false)
@@ -935,6 +925,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         }
         baseButton.isOn = shouldBeOn
         ;(baseButton as any)._isOn = shouldBeOn
+        if (typeof baseButton.setState === 'function') {
+          baseButton.setState(shouldBeOn ? "toggledDefault" : "default")
+        }
       }
     }
   }
