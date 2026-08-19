@@ -1,13 +1,13 @@
 # UnifiedPolygonalCarousel System Guide & Complete Architectural Reference
 
-The **UnifiedPolygonalCarousel** is the consolidated spatial carousel framework for **Snap Spectacles (2024)** and **Lens Studio 5.15+**. It merges both the legacy standalone `ManualPolygonalCarousel` and `VirtualizedPolygonalCarousel` into a single, high-performance component supporting dual operational modes:
+The **UnifiedPolygonalCarousel** is the consolidated spatial UI carousel framework for **Snap Spectacles (2024)** and **Lens Studio 5.15+**. It merges the standalone manual carousel and virtualized carousel architectures into a single, high-performance, multi-mode component:
 
-1. **Manual Mode**: Distributes pre-authored child buttons (`PolygonalButton`) in a circular arc with individual inspector callbacks, custom polygon geometry, and independent or radio-group toggle states.
-2. **Virtualized Mode**: Dynamically recycles an object pool of visual button templates across infinite datasets via `setItems()`, minimizing draw calls and memory overhead.
+1. **Manual Mode**: Distributes pre-authored child buttons (`PolygonalButton` or `BaseButton`) along a circular arc with individual inspector callbacks, custom per-button polygon shapes, and independent or radio-group toggle states.
+2. **Virtualized Mode**: Dynamically recycles a fixed pool of visual button templates across arbitrary or infinite datasets via `setItems()`, minimizing draw calls and memory overhead.
 
 ---
 
-## 🏛️ Architecture & Interaction Flow Map
+## 🏛️ Architecture & Game Flow Map
 
 ```mermaid
 flowchart TD
@@ -38,15 +38,136 @@ flowchart TD
 
 ---
 
-## ⚖️ Operational Modes: Manual vs. Virtualized
+## ⚖️ Primary Use Case: When to Use Manual Mode vs. Virtualized Mode
 
 | Feature | **Manual Mode** (`mode: "Manual"`) | **Virtualized Mode** (`mode: "Virtualized"`) |
 | :--- | :--- | :--- |
-| **Button Generation** | Operates directly on pre-placed child `SceneObjects` under `carouselRoot`. | Instantiates a recycled pool from a single `cardPrefab` button template. |
-| **Dataset Size** | Fixed, static button sets (e.g. 5, 8, 12 buttons). | Arbitrary, large, or streaming datasets (e.g. 20, 50, 100+ items). |
-| **Button Geometry** | Each button can have unique polygon shapes, custom sizes, and bespoke iconography. | All buttons share the template geometry; icons and texts are bound dynamically. |
-| **Action Handling** | Individual button inspector callbacks or `ManualCarouselDemoController`. | Injected programmatically via `CarouselItemData.onTap(isSelected)`. |
+| **Button Generation** | Operates directly on **pre-placed child SceneObjects** under `carouselRoot`. | Instantiates a recycled pool from a single **`cardPrefab` button template**. |
+| **Dataset Size** | **Fixed, static button counts** (e.g. 5, 8, 12 buttons). | **Large, arbitrary, or streaming datasets** (e.g. 20, 50, 100+ items). |
+| **Button Customization** | **Individual custom sizes, unique polygon shapes, or unique child layouts per button.** | All buttons share the template geometry; icons and texts are bound dynamically. |
+| **Action Handling** | **Configured individually per button in Inspector** (or via `ManualCarouselDemoController`). | Injected programmatically via `CarouselItemData.onTap(isSelected)`. |
+| **Draw-Call & Memory** | Each button has its own physical mesh and material in the scene. | **Fixed memory footprint**; recycles a tiny fixed pool (e.g. 7 physical buttons total). |
 | **Toggle Memory** | Hardware state machine synchronized across child `BaseButton` instances. | Tracked via data index set (`toggledDataIndices`) and restored during slot recycling. |
+
+### Why Choose Manual Mode?
+Use **Manual Mode** when you have a specific, fixed number of buttons (e.g. 12 features or 5 main app tabs) where each button has **custom inspector action callbacks**, **custom individual sizes**, or **unique custom iconography/layouts** that should not be dynamically overwritten by a dataset array.
+
+### Why Choose Virtualized Mode?
+Use **Virtualized Mode** when displaying large datasets (e.g. 39 apps, product catalogs, or live feeds):
+1. **Draw-Call & Memory Optimization**: Instantiating 39+ heavy 3D button prefabs causes severe draw call overhead and frame drops on Spectacles. Virtualization creates only `slotCount` + `bufferSlots` (e.g. 5 + 2 = **7 physical buttons** total) and continuously recycles them as you scroll.
+2. **Infinite Data Support**: Display 10, 50, or 100 items without changing scene hierarchy or increasing physical object counts.
+3. **Seamless Recycling**: Uses edge scaling & alpha fading (`fadeAtEdges`) so physical button recycling at the arc boundaries is completely invisible to the user.
+
+---
+
+## 🔷 Button Compatibility & SIK Parity
+
+* **PolygonalButton Compatibility**: Fully optimized for child objects or prefabs containing `PolygonalButton` components. It automatically syncs button opacity, Z-pop displacement, procedural shape geometry, corner filleting, and state color transitions.
+* **Spectacles UIKit / SIK Parity**: 100% compatible with standard rectangular Spectacles UIKit `BaseButton` prefabs or any custom script inheriting from `BaseButton` or exposing `isOn` and `opacity` properties.
+
+---
+
+## 📋 Inspector Inputs vs. Script API Mapping
+
+| Inspector Section | Inspector Input Name | Script API Reference (TypeScript) | Type | Operational Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Core Setup** | `mode` | `carousel.mode` | `"Manual" \| "Virtualized"` | Operational mode toggle |
+| **Core Setup** | `cardPrefab` | `carousel.cardPrefab` | `ObjectPrefab` | Button template prefab (*Virtualized Mode only*) |
+| **Core Setup** | `carouselRoot` | `carousel.carouselRoot` | `SceneObject` | Container translated/rotated to move carousel |
+| **Core Setup** | `buttonScale` | `carousel.buttonScale` | `number` | Scale multiplier for buttons (default `1.0`) |
+| **Core Setup** | `dataItemCount` | `carousel.dataItemCount` | `number` | Fallback item count (*Virtualized fallback*) |
+| **Arc Layout** | `slotCount` | `carousel.setSlotCount(count)` | `number` | Number of visible button slots in the arc |
+| **Arc Layout** | `bufferSlots` | `carousel.bufferSlots` | `number` | Extra off-screen slots allocated for smooth recycling |
+| **Arc Layout** | `arcAngleDegrees` | `carousel.arcAngleDegrees` | `number` | Visible arc angle. Keep < 300° to prevent overlapping |
+| **Arc Layout** | `arcOffsetDegrees` | `carousel.arcOffsetDegrees` | `number` | Rotates entire circle (0° = Top, 90° = Right, 180° = Bottom, 270° = Left) |
+| **Arc Layout** | `slotOffset` | `carousel.slotOffset` | `number` | Shifts the starting button index along the circle (e.g. `-2`, `+1`) |
+| **Arc Layout** | `radius` | `carousel.radius` | `number` | Radius in cm (~6cm for palm anchor, ~30cm for floating HUD) |
+| **Arc Layout** | `alignRotationToCircle`| `carousel.alignRotationToCircle`| `boolean` | Must be `true` for radial alignment along the arc |
+| **Arc Layout** | `layoutAxis` | `carousel.layoutAxis` | `"XY" \| "XZ" \| "YZ"` | **Recommended: "XY"**. `XZ` & `YZ` cause jitter on device |
+| **Arc Layout** | `faceInward` | `carousel.faceInward` | `boolean` | Controls whether button faces point inward toward center |
+| **Arc Layout** | `faceCamera` | `carousel.faceCamera` | `boolean` | Experimental billboarding toward camera |
+| **Arc Layout** | `rotationOffset` | `carousel.rotationOffset` | `vec3` | Rotates button mesh orientation within slot (default `{0,0,90}`) |
+| **Arc Layout** | `fadeAtEdges` | `carousel.fadeAtEdges` | `boolean` | Smooth scaling & alpha fading at arc boundaries |
+| **Arc Layout** | `fadeRange` | `carousel.fadeRange` | `number` | Falloff distance for edge scaling and fading |
+| **Touch & Physics** | `enableDirectDrag` | `carousel.enableDirectDrag` | `boolean` | Enable direct SIK hand ray/pinch/poke card dragging |
+| **Touch & Physics** | `tapDragThreshold` | `carousel.tapDragThreshold` | `number` | Planar movement threshold in cm before tap becomes drag |
+| **Touch & Physics** | `enableExternalDrag` | `carousel.enableExternalDrag` | `boolean` | Enable external gesture driver API (`externalScrollBy`) |
+| **Touch & Physics** | `invertDrag` | `carousel.invertDrag` | `boolean` | Inverts touch drag direction (default `true`) |
+| **Touch & Physics** | `dragSensitivity` | `carousel.dragSensitivity` | `number` | Sensitivity multiplier for touch dragging |
+| **Touch & Physics** | `inertiaDamping` | `carousel.inertiaDamping` | `number` | Kinetic velocity decay rate after release |
+| **Touch & Physics** | `snapSharpness` | `carousel.snapSharpness` | `number` | Magnetic slot snapping spring speed |
+| **Touch & Physics** | `minVelocityToSnap` | `carousel.minVelocityToSnap` | `number` | Minimum velocity threshold before snapping engages |
+| **Touch & Physics** | `maxDragVelocity` | `carousel.maxDragVelocity` | `number` | Clamp on maximum fling velocity |
+| **Touch & Physics** | `enableToggleGroupBehavior`| `carousel.enableToggleGroupBehavior`| `boolean` | Exclusive radio-button toggle mode across buttons |
+| **Touch & Physics** | `allowAllTogglesOff` | `carousel.allowAllTogglesOff` | `boolean` | Allows deselecting active button on second tap |
+| **Touch & Physics** | `makeButtonsToggleable` | `carousel.makeButtonsToggleable` | `boolean` | Multi-select independent toggle mode (*Manual Mode*) |
+| **Animations** | `enableEntryAnimation`| `carousel.playEntryAnimation()` | `void` | Triggers pop-in stagger animation |
+| **Animations** | *(same toggle)* | `carousel.playExitAnimation()` | `void` | Triggers pop-out exit animation |
+| **Animations** | `animateOnStart` | `carousel.animateOnStart` | `boolean` | `true` for dev preview; `false` for gesture-triggered lenses |
+| **Animations** | `entryDuration` | `carousel.entryDuration` | `number` | Scale pop duration per button in seconds |
+| **Animations** | `entryStaggerTime` | `carousel.entryStaggerTime` | `number` | Delay offset between adjacent button pops |
+| **Animations** | `staggerDirection` | `carousel.staggerDirection` | `number` | `0` = Left-to-Right, `1` = Right-to-Left, `2` = Center Outward |
+
+---
+
+## 🔍 Detailed Section-by-Section Usage & Options Guide
+
+### 1. Core Setup & Hierarchy
+* **`mode`**: Choose between `"Manual"` (scans existing child SceneObjects under `carouselRoot`) and `"Virtualized"` (instantiates recycled templates from `cardPrefab`).
+* **`carouselRoot`**: The parent `SceneObject` containing child buttons or recycled slots.
+  > [!IMPORTANT]
+  > **Architectural Anchor**: `carouselRoot` is the object you translate and rotate in scripts (e.g. anchoring to the user's palm via `HandMenuHelper` or `Carousel Fist GestureApp`). The carousel slot math calculates positions relative to `carouselRoot` so you can freely orient the menu anywhere in 3D space without breaking circular physics.
+* **`buttonScale`**: Uniform scale multiplier applied to every button.
+
+---
+
+### 2. Arc & Circular Layout
+* **`slotCount`**: The number of buttons visible concurrently within the active carousel arc (e.g. `5` or `6`).
+* **`bufferSlots`**: Hidden off-screen slots allocated on both sides of the visible arc to ensure smooth wrapping during scrolling (e.g. `2` or `4`).
+* **`arcAngleDegrees`**: Defines the total angle span of the carousel arc.
+  > [!WARNING]
+  > **360° Overlap Warning**: Setting `arcAngleDegrees` to `360` is NOT recommended because buttons will overlap! Keep `arcAngleDegrees` **less than 300°** (e.g. `180°` to `270°`) for a clean, non-overlapping circular arc.
+* **`arcOffsetDegrees`**: Rotates the position of the entire circle in degrees:
+  * `0°`: **12 o'clock (Top)**
+  * `90°`: **3 o'clock (Right)**
+  * `180°`: **6 o'clock (Bottom)**
+  * `270°` / `-90°`: **9 o'clock (Left)**
+* **`slotOffset`**: Integer offset that shifts which button starts at the primary angle without rotating the wheel geometry (`0` = default, `1` = shift forward by 1 slot, `-1` / `-2` = shift backward).
+* **`radius`**: Distance from the carousel center in cm:
+  * **~5.5 – 8.0 cm**: Ideal for tight hand/palm/fist-anchored menus.
+  * **~20.0 – 35.0 cm**: Ideal for larger world-floating HUD menus.
+* **`alignRotationToCircle`**: **MUST BE ENABLED (`true`)** to rotate each button radially along the circular path. If disabled, buttons spawn in circular positions but face flat without radial rotation.
+* **`layoutAxis`**: Determines the 3D plane alignment of the circle (`XY`, `XZ`, `YZ`).
+  > [!CAUTION]
+  > **Instability & Jitter Warning**: `XZ` and `YZ` planes DO NOT work well on device and cause noticeable tracking jitter! It is **HIGHLY RECOMMENDED to keep `layoutAxis = "XY"`** and use `rotationOffset` (or rotate the parent `carouselRoot`) to orient carousels into different 3D planes without jitter.
+* **`faceInward`**: Controls whether button faces point inward toward the circle center or outward.
+* **`rotationOffset`**: Rotates the button mesh inside its slot (default `{0, 0, 90}`). Use this to align custom button orientation so they sit correctly along the arc.
+* **`fadeAtEdges` & `fadeRange`**: Smoothly scales down and fades out button opacity toward the outer edges of the arc, making slot wrapping completely smooth and natural.
+
+---
+
+### 3. Touch Drag, Physics & Selection
+* **`enableDirectDrag`**: Registers direct SIK hand ray/pinch/poke drag event listeners on each button so users can rotate the carousel directly by dragging button surfaces.
+* **`tapDragThreshold`**: Tangential movement threshold in cm before a touch is classified as a drag rather than a stationary tap.
+* **`enableExternalDrag`**: Enables external drag API methods (`externalScrollBy`, `externalDragStart`, `externalDragUpdate`, `externalDragEnd`) so external gesture controllers (e.g. `SwordSwipeScroller` or `Carousel Fist GestureApp`) can drive rotation.
+* **`invertDrag`**: On (`true`) by default because pulling a physical ribbon feels natural. Disable if you want opposite touch direction.
+* **`dragSensitivity` / `inertiaDamping` / `snapSharpness` / `minVelocityToSnap` / `maxDragVelocity`**: Tuning parameters for testing touch drag response, fling velocity, and magnetic slot snapping.
+* **`enableToggleGroupBehavior`**: Enables exclusive radio-button selection mode across buttons (only 1 button active at a time).
+* **`allowAllTogglesOff`**: When `true`, tapping an already-selected button toggles it off, returning to the neutral `"None Selected"` state.
+* **`makeButtonsToggleable`**: Enables independent multi-select toggle mode where multiple buttons can be active simultaneously without forcing others off.
+
+---
+
+### 4. Stagger Animations & Development Workflow
+* **`enableEntryAnimation`**: Enables staggered pop-in and pop-out scaling animations.
+* **`animateOnStart`**:
+  > [!TIP]
+  > **Workflow Tip**: Keep `animateOnStart = true` while developing inside Lens Studio to preview the entry pop-in animation on start. **Uncheck `animateOnStart = false` for production deployment** so the carousel stays hidden on lens open until programmatically triggered by a hand gesture or script!
+* **`entryDuration` / `entryStaggerTime`**: Controls pop-in scale duration and slot delay offset.
+* **`staggerDirection`**:
+  * `0`: **Left to Right** (Leftmost button pops first)
+  * `1`: **Right to Left** (Rightmost button pops first)
+  * `2`: **Center Outward** (Center button pops first, expanding outwards)
 
 ---
 
@@ -54,7 +175,7 @@ flowchart TD
 
 To help you build your own custom application controllers inspired by our sample scenes, here is an architectural breakdown of how both modes are utilized in code:
 
-### 1. Manual Mode Controller: [`ManualCarouselDemoController.ts`](file:///d:/Lens%20Studio/Project%20Files/Spectacles/Gesture%20Experimentation/Futuristic%20Interfaces/Futuristic%20UIs%20v1/Assets/Futuristic%20UI%20v1%20Assets/Carousels/Manual%20Carousel%20%5BLegacy%5D/ManualCarouselDemoController.ts)
+### 1. Manual Mode Controller: `ManualCarouselDemoController.ts`
 
 In Manual Mode, buttons exist as real SceneObjects in the hierarchy. The `ManualCarouselDemoController` orchestrates selection feedback, central HUD display updates, and smooth alpha transitions:
 
@@ -90,7 +211,7 @@ export class CustomManualHUD extends BaseScriptComponent {
 
 ---
 
-### 2. Virtualized Mode Populator: [`RuntimeCarouselExamplePopulator.ts`](file:///d:/Lens%20Studio/Project%20Files/Spectacles/Gesture%20Experimentation/Futuristic%20Interfaces/Futuristic%20UIs%20v1/Assets/Futuristic%20UI%20v1%20Assets/Carousels/Runtime%20Virtualized%20Carousel%20%5BLegacy%5D/RuntimeCarouselExamplePopulator.ts)
+### 2. Virtualized Mode Populator: `RuntimeCarouselExamplePopulator.ts`
 
 In Virtualized Mode, only a small pool of visual buttons (e.g. 8 slots) is instantiated. The `RuntimeCarouselExamplePopulator` feeds an arbitrary list of data items into the carousel at runtime:
 
@@ -134,7 +255,7 @@ export class CustomAppLauncherPopulator extends BaseScriptComponent {
 
 ---
 
-## 🎛️ Exact Inspector Configuration Recipes
+## 🎛️ Exact Production Inspector Presets
 
 ### 1. Manual Carousel Production Preset (Reference Scene: `Manual Carousel Set Size`)
 
@@ -232,6 +353,89 @@ Stagger Animations:
   Entry Duration: 0.50
   Entry Stagger Time: 0.05
   Stagger Direction: "Left to Right"
+```
+
+---
+
+## 💻 Complete Public TypeScript API Reference
+
+Access `UnifiedPolygonalCarousel` in script:
+```typescript
+const carousel = sceneObject.getComponent("Component.ScriptComponent") as UnifiedPolygonalCarousel;
+```
+
+### 1. Data Injection (`setItems`)
+
+```typescript
+export type CarouselItemData = {
+    title: string;                          // Primary text header displayed on child Text
+    subtitle?: string;                      // Optional subtitle string
+    texture?: Texture;                      // Main background texture assigned to child Image
+    icon?: Texture;                         // Optional icon texture assigned to child Image
+    onTap?: (isSelected?: boolean) => void; // Callback triggered when item is tapped/toggled
+};
+
+// Inject dynamic items array (Virtualized Mode)
+carousel.setItems(items);
+```
+
+---
+
+### 2. Selection & Event Listening
+
+```typescript
+// Register selection listener (works for both Manual and Virtualized modes)
+carousel.onItemSelected = (index: number, buttonObjOrItem?: any) => {
+    if (index === -1) {
+        // Deselected ("None Selected")
+    } else {
+        // Selected index
+    }
+};
+
+// Programmatically select button at index 2
+carousel.selectCard(2);
+
+// Programmatically deselect all buttons
+carousel.selectCard(-1);
+```
+
+---
+
+### 3. Entry & Exit Animations
+
+```typescript
+// Trigger pop-in stagger animation (e.g. when fist gesture is detected)
+carousel.playEntryAnimation();
+
+// Trigger pop-out exit animation (e.g. when menu is closed)
+carousel.playExitAnimation();
+```
+
+---
+
+### 4. External Gesture Scroller API (`SwordSwipeScroller.ts`)
+
+```typescript
+// Scroll by delta angle (continuous rotation)
+carousel.externalScrollBy(deltaAngle);
+
+// Multi-step physics sequence
+carousel.externalDragStart();
+carousel.externalDragUpdate(dragAmount);
+carousel.externalDragEnd(releaseVelocity);
+```
+
+---
+
+### 5. Dynamic Slot Resizing & Rebuild
+
+```typescript
+// Dynamically adjust visible slot count
+carousel.setSlotCount(7);
+
+// Force hierarchy cleanup and layout recalculation
+carousel.rebuild();
 ```
 
 ---
