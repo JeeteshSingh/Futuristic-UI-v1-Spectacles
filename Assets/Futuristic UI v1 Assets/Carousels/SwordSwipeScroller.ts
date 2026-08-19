@@ -14,34 +14,71 @@
 import { HandInputData } from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/HandInputData"
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
 
+/**
+ * SwordSwipeScroller Component
+ * 
+ * Tracks the index and middle fingertips (Sword gesture) to fluidly scroll carousels.
+ * Multipurpose controller supporting:
+ * - Circular / Arc Angular scrolling (XY, XZ, YZ planes)
+ * - Linear Horizontal scrolling (X-Axis)
+ * - Linear Vertical scrolling (Y-Axis)
+ * - Linear Depth scrolling (Z-Axis)
+ */
 @component
 export class SwordSwipeScroller extends BaseScriptComponent {
+    @ui.label('<span style="color: #60A5FA; font-weight: bold; font-size: 14px;">Sword Swipe Scroller</span><br/><span style="color: #94A3B8; font-size: 11px;">Track index & middle fingertips to scroll circular or straight linear carousels.</span>')
+    @ui.separator
+
+    @ui.label('<span style="color: #F59E0B; font-weight: bold;">Target Carousel</span>')
     @input
-    @hint("Drag the UnifiedPolygonalCarousel, VirtualizedPolygonalCarousel, or ManualPolygonalCarousel script component here")
+    @hint("Drag your UnifiedPolygonalCarousel, VirtualizedPolygonalCarousel, or ManualPolygonalCarousel script component here")
     carousel: ScriptComponent;
+
+    @ui.separator
+    @ui.label('<span style="color: #10B981; font-weight: bold;">Tracking & Motion Mode</span>')
 
     @input("string", "right")
     @widget(new ComboBoxWidget([
-        new ComboBoxItem("Right", "right"),
-        new ComboBoxItem("Left", "left")
+        new ComboBoxItem("Right Hand", "right"),
+        new ComboBoxItem("Left Hand", "left")
     ]))
     handType: string = "right";
 
-    @input("float", "15.0")
-    @hint("How close (in cm) the hand must be to the carousel radius to engage")
-    engageMargin: number = 15.0;
+    @input("string", "circular")
+    @widget(new ComboBoxWidget([
+        new ComboBoxItem("Circular / Arc (Angular)", "circular"),
+        new ComboBoxItem("Linear Horizontal (X-Axis)", "linearX"),
+        new ComboBoxItem("Linear Vertical (Y-Axis)", "linearY"),
+        new ComboBoxItem("Linear Depth (Z-Axis)", "linearZ")
+    ]))
+    @hint("Select Circular for round/arc carousels or Linear X/Y/Z for straight linear carousels")
+    scrollMode: string = "circular";
 
-    @input("float", "10.0")
-    @hint("Maximum depth (in cm) from the carousel plane before it considers finger 'lifted off'")
-    depthMargin: number = 10.0;
+    @ui.separator
+    @ui.label('<span style="color: #EC4899; font-weight: bold;">Sensitivity & Limits</span>')
 
     @input("float", "1.0")
-    @hint("Multiplier for scroll speed")
+    @hint("Multiplier for circular/angular scroll speed")
     angularSensitivity: number = 1.0;
+
+    @input("float", "0.1")
+    @hint("Multiplier for linear scroll speed (slots per cm of sword tip movement)")
+    linearSensitivity: number = 0.1;
 
     @input("boolean", "false")
     @hint("Invert the scrolling direction")
     invertScroll: boolean = false;
+
+    @input("float", "15.0")
+    @hint("How close (in cm) the hand must be to the carousel radius or axis to engage")
+    engageMargin: number = 15.0;
+
+    @input("float", "10.0")
+    @hint("Maximum depth (in cm) from the carousel plane before considering sword 'lifted off'")
+    depthMargin: number = 10.0;
+
+    @ui.separator
+    @ui.label('<span style="color: #38BDF8; font-weight: bold;">Diagnostics</span>')
 
     @input
     @allowUndefined
@@ -53,6 +90,7 @@ export class SwordSwipeScroller extends BaseScriptComponent {
     
     private isSwiping: boolean = false;
     private lastAngle: number = 0;
+    private lastLocalPos: vec3 = vec3.zero();
     
     // Hysteresis parameters
     private swipeHoldTimer: number = 0;
@@ -70,44 +108,62 @@ export class SwordSwipeScroller extends BaseScriptComponent {
             return;
         }
 
-        const trackPoint = this.trackedHand.indexKnuckle?.position;
-        if (!trackPoint) {
-            this.setDebug("No Knuckle");
+        const indexTip = this.trackedHand.indexTip?.position;
+        const middleTip = this.trackedHand.middleTip?.position;
+        if (!indexTip || !middleTip) {
+            this.setDebug("No Fingertips");
             this.cancelSwipe();
             return;
         }
 
+        // Track the midpoint between index and middle fingertips (Sword Tip)
+        const trackPoint = indexTip.add(middleTip).uniformScale(0.5);
+
         const isSword = this.checkSwordFingers(this.trackedHand);
 
-        // Proximity check
+        // Proximity check in carousel local space
         const carouselRoot = (this.carousel as any).carouselRoot || this.carousel.getSceneObject();
         const radius = (this.carousel as any).radius || 30.0;
         const layoutAxis = (this.carousel as any).layoutAxis || "XY";
         
-        // Convert world point to Carousel's local space for precise cylindrical math
         const localPos = carouselRoot.getTransform().getInvertedWorldTransform().multiplyPoint(trackPoint);
         
         let radialDist = 0;
         let depthDist = 0;
+        let isNearEdge = true;
+        let isNotLifted = true;
 
-        if (layoutAxis === "XZ") {
-            radialDist = Math.sqrt(localPos.x * localPos.x + localPos.z * localPos.z);
-            depthDist = Math.abs(localPos.y);
-        } else if (layoutAxis === "YZ") {
-            radialDist = Math.sqrt(localPos.y * localPos.y + localPos.z * localPos.z);
-            depthDist = Math.abs(localPos.x);
-        } else {
-            // Default XY
-            radialDist = Math.sqrt(localPos.x * localPos.x + localPos.y * localPos.y);
-            depthDist = Math.abs(localPos.z);
-        }
-
-        // Hysteresis for distance limits
         const rMargin = this.isSwiping ? this.engageMargin * 1.5 : this.engageMargin;
         const dMargin = this.isSwiping ? this.depthMargin * 1.5 : this.depthMargin;
-        
-        const isNearEdge = Math.abs(radialDist - radius) < rMargin;
-        const isNotLifted = depthDist < dMargin;
+
+        if (this.scrollMode === "circular") {
+            if (layoutAxis === "XZ") {
+                radialDist = Math.sqrt(localPos.x * localPos.x + localPos.z * localPos.z);
+                depthDist = Math.abs(localPos.y);
+            } else if (layoutAxis === "YZ") {
+                radialDist = Math.sqrt(localPos.y * localPos.y + localPos.z * localPos.z);
+                depthDist = Math.abs(localPos.x);
+            } else {
+                // Default XY
+                radialDist = Math.sqrt(localPos.x * localPos.x + localPos.y * localPos.y);
+                depthDist = Math.abs(localPos.z);
+            }
+            isNearEdge = Math.abs(radialDist - radius) < rMargin;
+            isNotLifted = depthDist < dMargin;
+        } else if (this.scrollMode === "linearX") {
+            depthDist = Math.abs(localPos.z);
+            isNearEdge = Math.abs(localPos.y) < rMargin;
+            isNotLifted = depthDist < dMargin;
+        } else if (this.scrollMode === "linearY") {
+            depthDist = Math.abs(localPos.z);
+            isNearEdge = Math.abs(localPos.x) < rMargin;
+            isNotLifted = depthDist < dMargin;
+        } else {
+            // Linear Z
+            depthDist = Math.abs(localPos.x);
+            isNearEdge = Math.abs(localPos.y) < rMargin;
+            isNotLifted = depthDist < dMargin;
+        }
 
         if (isSword && isNearEdge && isNotLifted) {
             this.swipeHoldTimer += getDeltaTime();
@@ -120,8 +176,8 @@ export class SwordSwipeScroller extends BaseScriptComponent {
         } else {
             this.swipeHoldTimer = 0;
             if (!isSword) this.setDebug("No Sword Gesture");
-            else if (!isNearEdge) this.setDebug("Too Far from Radius");
-            else if (!isNotLifted) this.setDebug("Lifted Off (Z Axis)");
+            else if (!isNearEdge) this.setDebug("Too Far from Track");
+            else if (!isNotLifted) this.setDebug("Lifted Off");
             
             this.cancelSwipe();
         }
@@ -142,9 +198,7 @@ export class SwordSwipeScroller extends BaseScriptComponent {
         
         if (!wrist || !indexTip || !middleTip || !ringTip || !pinkyTip) return false;
 
-        // We don't care much about curling, so thresholds are huge
-        // When palm faces you, camera can't see the curled fingers well, so it guesses they are further out.
-        // We've tightened this from 22.0 so that fully extending the fingers *will* break the gesture.
+        // Tightened curl threshold so extended pinky/ring breaks sword gesture
         const curlThreshold = this.isSwiping ? 14.0 : 12.0; 
         
         const ringDist = ringTip.distance(wrist);
@@ -155,7 +209,6 @@ export class SwordSwipeScroller extends BaseScriptComponent {
         }
 
         // Extended fingers should be far from wrist (straight)
-        // Lowered threshold because perspective foreshortening can make fingers seem shorter
         const extendThreshold = this.isSwiping ? 7.0 : 9.0;
         const indexDist = indexTip.distance(wrist);
         const middleDist = middleTip.distance(wrist);
@@ -174,14 +227,9 @@ export class SwordSwipeScroller extends BaseScriptComponent {
     }
 
     private updateSwipe(localPos: vec3, layoutAxis: string) {
-        // 1. Convert world point to Carousel's local space to account for any parent rotations!
-        // (Already done in Update, passed down)
-        
-        // 2. Read inversions
         const invertDrag = (this.carousel as any).invertDrag ? -1 : 1;
-        const faceInward = (this.carousel as any).faceInward ? -1 : 1;
 
-        // 3. Calculate Angle
+        // 1. Calculate Angle (for circular mode)
         let currentAngle = 0;
         if (layoutAxis === "XZ") {
             currentAngle = Math.atan2(localPos.z, localPos.x);
@@ -195,6 +243,7 @@ export class SwordSwipeScroller extends BaseScriptComponent {
         if (!this.isSwiping) {
             this.isSwiping = true;
             this.lastAngle = currentAngle;
+            this.lastLocalPos = localPos;
             
             if ((this.carousel as any).externalDragStart) {
                 (this.carousel as any).externalDragStart();
@@ -202,28 +251,35 @@ export class SwordSwipeScroller extends BaseScriptComponent {
             return;
         }
 
-        // 4. Calculate Delta Angle (shortest path)
-        let deltaAngle = currentAngle - this.lastAngle;
-        
-        // Wrap around logic (-PI to PI)
-        if (deltaAngle > Math.PI) {
-            deltaAngle -= Math.PI * 2;
-        } else if (deltaAngle < -Math.PI) {
-            deltaAngle += Math.PI * 2;
+        let scrollDelta = 0;
+
+        if (this.scrollMode === "circular") {
+            // Calculate Delta Angle (shortest path)
+            let deltaAngle = currentAngle - this.lastAngle;
+            
+            if (deltaAngle > Math.PI) {
+                deltaAngle -= Math.PI * 2;
+            } else if (deltaAngle < -Math.PI) {
+                deltaAngle += Math.PI * 2;
+            }
+
+            this.lastAngle = currentAngle;
+
+            const slotCount = Math.max(1, (this.carousel as any).slotCount || 5);
+            scrollDelta = (deltaAngle / (Math.PI * 2)) * slotCount * this.angularSensitivity * invertDrag;
+        } else if (this.scrollMode === "linearX") {
+            const dx = localPos.x - this.lastLocalPos.x;
+            scrollDelta = dx * this.linearSensitivity * invertDrag;
+        } else if (this.scrollMode === "linearY") {
+            const dy = localPos.y - this.lastLocalPos.y;
+            scrollDelta = dy * this.linearSensitivity * invertDrag;
+        } else if (this.scrollMode === "linearZ") {
+            const dz = localPos.z - this.lastLocalPos.z;
+            scrollDelta = dz * this.linearSensitivity * invertDrag;
         }
 
-        this.lastAngle = currentAngle;
+        this.lastLocalPos = localPos;
 
-        // 5. Convert angular delta to scroll slots
-        // Total slots around the 360 circle
-        const slotCount = Math.max(1, (this.carousel as any).slotCount || 5);
-        
-        // A full circle (2PI) is exactly slotCount slots.
-        // deltaAngle is in radians.
-        let scrollDelta = (deltaAngle / (Math.PI * 2)) * slotCount;
-
-        // Apply sensitivities and inversions
-        scrollDelta *= this.angularSensitivity * invertDrag;
         if (this.invertScroll) {
             scrollDelta *= -1;
         }
