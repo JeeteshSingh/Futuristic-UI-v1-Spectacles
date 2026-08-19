@@ -256,6 +256,8 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
   private selectedDataIndex: number = -1
   private isDragging: boolean = false
+  private isScrollInProgress: boolean = false
+  private gestureStartScroll: number = 0
 
   private animationStartTime: number = -1
   private animationExitTime: number = -1
@@ -412,7 +414,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       if (this.enableDirectDrag) {
         interactable.onDragStart.add(() => {
           this.isDragging = true
+          this.isScrollInProgress = false
           this.dragStartScroll = this.targetScroll
+          this.gestureStartScroll = this.targetScroll
           this.dragLastTarget = this.targetScroll
           this.velocity = 0
           accumulatedDragDist = 0
@@ -434,8 +438,6 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
             dragVector.y * dragVector.y +
             dragVector.z * dragVector.z
           )
-          if (accumulatedDragDist < this.tapDragThreshold) return
-          didScroll = true
 
           let dragDelta = 0
           if (this.layoutAxis === "XZ") {
@@ -448,6 +450,12 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
           if (this.invertDrag) dragDelta *= -1
           const nextTarget = this.dragStartScroll - dragDelta
+
+          if (accumulatedDragDist >= this.tapDragThreshold || Math.abs(nextTarget - this.dragStartScroll) >= 0.05) {
+            didScroll = true
+            this.isScrollInProgress = true
+          }
+
           this.velocity = nextTarget - this.dragLastTarget
           this.dragLastTarget = nextTarget
           this.targetScroll = nextTarget
@@ -456,7 +464,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         interactable.onDragEnd.add(() => {
           this.isDragging = false
           accumulatedDragDist = 0
-          if (didScroll) {
+          if (didScroll || this.isScrollInProgress) {
             if (this.mode === "Virtualized") {
               this.syncAllCardToggleStates()
             } else if (this.enableToggleGroupBehavior) {
@@ -496,6 +504,18 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         if (baseButton.onFinished && baseButton.onFinished.add) {
           baseButton.onFinished.add((explicit: boolean) => {
             if (explicit) {
+              const wasScroll = didScroll ||
+                this.isScrollInProgress ||
+                this.isDragging ||
+                Math.abs(this.velocity) > 0.005 ||
+                Math.abs(this.targetScroll - this.dragStartScroll) > 0.05 ||
+                Math.abs(this.targetScroll - this.gestureStartScroll) > 0.05
+
+              if (wasScroll) {
+                this.selectCard(this.selectedDataIndex)
+                return
+              }
+
               if (baseButton.isOn) {
                 this.selectCard(slotIndex)
               } else if (!this.allowAllTogglesOff) {
@@ -511,6 +531,8 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       if (interactable.onTriggerStart) {
         interactable.onTriggerStart.add(() => {
           didScroll = false
+          this.isScrollInProgress = false
+          this.gestureStartScroll = this.targetScroll
         })
       }
 
@@ -518,9 +540,22 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         interactable.onTriggerEnd.add(() => {
           if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
 
-          // If the interaction traveled beyond the tap threshold, it was a drag/scroll — not an intentional tap.
-          if (didScroll) {
+          // Safeguards against accidental poke-scroll selections:
+          // 1. Local accumulated drag distance >= threshold
+          // 2. Global carousel displacement >= 0.05 slots
+          // 3. Residual kinetic scroll velocity >= 0.005
+          // 4. Active dragging state
+          const wasScroll = didScroll ||
+            this.isScrollInProgress ||
+            this.isDragging ||
+            Math.abs(this.velocity) > 0.005 ||
+            Math.abs(this.targetScroll - this.dragStartScroll) > 0.05 ||
+            Math.abs(this.targetScroll - this.gestureStartScroll) > 0.05
+
+          if (wasScroll) {
             didScroll = false
+            this.isScrollInProgress = false
+            this.isDragging = false
             // Restore visual states so the dragged button returns to default and the real toggle stays active
             if (this.mode === "Virtualized") {
               this.syncAllCardToggleStates()
