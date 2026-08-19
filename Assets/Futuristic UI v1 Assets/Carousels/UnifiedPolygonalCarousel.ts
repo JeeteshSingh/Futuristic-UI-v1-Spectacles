@@ -459,13 +459,15 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         })
       }
 
-      const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
+      // Only independent multi-toggle mode needs BaseButton to toggle itself autonomously.
+      // In Toggle Group mode, the carousel script is the single authority over selection on intentional tap.
+      const isAutonomousToggle = this.makeButtonsToggleable
       if (baseButton.setIsToggleable) {
-        baseButton.setIsToggleable(shouldBeToggleable)
+        baseButton.setIsToggleable(isAutonomousToggle)
       } else {
-        baseButton._toggleable = shouldBeToggleable
+        baseButton._toggleable = isAutonomousToggle
       }
-      if (!shouldBeToggleable) {
+      if (!isAutonomousToggle) {
         if (typeof baseButton.setOn === 'function') {
           baseButton.setOn(false)
         } else if (typeof baseButton.isOn !== 'undefined') {
@@ -476,62 +478,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         }
       }
 
-      // Manual Mode Toggle Group lifecycle (matches UIKit BaseToggleGroup)
-      if (this.mode === "Manual" && this.enableToggleGroupBehavior) {
-        if (baseButton.onFinished && baseButton.onFinished.add) {
-          baseButton.onFinished.add((explicit: boolean) => {
-            if (explicit) {
-              if (baseButton.isOn) {
-                this.selectCard(slotIndex)
-              } else if (!this.allowAllTogglesOff) {
-                // If allowAllTogglesOff is disabled, prevent turning off active button
-                if (typeof baseButton.setOn === 'function') {
-                  baseButton.setOn(true)
-                } else {
-                  baseButton.isOn = true
-                }
-              } else {
-                this.selectCard(-1)
-              }
-            }
-          })
-        }
-      }
-
       if (interactable.onTriggerStart) {
         interactable.onTriggerStart.add(() => {
-          if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
-
-          if (this.enableToggleGroupBehavior) {
-            if (this.mode === "Virtualized") {
-              const totalSlots = this.cards.length
-              const p_i = (slotIndex + this.slotOffset) - this.displayedScroll
-              const shift = totalSlots / 2.0
-              const p_i_shifted = p_i + shift
-
-              const cycle = Math.floor(p_i_shifted / totalSlots)
-              const centerOffset = Math.floor((Math.max(1, this.slotCount) - 1) / 2.0)
-              const itemIndex = (slotIndex - cycle * totalSlots) + centerOffset
-
-              if (this.items.length > 0) {
-                const dataIndex = (itemIndex % this.items.length + this.items.length) % this.items.length
-                ;(card as any).__wasAlreadySelected = (this.selectedDataIndex === dataIndex)
-                // Immediately deselect previously active button so only the pressed button is lit during long-press
-                if (this.selectedDataIndex !== dataIndex) {
-                  this.selectedDataIndex = dataIndex
-                  this.toggledDataIndices.clear()
-                  this.toggledDataIndices.add(dataIndex)
-                  this.syncAllCardToggleStates()
-                }
-              }
-            } else {
-              // Manual Mode
-              ;(card as any).__wasAlreadySelected = (this.selectedDataIndex === slotIndex)
-              if (this.selectedDataIndex !== slotIndex) {
-                this.selectCard(slotIndex)
-              }
-            }
-          }
+          didScroll = false
         })
       }
 
@@ -539,9 +488,15 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         interactable.onTriggerEnd.add(() => {
           if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
 
-          // If the interaction traveled beyond the tap threshold, it was a scroll — not a click.
+          // If the interaction traveled beyond the tap threshold, it was a drag/scroll — not an intentional tap.
           if (didScroll) {
             didScroll = false
+            // Restore visual states so the dragged button returns to default and the real toggle stays active
+            if (this.mode === "Virtualized") {
+              this.syncAllCardToggleStates()
+            } else if (this.enableToggleGroupBehavior) {
+              this.selectCard(this.selectedDataIndex)
+            }
             return
           }
 
@@ -561,10 +516,14 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
               let isSelected = false
               if (this.enableToggleGroupBehavior) {
-                if (this.allowAllTogglesOff && (card as any).__wasAlreadySelected) {
-                  this.selectedDataIndex = -1
-                  this.toggledDataIndices.clear()
-                  isSelected = false
+                if (this.selectedDataIndex === dataIndex) {
+                  if (this.allowAllTogglesOff) {
+                    this.selectedDataIndex = -1
+                    this.toggledDataIndices.clear()
+                    isSelected = false
+                  } else {
+                    isSelected = true
+                  }
                 } else {
                   this.selectedDataIndex = dataIndex
                   this.toggledDataIndices.clear()
@@ -599,8 +558,18 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
               }
             }
           } else {
-            // Manual Mode Non-Toggle-Group interaction event
-            if (!this.enableToggleGroupBehavior) {
+            // Manual Mode
+            if (this.enableToggleGroupBehavior) {
+              if (this.selectedDataIndex === slotIndex) {
+                if (this.allowAllTogglesOff) {
+                  this.selectCard(-1)
+                } else {
+                  this.selectCard(slotIndex)
+                }
+              } else {
+                this.selectCard(slotIndex)
+              }
+            } else {
               if (this.onItemSelected) {
                 this.onItemSelected(slotIndex)
               }
@@ -889,11 +858,11 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       }
 
       if (baseButton && (typeof baseButton.isOn !== 'undefined' || typeof baseButton.setOn === 'function')) {
-        const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
+        const isAutonomousToggle = this.makeButtonsToggleable
         if (baseButton.setIsToggleable) {
-          baseButton.setIsToggleable(shouldBeToggleable)
+          baseButton.setIsToggleable(isAutonomousToggle)
         } else {
-          baseButton._toggleable = shouldBeToggleable
+          baseButton._toggleable = isAutonomousToggle
         }
 
         let shouldBeOn = false
@@ -1008,7 +977,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   }
 
   public syncAllCardToggleStates(): void {
-    const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
+    const isAutonomousToggle = this.makeButtonsToggleable
     for (let i = 0; i < this.cards.length; i++) {
       const card = this.cards[i]
       if (!card) continue
@@ -1016,9 +985,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       const dataIdx = (card as any)._lastDataIndex
       if (btn && dataIdx !== undefined) {
         if (btn.setIsToggleable) {
-          btn.setIsToggleable(shouldBeToggleable)
+          btn.setIsToggleable(isAutonomousToggle)
         } else {
-          btn._toggleable = shouldBeToggleable
+          btn._toggleable = isAutonomousToggle
         }
 
         let shouldBeOn = false
