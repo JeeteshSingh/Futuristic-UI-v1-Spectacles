@@ -11,24 +11,24 @@
  * without restriction, including commercial use, modification, and distribution.
  * ============================================================================
  */
-import { VirtualizedPolygonalCarousel, CarouselItemData } from "./VirtualizedPolygonalCarousel";
+import { CarouselItemData } from "./VirtualizedPolygonalCarousel";
 
 /**
  * CarouselExamplePopulator Component
  * 
- * Dynamically populates a VirtualizedPolygonalCarousel with 39 items,
+ * Dynamically populates a UnifiedPolygonalCarousel or VirtualizedPolygonalCarousel with items,
  * assigns unique titles and textures to each button, and updates target Image & Text objects on selection.
- * Fully supports toggle behavior (restoring default texture & text when all toggles are turned OFF).
+ * Fully supports toggle group behavior (restoring default texture & text when all toggles are turned OFF).
  */
 @component
 export class CarouselExamplePopulator extends BaseScriptComponent {
-    @ui.label('<span style="color: #60A5FA; font-weight: bold; font-size: 14px;">Carousel Demo Populator</span><br/><span style="color: #94A3B8; font-size: 11px;">Populates 39 carousel buttons with custom textures and titles, updating an external Image & Text display on selection.</span>')
+    @ui.label('<span style="color: #60A5FA; font-weight: bold; font-size: 14px;">Carousel Demo Populator</span><br/><span style="color: #94A3B8; font-size: 11px;">Populates carousel buttons with custom textures and titles, updating an external Image & Text display on selection.</span>')
     @ui.separator
 
     @ui.label('<span style="color: #F59E0B; font-weight: bold;">Carousel Reference</span>')
-    @input
-    @hint("Drag your VirtualizedPolygonalCarousel object here")
-    carousel!: VirtualizedPolygonalCarousel;
+    @input("Component.ScriptComponent")
+    @hint("Drag your UnifiedPolygonalCarousel or VirtualizedPolygonalCarousel here")
+    carousel!: ScriptComponent;
 
     @ui.separator
     @ui.label('<span style="color: #38BDF8; font-weight: bold;">Display Target Objects</span>')
@@ -80,8 +80,9 @@ export class CarouselExamplePopulator extends BaseScriptComponent {
     }
 
     public populateCarousel() {
-        if (!this.carousel) {
-            print("[CarouselPopulator] Error: Please assign the carousel component in the Inspector.");
+        const carouselAPI = this.carousel as any;
+        if (!carouselAPI || typeof carouselAPI.setItems !== "function") {
+            print("[CarouselPopulator] Error: Please assign a valid carousel component (UnifiedPolygonalCarousel or VirtualizedPolygonalCarousel) in the Inspector.");
             return;
         }
 
@@ -123,14 +124,17 @@ export class CarouselExamplePopulator extends BaseScriptComponent {
         }
 
         // Pass the items to the carousel to render them!
-        this.carousel.setItems(customItems);
+        carouselAPI.setItems(customItems);
+
+        const isToggleGroup = carouselAPI.enableToggleGroupBehavior ?? carouselAPI.enableToggleBehavior ?? false;
+        const allowAllOff = carouselAPI.allowAllTogglesOff ?? false;
 
         // Auto-select initial item if toggles off isn't the starting state
-        if (!this.carousel.enableToggleBehavior || !this.carousel.allowAllTogglesOff) {
+        if (!isToggleGroup || !allowAllOff) {
             if (customItems.length > 0 && customItems[0].onTap) {
                 customItems[0].onTap(true);
             }
-        } else if (this.carousel.allowAllTogglesOff) {
+        } else if (allowAllOff) {
             // Reset to default initially if starting with all toggles off
             if (this.displayText) this.displayText.text = this.defaultText;
             if (this.displayImage) this.displayImage.mainPass.baseTex = this.defaultTexture;
