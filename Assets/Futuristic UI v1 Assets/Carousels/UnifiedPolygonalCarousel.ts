@@ -458,6 +458,11 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
           if (accumulatedDragDist >= this.tapDragThreshold || Math.abs(nextTarget - this.dragStartScroll) >= 0.04) {
             didScroll = true
+            if (typeof (interactable as any).triggerCanceled === 'function') {
+              try {
+                (interactable as any).triggerCanceled(args)
+              } catch (e) {}
+            }
           }
 
           this.velocity = nextTarget - this.dragLastTarget
@@ -558,8 +563,8 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           const wasScroll = didScroll ||
             (accumulatedDragDist >= this.tapDragThreshold) ||
             (contactMoved >= this.tapDragThreshold) ||
-            (scrollDiff >= 0.08) ||
-            (displayedDiff >= 0.08)
+            (scrollDiff >= 0.04) ||
+            (displayedDiff >= 0.04)
 
           if (wasScroll) {
             didScroll = false
@@ -1008,9 +1013,6 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         const btn = this.buttonAPIs[i]
         if (btn) {
           const shouldBeOn = (i === slotIndex)
-          if (typeof btn.setState === 'function') {
-            btn.setState(shouldBeOn ? "toggledDefault" : "default")
-          }
           if (typeof btn.setOn === 'function') {
             try {
               (btn as any).setOn(shouldBeOn, false)
@@ -1018,6 +1020,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           }
           btn.isOn = shouldBeOn
           ;(btn as any)._isOn = shouldBeOn
+          if (typeof btn.setState === 'function') {
+            btn.setState(shouldBeOn ? "toggledDefault" : "default")
+          }
         }
       }
       if (this.onItemSelected) {
@@ -1098,9 +1103,6 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
             shouldBeOn = false
           }
 
-          if (typeof btn.setState === 'function') {
-            btn.setState(shouldBeOn ? "toggledDefault" : "default")
-          }
           if (typeof btn.setOn === 'function') {
             try {
               (btn as any).setOn(shouldBeOn, false)
@@ -1108,6 +1110,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
           }
           btn.isOn = shouldBeOn
           ;(btn as any)._isOn = shouldBeOn
+          if (typeof btn.setState === 'function') {
+            btn.setState(shouldBeOn ? "toggledDefault" : "default")
+          }
         }
       }
     } finally {
