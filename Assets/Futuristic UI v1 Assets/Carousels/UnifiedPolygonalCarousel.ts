@@ -485,6 +485,29 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         }
       }
 
+      // Manual Mode Toggle Group lifecycle (matches UIKit BaseToggleGroup)
+      if (this.mode === "Manual" && this.enableToggleGroupBehavior) {
+        if (baseButton.setIsToggleable) {
+          baseButton.setIsToggleable(true)
+        } else {
+          baseButton._toggleable = true
+        }
+
+        if (baseButton.onFinished && baseButton.onFinished.add) {
+          baseButton.onFinished.add((explicit: boolean) => {
+            if (explicit) {
+              if (baseButton.isOn) {
+                this.selectCard(slotIndex)
+              } else if (!this.allowAllTogglesOff) {
+                this.selectCard(slotIndex)
+              } else {
+                this.selectCard(-1)
+              }
+            }
+          })
+        }
+      }
+
       if (interactable.onTriggerStart) {
         interactable.onTriggerStart.add(() => {
           didScroll = false
@@ -566,19 +589,27 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
             }
           } else {
             // Manual Mode
-            if (this.enableToggleGroupBehavior) {
-              if (this.selectedDataIndex === slotIndex) {
-                if (this.allowAllTogglesOff) {
-                  this.selectCard(-1)
-                } else {
-                  this.selectCard(slotIndex)
+            if (!this.enableToggleGroupBehavior) {
+              if (this.makeButtonsToggleable) {
+                const isCurrentlyOn = Boolean(baseButton.isOn)
+                const nextOn = !isCurrentlyOn
+                baseButton.isOn = nextOn
+                ;(baseButton as any)._isOn = nextOn
+                if (typeof baseButton.setState === 'function') {
+                  baseButton.setState(nextOn ? "toggledDefault" : "default")
+                }
+                if (typeof baseButton.setOn === 'function') {
+                  try {
+                    (baseButton as any).setOn(nextOn, true)
+                  } catch (e) {}
+                }
+                if (this.onItemSelected) {
+                  this.onItemSelected(slotIndex, this.cards[slotIndex])
                 }
               } else {
-                this.selectCard(slotIndex)
-              }
-            } else {
-              if (this.onItemSelected) {
-                this.onItemSelected(slotIndex)
+                if (this.onItemSelected) {
+                  this.onItemSelected(slotIndex, this.cards[slotIndex])
+                }
               }
             }
           }
@@ -929,12 +960,13 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       const btn = this.buttonAPIs[i]
       if (btn) {
         const shouldBeOn = (i === slotIndex)
+        const stateChanged = (btn.isOn !== shouldBeOn)
         if (typeof btn.setState === 'function') {
           btn.setState(shouldBeOn ? "toggledDefault" : "default")
         }
         if (typeof btn.setOn === 'function') {
           try {
-            (btn as any).setOn(shouldBeOn, false)
+            (btn as any).setOn(shouldBeOn, stateChanged)
           } catch (e) {}
         }
         btn.isOn = shouldBeOn
@@ -942,7 +974,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       }
     }
     if (this.onItemSelected) {
-      this.onItemSelected(slotIndex)
+      this.onItemSelected(slotIndex, slotIndex >= 0 ? this.cards[slotIndex] : null)
     }
   }
 
