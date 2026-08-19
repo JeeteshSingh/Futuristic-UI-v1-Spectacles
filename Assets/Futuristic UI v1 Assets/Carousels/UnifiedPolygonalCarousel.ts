@@ -237,8 +237,8 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   // ==========================================================================
   // PUBLIC CALLBACKS & EVENT HOOKS
   // ==========================================================================
-  /** Optional callback fired when an item is selected */
-  public onItemSelected: ((index: number, item?: CarouselItemData) => void) | null = null
+  /** Optional callback fired when an item is selected (item is CarouselItemData in Virtualized mode, or SceneObject in Manual mode) */
+  public onItemSelected: ((index: number, item?: CarouselItemData | SceneObject | any) => void) | null = null
 
   // ==========================================================================
   // PRIVATE STATE
