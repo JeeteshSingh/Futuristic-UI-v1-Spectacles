@@ -102,21 +102,32 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
     }
 
     if (!this.carousel) {
-      // Auto-search parent or sibling for carousel component
-      const current = this.getSceneObject();
-      const parent = current.getParent();
-      const candidates = [current, parent, parent ? parent.getParent() : null];
-      for (const cand of candidates) {
-        if (!cand) continue;
-        for (let c = 0; c < cand.getComponents("Component.ScriptComponent").length; c++) {
-          const comp = cand.getComponents("Component.ScriptComponent")[c] as any;
-          if (comp && (typeof comp.selectCard === 'function' || typeof comp.setItems === 'function')) {
-            this.carousel = comp;
-            print(`[ManualCarouselDemo] Auto-attached carousel: ${cand.name}`);
-            break;
+      // Scene-wide search for any UnifiedPolygonalCarousel or ManualPolygonalCarousel
+      const rootCount = (global as any).scene && (global as any).scene.getRootObjectsCount ? (global as any).scene.getRootObjectsCount() : 0;
+      const findInObject = (obj: SceneObject): ScriptComponent | null => {
+        if (!obj) return null;
+        const comps = obj.getComponents("Component.ScriptComponent");
+        for (let i = 0; i < comps.length; i++) {
+          const c = comps[i] as any;
+          if (c && c !== this && (typeof c.selectCard === 'function' || typeof c.setItems === 'function')) {
+            return c as ScriptComponent;
           }
         }
-        if (this.carousel) break;
+        for (let i = 0; i < obj.getChildrenCount(); i++) {
+          const found = findInObject(obj.getChild(i));
+          if (found) return found;
+        }
+        return null;
+      };
+
+      for (let r = 0; r < rootCount; r++) {
+        const rootObj = (global as any).scene.getRootObject(r);
+        const found = findInObject(rootObj);
+        if (found) {
+          this.carousel = found;
+          print(`[ManualCarouselDemo] Scene search auto-attached carousel: ${(found.getSceneObject() as any).name}`);
+          break;
+        }
       }
     }
 
@@ -276,11 +287,17 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
     if (this.carousel) {
       const carouselAPI = this.carousel as any;
       if (typeof carouselAPI.selectCard === 'function') {
-        carouselAPI.selectCard(index);
+        const isCurrentlySelected = (carouselAPI.selectedDataIndex === index);
+        const allowOff = Boolean(carouselAPI.allowAllTogglesOff ?? this.allowAllTogglesOff);
+        if (isCurrentlySelected && allowOff) {
+          carouselAPI.selectCard(-1);
+        } else {
+          carouselAPI.selectCard(index);
+        }
         return;
       }
     }
-    const allowOff = this.carousel ? (this.carousel as any).allowAllTogglesOff ?? this.allowAllTogglesOff : this.allowAllTogglesOff;
+    const allowOff = Boolean(this.allowAllTogglesOff);
     if (this.selectedIndex === index) {
       if (allowOff) {
         this.selectedIndex = -1;
