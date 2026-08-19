@@ -498,6 +498,43 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         }
       }
 
+      if (interactable.onTriggerStart) {
+        interactable.onTriggerStart.add(() => {
+          if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
+
+          if (this.enableToggleGroupBehavior) {
+            if (this.mode === "Virtualized") {
+              const totalSlots = this.cards.length
+              const p_i = (slotIndex + this.slotOffset) - this.displayedScroll
+              const shift = totalSlots / 2.0
+              const p_i_shifted = p_i + shift
+
+              const cycle = Math.floor(p_i_shifted / totalSlots)
+              const centerOffset = Math.floor((Math.max(1, this.slotCount) - 1) / 2.0)
+              const itemIndex = (slotIndex - cycle * totalSlots) + centerOffset
+
+              if (this.items.length > 0) {
+                const dataIndex = (itemIndex % this.items.length + this.items.length) % this.items.length
+                ;(card as any).__wasAlreadySelected = (this.selectedDataIndex === dataIndex)
+                // Immediately deselect previously active button so only the pressed button is lit during long-press
+                if (this.selectedDataIndex !== dataIndex) {
+                  this.selectedDataIndex = dataIndex
+                  this.toggledDataIndices.clear()
+                  this.toggledDataIndices.add(dataIndex)
+                  this.syncAllCardToggleStates()
+                }
+              }
+            } else {
+              // Manual Mode
+              ;(card as any).__wasAlreadySelected = (this.selectedDataIndex === slotIndex)
+              if (this.selectedDataIndex !== slotIndex) {
+                this.selectCard(slotIndex)
+              }
+            }
+          }
+        })
+      }
+
       if (interactable.onTriggerEnd) {
         interactable.onTriggerEnd.add(() => {
           if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
@@ -524,17 +561,16 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
               let isSelected = false
               if (this.enableToggleGroupBehavior) {
-                if (this.selectedDataIndex === dataIndex) {
-                  if (this.allowAllTogglesOff) {
-                    this.selectedDataIndex = -1
-                    this.toggledDataIndices.clear()
-                  }
+                if (this.allowAllTogglesOff && (card as any).__wasAlreadySelected) {
+                  this.selectedDataIndex = -1
+                  this.toggledDataIndices.clear()
+                  isSelected = false
                 } else {
                   this.selectedDataIndex = dataIndex
                   this.toggledDataIndices.clear()
                   this.toggledDataIndices.add(dataIndex)
+                  isSelected = true
                 }
-                isSelected = (this.selectedDataIndex === dataIndex)
                 this.syncAllCardToggleStates()
               } else if (this.makeButtonsToggleable) {
                 // Independent Multi-Toggle Mode (ONLY when makeButtonsToggleable is enabled on carousel)
