@@ -459,11 +459,20 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         })
       }
 
-      if (this.enableToggleGroupBehavior || this.makeButtonsToggleable) {
-        if (baseButton.setIsToggleable) {
-          baseButton.setIsToggleable(true)
-        } else {
-          baseButton._toggleable = true
+      const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
+      if (baseButton.setIsToggleable) {
+        baseButton.setIsToggleable(shouldBeToggleable)
+      } else {
+        baseButton._toggleable = shouldBeToggleable
+      }
+      if (!shouldBeToggleable) {
+        if (typeof baseButton.setOn === 'function') {
+          baseButton.setOn(false)
+        } else if (typeof baseButton.isOn !== 'undefined') {
+          baseButton.isOn = false
+          if (typeof baseButton.setState === 'function') {
+            baseButton.setState("default")
+          }
         }
       }
 
@@ -513,7 +522,7 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
               const dataIndex = (itemIndex % this.items.length + this.items.length) % this.items.length
               const item = this.items[dataIndex]
 
-              let isSelected = true
+              let isSelected = false
               if (this.enableToggleGroupBehavior) {
                 if (this.selectedDataIndex === dataIndex) {
                   if (this.allowAllTogglesOff) {
@@ -526,8 +535,9 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
                   this.toggledDataIndices.add(dataIndex)
                 }
                 isSelected = (this.selectedDataIndex === dataIndex)
-              } else {
-                // Independent Multi-Toggle Mode
+                this.syncAllCardToggleStates()
+              } else if (this.makeButtonsToggleable) {
+                // Independent Multi-Toggle Mode (ONLY when makeButtonsToggleable is enabled on carousel)
                 const isCurrentlyToggled = this.toggledDataIndices.has(dataIndex) || (item && Boolean(item.isOn))
                 const willBeToggled = !isCurrentlyToggled
                 if (willBeToggled) {
@@ -539,9 +549,11 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
                   item.isOn = willBeToggled
                 }
                 isSelected = willBeToggled
+                this.syncAllCardToggleStates()
+              } else {
+                // Momentary button mode — not toggleable
+                isSelected = false
               }
-
-              this.syncAllCardToggleStates()
 
               if (item && item.onTap) {
                 (item.onTap as any)(isSelected)
@@ -841,11 +853,20 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
       }
 
       if (baseButton && (typeof baseButton.isOn !== 'undefined' || typeof baseButton.setOn === 'function')) {
+        const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
+        if (baseButton.setIsToggleable) {
+          baseButton.setIsToggleable(shouldBeToggleable)
+        } else {
+          baseButton._toggleable = shouldBeToggleable
+        }
+
         let shouldBeOn = false
         if (this.enableToggleGroupBehavior) {
           shouldBeOn = (this.selectedDataIndex !== -1 && dataIndex === this.selectedDataIndex)
-        } else {
+        } else if (this.makeButtonsToggleable) {
           shouldBeOn = this.toggledDataIndices.has(dataIndex) || Boolean(item.isOn)
+        } else {
+          shouldBeOn = false
         }
 
         if (typeof baseButton.setOn === 'function') {
@@ -951,17 +972,26 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
   }
 
   public syncAllCardToggleStates(): void {
+    const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
     for (let i = 0; i < this.cards.length; i++) {
       const card = this.cards[i]
       if (!card) continue
       const btn = this.buttonAPIs[i]
       const dataIdx = (card as any)._lastDataIndex
       if (btn && dataIdx !== undefined) {
+        if (btn.setIsToggleable) {
+          btn.setIsToggleable(shouldBeToggleable)
+        } else {
+          btn._toggleable = shouldBeToggleable
+        }
+
         let shouldBeOn = false
         if (this.enableToggleGroupBehavior) {
           shouldBeOn = (this.selectedDataIndex !== -1 && dataIdx === this.selectedDataIndex)
-        } else {
+        } else if (this.makeButtonsToggleable) {
           shouldBeOn = this.toggledDataIndices.has(dataIdx) || (this.items[dataIdx] && Boolean(this.items[dataIdx].isOn))
+        } else {
+          shouldBeOn = false
         }
 
         if (typeof btn.setOn === 'function') {
