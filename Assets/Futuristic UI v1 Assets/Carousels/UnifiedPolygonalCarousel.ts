@@ -529,15 +529,14 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
 
           const scrollDiff = Math.abs(this.targetScroll - triggerStartScroll)
           const timeSinceScroll = getTime() - this.lastScrollTime
-          const wasScroll = this.isDragging ||
-            this.isScrollInProgress ||
+          const wasScroll = this.isScrollInProgress ||
             didScroll ||
             (timeSinceScroll < 0.25) ||
             (accumulatedDragDist >= this.tapDragThreshold) ||
             (planarMoved >= this.tapDragThreshold) ||
             (scrollDiff >= 0.15)
 
-          print(`[Carousel] onTriggerEnd on slot ${slotIndex} (${card.name}) | wasScroll: ${wasScroll} [planarMoved: ${planarMoved.toFixed(3)}, scrollDiff: ${scrollDiff.toFixed(3)}, timeSinceScroll: ${timeSinceScroll.toFixed(3)}, isDragging: ${this.isDragging}, didScroll: ${didScroll}]`)
+          print(`[Carousel] onTriggerEnd on slot ${slotIndex} (${card.name}) | wasScroll: ${wasScroll} [planarMoved: ${planarMoved.toFixed(3)}, scrollDiff: ${scrollDiff.toFixed(3)}, timeSinceScroll: ${timeSinceScroll.toFixed(3)}, isScrollInProgress: ${this.isScrollInProgress}, didScroll: ${didScroll}]`)
 
           if (wasScroll) {
             didScroll = false
