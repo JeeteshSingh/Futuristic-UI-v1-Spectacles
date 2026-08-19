@@ -514,14 +514,16 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         interactable.onTriggerEnd.add((e: any) => {
           if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
 
-          let contactMoved = 0
+          let planarMoved = 0
           if (e && e.interactor && e.interactor.targetHitPosition && (triggerStartPos.x !== 0 || triggerStartPos.y !== 0 || triggerStartPos.z !== 0)) {
             const cur = e.interactor.targetHitPosition
-            contactMoved = Math.sqrt(
-              Math.pow(cur.x - triggerStartPos.x, 2) +
-              Math.pow(cur.y - triggerStartPos.y, 2) +
-              Math.pow(cur.z - triggerStartPos.z, 2)
-            )
+            if (this.layoutAxis === "XZ") {
+              planarMoved = Math.sqrt(Math.pow(cur.x - triggerStartPos.x, 2) + Math.pow(cur.z - triggerStartPos.z, 2))
+            } else if (this.layoutAxis === "YZ") {
+              planarMoved = Math.sqrt(Math.pow(cur.y - triggerStartPos.y, 2) + Math.pow(cur.z - triggerStartPos.z, 2))
+            } else {
+              planarMoved = Math.sqrt(Math.pow(cur.x - triggerStartPos.x, 2) + Math.pow(cur.y - triggerStartPos.y, 2))
+            }
           }
 
           const scrollDiff = Math.abs(this.targetScroll - triggerStartScroll)
@@ -531,8 +533,8 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
             didScroll ||
             (timeSinceScroll < 0.25) ||
             (accumulatedDragDist >= this.tapDragThreshold) ||
-            (contactMoved >= this.tapDragThreshold) ||
-            (scrollDiff >= 0.08)
+            (planarMoved >= this.tapDragThreshold) ||
+            (scrollDiff >= 0.15)
 
           if (wasScroll) {
             didScroll = false

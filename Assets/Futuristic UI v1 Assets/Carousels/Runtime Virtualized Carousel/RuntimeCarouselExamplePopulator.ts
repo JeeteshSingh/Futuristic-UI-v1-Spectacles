@@ -130,7 +130,10 @@ export class CarouselExamplePopulator extends BaseScriptComponent {
         const allowAllOff = carouselAPI.allowAllTogglesOff ?? false;
 
         // Auto-select initial item if toggles off isn't the starting state
-        if (!isToggleGroup || !allowAllOff) {
+        if (isToggleGroup && !allowAllOff) {
+            if (typeof carouselAPI.selectItem === "function") {
+                carouselAPI.selectItem(0);
+            }
             if (customItems.length > 0 && customItems[0].onTap) {
                 customItems[0].onTap(true);
             }
