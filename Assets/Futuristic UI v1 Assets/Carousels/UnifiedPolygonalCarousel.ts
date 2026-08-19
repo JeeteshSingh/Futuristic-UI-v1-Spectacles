@@ -483,13 +483,12 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
         })
       }
 
-      // Carousel takes 100% exclusive authority over toggle states.
-      // We explicitly disable individual button self-toggling so BaseButton never flips state on touch/drag.
+      const shouldBeToggleable = this.enableToggleGroupBehavior || this.makeButtonsToggleable
       if (baseButton.setIsToggleable) {
-        baseButton.setIsToggleable(false)
+        baseButton.setIsToggleable(shouldBeToggleable)
       } else {
-        baseButton._toggleable = false
-        baseButton.isToggle = false
+        baseButton._toggleable = shouldBeToggleable
+        baseButton.isToggle = shouldBeToggleable
       }
       baseButton.isOn = false
       ;(baseButton as any)._isOn = false
@@ -610,8 +609,12 @@ export class UnifiedPolygonalCarousel extends BaseScriptComponent {
                 this.selectCard(slotIndex)
               }
             } else if (this.makeButtonsToggleable) {
-              const isCurrentlyOn = Boolean(baseButton.isOn)
-              const nextOn = !isCurrentlyOn
+              const nextOn = !Boolean(baseButton.isOn)
+              if (typeof baseButton.setOn === 'function') {
+                try {
+                  (baseButton as any).setOn(nextOn, false)
+                } catch (e) {}
+              }
               baseButton.isOn = nextOn
               ;(baseButton as any)._isOn = nextOn
               if (typeof baseButton.setState === 'function') {
