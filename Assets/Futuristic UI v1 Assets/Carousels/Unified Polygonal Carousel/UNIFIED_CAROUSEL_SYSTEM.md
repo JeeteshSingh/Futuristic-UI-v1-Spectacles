@@ -251,37 +251,6 @@ Stagger Animations:
 
 ---
 
-## 🏛️ Architecture & Interaction Flow Map
-
-```mermaid
-flowchart TD
-    A[UnifiedPolygonalCarousel.onAwake] --> B[Initialize Motion & Physics Loops]
-    B --> C{Mode Selection}
-    
-    C -->|Manual Mode| D[Scan Child SceneObjects]
-    D --> E[Filter SIK Helper Objects]
-    E --> F[Bind Direct/External Drag & SIK Handlers]
-    F --> G[Distribute Buttons on Radial Arc & Run Entry Anim]
-    
-    C -->|Virtualized Mode| H[Instantiate Recycled Button Pool]
-    H --> I[Bind Pool SIK Interactables]
-    I --> J[Feed Dynamic Data Array via setItems]
-    J --> K[Virtual Slot Wrapping & Texture/Text Binding]
-    
-    G & K --> L[Runtime Interaction Loop]
-    L --> M{Gesture Input Detected}
-    M -->|Direct SIK Drag| N[Kinetic Momentum + Magnetic Snap]
-    M -->|Sword Swipe / Gesture Controller| O[Programmatic externalScrollBy]
-    M -->|Stationary Poke/Pinch Tap| P[Tap Validation Guard]
-    
-    P --> Q{Toggle Configuration}
-    Q -->|Toggle Group Radio| R[selectCard / selectItem Exclusive Radio Toggle]
-    Q -->|Multi-Toggle Inexclusive| S[Independent Multi-Select Toggle]
-    Q -->|Momentary Button| T[Fire Direct Button / Inspector Action]
-```
-
----
-
 ## 💡 How the Demo & Populator Controllers Work
 
 To help you build your own custom application controllers inspired by our sample scenes, here is an architectural breakdown of how both modes are utilized in code:
@@ -472,3 +441,34 @@ carousel.rebuild();
    - Directly synchronizes UIKit `BaseButton` internal state machine (`_interactableStateMachine.toggle`) on every state change, preventing toggle state resurrection upon finger unhover.
 3. **Pre-Tap Snapshot Selection**:
    - Captures `triggerStartSelectedIndex` on touch down (`onTriggerStart`) to differentiate between selecting an unselected button and double-tapping an already active button, preventing same-tap toggle deselect bugs.
+
+---
+
+## 🔬 Appendix: Technical Flow & Internal State Loop
+
+```mermaid
+flowchart TD
+    A[UnifiedPolygonalCarousel.onAwake] --> B[Initialize Motion & Physics Loops]
+    B --> C{Mode Selection}
+    
+    C -->|Manual Mode| D[Scan Child SceneObjects]
+    D --> E[Filter SIK Helper Objects]
+    E --> F[Bind Direct/External Drag & SIK Handlers]
+    F --> G[Distribute Buttons on Radial Arc & Run Entry Anim]
+    
+    C -->|Virtualized Mode| H[Instantiate Recycled Button Pool]
+    H --> I[Bind Pool SIK Interactables]
+    I --> J[Feed Dynamic Data Array via setItems]
+    J --> K[Virtual Slot Wrapping & Texture/Text Binding]
+    
+    G & K --> L[Runtime Interaction Loop]
+    L --> M{Gesture Input Detected}
+    M -->|Direct SIK Drag| N[Kinetic Momentum + Magnetic Snap]
+    M -->|Sword Swipe / Gesture Controller| O[Programmatic externalScrollBy]
+    M -->|Stationary Poke/Pinch Tap| P[Tap Validation Guard]
+    
+    P --> Q{Toggle Configuration}
+    Q -->|Toggle Group Radio| R[selectCard / selectItem Exclusive Radio Toggle]
+    Q -->|Multi-Toggle Inexclusive| S[Independent Multi-Select Toggle]
+    Q -->|Momentary Button| T[Fire Direct Button / Inspector Action]
+```
