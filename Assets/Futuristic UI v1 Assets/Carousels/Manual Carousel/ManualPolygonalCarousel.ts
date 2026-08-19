@@ -159,6 +159,13 @@ export class ManualPolygonalCarousel extends BaseScriptComponent {
   @hint("If true, all toggles can be off simultaneously.")
   allowAllTogglesOff: boolean = false
 
+  @input
+  @hint("If true, all children buttons will be independent toggles (inexclusive multi-select).")
+  makeButtonsToggleable: boolean = false
+
+  // Public callback
+  public onItemSelected: ((index: number, item?: SceneObject | any) => void) | null = null
+
   // --- ENTRY ANIMATIONS ----------------------------------------
   @ui.separator
   @ui.label('<span style="color: #F472B6; font-weight: bold;">Entry Animations</span>')
@@ -351,27 +358,61 @@ export class ManualPolygonalCarousel extends BaseScriptComponent {
         })
       }
 
-      // Setup toggle group behavior via onFinished event (same as Snap's BaseToggleGroup)
-      if (this.enableToggleBehavior) {
-        if (baseButton.setIsToggleable) {
-          baseButton.setIsToggleable(true)
-        } else {
-          baseButton._toggleable = true
-        }
+      const shouldBeToggleable = this.enableToggleBehavior || this.makeButtonsToggleable
+      if (baseButton.setIsToggleable) {
+        baseButton.setIsToggleable(shouldBeToggleable)
+      } else {
+        baseButton._toggleable = shouldBeToggleable
+        baseButton.isToggle = shouldBeToggleable
+      }
+      baseButton.isOn = false
+      ;(baseButton as any)._isOn = false
+      if (typeof baseButton.setState === 'function') {
+        baseButton.setState("default")
+      }
 
-        if (baseButton.onFinished && baseButton.onFinished.add) {
-          baseButton.onFinished.add((explicit: boolean) => {
-            if (explicit) {
-              if (baseButton.isOn) {
-                this.selectCard(slotIndex)
-              } else if (!this.allowAllTogglesOff) {
-                baseButton.isOn = true
-              } else {
-                this.selectedDataIndex = -1
-              }
+      if (interactable.onTriggerStart) {
+        interactable.onTriggerStart.add((e: any) => {
+          didScroll = false
+        })
+      }
+
+      if (interactable.onTriggerEnd) {
+        interactable.onTriggerEnd.add((e: any) => {
+          if (this.isEntryAnimationPlaying() || this.isWaitingForEntryAnimation()) return
+
+          if (didScroll || (accumulatedDragDist >= this.tapDragThreshold)) {
+            didScroll = false
+            if (this.enableToggleBehavior) {
+              this.selectCard(this.selectedDataIndex)
             }
-          })
-        }
+            return
+          }
+
+          if (this.enableToggleBehavior) {
+            if (this.selectedDataIndex === slotIndex) {
+              if (this.allowAllTogglesOff) {
+                this.selectCard(-1)
+              } else {
+                this.selectCard(slotIndex)
+              }
+            } else {
+              this.selectCard(slotIndex)
+            }
+          } else if (this.makeButtonsToggleable) {
+            const currentOn = Boolean(baseButton.isOn)
+            if (typeof baseButton.setState === 'function') {
+              baseButton.setState(currentOn ? "toggledDefault" : "default")
+            }
+            if (this.onItemSelected) {
+              this.onItemSelected(slotIndex, this.cards[slotIndex])
+            }
+          } else {
+            if (this.onItemSelected) {
+              this.onItemSelected(slotIndex, this.cards[slotIndex])
+            }
+          }
+        })
       }
     }
 
@@ -389,12 +430,22 @@ export class ManualPolygonalCarousel extends BaseScriptComponent {
     this.selectedDataIndex = slotIndex
     for (let i = 0; i < this.buttonAPIs.length; i++) {
       const btn = this.buttonAPIs[i]
-      if (btn && typeof btn.isOn !== "undefined") {
+      if (btn) {
         const shouldBeOn = (i === slotIndex)
-        if (btn.isOn !== shouldBeOn) {
-          btn.isOn = shouldBeOn
+        if (typeof btn.setOn === 'function') {
+          try {
+            (btn as any).setOn(shouldBeOn, false)
+          } catch (e) {}
+        }
+        btn.isOn = shouldBeOn
+        ;(btn as any)._isOn = shouldBeOn
+        if (typeof btn.setState === 'function') {
+          btn.setState(shouldBeOn ? "toggledDefault" : "default")
         }
       }
+    }
+    if (this.onItemSelected) {
+      this.onItemSelected(slotIndex, slotIndex >= 0 ? this.cards[slotIndex] : null)
     }
   }
 
