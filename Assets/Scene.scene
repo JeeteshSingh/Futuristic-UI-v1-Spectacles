@@ -13535,8 +13535,6 @@
     snapSharpness: true
     minVelocityToSnap: true
     maxDragVelocity: true
-    enableToggleGroupBehavior: true
-    allowAllTogglesOff: true
     enableEntryAnimation: true
     entryDuration: true
     entryStaggerTime: true
@@ -13573,8 +13571,8 @@
       snapSharpness: !<float> 10.000000
       minVelocityToSnap: 0.015000
       maxDragVelocity: 1.500000
-      enableToggleGroupBehavior: false
-      allowAllTogglesOff: false
+      enableToggleGroupBehavior: true
+      allowAllTogglesOff: true
       makeButtonsToggleable: true
       enableEntryAnimation: true
       animateOnStart: false

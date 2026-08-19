@@ -37,7 +37,7 @@ Use `ManualPolygonalCarousel` when you have a specific, fixed number of buttons 
 | **Slot Offset** | `slotOffset` | *(Inspector Only)* | `number` | Shifts the starting button index along the circle (e.g., +1, -1) |
 | **Radius** | `radius` | *(Inspector Only)* | `number` | Radius in cm (~6cm for hand palm, ~30cm for floating menu) |
 | **Align To Circle**| `alignRotationToCircle`| *(Inspector Only)* | `boolean` | Must be `true` for radial alignment (otherwise flat cards) |
-| **Layout Axis** | `layoutAxis` | *(Inspector Only)* | `"XY" \| "XZ" \| "YZ"` | **Recommended: "XY"**. `XZ` & `YZ` jitter on device |
+| **Layout Axis** | `layoutAxis` | *(Inspector Only)* | `"XY" \| "XZ" \| "YZ"` | **Recommended: "XY"**. Standard straight face-on circle |
 | **Rotation Offset**| `rotationOffset` | *(Inspector Only)* | `vec3` | Rotates button mesh orientation within its slot |
 | **Toggle Mode** | `enableToggleBehavior` | *(Inspector Only)* | `boolean` | Exclusive radio-button toggle mode across items |
 | **Allow All Off** | `allowAllTogglesOff` | *(Inspector Only)* | `boolean` | Allows deselecting active item on second tap |
@@ -75,8 +75,8 @@ Use `ManualPolygonalCarousel` when you have a specific, fixed number of buttons 
   * **~30.0 cm**: Ideal for larger world-floating HUD menus.
 * **`alignRotationToCircle`**: **MUST BE ENABLED (`true`)** to rotate each button radially along the circular path. If disabled (`false`), cards spawn in circular positions but face flat/straight without radial rotation.
 * **`layoutAxis`**: Determines the 3D plane alignment of the circle (`XY`, `XZ`, `YZ`).
-  > [!CAUTION]
-  > **Instability & Jitter Warning**: `XZ` and `YZ` planes DO NOT work well on device and cause tracking jitter! It is **HIGHLY RECOMMENDED to keep `layoutAxis = "XY"`** and use `rotationOffset` (or rotate the parent `carouselRoot`) to orient carousels into different 3D planes without jitter.
+  * **Recommended: `"XY"`** — Renders a clean, face-on straight circle.
+  * If selecting **`"XZ"` (horizontal flat table plane)** or **`"YZ"` (side profile plane)**, ensure your `rotationOffset` and parent orientation are adjusted to align with that plane.
 * **`faceInward`**: Controls whether card faces point inward toward the circle center or outward.
 * **`faceCamera` / `camera`**: Experimental billboarding option to force cards to rotate toward the camera.
 * **`rotationOffset`**: Rotates the button mesh inside its slot (default `{0, 0, 90}`). Use this to align custom button orientation so they sit correctly along the arc.

@@ -2,39 +2,8 @@
 
 The **UnifiedPolygonalCarousel** is the consolidated spatial UI carousel framework for **Snap Spectacles (2024)** and **Lens Studio 5.15+**. It merges the standalone manual carousel and virtualized carousel architectures into a single, high-performance, multi-mode component:
 
-1. **Manual Mode**: Distributes pre-authored child buttons (`PolygonalButton` or `BaseButton`) along a circular arc with individual inspector callbacks, custom per-button polygon shapes, and independent or radio-group toggle states.
-2. **Virtualized Mode**: Dynamically recycles a fixed pool of visual button templates across arbitrary or infinite datasets via `setItems()`, minimizing draw calls and memory overhead.
-
----
-
-## 🏛️ Architecture & Game Flow Map
-
-```mermaid
-flowchart TD
-    A[UnifiedPolygonalCarousel.onAwake] --> B[Initialize Motion & Physics Loops]
-    B --> C{Mode Selection}
-    
-    C -->|Manual Mode| D[Scan Child SceneObjects]
-    D --> E[Filter SIK Helper Objects]
-    E --> F[Bind Direct/External Drag & SIK Handlers]
-    F --> G[Distribute Buttons on Radial Arc & Run Entry Anim]
-    
-    C -->|Virtualized Mode| H[Instantiate Recycled Button Pool]
-    H --> I[Bind Pool SIK Interactables]
-    I --> J[Feed Dynamic Data Array via setItems]
-    J --> K[Virtual Slot Wrapping & Texture/Text Binding]
-    
-    G & K --> L[Runtime Interaction Loop]
-    L --> M{Gesture Input Detected}
-    M -->|Direct SIK Drag| N[Kinetic Momentum + Magnetic Snap]
-    M -->|Sword Swipe / Gesture Controller| O[Programmatic externalScrollBy]
-    M -->|Stationary Poke/Pinch Tap| P[Tap Validation Guard]
-    
-    P --> Q{Toggle Configuration}
-    Q -->|Toggle Group Radio| R[selectCard / selectItem Exclusive Radio Toggle]
-    Q -->|Multi-Toggle Inexclusive| S[Independent Multi-Select Toggle]
-    Q -->|Momentary Button| T[Fire Direct Button / Inspector Action]
-```
+* **Manual Mode**: Distributes pre-authored child buttons (`PolygonalButton` or `BaseButton`) along a circular arc with individual inspector callbacks, custom per-button polygon shapes, and independent or radio-group toggle states.
+* **Virtualized Mode**: Dynamically recycles a fixed pool of visual button templates across arbitrary or infinite datasets via `setItems()`, minimizing draw calls and memory overhead.
 
 ---
 
@@ -49,14 +18,23 @@ flowchart TD
 | **Draw-Call & Memory** | Each button has its own physical mesh and material in the scene. | **Fixed memory footprint**; recycles a tiny fixed pool (e.g. 7 physical buttons total). |
 | **Toggle Memory** | Hardware state machine synchronized across child `BaseButton` instances. | Tracked via data index set (`toggledDataIndices`) and restored during slot recycling. |
 
-### Why Choose Manual Mode?
-Use **Manual Mode** when you have a specific, fixed number of buttons (e.g. 12 features or 5 main app tabs) where each button has **custom inspector action callbacks**, **custom individual sizes**, or **unique custom iconography/layouts** that should not be dynamically overwritten by a dataset array.
+---
 
-### Why Choose Virtualized Mode?
-Use **Virtualized Mode** when displaying large datasets (e.g. 39 apps, product catalogs, or live feeds):
-1. **Draw-Call & Memory Optimization**: Instantiating 39+ heavy 3D button prefabs causes severe draw call overhead and frame drops on Spectacles. Virtualization creates only `slotCount` + `bufferSlots` (e.g. 5 + 2 = **7 physical buttons** total) and continuously recycles them as you scroll.
-2. **Infinite Data Support**: Display 10, 50, or 100 items without changing scene hierarchy or increasing physical object counts.
-3. **Seamless Recycling**: Uses edge scaling & alpha fading (`fadeAtEdges`) so physical button recycling at the arc boundaries is completely invisible to the user.
+### 🎠 Why Choose Manual Mode?
+
+Use **Manual Mode** when you have a specific, fixed number of buttons (e.g. 12 features or 5 main app tabs) where each button requires:
+* **Custom Inspector Callbacks**: Wiring distinct component events and sound effects directly in the Inspector.
+* **Unique Geometry**: Hand-crafted polygon shapes, bespoke sizes, or distinct child hierarchies per button.
+* **Static Scene Layout**: Buttons that live permanently in the hierarchy without dynamic code population.
+
+---
+
+### ⚡ Why Choose Virtualized Mode?
+
+Use **Virtualized Mode** when displaying large, arbitrary, or dynamic datasets (e.g. 39 apps, product catalogs, live feeds):
+* **Draw-Call & Memory Bounds**: Instantiating 39+ heavy 3D button prefabs causes severe draw call overhead and frame drops on Spectacles. Virtualization creates only `slotCount` + `bufferSlots` (e.g. 5 + 2 = **7 physical buttons** total) and continuously recycles them as you scroll.
+* **Infinite Data Support**: Display 10, 50, 100, or streaming items without changing scene hierarchy or increasing physical object counts.
+* **Seamless Recycling**: Uses edge scaling & alpha fading (`fadeAtEdges`) so physical button recycling at the arc boundaries is completely invisible to the user.
 
 ---
 
@@ -83,7 +61,7 @@ Use **Virtualized Mode** when displaying large datasets (e.g. 39 apps, product c
 | **Arc Layout** | `slotOffset` | `carousel.slotOffset` | `number` | Shifts the starting button index along the circle (e.g. `-2`, `+1`) |
 | **Arc Layout** | `radius` | `carousel.radius` | `number` | Radius in cm (~6cm for palm anchor, ~30cm for floating HUD) |
 | **Arc Layout** | `alignRotationToCircle`| `carousel.alignRotationToCircle`| `boolean` | Must be `true` for radial alignment along the arc |
-| **Arc Layout** | `layoutAxis` | `carousel.layoutAxis` | `"XY" \| "XZ" \| "YZ"` | **Recommended: "XY"**. `XZ` & `YZ` cause jitter on device |
+| **Arc Layout** | `layoutAxis` | `carousel.layoutAxis` | `"XY" \| "XZ" \| "YZ"` | **Recommended: "XY"**. Standard straight face-on circle |
 | **Arc Layout** | `faceInward` | `carousel.faceInward` | `boolean` | Controls whether button faces point inward toward center |
 | **Arc Layout** | `faceCamera` | `carousel.faceCamera` | `boolean` | Experimental billboarding toward camera |
 | **Arc Layout** | `rotationOffset` | `carousel.rotationOffset` | `vec3` | Rotates button mesh orientation within slot (default `{0,0,90}`) |
@@ -138,8 +116,8 @@ Use **Virtualized Mode** when displaying large datasets (e.g. 39 apps, product c
   * **~20.0 – 35.0 cm**: Ideal for larger world-floating HUD menus.
 * **`alignRotationToCircle`**: **MUST BE ENABLED (`true`)** to rotate each button radially along the circular path. If disabled, buttons spawn in circular positions but face flat without radial rotation.
 * **`layoutAxis`**: Determines the 3D plane alignment of the circle (`XY`, `XZ`, `YZ`).
-  > [!CAUTION]
-  > **Instability & Jitter Warning**: `XZ` and `YZ` planes DO NOT work well on device and cause noticeable tracking jitter! It is **HIGHLY RECOMMENDED to keep `layoutAxis = "XY"`** and use `rotationOffset` (or rotate the parent `carouselRoot`) to orient carousels into different 3D planes without jitter.
+  * **Recommended: `"XY"`** — Renders a clean, face-on straight circle.
+  * If selecting **`"XZ"` (horizontal flat table plane)** or **`"YZ"` (side profile plane)**, ensure your `rotationOffset` and parent orientation are adjusted to align with that plane.
 * **`faceInward`**: Controls whether button faces point inward toward the circle center or outward.
 * **`rotationOffset`**: Rotates the button mesh inside its slot (default `{0, 0, 90}`). Use this to align custom button orientation so they sit correctly along the arc.
 * **`fadeAtEdges` & `fadeRange`**: Smoothly scales down and fades out button opacity toward the outer edges of the arc, making slot wrapping completely smooth and natural.
@@ -168,90 +146,6 @@ Use **Virtualized Mode** when displaying large datasets (e.g. 39 apps, product c
   * `0`: **Left to Right** (Leftmost button pops first)
   * `1`: **Right to Left** (Rightmost button pops first)
   * `2`: **Center Outward** (Center button pops first, expanding outwards)
-
----
-
-## 💡 How the Demo & Populator Controllers Work
-
-To help you build your own custom application controllers inspired by our sample scenes, here is an architectural breakdown of how both modes are utilized in code:
-
-### 1. Manual Mode Controller: `ManualCarouselDemoController.ts`
-
-In Manual Mode, buttons exist as real SceneObjects in the hierarchy. The `ManualCarouselDemoController` orchestrates selection feedback, central HUD display updates, and smooth alpha transitions:
-
-- **Scene-Wide Auto-Discovery**: On `onStart()`, the controller automatically scans the scene hierarchy to locate the active `UnifiedPolygonalCarousel` and hooks into its `onItemSelected` event.
-- **Unified Toggle Group vs. Multi-Toggle Handling**:
-  - **Radio Toggle Group (`isToggleGroup = true`)**: Tapping a button selects that button (`selectCard(index)`), fades all unselected buttons to `dimmedAlpha` (`0.2`), and highlights the selected button (`1.0` alpha). If `allowAllTogglesOff` is enabled, tapping the active button deselects it (`selectCard(-1)`), resetting the HUD display to `"None Selected"`.
-  - **Independent Multi-Toggle (`isMultiToggle = true`)**: Tapping buttons toggles each button's active state independently inside a `toggledIndices` set without forcing unselected buttons off.
-- **Smooth Visual Lerping**: In `onUpdate()`, the controller lerps the alpha of each button's background texture and text smoothly toward its target alpha without stutter.
-
-```typescript
-// Example: Creating your own Manual Mode listener script
-import { UnifiedPolygonalCarousel } from "./UnifiedPolygonalCarousel";
-
-@component
-export class CustomManualHUD extends BaseScriptComponent {
-    @input carousel!: UnifiedPolygonalCarousel;
-    @input statusText!: Text;
-
-    onAwake(): void {
-        this.createEvent("OnStartEvent").bind(() => {
-            // Listen for carousel selection events
-            this.carousel.onItemSelected = (index: number, buttonObj?: SceneObject) => {
-                if (index === -1) {
-                    this.statusText.text = "No Feature Selected";
-                } else {
-                    this.statusText.text = `Feature ${index + 1} Activated`;
-                }
-            };
-        });
-    }
-}
-```
-
----
-
-### 2. Virtualized Mode Populator: `RuntimeCarouselExamplePopulator.ts`
-
-In Virtualized Mode, only a small pool of visual buttons (e.g. 8 slots) is instantiated. The `RuntimeCarouselExamplePopulator` feeds an arbitrary list of data items into the carousel at runtime:
-
-- **Dynamic Data Generation**: Creates an array of `CarouselItemData` objects containing `title`, `subtitle`, `texture`, and a custom `onTap(isSelected)` closure.
-- **Per-Item Action Closure**: The `onTap` callback receives a boolean indicating whether the item is currently selected (`true`) or deselected (`false`), allowing individual items to trigger bespoke game or UI logic.
-- **Data Injection**: Calls `carousel.setItems(customItems)`. The carousel automatically handles the math of mapping those items across the recycled visual buttons as the user scrolls.
-- **Initial State Setup**: Queries `allowAllTogglesOff` on the carousel. If `false`, it auto-selects item `0` on startup; if `true`, it begins in the neutral `"None Selected"` state.
-
-```typescript
-// Example: Creating your own Virtualized Populator
-import { UnifiedPolygonalCarousel, CarouselItemData } from "./UnifiedPolygonalCarousel";
-
-@component
-export class CustomAppLauncherPopulator extends BaseScriptComponent {
-    @input carousel!: UnifiedPolygonalCarousel;
-    @input appIcons!: Texture[];
-
-    onAwake(): void {
-        this.createEvent("OnStartEvent").bind(() => this.populateApps());
-    }
-
-    private populateApps(): void {
-        const appList: CarouselItemData[] = [];
-        for (let i = 0; i < 24; i++) {
-            const appName = `Spatial App ${i + 1}`;
-            appList.push({
-                title: appName,
-                subtitle: "Tap to launch",
-                texture: this.appIcons[i % this.appIcons.length],
-                onTap: (isSelected?: boolean) => {
-                    if (isSelected) {
-                        print(`Launching ${appName}...`);
-                    }
-                }
-            });
-        }
-        this.carousel.setItems(appList);
-    }
-}
-```
 
 ---
 
@@ -353,6 +247,121 @@ Stagger Animations:
   Entry Duration: 0.50
   Entry Stagger Time: 0.05
   Stagger Direction: "Left to Right"
+```
+
+---
+
+## 🏛️ Architecture & Interaction Flow Map
+
+```mermaid
+flowchart TD
+    A[UnifiedPolygonalCarousel.onAwake] --> B[Initialize Motion & Physics Loops]
+    B --> C{Mode Selection}
+    
+    C -->|Manual Mode| D[Scan Child SceneObjects]
+    D --> E[Filter SIK Helper Objects]
+    E --> F[Bind Direct/External Drag & SIK Handlers]
+    F --> G[Distribute Buttons on Radial Arc & Run Entry Anim]
+    
+    C -->|Virtualized Mode| H[Instantiate Recycled Button Pool]
+    H --> I[Bind Pool SIK Interactables]
+    I --> J[Feed Dynamic Data Array via setItems]
+    J --> K[Virtual Slot Wrapping & Texture/Text Binding]
+    
+    G & K --> L[Runtime Interaction Loop]
+    L --> M{Gesture Input Detected}
+    M -->|Direct SIK Drag| N[Kinetic Momentum + Magnetic Snap]
+    M -->|Sword Swipe / Gesture Controller| O[Programmatic externalScrollBy]
+    M -->|Stationary Poke/Pinch Tap| P[Tap Validation Guard]
+    
+    P --> Q{Toggle Configuration}
+    Q -->|Toggle Group Radio| R[selectCard / selectItem Exclusive Radio Toggle]
+    Q -->|Multi-Toggle Inexclusive| S[Independent Multi-Select Toggle]
+    Q -->|Momentary Button| T[Fire Direct Button / Inspector Action]
+```
+
+---
+
+## 💡 How the Demo & Populator Controllers Work
+
+To help you build your own custom application controllers inspired by our sample scenes, here is an architectural breakdown of how both modes are utilized in code:
+
+### 1. Manual Mode Controller: `ManualCarouselDemoController.ts`
+
+In Manual Mode, buttons exist as real SceneObjects in the hierarchy. The `ManualCarouselDemoController` orchestrates selection feedback, central HUD display updates, and smooth alpha transitions:
+
+* **Scene-Wide Auto-Discovery**: On `onStart()`, the controller automatically scans the scene hierarchy to locate the active `UnifiedPolygonalCarousel` and hooks into its `onItemSelected` event.
+* **Unified Toggle Group vs. Multi-Toggle Handling**:
+  * **Radio Toggle Group (`isToggleGroup = true`)**: Tapping a button selects that button (`selectCard(index)`), fades all unselected buttons to `dimmedAlpha` (`0.2`), and highlights the selected button (`1.0` alpha). If `allowAllTogglesOff` is enabled, tapping the active button deselects it (`selectCard(-1)`), resetting the HUD display to `"None Selected"`.
+  * **Independent Multi-Toggle (`isMultiToggle = true`)**: Tapping buttons toggles each button's active state independently inside a `toggledIndices` set without forcing unselected buttons off.
+* **Smooth Visual Lerping**: In `onUpdate()`, the controller lerps the alpha of each button's background texture and text smoothly toward its target alpha without stutter.
+
+```typescript
+// Example: Creating your own Manual Mode listener script
+import { UnifiedPolygonalCarousel } from "./UnifiedPolygonalCarousel";
+
+@component
+export class CustomManualHUD extends BaseScriptComponent {
+    @input carousel!: UnifiedPolygonalCarousel;
+    @input statusText!: Text;
+
+    onAwake(): void {
+        this.createEvent("OnStartEvent").bind(() => {
+            // Listen for carousel selection events
+            this.carousel.onItemSelected = (index: number, buttonObj?: SceneObject) => {
+                if (index === -1) {
+                    this.statusText.text = "No Feature Selected";
+                } else {
+                    this.statusText.text = `Feature ${index + 1} Activated`;
+                }
+            };
+        });
+    }
+}
+```
+
+---
+
+### 2. Virtualized Mode Populator: `RuntimeCarouselExamplePopulator.ts`
+
+In Virtualized Mode, only a small pool of visual buttons (e.g. 8 slots) is instantiated. The `RuntimeCarouselExamplePopulator` feeds an arbitrary list of data items into the carousel at runtime:
+
+* **Dynamic Data Generation**: Creates an array of `CarouselItemData` objects containing `title`, `subtitle`, `texture`, and a custom `onTap(isSelected)` closure.
+* **Per-Item Action Closure**: The `onTap` callback receives a boolean indicating whether the item is currently selected (`true`) or deselected (`false`), allowing individual items to trigger bespoke game or UI logic.
+* **Data Injection**: Calls `carousel.setItems(customItems)`. The carousel automatically handles the math of mapping those items across the recycled visual buttons as the user scrolls.
+* **Initial State Setup**: Queries `allowAllTogglesOff` on the carousel. If `false`, it auto-selects item `0` on startup; if `true`, it begins in the neutral `"None Selected"` state.
+
+```typescript
+// Example: Creating your own Virtualized Populator
+import { UnifiedPolygonalCarousel, CarouselItemData } from "./UnifiedPolygonalCarousel";
+
+@component
+export class CustomAppLauncherPopulator extends BaseScriptComponent {
+    @input carousel!: UnifiedPolygonalCarousel;
+    @input appIcons!: Texture[];
+
+    onAwake(): void {
+        this.createEvent("OnStartEvent").bind(() => this.populateApps());
+    }
+
+    private populateApps(): void {
+        const appList: CarouselItemData[] = [];
+        for (let i = 0; i < 24; i++) {
+            const appName = `Spatial App ${i + 1}`;
+            appList.push({
+                title: appName,
+                subtitle: "Tap to launch",
+                texture: this.appIcons[i % this.appIcons.length],
+                onTap: (isSelected?: boolean) => {
+                    if (isSelected) {
+                        print(`Launching ${appName}...`);
+                    }
+                }
+            });
+        }
+        this.carousel.setItems(appList);
+    }
+}
 ```
 
 ---
