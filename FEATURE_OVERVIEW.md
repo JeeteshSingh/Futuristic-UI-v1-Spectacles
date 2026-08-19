@@ -27,41 +27,31 @@ For dedicated API parameters and configuration guides for individual systems, re
 
 ---
 
-## 2. 🎠 Manual Carousel System (`ManualPolygonalCarousel.ts`)
-📖 *Full System Guide: [`MANUAL_CAROUSEL_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Manual%20Carousel/MANUAL_CAROUSEL_SYSTEM.md)*
+## 2. 🌟 Unified Polygonal Carousel (`UnifiedPolygonalCarousel.ts`)
+📖 *Full System Guide: [`UNIFIED_CAROUSEL_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Unified%20Polygonal%20Carousel/UNIFIED_CAROUSEL_SYSTEM.md)*
 
-The Manual Carousel arranges handcrafted sets of buttons into a circular wheel with touch dragging, kinetic momentum, and magnetic slot snapping.
+The `UnifiedPolygonalCarousel` merges manual button arrangements and virtualized template recycling into a single high-performance component with kinetic momentum, magnetic snapping, and two operational modes:
 
-### Core Capabilities:
-* **Any Number of Buttons ($N$)**: Place 3, 4, 8, 12, or any number of custom button prefabs under the root object. The script calculates angular spacing automatically:
-  $$\Delta\theta = \frac{\text{arcAngleDegrees}}{N - 1}$$
-* **XY-Plane Circular Distribution**: Evenly spaces child buttons along a vertical face-on circle of radius `radius`.
-* **Orientation & Slot Offsets**:
-  - `arcOffsetDegrees`: Rotates the circle orientation (0° = Top/12 o'clock, 90° = Right/3 o'clock, 180° = Bottom/6 o'clock, 270° = Left/9 o'clock).
-  - `slotOffset`: Shifts which button appears at the primary position (supports negative and positive integers: `-2`, `-1`, `0`, `1`, `2`).
-* **Physics & Snapping**: Direct SIK poke/drag interaction, smooth inertia damping after release, and magnetic slot snapping.
-* **Radio Toggling**: Built-in exclusive single-selection mode (`enableToggleBehavior`) with optional deselect (`allowAllTogglesOff`).
+### Dual Operational Modes:
+* **Manual Mode (`mode: "Manual"`)**:
+  - Automatically distributes pre-placed child buttons ($N = 3, 4, 8, 12...$) along a circular arc.
+  - Ideal for static button sets with custom polygon shapes, unique dimensions, or bespoke Inspector callbacks per button.
+  - Supports exclusive radio-group toggles (`enableToggleGroupBehavior`) or independent multi-select toggles (`makeButtonsToggleable`).
+* **Virtualized Mode (`mode: "Virtualized"`)**:
+  - Dynamically recycles a lightweight physical pool (e.g. 7 buttons) from a single `cardPrefab` template.
+  - Scales to arbitrary, large, or streaming datasets (e.g. 20, 50, 100+ items) via `carousel.setItems(items)` with zero memory bloat or draw-call spikes.
+  - Injects per-item `onTap(isSelected)` callback closures to trigger custom application logic.
 
----
-
-## 3. ⚡ Runtime Virtualized Carousel (`VirtualizedPolygonalCarousel.ts`)
-📖 *Full System Guide: [`VIRTUALIZED_CAROUSEL_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Runtime%20Virtualized%20Carousel/VIRTUALIZED_CAROUSEL_SYSTEM.md)*
-
-A script-driven carousel designed for large or dynamic datasets where instantiating dozens of 3D objects would degrade performance.
-
-### Core Capabilities:
-* **Card Recycling & Pooling**: Instantiates only a small pool of visual cards (e.g. 8 slots) and dynamically maps data as you scroll, allowing infinite wrapping without spawning extra objects.
-* **Cached Data Binding**: Tracks `_lastDataIndex` on recycled slots to only re-bind text and textures when a slot changes data, preserving active SIK hover and press states.
-* **Dynamic Script API**:
-  - `carousel.setItems(dataArray)`: Injects item titles, textures, and icons dynamically.
-  - `carousel.selectItem(dataIndex)`: Programmatically selects an item index.
-  - `carousel.onItemSelected`: Event callback triggered when an item is selected.
-* **Populator Integration**: Paired with `RuntimeCarouselExamplePopulator.ts` to showcase real-time data feeding and event handling.
+### Universal Physics & Layout Features:
+* **Planar Face-On Arc (`layoutAxis = "XY"`)**: Evenly distributes buttons along a vertical circular arc with configurable radius (~6cm for palm anchor, ~30cm for world HUD).
+* **Kinetic Physics**: Direct SIK poke/drag interaction, smooth inertia damping after release, and magnetic slot snapping.
+* **External Scroller Support**: Exposes `externalScrollBy`, `externalDragStart`, `externalDragUpdate`, and `externalDragEnd` for gesture drivers like `SwordSwipeScroller.ts`.
+* **Smooth Edge Fading**: Scales and fades buttons at arc boundaries (`fadeAtEdges`) for seamless slot wrapping.
 
 ---
 
-## 4. ⚔️ 2-Handed Spatial Gesture Controllers
-📖 *Full System Guide: [`GESTURE_SCROLLER_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/GESTURE_SCROLLER_SYSTEM.md)*
+## 3. ⚔️ 2-Handed Spatial Gesture Controllers
+📖 *Full System Guide: [`GESTURE_SCROLLER_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Carousels/Gesture%20Controllers/GESTURE_SCROLLER_SYSTEM.md)*
 
 ### A. Fist Anchor Spawner (`Carousel Fist GestureApp.ts`)
 * **Fist Spawning**: Form and hold a closed fist (`gestureHoldTime ≈ 0.5s`) to spawn the carousel anchored to your hand.
@@ -71,11 +61,11 @@ A script-driven carousel designed for large or dynamic datasets where instantiat
 ### B. Sword-Swipe Kinetic Scroller (`SwordSwipeScroller.ts`)
 * **2-Finger Sword Gesture**: Form a 2-finger "sword" pose with your opposite hand and roll/swipe around the carousel's outer ring.
 * **Virtual Cylinder Mapping**: Projects the hand onto an invisible cylindrical shell surrounding the carousel to convert 3D hand velocity into rotational scroll momentum.
-* **SIK Pinch Compatibility**: Preserves standard SIK pinch targeting so you can swipe with two fingers and pinch to select items simultaneously.
+* **SIK Pinch Compatibility**: Preserves standard SIK pinch targeting so you can swipe with two fingers and pinch to select items simultaneously without touch conflicts.
 
 ---
 
-## 5. 🖐️ Stabilized Hand Menu Helper (`HandMenuHelper.ts`)
+## 4. 🖐️ Stabilized Hand Menu Helper (`HandMenuHelper.ts`)
 📖 *Full System Guide: [`HAND_MENU_HELPER_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Hand%20Menu/HAND_MENU_HELPER_SYSTEM.md)*
 
 ### Core Capabilities:
@@ -87,7 +77,7 @@ A script-driven carousel designed for large or dynamic datasets where instantiat
 
 ---
 
-## 6. ✨ 4-Finger Multi-Pinch Palm Menu (`PalmMenuGestureApp.ts`)
+## 5. ✨ 4-Finger Multi-Pinch Palm Menu (`PalmMenuGestureApp.ts`)
 📖 *Full System Guide: [`PALM_MENU_GESTURE_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Palm%20Menu/PALM_MENU_GESTURE_SYSTEM.md)*
 
 ### Core Capabilities:
@@ -98,7 +88,7 @@ A script-driven carousel designed for large or dynamic datasets where instantiat
 
 ---
 
-## 7. 🎬 Video Tutorial HUDs & Hint Controllers
+## 6. 🎬 Video Tutorial HUDs & Hint Controllers
 
 ### Core Capabilities:
 * **Modular HUD Construction**: Pre-built hierarchy pattern:
