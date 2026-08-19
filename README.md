@@ -74,20 +74,52 @@ Scene Hierarchy
 
 ### 2️⃣ Test the Carousels (`Carousel Samples`)
 
-Enable `Carousel Samples`, and toggle **only one carousel at a time**:
+In the hierarchy under `Carousel Samples`, you will find sample setups for both **Manual** and **Runtime Virtualized** carousel architectures. 
+
+> [!TIP]
+> **Unified Component Recommendation**:
+> While the legacy standalone `Manual Carousel` and `Runtime Carousel` components remain available in the project for reference, it is **strongly recommended to use `UnifiedPolygonalCarousel`** for all new work. It cleanly merges ~70% shared circular layout and physics logic into a single battle-tested component that supports both manual scene setups and dynamic virtualized datasets.
+
+Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time** to test:
+
+---
 
 #### 🌟 Unified Polygonal Carousel (`Unified Polygonal Carousel`)
-* **Features**: The primary multipurpose carousel supporting both **Manual Mode** (custom scene buttons) and **Virtualized Mode** (dynamic data arrays).
-* **Testing**: Poke buttons directly, pinch-drag along the arc with momentum, or drive rotation with external gesture controllers (`SwordSwipeScroller.ts`).
+* **Features**: The multipurpose component supporting both **Manual Mode** (custom scene buttons) and **Virtualized Mode** (dynamic data feeds).
+* **Testing**:
+  - In **Manual Mode**: Test with pre-placed buttons in the scene. Supports single radio-button toggle group selection or independent multi-select toggles.
+  - In **Virtualized Mode**: Test with dynamic button array feeds (`setItems()`).
+  - Supports direct SIK touch dragging along the arc as well as external gesture scrollers (`SwordSwipeScroller.ts`).
 
-#### 🎠 Manual Carousel (`Manual Carousel [Legacy]`)
-* **Features**: Legacy manual button layout distributing $N = 3, 4, 8, 12...$ pre-placed buttons.
+---
 
-#### ⚡ Runtime Virtualized Carousel (`Runtime Carousel [Legacy]`)
-* **Features**: Legacy template recycling system for dynamic array datasets.
+#### 🎠 Manual Carousel Setup (`Manual Carousel`)
+* **Features**: Operates directly on pre-placed child buttons in the scene ($N = 3, 4, 8, 12...$), automatically distributing them evenly along the circular arc.
+* **How to Test in Preview / Device**:
+  1. Make a **closed fist with your left hand** to anchor and spawn the carousel in world space (`Carousel Fist GestureApp.ts`).
+  2. Use your **right hand** to poke and drag buttons along the arc, or poke directly to trigger button callbacks.
+* **Spatial UX Insight & Known Consideration**:
+  > [!NOTE]
+  > When using a **single-hand poke-and-drag** interaction model on small spatial buttons, dragging to scroll can occasionally register as an accidental button selection upon release if finger dwell time is brief. 
+  > This is a known trade-off of direct poke-and-scroll on AR glasses. See the Runtime Carousel below for the recommended two-handed alternative!
+
+---
+
+#### ⚡ Runtime Carousel Setup (`Runtime Carousel`)
+* **Features**: Dynamically recycles a lightweight pool of visual buttons at runtime for arbitrary dataset sizes (e.g. 20, 50, 100+ items) populated via scripts like `RuntimeCarouselExamplePopulator.ts`.
+* **How to Test in Preview / Device**:
+  1. Make a **closed fist with your left hand** to anchor and spawn the carousel.
+  2. With your **right hand**, make a **2-finger "sword gesture"** and move your hand across the wheel to smoothly scroll (`SwordSwipeScroller.ts`).
+  3. Use **native SIK pinch (direct targeting)** to select any button on the wheel.
+* **Recommended Spatial Interaction Pattern**:
+  > [!TIP]
+  > **Why This Pattern Wins**: Decoupling the **scroll gesture** (2-finger sword swipe / external gesture) from **selection** (native SIK direct targeting / pinch) completely eliminates the poke-and-drag conflict! 
+  > Whenever architecting custom spatial carousels for Spectacles, it is **recommended to use dedicated scroll gestures paired with native SIK pinch selection** rather than relying solely on direct poke-to-scroll.
+
+---
 
 #### ⭕ Simple Circle Carousel (`Simple Circle Polygonal Carousel`)
-* **Features**: Lightweight static circular dial with direct touch physics.
+* **Features**: Lightweight, static circular dial with direct touch physics.
 * Disable `Carousel Samples` when finished.
 
 ---
