@@ -1289,7 +1289,7 @@ the Interactable will also use filtered pinch events."
   private _isSettingToggleState: boolean = false
 
   public override setState(stateName: StateName): void {
-    print(`[PolygonalButton: ${this.getSceneObject().name}] setState -> '${stateName}' (current isOn: ${this._isOn})`)
+    print(`[PolygonalButton: ${this.getSceneObject().name}] setState -> '${stateName}' (current isOn: ${this.isOn})`)
     super.setState(stateName)
   }
 
