@@ -31,7 +31,7 @@ export class ManualCarouselDemoController extends BaseScriptComponent {
   @hint("Drag your UnifiedPolygonalCarousel or ManualPolygonalCarousel here (Auto-detected if unassigned)")
   carousel?: ScriptComponent
 
-  @input("bool", false)
+  @input
   @hint("Allow deselecting active button to return to None Selected. When false, clicking active button keeps it on.")
   allowAllTogglesOff: boolean = false
 
