@@ -16,7 +16,7 @@ import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/
 @component
 export class CarouselGestureApp extends BaseScriptComponent {
   @input("Component.ScriptComponent")
-  @hint("Drag either a VirtualizedPolygonalCarousel or ManualPolygonalCarousel here")
+  @hint("Drag a UnifiedPolygonalCarousel, VirtualizedPolygonalCarousel, or ManualPolygonalCarousel here")
   carousel!: ScriptComponent
 
   @input

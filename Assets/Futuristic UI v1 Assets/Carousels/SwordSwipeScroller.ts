@@ -17,7 +17,7 @@ import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/
 @component
 export class SwordSwipeScroller extends BaseScriptComponent {
     @input
-    @hint("Drag the VirtualizedPolygonalCarousel script component here")
+    @hint("Drag the UnifiedPolygonalCarousel, VirtualizedPolygonalCarousel, or ManualPolygonalCarousel script component here")
     carousel: ScriptComponent;
 
     @input("string", "right")
