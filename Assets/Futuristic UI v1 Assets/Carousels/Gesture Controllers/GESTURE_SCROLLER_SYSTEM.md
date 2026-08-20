@@ -5,7 +5,7 @@ The **Gesture Controllers** system provides hands-free, motion-based controls fo
 2. **`SwordSwipeScroller` (`SwordSwipeScroller.ts`)**: 6DoF hand-swipe momentum scroller that tracks circular slashing motions using the **Sword Finger Gesture** to fling the carousel.
 
 <p align="center">
-  <img src="../../../../docs/media/runtime sword finger.gif" alt="Sword Finger Gesture and Fist Anchoring" width="100%" />
+  <img src="../../../../docs/media/runtime sword finger.gif" alt="Sword Finger Gesture and Fist Anchoring" width="60%" />
   <br/>
   <em>Figure: Two-handed spatial interaction with fist anchoring and 2-finger sword-swipe kinetic scroller.</em>
 </p>

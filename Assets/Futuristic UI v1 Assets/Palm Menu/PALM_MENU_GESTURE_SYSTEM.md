@@ -3,7 +3,7 @@
 The **Palm Menu Gesture System** is an experimental 4-finger multi-pinch gesture controller designed for Spectacles (2024). It extends beyond native SIK (which only supports Index-to-Thumb pinch) by tracking live thumb-to-fingertip proximity across **all four fingers** (Index, Middle, Ring, Pinky) to create quick-access spatial bookmarks anchored directly to your hand's finger joints.
 
 <p align="center">
-  <img src="../../../docs/media/palmmenu.gif" alt="4-Finger Multi-Pinch Palm Menu" width="100%" />
+  <img src="../../../docs/media/palmmenu.gif" alt="4-Finger Multi-Pinch Palm Menu" width="60%" />
   <br/>
   <em>Figure: 4-finger multi-pinch palm bookmarking palette with fingertip proximity tracking and camera billboarding.</em>
 </p>

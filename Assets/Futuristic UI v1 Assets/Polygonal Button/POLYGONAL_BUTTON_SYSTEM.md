@@ -3,7 +3,7 @@
 The **PolygonalButton** system is an advanced, highly customizable UI component designed for Lens Studio and Spectacles (2024). It extends the native Spectacles UIKit `BaseButton` and Spectacles Interaction Kit (SIK) `Interactable` components to support procedural 2D custom geometry, filleted rounded corners, outer border ribbons, 6-state color transitions, and automatic child object opacity management.
 
 <p align="center">
-  <img src="../../../docs/media/button frames.png" alt="Procedural Polygonal Button Shapes" width="100%" />
+  <img src="../../../docs/media/button frames.png" alt="Procedural Polygonal Button Shapes" width="60%" />
   <br/>
   <em>Figure: Procedural polygon geometry presets, filleted corners, border outlines, and nested text/image layouts.</em>
 </p>

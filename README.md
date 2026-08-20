@@ -71,7 +71,7 @@ Scene Hierarchy
 ### 1️⃣ Explore Button Shapes (`Buttons Frame`)
 
 <p align="center">
-  <img src="docs/media/button frames.png" alt="Procedural Polygonal Button Shapes and Custom Layouts" width="100%" />
+  <img src="docs/media/button frames.png" alt="Procedural Polygonal Button Shapes and Custom Layouts" width="60%" />
   <br/>
   <em>Figure 1: Procedural polygon shapes, corner filleting, border ribbons, and nested text/icon layouts.</em>
 </p>
@@ -111,7 +111,7 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 #### 🎠 Manual Carousel Setup (`Manual Carousel`)
 
 <p align="center">
-  <img src="docs/media/manual pokescroll.gif" alt="Manual Carousel Poke and Scroll" width="100%" />
+  <img src="docs/media/manual pokescroll.gif" alt="Manual Carousel Poke and Scroll" width="60%" />
   <br/>
   <em>Figure 2: Manual Carousel poke-and-drag interaction with fist anchoring, kinetic momentum, and slot snapping.</em>
 </p>
@@ -130,7 +130,7 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 #### ⚡ Runtime Carousel Setup (`Runtime Carousel`)
 
 <p align="center">
-  <img src="docs/media/runtime sword finger.gif" alt="Runtime Carousel Sword Swipe Scroller" width="100%" />
+  <img src="docs/media/runtime sword finger.gif" alt="Runtime Carousel Sword Swipe Scroller" width="60%" />
   <br/>
   <em>Figure 3: Runtime Virtualized Carousel driven by two-handed sword-swipe kinetic scrolling and native SIK pinch selection.</em>
 </p>
@@ -156,7 +156,7 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 ### 3️⃣ Test the Palm Menu (`Palm Menu`)
 
 <p align="center">
-  <img src="docs/media/palmmenu.gif" alt="4-Finger Multi-Pinch Palm Menu" width="100%" />
+  <img src="docs/media/palmmenu.gif" alt="4-Finger Multi-Pinch Palm Menu" width="60%" />
   <br/>
   <em>Figure 4: 4-finger multi-pinch palm menu bookmarking palette with knuckle projection and camera billboarding.</em>
 </p>
@@ -170,7 +170,7 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 ### 4️⃣ Test the Hand Menu Helper (`Hand Menu Sample`)
 
 <p align="center">
-  <img src="docs/media/handmenu.gif" alt="Stabilized Hand Menu Helper and Preview Simulator" width="100%" />
+  <img src="docs/media/handmenu.gif" alt="Stabilized Hand Menu Helper and Preview Simulator" width="60%" />
   <br/>
   <em>Figure 5: Stabilized palm coordinate frame with Desktop Preview Simulator hands and outward edge projection.</em>
 </p>

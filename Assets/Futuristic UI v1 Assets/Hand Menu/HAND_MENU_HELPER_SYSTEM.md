@@ -3,7 +3,7 @@
 The **HandMenuHelper** system is a specialized, highly-stabilized hand anchoring utility designed for Lens Studio and Spectacles (2024). It allows developers to anchor custom 2D UI panels, 3D menus, or carousels (e.g. `UnifiedPolygonalCarousel`) relative to hand knuckle joints with customizable position/rotation offsets, camera facing triggers, gesture filters, smooth interpolation, and pop-in entry animations.
 
 <p align="center">
-  <img src="../../../docs/media/handmenu.gif" alt="Stabilized Hand Menu Helper and Preview Simulator" width="100%" />
+  <img src="../../../docs/media/handmenu.gif" alt="Stabilized Hand Menu Helper and Preview Simulator" width="60%" />
   <br/>
   <em>Figure: Stabilized palm coordinate frame with outward edge projection and Desktop Preview Simulator integration.</em>
 </p>

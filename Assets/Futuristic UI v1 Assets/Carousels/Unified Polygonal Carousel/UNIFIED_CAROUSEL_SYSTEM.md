@@ -23,7 +23,7 @@ The **UnifiedPolygonalCarousel** is the consolidated spatial UI carousel framewo
 ### 🎠 Why Choose Manual Mode?
 
 <p align="center">
-  <img src="../../../../docs/media/manual pokescroll.gif" alt="Manual Mode Carousel Interaction" width="100%" />
+  <img src="../../../../docs/media/manual pokescroll.gif" alt="Manual Mode Carousel Interaction" width="60%" />
   <br/>
   <em>Figure: Manual Mode distributing static child buttons with direct poke-and-drag physics and radio toggle selection.</em>
 </p>
@@ -38,7 +38,7 @@ Use **Manual Mode** when you have a specific, fixed number of buttons (e.g. 12 f
 ### ⚡ Why Choose Virtualized Mode?
 
 <p align="center">
-  <img src="../../../../docs/media/runtime sword finger.gif" alt="Virtualized Mode Carousel Interaction" width="100%" />
+  <img src="../../../../docs/media/runtime sword finger.gif" alt="Virtualized Mode Carousel Interaction" width="60%" />
   <br/>
   <em>Figure: Virtualized Mode template recycling driven by two-handed sword-swipe kinetic scrolling and native SIK pinch selection.</em>
 </p>

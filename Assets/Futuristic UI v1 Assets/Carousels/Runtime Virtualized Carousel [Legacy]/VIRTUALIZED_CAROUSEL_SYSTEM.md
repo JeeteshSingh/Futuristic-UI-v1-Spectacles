@@ -3,7 +3,7 @@
 The **VirtualizedPolygonalCarousel** system is a high-performance 3D UI carousel component designed for Lens Studio and Spectacles (2024). It dynamically recycles a tiny fixed pool of physical 3D button prefabs along a circular arc to display arbitrarily large or infinite datasets (e.g. 39 apps, 100 items, or live data feeds) with zero draw-call penalty or memory bloat.
 
 <p align="center">
-  <img src="../../../../docs/media/runtime sword finger.gif" alt="Runtime Virtualized Carousel Interaction" width="100%" />
+  <img src="../../../../docs/media/runtime sword finger.gif" alt="Runtime Virtualized Carousel Interaction" width="60%" />
   <br/>
   <em>Figure: Virtualized Carousel template recycling driven by two-handed sword-swipe kinetic scrolling and native SIK pinch selection.</em>
 </p>

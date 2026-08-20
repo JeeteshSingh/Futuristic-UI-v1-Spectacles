@@ -10,7 +10,7 @@ For dedicated API parameters and configuration guides for individual systems, re
 📖 *Full System Guide: [`POLYGONAL_BUTTON_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Polygonal%20Button/POLYGONAL_BUTTON_SYSTEM.md)*
 
 <p align="center">
-  <img src="docs/media/button frames.png" alt="Procedural Polygonal Button Shapes" width="100%" />
+  <img src="docs/media/button frames.png" alt="Procedural Polygonal Button Shapes" width="60%" />
   <br/>
   <em>Figure 1: Procedural polygon geometry, corner filleting, border outlines, and nested text/image child layouts.</em>
 </p>
@@ -42,7 +42,7 @@ The `UnifiedPolygonalCarousel` merges manual button arrangements and virtualized
 
 #### A. Manual Mode (`mode: "Manual"`)
 <p align="center">
-  <img src="docs/media/manual pokescroll.gif" alt="Manual Mode Carousel Interaction" width="100%" />
+  <img src="docs/media/manual pokescroll.gif" alt="Manual Mode Carousel Interaction" width="60%" />
   <br/>
   <em>Figure 2: Manual Mode circular layout distributing child buttons with poke-and-drag physics and radio toggle states.</em>
 </p>
@@ -53,7 +53,7 @@ The `UnifiedPolygonalCarousel` merges manual button arrangements and virtualized
 
 #### B. Virtualized Mode (`mode: "Virtualized"`)
 <p align="center">
-  <img src="docs/media/runtime sword finger.gif" alt="Virtualized Mode Carousel Interaction" width="100%" />
+  <img src="docs/media/runtime sword finger.gif" alt="Virtualized Mode Carousel Interaction" width="60%" />
   <br/>
   <em>Figure 3: Virtualized Mode template recycling driven by two-handed sword-swipe kinetic scrolling and native SIK pinch selection.</em>
 </p>
@@ -89,7 +89,7 @@ The `UnifiedPolygonalCarousel` merges manual button arrangements and virtualized
 📖 *Full System Guide: [`HAND_MENU_HELPER_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Hand%20Menu/HAND_MENU_HELPER_SYSTEM.md)*
 
 <p align="center">
-  <img src="docs/media/handmenu.gif" alt="Stabilized Hand Menu Helper" width="100%" />
+  <img src="docs/media/handmenu.gif" alt="Stabilized Hand Menu Helper" width="60%" />
   <br/>
   <em>Figure 4: Knuckle-derived stabilized coordinate frame with outward edge projection and Desktop Preview Simulator integration.</em>
 </p>
@@ -107,7 +107,7 @@ The `UnifiedPolygonalCarousel` merges manual button arrangements and virtualized
 📖 *Full System Guide: [`PALM_MENU_GESTURE_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Palm%20Menu/PALM_MENU_GESTURE_SYSTEM.md)*
 
 <p align="center">
-  <img src="docs/media/palmmenu.gif" alt="4-Finger Multi-Pinch Palm Menu" width="100%" />
+  <img src="docs/media/palmmenu.gif" alt="4-Finger Multi-Pinch Palm Menu" width="60%" />
   <br/>
   <em>Figure 5: 4-finger multi-pinch tool bookmarking palette with fingertip proximity tracking and camera billboarding.</em>
 </p>
