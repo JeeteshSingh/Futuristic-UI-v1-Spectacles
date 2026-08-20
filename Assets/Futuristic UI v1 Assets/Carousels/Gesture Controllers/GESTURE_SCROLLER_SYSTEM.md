@@ -1,8 +1,14 @@
 # Gesture Controllers System Guide & API Reference
 
-The **Gesture Controllers** system provides hands-free, motion-based controls for both `VirtualizedPolygonalCarousel` and `ManualPolygonalCarousel` in Spectacles (2024). It consists of two dedicated components:
+The **Gesture Controllers** system provides hands-free, motion-based controls for both `UnifiedPolygonalCarousel` and legacy carousels in Spectacles (2024). It consists of two dedicated components:
 1. **`CarouselGestureApp` (`Carousel Fist GestureApp.ts`)**: Fist-activation controller that anchors the carousel to the user's hand and controls rotation via hand pose.
 2. **`SwordSwipeScroller` (`SwordSwipeScroller.ts`)**: 6DoF hand-swipe momentum scroller that tracks circular slashing motions using the **Sword Finger Gesture** to fling the carousel.
+
+<p align="center">
+  <img src="../../../../docs/media/runtime sword finger.gif" alt="Sword Finger Gesture and Fist Anchoring" width="100%" />
+  <br/>
+  <em>Figure: Two-handed spatial interaction with fist anchoring and 2-finger sword-swipe kinetic scroller.</em>
+</p>
 
 ---
 

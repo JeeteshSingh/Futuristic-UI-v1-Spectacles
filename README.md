@@ -70,6 +70,12 @@ Scene Hierarchy
 
 ### 1️⃣ Explore Button Shapes (`Buttons Frame`)
 
+<p align="center">
+  <img src="docs/media/button frames.png" alt="Procedural Polygonal Button Shapes and Custom Layouts" width="100%" />
+  <br/>
+  <em>Figure 1: Procedural polygon shapes, corner filleting, border ribbons, and nested text/icon layouts.</em>
+</p>
+
 * **What to do**: Open the project (`Buttons Frame` is enabled by default).
 * **Setup to Inspect**: Look at the child objects under `Buttons Frame Root`—their names act as configuration recipes:
   - `buttons can have text child`
@@ -103,6 +109,13 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 ---
 
 #### 🎠 Manual Carousel Setup (`Manual Carousel`)
+
+<p align="center">
+  <img src="docs/media/manual pokescroll.gif" alt="Manual Carousel Poke and Scroll" width="100%" />
+  <br/>
+  <em>Figure 2: Manual Carousel poke-and-drag interaction with fist anchoring, kinetic momentum, and slot snapping.</em>
+</p>
+
 * **Configuration**: Powered by `UnifiedPolygonalCarousel` configured in **Manual Mode** (`mode: "Manual"`). It operates directly on pre-placed child buttons in the scene ($N = 3, 4, 8, 12...$), automatically distributing them evenly along the circular arc.
 * **How to Test in Preview / Device**:
   1. Make a **closed fist with your left hand** to anchor and spawn the carousel in world space (`Carousel Fist GestureApp.ts`).
@@ -115,6 +128,13 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 ---
 
 #### ⚡ Runtime Carousel Setup (`Runtime Carousel`)
+
+<p align="center">
+  <img src="docs/media/runtime sword finger.gif" alt="Runtime Carousel Sword Swipe Scroller" width="100%" />
+  <br/>
+  <em>Figure 3: Runtime Virtualized Carousel driven by two-handed sword-swipe kinetic scrolling and native SIK pinch selection.</em>
+</p>
+
 * **Configuration**: Powered by `UnifiedPolygonalCarousel` configured in **Virtualized Mode** (`mode: "Virtualized"`). It dynamically recycles a lightweight pool of visual buttons at runtime for arbitrary dataset sizes (e.g. 20, 50, 100+ items) populated via scripts like `RuntimeCarouselExamplePopulator.ts`.
 * **How to Test in Preview / Device**:
   1. Make a **closed fist with your left hand** to anchor and spawn the carousel.
@@ -135,6 +155,12 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 
 ### 3️⃣ Test the Palm Menu (`Palm Menu`)
 
+<p align="center">
+  <img src="docs/media/palmmenu.gif" alt="4-Finger Multi-Pinch Palm Menu" width="100%" />
+  <br/>
+  <em>Figure 4: 4-finger multi-pinch palm menu bookmarking palette with knuckle projection and camera billboarding.</em>
+</p>
+
 * **Setup**: Disable other sample roots and enable `Palm Menu` (supports Left, Right, or Both hands).
 * **Testing**: Face your palm toward your eyes: buttons appear perched near your fingertips. Bring your thumb to individual fingertips (Index, Middle, Ring, Pinky) to trigger actions.
 * Disable `Palm Menu` when finished.
@@ -142,6 +168,12 @@ Enable `Carousel Samples`, and enable **only one carousel SceneObject at a time*
 ---
 
 ### 4️⃣ Test the Hand Menu Helper (`Hand Menu Sample`)
+
+<p align="center">
+  <img src="docs/media/handmenu.gif" alt="Stabilized Hand Menu Helper and Preview Simulator" width="100%" />
+  <br/>
+  <em>Figure 5: Stabilized palm coordinate frame with Desktop Preview Simulator hands and outward edge projection.</em>
+</p>
 
 * **Setup**: Enable `Hand Menu Sample`.
 

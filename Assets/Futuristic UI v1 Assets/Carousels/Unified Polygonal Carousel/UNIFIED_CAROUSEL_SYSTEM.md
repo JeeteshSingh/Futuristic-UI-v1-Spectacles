@@ -22,6 +22,12 @@ The **UnifiedPolygonalCarousel** is the consolidated spatial UI carousel framewo
 
 ### 🎠 Why Choose Manual Mode?
 
+<p align="center">
+  <img src="../../../../docs/media/manual pokescroll.gif" alt="Manual Mode Carousel Interaction" width="100%" />
+  <br/>
+  <em>Figure: Manual Mode distributing static child buttons with direct poke-and-drag physics and radio toggle selection.</em>
+</p>
+
 Use **Manual Mode** when you have a specific, fixed number of buttons (e.g. 12 features or 5 main app tabs) where each button requires:
 * **Custom Inspector Callbacks**: Wiring distinct component events and sound effects directly in the Inspector.
 * **Unique Geometry**: Hand-crafted polygon shapes, bespoke sizes, or distinct child hierarchies per button.
@@ -30,6 +36,12 @@ Use **Manual Mode** when you have a specific, fixed number of buttons (e.g. 12 f
 ---
 
 ### ⚡ Why Choose Virtualized Mode?
+
+<p align="center">
+  <img src="../../../../docs/media/runtime sword finger.gif" alt="Virtualized Mode Carousel Interaction" width="100%" />
+  <br/>
+  <em>Figure: Virtualized Mode template recycling driven by two-handed sword-swipe kinetic scrolling and native SIK pinch selection.</em>
+</p>
 
 Use **Virtualized Mode** when displaying large, arbitrary, or dynamic datasets (e.g. 39 apps, product catalogs, live feeds):
 * **Draw-Call & Memory Bounds**: Instantiating 39+ heavy 3D button prefabs causes severe draw call overhead and frame drops on Spectacles. Virtualization creates only `slotCount` + `bufferSlots` (e.g. 5 + 2 = **7 physical buttons** total) and continuously recycles them as you scroll.

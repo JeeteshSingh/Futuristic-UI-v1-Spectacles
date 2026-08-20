@@ -9,6 +9,12 @@ For dedicated API parameters and configuration guides for individual systems, re
 ## 1. 🔷 Polygonal Button System (`PolygonalButton.ts`)
 📖 *Full System Guide: [`POLYGONAL_BUTTON_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Polygonal%20Button/POLYGONAL_BUTTON_SYSTEM.md)*
 
+<p align="center">
+  <img src="docs/media/button frames.png" alt="Procedural Polygonal Button Shapes" width="100%" />
+  <br/>
+  <em>Figure 1: Procedural polygon geometry, corner filleting, border outlines, and nested text/image child layouts.</em>
+</p>
+
 `PolygonalButton` is a procedural 2D polygon button generator that directly extends Spectacles UIKit's `BaseButton` and integrates with SIK's `Interactable` system.
 
 ### Core Capabilities:
@@ -33,14 +39,28 @@ For dedicated API parameters and configuration guides for individual systems, re
 The `UnifiedPolygonalCarousel` merges manual button arrangements and virtualized template recycling into a single high-performance component with kinetic momentum, magnetic snapping, and two operational modes:
 
 ### Dual Operational Modes:
-* **Manual Mode (`mode: "Manual"`)**:
-  - Automatically distributes pre-placed child buttons ($N = 3, 4, 8, 12...$) along a circular arc.
-  - Ideal for static button sets with custom polygon shapes, unique dimensions, or bespoke Inspector callbacks per button.
-  - Supports exclusive radio-group toggles (`enableToggleGroupBehavior`) or independent multi-select toggles (`makeButtonsToggleable`).
-* **Virtualized Mode (`mode: "Virtualized"`)**:
-  - Dynamically recycles a lightweight physical pool (e.g. 7 buttons) from a single `cardPrefab` template.
-  - Scales to arbitrary, large, or streaming datasets (e.g. 20, 50, 100+ items) via `carousel.setItems(items)` with zero memory bloat or draw-call spikes.
-  - Injects per-item `onTap(isSelected)` callback closures to trigger custom application logic.
+
+#### A. Manual Mode (`mode: "Manual"`)
+<p align="center">
+  <img src="docs/media/manual pokescroll.gif" alt="Manual Mode Carousel Interaction" width="100%" />
+  <br/>
+  <em>Figure 2: Manual Mode circular layout distributing child buttons with poke-and-drag physics and radio toggle states.</em>
+</p>
+
+* Automatically distributes pre-placed child buttons ($N = 3, 4, 8, 12...$) along a circular arc.
+* Ideal for static button sets with custom polygon shapes, unique dimensions, or bespoke Inspector callbacks per button.
+* Supports exclusive radio-group toggles (`enableToggleGroupBehavior`) or independent multi-select toggles (`makeButtonsToggleable`).
+
+#### B. Virtualized Mode (`mode: "Virtualized"`)
+<p align="center">
+  <img src="docs/media/runtime sword finger.gif" alt="Virtualized Mode Carousel Interaction" width="100%" />
+  <br/>
+  <em>Figure 3: Virtualized Mode template recycling driven by two-handed sword-swipe kinetic scrolling and native SIK pinch selection.</em>
+</p>
+
+* Dynamically recycles a lightweight physical pool (e.g. 7 buttons) from a single `cardPrefab` template.
+* Scales to arbitrary, large, or streaming datasets (e.g. 20, 50, 100+ items) via `carousel.setItems(items)` with zero memory bloat or draw-call spikes.
+* Injects per-item `onTap(isSelected)` callback closures to trigger custom application logic.
 
 ### Universal Physics & Layout Features:
 * **Planar Face-On Arc (`layoutAxis = "XY"`)**: Evenly distributes buttons along a vertical circular arc with configurable radius (~6cm for palm anchor, ~30cm for world HUD).
@@ -68,6 +88,12 @@ The `UnifiedPolygonalCarousel` merges manual button arrangements and virtualized
 ## 4. 🖐️ Stabilized Hand Menu Helper (`HandMenuHelper.ts`)
 📖 *Full System Guide: [`HAND_MENU_HELPER_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Hand%20Menu/HAND_MENU_HELPER_SYSTEM.md)*
 
+<p align="center">
+  <img src="docs/media/handmenu.gif" alt="Stabilized Hand Menu Helper" width="100%" />
+  <br/>
+  <em>Figure 4: Knuckle-derived stabilized coordinate frame with outward edge projection and Desktop Preview Simulator integration.</em>
+</p>
+
 ### Core Capabilities:
 * **Knuckle-Derived Stabilized Frame**: Computes a stable palm coordinate frame from multiple knuckle tracking points (`mid-0`, `index-0`, `pinky-0`, `wrist`), eliminating jitter from individual finger twitches.
 * **Edge-Origin Pivot Layout**: Placing the local origin `(0,0,0)` at the outer edge of the menu causes the panel to project cleanly outward alongside the palm.
@@ -79,6 +105,12 @@ The `UnifiedPolygonalCarousel` merges manual button arrangements and virtualized
 
 ## 5. ✨ 4-Finger Multi-Pinch Palm Menu (`PalmMenuGestureApp.ts`)
 📖 *Full System Guide: [`PALM_MENU_GESTURE_SYSTEM.md`](Assets/Futuristic%20UI%20v1%20Assets/Palm%20Menu/PALM_MENU_GESTURE_SYSTEM.md)*
+
+<p align="center">
+  <img src="docs/media/palmmenu.gif" alt="4-Finger Multi-Pinch Palm Menu" width="100%" />
+  <br/>
+  <em>Figure 5: 4-finger multi-pinch tool bookmarking palette with fingertip proximity tracking and camera billboarding.</em>
+</p>
 
 ### Core Capabilities:
 * **Multi-Pinch Shortcuts**: Tracks 3D thumb proximity to 4 individual fingertips (Index, Middle, Ring, Pinky), turning the hand into a 4-slot quick-access bookmarking palette.

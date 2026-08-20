@@ -2,6 +2,12 @@
 
 The **ManualPolygonalCarousel** system is a UI layout component designed for Lens Studio and Spectacles (2024). It arranges existing child SceneObject buttons along a circular arc on the XY plane, providing smooth touch/pinch drag interactions, momentum flinging, magnetic slot snapping, edge fading, and staggered entry/exit animations.
 
+<p align="center">
+  <img src="../../../../docs/media/manual pokescroll.gif" alt="Manual Carousel Interaction" width="100%" />
+  <br/>
+  <em>Figure: Manual Carousel distributing child buttons along a circular arc with direct poke-and-drag physics.</em>
+</p>
+
 ---
 
 ## Primary Use Case: When to Use Manual Carousel vs. Virtualized Carousel
